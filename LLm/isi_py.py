@@ -46,11 +46,6 @@ else:
     print("No file selected.")
 
 
-
-
-
-
-
 from sentence_transformers import SentenceTransformer
 import faiss
 import numpy as np

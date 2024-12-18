@@ -1,184 +1,136 @@
-import fitz  # PyMuPDF
-from nltk.tokenize import sent_tokenize
-import nltk
-from tkinter import Tk, filedialog
-from sentence_transformers import SentenceTransformer, util
+import os
+import fitz  # PyMuPDF for PDF text extraction
 import faiss
 import numpy as np
 import re
-import sys
-import os
+import nltk
+from nltk.tokenize import sent_tokenize
+from tkinter import Tk, filedialog
 
-# Ensure that NLTK 'punkt' tokenizer is downloaded
+# Ensure NLTK punkt tokenizer is downloaded
 nltk.download('punkt')
 
-# Function to extract text from a single PDF and keep track of book and page
-def extract_text_from_pdf(pdf_path):
-    try:
-        doc = fitz.open(pdf_path)
-    except Exception as e:
-        print(f"Error opening {pdf_path}: {e}")
-        return []
-    
-    # Attempt to get the title from metadata; fallback to filename without extension
-    book_name = doc.metadata.get("title")
-    if not book_name:
-        book_name = os.path.splitext(os.path.basename(pdf_path))[0]
-    
-    full_text = []
-    
-    # Loop through each page of the PDF
-    for page_num in range(doc.page_count):
-        try:
-            page = doc.load_page(page_num)
-            text = page.get_text()
-            sentences = sent_tokenize(text)
-            for sentence in sentences:
-                if sentence.strip():
-                    full_text.append({
-                        'sentence': sentence.strip(),
-                        'book': book_name,
-                        'page': page_num + 1  # Pages are 1-indexed
-                    })
-        except Exception as e:
-            print(f"Error processing page {page_num + 1} of {pdf_path}: {e}")
-            continue
-    
-    return full_text
-
-# Function to extract sentences from multiple PDFs
-def extract_sentences_from_pdfs(pdf_paths):
-    all_sentences = []
-    for pdf_path in pdf_paths:
-        sentences = extract_text_from_pdf(pdf_path)
-        all_sentences.extend(sentences)
-    return all_sentences
-
-# Function to open file dialog and get multiple PDF paths
 def get_pdf_paths():
-    # Hide the Tkinter root window
+    """
+    Allow user to select multiple PDF files at once.
+    """
     root = Tk()
-    root.withdraw()  # Hide the Tkinter window
-    pdf_paths = filedialog.askopenfilenames(filetypes=[("PDF files", "*.pdf")])  # Open file dialog
+    root.withdraw()
+    pdf_paths = filedialog.askopenfilenames(filetypes=[("PDF files", "*.pdf")])
     return list(pdf_paths)
 
-# Function to initialize FAISS index with cosine similarity
-def initialize_faiss_index(embeddings):
-    # Normalize embeddings for cosine similarity
-    embeddings = embeddings / np.linalg.norm(embeddings, axis=1, keepdims=True)
-    
+def extract_text_with_page_info(pdf_path):
+    """
+    Extract text from the given PDF and return a list of tuples:
+    [(sentence, pdf_filename, page_number), ...]
+    """
+    doc = fitz.open(pdf_path)
+    pdf_filename = os.path.basename(pdf_path)
+    sentence_data = []
+
+    for page_num in range(doc.page_count):
+        page = doc.load_page(page_num)
+        text = page.get_text()
+        sentences = sent_tokenize(text)
+        for s in sentences:
+            clean_s = s.strip().replace('"', r'\"')
+            if clean_s:
+                sentence_data.append((clean_s, pdf_filename, page_num + 1))
+
+    return sentence_data
+
+def build_corpus_and_index(pdf_paths):
+    """
+    Build a corpus from multiple PDFs and create a FAISS index.
+    Returns the index and the metadata arrays.
+    """
+    corpus = []
+    metadata = []
+
+    for pdf_path in pdf_paths:
+        data = extract_text_with_page_info(pdf_path)
+        for (sentence, filename, page) in data:
+            corpus.append(sentence)
+            metadata.append((filename, page))
+
+    # Create embeddings for the corpus using simple vectorization (length of sentences)
+    embeddings = np.array([len(sentence.split()) for sentence in corpus]).reshape(-1, 1)
+
     dimension = embeddings.shape[1]
-    index = faiss.IndexFlatIP(dimension)  # Inner Product for cosine similarity
+    index = faiss.IndexFlatL2(dimension)
     index.add(embeddings)
-    return index
 
-# Function to encode sentences and normalize embeddings
-def encode_sentences(sentences, model):
-    embeddings = model.encode(sentences, convert_to_numpy=True, normalize_embeddings=True)
-    return embeddings
+    return index, corpus, metadata
 
-# Function to handle querying with one answer per book
-def query_system(sentences_data, model, index):
-    book_set = set(item['book'] for item in sentences_data)
-    num_books = len(book_set)
-    
-    while True:
-        query = input("Enter your query (type 'add' to import more PDFs or '3' to exit): ").strip()
-        if query.lower() == "3":
-            print("End system.....")
-            break
-        elif query.lower() == "add":
-            print("Adding more PDFs...")
-            additional_pdfs = get_pdf_paths()
-            if additional_pdfs:
-                new_sentences = extract_sentences_from_pdfs(additional_pdfs)
-                if new_sentences:
-                    sentences_data.extend(new_sentences)
-                    new_texts = [item['sentence'] for item in new_sentences]
-                    new_embeddings = encode_sentences(new_texts, model)
-                    index.add(new_embeddings)
-                    print(f"Added {len(new_sentences)} sentences from {len(additional_pdfs)} PDFs.")
-                else:
-                    print("No new sentences extracted.")
-            else:
-                print("No files selected.")
-            continue
-        elif query == "":
-            print("Please enter a valid query.")
-            continue
-        else:
-            # Encode the query
-            query_embedding = model.encode([query], convert_to_numpy=True, normalize_embeddings=True)
-            
-            # Number of results to retrieve: one per book
-            k = num_books
-            
-            # Search for the top k similar sentences
-            scores, indices = index.search(query_embedding, k)
-            
-            # Collect results ensuring one per book
-            results = {}
-            for score, idx in zip(scores[0], indices[0]):
-                book = sentences_data[idx]['book']
-                if book not in results:
-                    results[book] = {
-                        'sentence': sentences_data[idx]['sentence'],
-                        'page': sentences_data[idx]['page'],
-                        'score': score
-                    }
-                if len(results) == num_books:
-                    break
-            
-            if not results:
-                print("No similar sentences found.")
-                continue
-            
-            print("\n----- Search Results -----")
-            for i, (book, data) in enumerate(results.items(), 1):
-                print(f"\nResult {i}:")
-                print(f"Query - {query}")
-                print(f"Similar Sentence: {data['sentence']}")
-                print(f"Source Book: {book}")
-                print(f"Page Number: {data['page']}")
-                print(f"Similarity Score: {data['score']:.4f}")
-            print("--------------------------\n")
+def analyze_query(query):
+    """
+    Analyze the user's query and return a list of keywords for matching.
+    """
+    # Split query into words and filter out short/common ones
+    keywords = [word.lower() for word in re.findall(r'\w+', query) if len(word) > 2]
+    return keywords
+
+def search_answers(index, corpus, metadata, query, top_k=5):
+    """
+    Search for the most relevant sentences from the corpus based on query.
+    """
+    # Basic vector representation of the query (number of words)
+    query_length = len(query.split())
+    query_embedding = np.array([[query_length]])
+
+    distances, indices = index.search(query_embedding, k=top_k)
+    results = []
+    for dist, idx in zip(distances[0], indices[0]):
+        if idx < len(corpus):
+            sentence = corpus[idx]
+            filename, page = metadata[idx]
+            results.append((sentence, filename, page, dist))
+    return results
+
+def format_results(results):
+    """
+    Format the results into a brief response for the user.
+    """
+    response = []
+    for (sentence, filename, page, dist) in results:
+        response.append(f"From '{filename}', Page {page}: \"{sentence}\"")
+    return response
 
 def main():
-    print("Select PDF files to import:")
+    print("Please select your PDF files (you can select multiple at once).")
     pdf_paths = get_pdf_paths()
-    
     if not pdf_paths:
-        print("No files selected. Exiting.")
-        sys.exit()
-    
-    # Extract sentences from the PDFs
-    sentences_data = extract_sentences_from_pdfs(pdf_paths)
-    
-    if not sentences_data:
-        print("No sentences extracted from the selected PDFs. Exiting.")
-        sys.exit()
-    
-    # Initialize the SentenceTransformer model
-    print("Loading SentenceTransformer model...")
-    model = SentenceTransformer('all-MiniLM-L6-v2')
-    print("Model loaded.")
-    
-    # Encode sentences and initialize FAISS index
-    print("Generating embeddings...")
-    sentences = [item['sentence'] for item in sentences_data]
-    embeddings = encode_sentences(sentences, model)
-    print("Embeddings generated.")
-    
-    print("Initializing FAISS index with cosine similarity...")
-    index = initialize_faiss_index(embeddings)
-    print("FAISS index initialized and embeddings indexed.")
-    
-    # Start the query system
-    print("\n--- Query System ---")
-    print("Type your query and press Enter to search.")
-    print("Type 'add' to import more PDFs.")
-    print("Type '3' to exit.")
-    query_system(sentences_data, model, index)
+        print("No PDFs were selected. Exiting...")
+        return
+
+    print("Processing PDFs and building index...")
+    index, corpus, metadata = build_corpus_and_index(pdf_paths)
+    print("Indexing complete!")
+
+    while True:
+        query = input("Enter your question (or type 'exit' to quit): ")
+        if query.lower() == 'exit':
+            print("Exiting the system...")
+            break
+
+        # Analyze the query and retrieve relevant answers
+        keywords = analyze_query(query)
+        results = search_answers(index, corpus, metadata, query, top_k=5)
+
+        if not results:
+            print("No relevant information found.")
+            continue
+
+        print("\n--- Results ---")
+        formatted_results = format_results(results)
+        for result in formatted_results:
+            print(result)
+        print("---------------\n")
+
+        another = input("Do you want to ask another question? (y/n): ").strip().lower()
+        if another != 'y':
+            print("End system.....")
+            break
 
 if __name__ == "__main__":
     main()

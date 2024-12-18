@@ -272,7 +272,10 @@ def main():
             # Show detailed answers
             print("Detailed Answers:")
             for sentence, filename, page, dist in results:
-                print(f"Answer from Book '{filename}', Page {page}: \"{sentence}\"")
+                print(f"""-----------------------------
+                        Answer from Book '{filename}',
+                        Page {page}:
+                        \"{sentence}\"""")
 
         another = input("\nDo you want to ask another question? (y/n): ").strip().lower()
         if another != 'y':

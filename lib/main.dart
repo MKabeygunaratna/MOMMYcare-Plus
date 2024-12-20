@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
-import 'screens/guardian_info_screen.dart';
+import 'screens/access_screen.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Guardian Info App',
+      title: 'MOMMYcare+',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.purple,
+        fontFamily: 'Sans',
       ),
-      home: const GuardianInfoScreen(),
+      home: const AccessScreen(),
     );
   }
 }

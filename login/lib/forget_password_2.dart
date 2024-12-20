@@ -11,6 +11,33 @@ class ForgetPassword2 extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: white,
+      appBar: AppBar(
+
+        automaticallyImplyLeading: true,
+        
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: GestureDetector(
+              onTap: () {
+                // Add any action for the icon if needed
+              },
+              child: CircleAvatar(
+                backgroundColor: primaryColor.withOpacity(0.1),
+                radius: 20, // Adjust size if necessary
+                child: ClipOval(
+                  child: Image.asset(
+                    "assets/images/WhatsApp Image 2024-12-17 at 19.45.16_d37ab0c4.png",
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
       body: SafeArea(
         child: SizedBox(
           width: double.infinity,
@@ -29,15 +56,15 @@ class ForgetPassword2 extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              
-              const SizedBox(height: 0),
-                        Padding(
-                          padding: const EdgeInsets.all(0.0),
-                          child: Image.asset(
-                            "assets/images/icon-concept-about-forg.png",
-                            fit: BoxFit.contain,
-                          ),
-                        ),
+
+              Padding(
+                padding: const EdgeInsets.all(0.0),
+                child: Image.asset(
+                  "assets/images/icon-concept-about-forg.png",
+                  fit: BoxFit.contain,
+                  height: 150,
+                ),
+              ),
 
               // Instruction Text
               const Padding(
@@ -56,20 +83,21 @@ class ForgetPassword2 extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-  "Contact number",
-  style: TextStyle(
-    color: Colors.black87,
-     fontWeight: FontWeight.bold,
-    fontSize: 20,
-  ),
- ),
-
+                      "Contact number",
+                      style: TextStyle(
+                        color: Colors.black87,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
                     const SizedBox(height: 5),
                     TextField(
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
                         hintText: "Contact number",
-                        hintStyle: const TextStyle(color: primaryColor,),
+                        hintStyle: const TextStyle(
+                          color: primaryColor,
+                        ),
                         filled: true,
                         fillColor: primaryColor.withOpacity(0.1),
                         border: OutlineInputBorder(
@@ -113,7 +141,7 @@ class ForgetPassword2 extends StatelessWidget {
                   ),
                   child: const Text(
                     "SEND",
-                    style: TextStyle(fontWeight: FontWeight.bold,color: white),
+                    style: TextStyle(fontWeight: FontWeight.bold, color: white),
                   ),
                 ),
               ),

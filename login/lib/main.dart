@@ -7,7 +7,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
 }
 
 class AppHome extends StatelessWidget {
-  const AppHome({Key? key}) : super(key: key);
+  const AppHome({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class AppHome extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add_shopping_cart),
-        onPressed: () {}, // Add this to handle button press.
+        onPressed: () {}, 
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),

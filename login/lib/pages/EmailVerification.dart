@@ -76,7 +76,7 @@ class EmailVerification extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 50),
+            const SizedBox(height: 40),
 
             // Code Input Fields
             Padding(
@@ -109,7 +109,7 @@ class EmailVerification extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 60),
+            const SizedBox(height: 70),
 
             // Verify and Proceed Button
             Padding(

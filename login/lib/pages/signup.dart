@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login/pages/EmailVerification.dart';
 
 class signup extends StatelessWidget {
   const signup({Key? key}) : super(key: key);
@@ -119,6 +120,11 @@ class signup extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {
                       // Handle SIGN UP action
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => EmailVerification()),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: primaryColor,
@@ -153,6 +159,12 @@ class signup extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         // Navigate to Sign In screen
+                        // Add verification logic here
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => EmailVerification()),
+                        );
                       },
                       child: Text(
                         "Sign In",
@@ -237,9 +249,8 @@ class _CustomTextField extends StatelessWidget {
           fontSize: screenWidth * 0.04, // Scaled font size
         ),
         prefixIcon: Icon(prefixIcon, color: primaryColor),
-        suffixIcon: suffixIcon != null
-            ? Icon(suffixIcon, color: Colors.black45)
-            : null,
+        suffixIcon:
+            suffixIcon != null ? Icon(suffixIcon, color: Colors.black45) : null,
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 16,
           vertical: 16,

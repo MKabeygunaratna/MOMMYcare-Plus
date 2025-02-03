@@ -1,0 +1,1 @@
+ /Users/manilkakeshanabeygunaratna/Documents/MOMMYcare-Plus/login/.dart_tool/flutter_build/7c0d351f82589284774cbd202e48fb25/native_assets.yaml: 

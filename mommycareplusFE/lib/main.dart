@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mommycareplusFE/pages/EmailVerification.dart';
-
 import 'package:mommycareplusFE/pages/ForgotPasswordNew.dart';
 // import 'package:login/pages/EmailVerification.dart';
+import 'package:mommycareplusFE/pages/chatbot1.dart';
+import 'package:provider/provider.dart';
 
 import 'pages/signup.dart';
 
@@ -17,11 +18,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+      //home: EmailVerification(),
       home: EmailVerification(),
     );
   }

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mommycareplusFE/pages/EmailVerification.dart';
 
-import 'package:mommycareplusFE/pages/ForgotPasswordNew.dart';
 // import 'package:login/pages/EmailVerification.dart';
 
-import 'pages/signup.dart';
 
 void main() {
   runApp(const MyApp());

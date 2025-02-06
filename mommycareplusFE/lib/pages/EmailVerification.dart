@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mommycareplusFE/pages/ForgotPasswordNew.dart';
-// import 'package:forgot_password/ForgotPassword.dart';
-// import 'package:forgot_password/ResetPassword.dart';
 
 class EmailVerification extends StatelessWidget {
   @override
@@ -121,7 +119,7 @@ class EmailVerification extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => ForgotPasswordNew()),
+                        builder: (context) => const ForgotPasswordNew()),
                   );
                 },
                 style: ElevatedButton.styleFrom(

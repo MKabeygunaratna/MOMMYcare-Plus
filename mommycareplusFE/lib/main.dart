@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mommycareplusFE/pages/EmailVerification.dart';
 import 'package:mommycareplusFE/pages/ForgotPasswordNew.dart';
+import 'package:mommycareplusFE/pages/Questions.dart';
 import 'package:mommycareplusFE/pages/SubscriptionScreen1.dart';
 // import 'package:login/pages/EmailVerification.dart';
 import 'package:mommycareplusFE/pages/chatbot1.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       //home: EmailVerification(),
-      home: SubscriptionPlan(),
+      home: EPDSQuizScreen(),
     );
   }
 }

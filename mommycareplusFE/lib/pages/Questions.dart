@@ -127,105 +127,108 @@ class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(title: Text("EPDS Test - Day $currentDay",style: const TextStyle(color: Colors.black)),backgroundColor: Colors.white, ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Image.asset('assets/images/Question.jpg', height: 180),
-            const SizedBox(height: 20),
-            Text(
-              "Question ${currentQuestionIndex + 1} / ${epdsQuestions.length}",
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 30),
-
-            Container(
-              padding: const EdgeInsets.all(16),
-              margin: const EdgeInsets.symmetric(vertical: 10),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.black, width: 2), // Outer border
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.white,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image.asset('assets/images/Question.jpg', height: 180),
+              const SizedBox(height: 20),
+              Text(
+                "Question ${currentQuestionIndex + 1} / ${epdsQuestions.length}",
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              const SizedBox(height: 30),
+
+              Container(
+                padding: const EdgeInsets.all(16),
+                margin: const EdgeInsets.symmetric(vertical: 10),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black, width: 2),
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.white,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      epdsQuestions[currentQuestionIndex].text,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                    ),
+                    const SizedBox(height: 20),
+                    Column(
+                      children: epdsQuestions[currentQuestionIndex].options.asMap().entries.map(
+                            (entry) {
+                          bool isSelected = selectedAnswers[currentQuestionIndex] == entry.key;
+                          return Container(
+                            margin: const EdgeInsets.symmetric(vertical: 5),
+                            decoration: BoxDecoration(
+                              color: isSelected ? const Color(0xFFDEC8FF) : Colors.white,
+                              border: Border.all(color: Colors.black, width: 1),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: RadioListTile<int>(
+                              title: Text(entry.value),
+                              value: entry.key,
+                              groupValue: selectedAnswers[currentQuestionIndex],
+                              onChanged: (int? value) {
+                                setState(() {
+                                  selectedAnswers[currentQuestionIndex] = value!;
+                                });
+                              },
+                              contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                            ),
+                          );
+                        },
+                      ).toList(),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20),
+              Text(
+                "Progress: ${(progress * 100).toInt()}%",
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              ),
+              const SizedBox(height: 10),
+              TweenAnimationBuilder<double>(
+                tween: Tween<double>(begin: 0, end: progress),
+                duration: const Duration(milliseconds: 500),
+                builder: (context, value, child) {
+                  return LinearProgressIndicator(
+                    value: value,
+                    backgroundColor: Colors.grey[300],
+                    color: const Color(0xFF6F42C1),
+                    minHeight: 8,
+                    borderRadius: BorderRadius.circular(10),
+                  );
+                },
+              ),
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    epdsQuestions[currentQuestionIndex].text,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-                  ),
-                  const SizedBox(height: 20),
-                  Column(
-                    children: epdsQuestions[currentQuestionIndex].options.asMap().entries.map(
-                          (entry) {
-                        bool isSelected = selectedAnswers[currentQuestionIndex] == entry.key;
-                        return Container(
-                          margin: const EdgeInsets.symmetric(vertical: 5),
-                          decoration: BoxDecoration(
-                            color: isSelected ? const Color(0xFFDEC8FF) : Colors.white,
-                            border: Border.all(color: Colors.black, width: 1),
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: RadioListTile<int>(
-                            title: Text(entry.value),
-                            value: entry.key,
-                            groupValue: selectedAnswers[currentQuestionIndex],
-                            onChanged: (int? value) {
-                              setState(() {
-                                selectedAnswers[currentQuestionIndex] = value!;
-                              });
-                            },
-                            contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-                          ),
-                        );
-                      },
-                    ).toList(),
-                  ),
+                  if (currentQuestionIndex > startIndex)
+                    ElevatedButton(onPressed: () => setState(() => currentQuestionIndex--), child: const Text("Previous")),
+                    ElevatedButton(
+                      onPressed: selectedAnswers.containsKey(currentQuestionIndex)
+                          ? () {
+                        if (!isLastQuestionOfDay) {
+                          setState(() => currentQuestionIndex++);
+                        } else {
+                        finishDay();
+                        }
+                      }
+                          : null,
+                      child: Text(isLastQuestionOfDay ? "Finish" : "Next"),
+                    ),
                 ],
               ),
-            ),
-            const Spacer(),
-            Text(
-              "Progress: ${(progress * 100).toInt()}%",
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-            ),
-            const SizedBox(height: 10),
-            TweenAnimationBuilder<double>(
-              tween: Tween<double>(begin: 0, end: progress),
-              duration: const Duration(milliseconds: 500),
-              builder: (context, value, child) {
-                return LinearProgressIndicator(
-                  value: value,
-                  backgroundColor: Colors.grey[300],
-                  color: const Color(0xFF6F42C1),
-                  minHeight: 8,
-                  borderRadius: BorderRadius.circular(10),
-                );
-              },
-            ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                if (currentQuestionIndex > startIndex)
-                  ElevatedButton(onPressed: () => setState(() => currentQuestionIndex--), child: const Text("Previous")),
-                ElevatedButton(
-                  onPressed: selectedAnswers.containsKey(currentQuestionIndex)
-                      ? () {
-                    if (!isLastQuestionOfDay) {
-                      setState(() => currentQuestionIndex++);
-                    } else {
-                      finishDay();
-                    }
-                  }
-                      : null,
-                  child: Text(isLastQuestionOfDay ? "Finish" : "Next"),
-                ),
-              ],
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

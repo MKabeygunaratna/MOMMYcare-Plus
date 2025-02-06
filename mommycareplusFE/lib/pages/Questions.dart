@@ -102,7 +102,7 @@ class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
               Navigator.pop(context);
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => const HomePage(guardianName: '', guardianEmail: '', guardianContact: '')),
+                MaterialPageRoute(builder: (context) =>  HomePage()),
               );
             },
             child: const Text("OK"),

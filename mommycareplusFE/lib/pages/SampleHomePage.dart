@@ -1,20 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'ProfileScreen.dart';
 import 'Questions.dart';
+import 'package:mommycareplusFE/pages/GuardianProvider.dart';
 
 class HomePage extends StatefulWidget {
-  final String guardianName;
-  final String guardianEmail;
-  final String guardianContact;
-
-
-  const HomePage({
-    Key? key,
-    required this.guardianName,
-    required this.guardianEmail,
-    required this.guardianContact,
-  }) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -41,7 +33,19 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Home Screen")),
+      appBar: AppBar(
+        title: Text(
+          "Home Screen",
+          style: TextStyle(
+            fontFamily: 'Poppins',
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        elevation: 0,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -53,15 +57,26 @@ class _HomePageState extends State<HomePage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => ProfileScreen(
-                      guardianName: widget.guardianName,
-                      guardianEmail: widget.guardianEmail,
-                      guardianContact: widget.guardianContact,
-                    ),
+                    builder: (context) => ProfileScreen(),
                   ),
                 );
               },
-              child: Text('View Profile'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0xFF7261C6),
+                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+              child: Text(
+                'View Profile',
+                style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                ),
+              ),
             ),
             SizedBox(height: 20),
             ElevatedButton(
@@ -73,7 +88,22 @@ class _HomePageState extends State<HomePage> {
                   MaterialPageRoute(builder: (context) => EPDSQuizScreen()),
                 );
               },
-              child: Text(testCompleted ? 'Test Completed' : 'Go to Questions'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: testCompleted ? Colors.grey : Color(0xFF7261C6),
+                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+              child: Text(
+                testCompleted ? 'Test Completed' : 'Go to Questions',
+                style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                ),
+              ),
             ),
           ],
         ),

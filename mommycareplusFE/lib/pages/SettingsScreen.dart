@@ -9,20 +9,7 @@ import 'PrivacyScreen.dart';
 import 'DescriptionScreen.dart';
 
 
-
 class SettingsScreen extends StatefulWidget {
-  final String guardianName;
-  final String guardianEmail;
-  final String guardianContact;
-
-  const SettingsScreen({
-    Key? key,
-    required this.guardianName,
-    required this.guardianEmail,
-    required this.guardianContact,
-  }) : super(key: key);
-
-
   @override
   _SettingsScreenState createState() => _SettingsScreenState();
 }
@@ -33,10 +20,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
   void _showThemePopup(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      shape: const RoundedRectangleBorder(
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
-      backgroundColor: const Color(0xFFD3CBFD),
+      backgroundColor: Color(0xFFD3CBFD),
       builder: (context) {
         return Padding(
 
@@ -46,9 +33,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
             children: [
               Stack(
                 children: [
-                  const Center(
+                  Center(
                     child: Padding(
-                      padding: EdgeInsets.only(top: 8.0),
+                      padding: const EdgeInsets.only(top: 8.0),
                       child: Text(
                         "Themes",
                         style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -58,18 +45,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   Positioned(
                     right: 0,
                     child: IconButton(
-                      icon: const Icon(Icons.close),
+                      icon: Icon(Icons.close),
                       onPressed: () => Navigator.pop(context),
                     ),
                   ),
                 ],
               ),
-              const Divider(color: Color(0xFF7261C6)),
-              const SizedBox(height: 15),
+              Divider(color: Color(0xFF7261C6)),
+              SizedBox(height: 15),
               _buildThemeOption("System default"),
               _buildThemeOption("Dark"),
               _buildThemeOption("Light"),
-              const SizedBox(height: 10),
+              SizedBox(height: 10),
             ],
           ),
         );
@@ -83,7 +70,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(text, style: const TextStyle(fontSize: 16)),
+        Text(text, style: TextStyle(fontSize: 16)),
         Switch(
           value: selectedTheme == text, // Highlight the selected theme
           onChanged: (value) {
@@ -108,10 +95,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
   void _showSupportPopup(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      shape: const RoundedRectangleBorder(
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
-      backgroundColor: const Color(0xFFD3CBFD),
+      backgroundColor: Color(0xFFD3CBFD),
       builder: (context) {
         return Padding(
           padding: const EdgeInsets.all(16.0),
@@ -120,9 +107,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
             children: [
               Stack(
                 children: [
-                  const Center(
+                  Center(
                     child: Padding(
-                      padding: EdgeInsets.only(top: 8.0),
+                      padding: const EdgeInsets.only(top: 8.0),
                       child: Text(
                         "Support",
                         style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -132,19 +119,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   Positioned(
                     right: 0,
                     child: IconButton(
-                      icon: const Icon(Icons.close),
+                      icon: Icon(Icons.close),
                       onPressed: () => Navigator.pop(context),
                     ),
                   ),
                 ],
               ),
-              const Divider(color: Color(0xFF7261C6)),
-              const SizedBox(height: 15),
+              Divider(color: Color(0xFF7261C6)),
+              SizedBox(height: 15),
               _buildSupportOption(context,"About MOMMYCare+", Icons.info,AboutScreen()),
               _buildSupportOption(context,"Help Center",Icons.help_outline,HelpScreen()),
               _buildSupportOption(context,"Privacy Policy",Icons.privacy_tip,PrivacyScreen()),
               _buildSupportOption(context,"Terms of Use",Icons.description,DescriptionScreen()),
-              const SizedBox(height: 10),
+              SizedBox(height: 10),
             ],
           ),
         );
@@ -154,8 +141,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget _buildSupportOption(BuildContext context, String title, IconData icon, Widget screen) {
     return ListTile(
       leading: Icon(icon, color: Colors.black),
-      title: Text(title, style: const TextStyle(fontSize: 16)),
-      trailing: const Icon(Icons.arrow_forward_ios, color: Colors.black),
+      title: Text(title, style: TextStyle(fontSize: 16)),
+      trailing: Icon(Icons.arrow_forward_ios, color: Colors.black),
       onTap: () {
         Navigator.pop(context); // Close the popup first
         Navigator.push(context, MaterialPageRoute(builder: (context) => screen));
@@ -170,10 +157,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
     showModalBottomSheet(
       context: context,
-      shape: const RoundedRectangleBorder(
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
-      backgroundColor: const Color(0xFFD3CBFD),
+      backgroundColor: Color(0xFFD3CBFD),
       builder: (context) {
         return StatefulBuilder(
           builder: (context, setState) {
@@ -184,9 +171,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 children: [
                   Stack(
                     children: [
-                      const Center(
+                      Center(
                         child: Padding(
-                          padding: EdgeInsets.only(top: 8.0),
+                          padding: const EdgeInsets.only(top: 8.0),
                           child: Text(
                             "Notification Settings",
                             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -196,14 +183,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       Positioned(
                         right: 0,
                         child: IconButton(
-                          icon: const Icon(Icons.close),
+                          icon: Icon(Icons.close),
                           onPressed: () => Navigator.pop(context),
                         ),
                       ),
                     ],
                   ),
-                  const Divider(color: Color(0xFF7261C6)),
-                  const SizedBox(height: 15),
+                  Divider(color: Color(0xFF7261C6)),
+                  SizedBox(height: 15),
                   _buildNotificationOption("New Messages", newMessages, (value) {
                     setState(() {
                       newMessages = value;
@@ -219,7 +206,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       reminders = value;
                     });
                   }),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10),
                 ],
               ),
             );
@@ -233,7 +220,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(title, style: const TextStyle(fontSize: 16)),
+        Text(title, style: TextStyle(fontSize: 16)),
         Switch(
           value: value,
           onChanged: onChanged,
@@ -254,10 +241,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.pop(context),
         ),
-        title: const Text("Settings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+        title: Text("Settings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
         centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
@@ -266,21 +253,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
         children: [
           Expanded(
             child: ListView(
-              padding: const EdgeInsets.only(bottom: 16),
+              padding: EdgeInsets.only(bottom: 16),
               children: [
-                const SizedBox(height: 30),
-                _buildSettingsOption(context, "Profile", Icons.person, ProfileScreen(
-                  guardianName: widget.guardianName,
-                  guardianEmail: widget.guardianEmail,
-                  guardianContact: widget.guardianContact,
-                )),
-                const SizedBox(height: 15),
+                SizedBox(height: 30),
+                _buildSettingsOption(context, "Profile", Icons.person, ProfileScreen()),
+                SizedBox(height: 15),
                 _buildSettingsOption(context, "Languages", Icons.translate, LanguageScreen()),
-                const SizedBox(height: 15),
+                SizedBox(height: 15),
                 _buildSettingsOption(context, "Notification", Icons.notifications,null, isNotification:true),
-                const SizedBox(height: 15),
+                SizedBox(height: 15),
                 _buildSettingsOption(context, "Themes", Icons.brightness_6, null, isTheme: true),
-                const SizedBox(height: 15),
+                SizedBox(height: 15),
                 _buildSettingsOption(context, "Support", Icons.help, null,isSupport: true),
               ],
             ),
@@ -289,21 +272,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 170),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF7261C6),
+                backgroundColor: Color(0xFF7261C6),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                minimumSize: const Size(200, 50),
+                minimumSize: Size(200, 50),
               ),
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ProfileScreen(
-                    guardianName: widget.guardianName,
-                    guardianEmail: widget.guardianEmail,
-                    guardianContact: widget.guardianContact,
-                  )),
+                  MaterialPageRoute(builder: (context) => ProfileScreen()),
                 );
               },
-              child: const Text("Sign Out", style: TextStyle(fontSize: 18, color: Colors.white)),
+              child: Text("Sign Out", style: TextStyle(fontSize: 18, color: Colors.white)),
             ),
           ),
         ],
@@ -316,13 +295,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       child: Container(
         decoration: BoxDecoration(
-          border: Border.all(color: const Color(0xFF7261C6)),
+          border: Border.all(color: Color(0xFF7261C6)),
           borderRadius: BorderRadius.circular(12),
         ),
         child: ListTile(
           leading: Icon(icon, color: Colors.black),
-          title: Text(title, style: const TextStyle(fontSize: 18)),
-          trailing: const Icon(Icons.arrow_forward_ios, color: Colors.black),
+          title: Text(title, style: TextStyle(fontSize: 18)),
+          trailing: Icon(Icons.arrow_forward_ios, color: Colors.black),
           onTap: () {
             if (isTheme) {
               _showThemePopup(context);
@@ -342,4 +321,3 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 }
-

@@ -12,6 +12,9 @@ class _SubscriptionPlanState extends State<SubscriptionPlan> {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -27,9 +30,9 @@ class _SubscriptionPlanState extends State<SubscriptionPlan> {
           style: TextStyle(color: Colors.black, fontSize: 20),
         ),
       ),
-      body: Center(
+      body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -47,89 +50,86 @@ class _SubscriptionPlanState extends State<SubscriptionPlan> {
                   ],
                 ),
               ),
-              SizedBox(height: isProSelected? 20:5),
+              SizedBox(height: isProSelected ? 60 : 70),
 
-              // Centered Subscription Box
-              Expanded(
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Container(
-                    width: MediaQuery.of(context).size.width * 0.85,
-                    height: isProSelected? 600: 550, // Increased height
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: Colors.black, width: 2),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.3),
-                          blurRadius: 8,
-                          spreadRadius: 2,
-                          offset: const Offset(0, 4),
-                        ),
-                      ],
+              // Subscription Box
+              Container(
+                width: screenWidth * 0.9,
+                constraints: BoxConstraints(
+                  minHeight: screenHeight * 0.5,
+                  maxHeight: screenHeight * 0.8, // Ensure it fits small screens
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(color: Colors.black, width: 2),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.3),
+                      blurRadius: 8,
+                      spreadRadius: 2,
+                      offset: const Offset(0, 4),
                     ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        // Purple Top Section
-                        ClipPath(
-                          clipper: WaveClipper(),
-                          child: Container(
-                            width: double.infinity,
-                            padding: const EdgeInsets.all(20),
-                            decoration: const BoxDecoration(
-                              color: Color(0xFF8474CB),
-                              borderRadius: BorderRadius.vertical(
-                                top: Radius.circular(20),
-                              ),
+                  ],
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    // Purple Top Section
+                    ClipPath(
+                      clipper: WaveClipper(),
+                      child: Container(
+                        width: double.infinity,
+                        padding: EdgeInsets.all(screenWidth * 0.08),
+                        decoration: const BoxDecoration(
+                          color: Color(0xFF8474CB),
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(20),
+                          ),
+                        ),
+                        child: Center(
+                          child: Text(
+                            isProSelected ? '\$5 per month' : 'FREE',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: screenWidth * 0.1, // Responsive font
+                              fontWeight: FontWeight.bold,
                             ),
-                            child: Center(
-                              child: Text(
-                                isProSelected ? '\$5 per month' : 'FREE',
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 45,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    _buildFeaturesList(isProSelected),
+                    const SizedBox(height: 20),
+
+                    if (isProSelected)
+                      Padding(
+                        padding: const EdgeInsets.only(top: 16, bottom: 16),
+                        child: SizedBox(
+                          width: screenWidth * 0.5,
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFF8474CB),
+                              padding: EdgeInsets.symmetric(vertical: screenWidth * 0.03),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                              side: const BorderSide(color: Colors.black, width: 2),
+                            ),
+                            child: Text(
+                              'Buy Now',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: screenWidth * 0.05,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
                         ),
-
-                        const SizedBox(height: 40),
-                        _buildFeaturesList(isProSelected) ,
-                        const SizedBox(height: 40),
-
-                        if (isProSelected)
-                          Padding(
-                            padding: const EdgeInsets.only(top: 24.0, bottom: 16),
-                            child: SizedBox(
-                              width: 200,
-                              child: ElevatedButton(
-                                onPressed: () {},
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: const Color(0xFF8474CB),
-                                  padding: const EdgeInsets.symmetric(vertical: 16),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(25),
-                                  ),
-                                  side: const BorderSide(color: Colors.black, width: 2),
-                                ),
-                                child: const Text(
-                                  'Buy Now',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                      ],
-                    ),
-                  ),
+                      ),
+                  ],
                 ),
               ),
             ],
@@ -186,24 +186,17 @@ class _SubscriptionPlanState extends State<SubscriptionPlan> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: features
             .map((feature) => Padding(
-          padding: EdgeInsets.only(bottom: isPro ? 28.0 : 12.0),
+          padding: EdgeInsets.only(bottom: 20),
           child: Row(
             children: [
-              Container(
-                width: 10,
-                height: 5,
-                decoration: const BoxDecoration(
-                  color: Colors.black,
-                  shape: BoxShape.circle,
-                ),
-              ),
+              const Icon(Icons.check_circle, color: Colors.black, size: 20),
               const SizedBox(width: 12),
               Expanded(
                 child: Text(
                   feature,
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 24,
+                    fontSize: 18,
                   ),
                 ),
               ),
@@ -215,23 +208,24 @@ class _SubscriptionPlanState extends State<SubscriptionPlan> {
     );
   }
 }
+
 class WaveClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     Path path = Path();
-    path.lineTo(0, size.height * 0.7); // Start from bottom left
+    path.lineTo(0, size.height * 0.75); // Start from the left-bottom
 
     path.quadraticBezierTo(
-      size.width * 0.2, size.height * 1.2, // First deep curve
-      size.width * 0.5, size.height * 0.9,
+      size.width * 0.25, size.height * 1.05, // Smooth arc
+      size.width * 0.5, size.height * 0.85,
     );
 
     path.quadraticBezierTo(
-      size.width * 0.8, size.height * 0.6, // Second deep curve
-      size.width, size.height * 0.9,
+      size.width * 0.75, size.height * 0.65, // Another smooth arc
+      size.width, size.height * 0.75,
     );
 
-    path.lineTo(size.width, 0); // Move to top right
+    path.lineTo(size.width, 0); // Move to the top-right corner
     path.close();
     return path;
   }
@@ -241,4 +235,3 @@ class WaveClipper extends CustomClipper<Path> {
     return false;
   }
 }
-

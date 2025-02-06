@@ -213,18 +213,18 @@ class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
                 children: [
                   if (currentQuestionIndex > startIndex)
                     ElevatedButton(onPressed: () => setState(() => currentQuestionIndex--), child: const Text("Previous")),
-                    ElevatedButton(
-                      onPressed: selectedAnswers.containsKey(currentQuestionIndex)
-                          ? () {
-                        if (!isLastQuestionOfDay) {
-                          setState(() => currentQuestionIndex++);
-                        } else {
+                  ElevatedButton(
+                    onPressed: selectedAnswers.containsKey(currentQuestionIndex)
+                        ? () {
+                      if (!isLastQuestionOfDay) {
+                        setState(() => currentQuestionIndex++);
+                      } else {
                         finishDay();
-                        }
                       }
-                          : null,
-                      child: Text(isLastQuestionOfDay ? "Finish" : "Next"),
-                    ),
+                    }
+                        : null,
+                    child: Text(isLastQuestionOfDay ? "Finish" : "Next"),
+                  ),
                 ],
               ),
             ],

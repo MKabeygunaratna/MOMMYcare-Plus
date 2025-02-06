@@ -9,6 +9,7 @@ import 'PrivacyScreen.dart';
 import 'DescriptionScreen.dart';
 
 
+
 class SettingsScreen extends StatefulWidget {
   final String guardianName;
   final String guardianEmail;
@@ -20,6 +21,7 @@ class SettingsScreen extends StatefulWidget {
     required this.guardianEmail,
     required this.guardianContact,
   }) : super(key: key);
+
 
   @override
   _SettingsScreenState createState() => _SettingsScreenState();

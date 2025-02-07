@@ -4,21 +4,25 @@ import 'chatbot2.dart';
 class ChatbotScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final double screenWidth = size.width;
+    final double screenHeight = size.height;
+
     return Scaffold(
       backgroundColor: const Color(0xFF7261C6), // Purple background
       body: SafeArea(
         child: SingleChildScrollView( // Prevent overflow
           child: Column(
             children: [
-              const SizedBox(height: 50), // Moves image up
+              SizedBox(height: screenHeight * 0.05), // Moves image up
               CircleAvatar(
                 radius: 160,
                 backgroundColor: Colors.white,
                 child: Image.asset('assets/images/Robot 2.jpg', width: 180, height: 250),
               ),
-              const SizedBox(height: 70),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
+              SizedBox(height: screenHeight * 0.07),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
                 child: Text(
                   "Providing The Best Solution",
                   style: TextStyle(
@@ -29,16 +33,16 @@ class ChatbotScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
-              const SizedBox(height: 30),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30),
+              SizedBox(height: screenHeight * 0.03),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.08),
                 child: Text(
                   "I can answer any of your questions related to postpartum and pregnancy. Just ask here.",
                   style: TextStyle(fontSize: 20, color: Colors.white70),
                   textAlign: TextAlign.center,
                 ),
               ),
-              const SizedBox(height: 80),
+              SizedBox(height: screenHeight * 0.08),
               GestureDetector(
                 onTap: () {
                   Navigator.push(
@@ -47,7 +51,7 @@ class ChatbotScreen extends StatelessWidget {
                   );
                 },
                 child: Container(
-                  padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 50),
+                  padding: EdgeInsets.symmetric(vertical: screenHeight * 0.018 , horizontal: screenWidth * 0.15),
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.white, width: 2),
                     borderRadius: BorderRadius.circular(20),
@@ -62,7 +66,7 @@ class ChatbotScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 50), // Space at the bottom
+              SizedBox(height: screenHeight * 0.05), // Space at the bottom
             ],
           ),
         ),

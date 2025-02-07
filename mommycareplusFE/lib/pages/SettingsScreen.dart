@@ -64,34 +64,37 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 
-
-
   Widget _buildThemeOption(String text) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(text, style: TextStyle(fontSize: 16)),
-        Switch(
+    return Consumer<ThemeProvider>(
+      builder: (context, themeProvider, child) {
+        return SwitchListTile(
+          title: Text(text, style: TextStyle(fontSize: 16)),
           value: selectedTheme == text, // Highlight the selected theme
           onChanged: (value) {
-            setState(() {
-              selectedTheme = text;
-            });
-            final themeProvider = Provider.of<ThemeProvider>(context, listen: false);
-            if (text == "Dark") {
-              themeProvider.setTheme(ThemeMode.dark);
-            } else if (text == "Light") {
-              themeProvider.setTheme(ThemeMode.light);
-            } else {
-              themeProvider.setTheme(ThemeMode.system);
-            }
+            if (value) {
+              setState(() {
+                selectedTheme = text;
+              });
 
-            Navigator.pop(context); // Close the popup after selection
+              if (text == "Dark") {
+                themeProvider.setTheme(ThemeMode.dark);
+              } else if (text == "Light") {
+                themeProvider.setTheme(ThemeMode.light);
+              } else {
+                themeProvider.setTheme(ThemeMode.system);
+              }
+              Navigator.pop(context);
+            }
           },
-        ),
-      ],
+        );
+      },
     );
   }
+
+
+
+
+
   void _showSupportPopup(BuildContext context) {
     showModalBottomSheet(
       context: context,
@@ -242,7 +245,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ProfileScreen()),
+          ),
         ),
         title: Text("Settings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
         centerTitle: true,

@@ -3,11 +3,16 @@ import 'package:flutter/material.dart';
 class ChatbotScreen2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final double screenWidth = size.width;
+    final double screenHeight = size.height;
+
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          const SizedBox(height: 60), // Added space to push text to the top
+          SizedBox(height: screenHeight * 0.08), // Added space to push text to the top
           // Greeting
           const Center(
             child: Text(
@@ -15,10 +20,10 @@ class ChatbotScreen2 extends StatelessWidget {
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
           ),
-          const SizedBox(height: 80),
+          SizedBox(height: screenHeight * 0.1),
 
-          Image.asset('assets/images/Robot 2.jpg', height: 300),
-          const SizedBox(height: 60),
+          Image.asset('assets/images/Robot 2.jpg', height: screenHeight * 0.35, width: screenWidth * 0.8,fit: BoxFit.contain),
+          SizedBox(height: screenHeight * 0.08),
           // Helper Text
           const Text(
             "How Can I Help You?",
@@ -27,7 +32,7 @@ class ChatbotScreen2 extends StatelessWidget {
           const Spacer(),
           // Text Input Field Styled Like a Button
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05, vertical: screenHeight * 0.02),
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
@@ -35,8 +40,8 @@ class ChatbotScreen2 extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.02),
                     child: Icon(Icons.emoji_emotions_outlined, color: Color(0xFF7261C6)),
                   ),
                   const Expanded(
@@ -60,7 +65,7 @@ class ChatbotScreen2 extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 40),
+          SizedBox(height: screenHeight * 0.05),
         ],
       ),
     );

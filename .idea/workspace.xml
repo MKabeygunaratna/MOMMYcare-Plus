@@ -4,14 +4,18 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="1st commit">
-      <change beforePath="$PROJECT_DIR$/.idea/MOMMYcare-Plus.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MOMMYcare-Plus.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
+    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="Adding Media Query for chatbot and fixing a problem in themes popup screen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/SettingsScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/SettingsScreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/chatbot1.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/chatbot1.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/chatbot2.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/chatbot2.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/AboutScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/AboutScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/DescriptionScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/DescriptionScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/EditProfileScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/EditProfileScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/GuardianScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/GuardianScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/HelpScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/HelpScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/Languages.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/Languages.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/PrivacyScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/PrivacyScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/ProfileScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/ProfileScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/SampleHomePage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/SampleHomePage.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,11 +123,20 @@
       <option name="project" value="LOCAL" />
       <updated>1738667490543</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Adding Media Query for chatbot and fixing a problem in themes popup screen">
+      <option name="closed" value="true" />
+      <created>1738909485999</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1738909485999</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1st commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="1st commit" />
+    <MESSAGE value="Adding Media Query for chatbot and fixing a problem in themes popup screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding Media Query for chatbot and fixing a problem in themes popup screen" />
   </component>
 </project>

@@ -23,6 +23,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     final guardianProvider = Provider.of<GuardianProvider>(context);
+    final size = MediaQuery.of(context).size;
+    final double screenWidth = size.width;
+    final double screenHeight = size.height;
+
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -57,23 +61,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(screenWidth * 0.05),
         child: SingleChildScrollView(
           child: Column(
             children: [
-              profileContainer(guardianProvider),
-              const SizedBox(height: 70),
-              buildProfileDetail("Guardian's Name", guardianProvider.guardianName),
-              const SizedBox(height: 20),
-              buildProfileDetail("Guardian's Contact Number", guardianProvider.guardianContact),
-              const SizedBox(height: 20),
-              buildProfileDetail("Baby's Name", babyName),
-              const SizedBox(height: 20),
-              buildProfileDetail("Guardian's Email", guardianProvider.guardianEmail),
-              const SizedBox(height: 20),
-              buildProfileDetail("Doctor's Email", doctorEmail),
-              const SizedBox(height: 20),
-              buildProfileDetail("Location", location),
+              profileContainer(guardianProvider, screenWidth),
+              SizedBox(height: screenHeight * 0.05),
+              buildProfileDetail("Guardian's Name", guardianProvider.guardianName, screenWidth),
+              SizedBox(height: screenHeight * 0.02),
+              buildProfileDetail("Guardian's Contact Number", guardianProvider.guardianContact, screenWidth),
+              SizedBox(height: screenHeight * 0.02),
+              buildProfileDetail("Baby's Name", babyName, screenWidth),
+              SizedBox(height: screenHeight * 0.02),
+              buildProfileDetail("Guardian's Email", guardianProvider.guardianEmail, screenWidth),
+              SizedBox(height: screenHeight * 0.02),
+              buildProfileDetail("Doctor's Email", doctorEmail, screenWidth),
+              SizedBox(height: screenHeight * 0.02),
+              buildProfileDetail("Location", location, screenWidth),
             ],
           ),
         ),
@@ -81,9 +85,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  Widget profileContainer(GuardianProvider guardianProvider) {
+  Widget profileContainer(GuardianProvider guardianProvider, double screenWidth) {
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: EdgeInsets.all(screenWidth * 0.05),
       decoration: BoxDecoration(
         border: Border.all(color: const Color(0xFF7261C6), width: 1.5),
         borderRadius: BorderRadius.circular(40),
@@ -92,13 +96,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           CircleAvatar(
-            radius: 40,
+            radius: screenWidth * 0.12,
             backgroundColor: const Color(0xFF7261C6).withOpacity(0.2),
             backgroundImage: _profileImage != null
                 ? FileImage(_profileImage!)
                 : const AssetImage("assets/images/profile.jpeg") as ImageProvider,
           ),
-          const SizedBox(width: 60),
+          SizedBox(width: screenWidth * 0.1),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -112,7 +116,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     color: Colors.black,
                   ),
                 ),
-                const SizedBox(height: 8),
+                SizedBox(height: screenWidth * 0.02),
                 ElevatedButton(
                   onPressed: () async {
                     final updatedProfile = await Navigator.push(
@@ -153,7 +157,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                    padding:EdgeInsets.symmetric(vertical: 10, horizontal: screenWidth * 0.05),
                   ),
                   child: const Text("Edit Profile"),
                 ),
@@ -165,9 +169,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  Widget buildProfileDetail(String label, String value) {
+  Widget buildProfileDetail(String label, String value,double screenWidth ) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+      padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.1, vertical: 10),
       width: double.infinity,
       decoration: BoxDecoration(
         border: Border.all(color: const Color(0xFF7261C6), width: 2),

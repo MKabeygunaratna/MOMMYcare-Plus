@@ -13,21 +13,25 @@ class GuardianDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final guardianProvider = Provider.of<GuardianProvider>(context, listen: false);
+    final size = MediaQuery.of(context).size;
+    final double screenWidth = size.width;
+    final double screenHeight = size.height;
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 40),
+        padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05, vertical: screenHeight * 0.05),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image.asset(
                 'assets/images/guardian_image.jpg',
-                width: 300,
-                height: 250,
+                width: screenWidth * 0.8,
+                height: screenHeight * 0.3,
                 fit: BoxFit.contain,
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: screenHeight * 0.02),
               const Text(
                 "Guardian’s Details",
                 style: TextStyle(
@@ -37,13 +41,13 @@ class GuardianDetailsScreen extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              const SizedBox(height: 50),
+              SizedBox(height: screenHeight * 0.05),
               buildTextField("Name", nameController, TextInputType.text),
-              const SizedBox(height: 25),
+              SizedBox(height: screenHeight * 0.03),
               buildTextField("Email", emailController, TextInputType.emailAddress),
-              const SizedBox(height: 25),
+              SizedBox(height: screenHeight * 0.03),
               buildTextField("Contact Number", contactController, TextInputType.phone),
-              const SizedBox(height: 60),
+              SizedBox(height: screenHeight * 0.06),
               ElevatedButton(
                 onPressed: () {
                   // Update GuardianProvider with new details
@@ -64,7 +68,7 @@ class GuardianDetailsScreen extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 15),
+                  padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.2, vertical: screenHeight * 0.02),
                 ),
                 child: const Text(
                   "DONE",

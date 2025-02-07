@@ -98,6 +98,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final double screenHeight = size.height;
+    final double screenWidth = size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -122,7 +125,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05, vertical: screenHeight * 0.02),
           child: Column(
             children: [
               Center(
@@ -130,7 +133,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   alignment: Alignment.bottomRight,
                   children: [
                     CircleAvatar(
-                      radius: 50,
+                      radius: screenWidth * 0.15,
                       backgroundImage: _imageFile != null
                           ? FileImage(_imageFile!) as ImageProvider
                           : const AssetImage("assets/images/profile.jpeg"),
@@ -191,7 +194,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 15),
+                  padding: EdgeInsets.symmetric(vertical: screenHeight * 0.015),
                 ),
                 child: const Text(
                   "UPDATE",

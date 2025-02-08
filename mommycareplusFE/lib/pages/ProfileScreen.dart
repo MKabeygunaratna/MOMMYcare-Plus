@@ -34,8 +34,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => HomePage())
+              context,
+              MaterialPageRoute(builder: (context) => HomePage())
           ),
         ),
         title: const Text(

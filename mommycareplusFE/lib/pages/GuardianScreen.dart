@@ -1,37 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:mommycareplusFE/pages/SampleHomePage.dart';
 import 'package:provider/provider.dart';
-import 'SampleHomePage.dart';
-import 'GuardianProvider.dart';
+import 'GuardianProvider.dart';  // Import GuardianProvider
+import 'ProfileScreen.dart';  // Import ProfilePage
 
 class GuardianDetailsScreen extends StatelessWidget {
-  GuardianDetailsScreen({super.key});
-
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController contactController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    final guardianProvider = Provider.of<GuardianProvider>(context, listen: false);
-    final size = MediaQuery.of(context).size;
-    final double screenWidth = size.width;
-    final double screenHeight = size.height;
-
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05, vertical: screenHeight * 0.05),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 40),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              // Image at the top
               Image.asset(
                 'assets/images/guardian_image.jpg',
-                width: screenWidth * 0.8,
-                height: screenHeight * 0.3,
+                width: 300,
+                height: 250,
                 fit: BoxFit.contain,
               ),
-              SizedBox(height: screenHeight * 0.02),
+              const SizedBox(height: 20),
+
+              // Title
               const Text(
                 "Guardian’s Details",
                 style: TextStyle(
@@ -41,26 +38,33 @@ class GuardianDetailsScreen extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              SizedBox(height: screenHeight * 0.05),
+              const SizedBox(height: 50),
+
+              // Input fields
               buildTextField("Name", nameController, TextInputType.text),
-              SizedBox(height: screenHeight * 0.03),
+              const SizedBox(height: 25),
               buildTextField("Email", emailController, TextInputType.emailAddress),
-              SizedBox(height: screenHeight * 0.03),
+              const SizedBox(height: 25),
               buildTextField("Contact Number", contactController, TextInputType.phone),
-              SizedBox(height: screenHeight * 0.06),
+              const SizedBox(height: 60),
+
+              // Done button
               ElevatedButton(
                 onPressed: () {
-                  // Update GuardianProvider with new details
+                  // Update the guardian details using the provider
+                  final guardianProvider = Provider.of<GuardianProvider>(context, listen: false);
                   guardianProvider.updateGuardian(
                     nameController.text,
                     emailController.text,
                     contactController.text,
                   );
 
-                  // Navigate to Home Page
+                  // Navigate to Profile Page
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomePage()),
+                    MaterialPageRoute(
+                      builder: (context) => HomePage(), // Navigate to Profile Page
+                    ),
                   );
                 },
                 style: ElevatedButton.styleFrom(
@@ -68,7 +72,7 @@ class GuardianDetailsScreen extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.2, vertical: screenHeight * 0.02),
+                  padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 15),
                 ),
                 child: const Text(
                   "DONE",

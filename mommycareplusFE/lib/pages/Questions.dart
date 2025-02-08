@@ -29,7 +29,6 @@ class EPDSQuizScreen extends StatefulWidget {
 }
 
 class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
-  int currentDay = 1;
   int currentQuestionIndex = 0;
   Map<int, int> selectedAnswers = {};
   bool testCompleted = false;
@@ -43,7 +42,6 @@ class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
   Future<void> _loadProgress() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
-      currentDay = prefs.getInt('currentDay') ?? 1;
       testCompleted = prefs.getBool('testCompleted') ?? false;
       selectedAnswers = Map<int, int>.from(
         prefs.getStringList('selectedAnswers')?.asMap().map((key, value) => MapEntry(int.parse(value.split(':')[0]), int.parse(value.split(':')[1]))) ?? {},
@@ -56,7 +54,6 @@ class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
 
   Future<void> _saveProgress() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setInt('currentDay', currentDay);
     await prefs.setBool('testCompleted', testCompleted);
     await prefs.setStringList(
       'selectedAnswers',
@@ -68,26 +65,20 @@ class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
     return selectedAnswers.entries.fold(0, (sum, entry) => sum + epdsQuestions[entry.key].scores[entry.value]);
   }
 
-  void finishDay() async {
+  void finishQuiz() async {
     await _saveProgress();
-    if (currentDay == 1) {
-      currentDay = 2;
-      await _saveProgress();
-      _showPopup("Day 1 Complete", "You have completed Day 1. Come back tomorrow to continue!");
-    } else {
-      int finalScore = calculateFinalScore();
-      String message = finalScore < 10
-          ? "Low likelihood of depression."
-          : finalScore < 13
-          ? "Mild depression."
-          : finalScore < 16
-          ? "Moderate depression."
-          : "Severe depression.";
+    int finalScore = calculateFinalScore();
+    String message = finalScore < 10
+        ? "Low likelihood of depression."
+        : finalScore < 13
+        ? "Mild depression."
+        : finalScore < 16
+        ? "Moderate depression."
+        : "Severe depression.";
 
-      testCompleted = true;
-      await _saveProgress();
-      _showPopup("EPDS Test Completed", "Final Score: $finalScore\n\n$message");
-    }
+    testCompleted = true;
+    await _saveProgress();
+    _showPopup("EPDS Test Completed", "Final Score: $finalScore\n\n$message");
   }
 
   void _showPopup(String title, String message) {
@@ -102,7 +93,7 @@ class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
               Navigator.pop(context);
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) =>  HomePage()),
+                MaterialPageRoute(builder: (context) => HomePage()),
               );
             },
             child: const Text("OK"),
@@ -121,15 +112,14 @@ class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
       return const Scaffold(body: Center(child: Text("Test Completed! Redirecting...")));
     }
 
-    int startIndex = (currentDay - 1) * 5;
-    int endIndex = startIndex + 5;
-    bool isLastQuestionOfDay = currentQuestionIndex == endIndex - 1;
-
-    double progress = (selectedAnswers.length)/epdsQuestions.length;
+    double progress = (selectedAnswers.length) / epdsQuestions.length;
 
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(title: Text("EPDS Test - Day $currentDay",style: const TextStyle(color: Colors.black)),backgroundColor: Colors.white, ),
+      appBar: AppBar(
+        title: const Text("EPDS Test", style: TextStyle(color: Colors.black)),
+        backgroundColor: Colors.white,
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05, vertical: screenHeight * 0.02),
@@ -137,14 +127,13 @@ class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset('assets/images/Question.jpg', height: 180),
-              SizedBox(height: screenHeight * 0.25),
+              Image.asset('assets/images/Question.jpg', height: 200),
+              SizedBox(height: screenHeight * 0.05),
               Text(
                 "Question ${currentQuestionIndex + 1} / ${epdsQuestions.length}",
                 style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: screenHeight * 0.02),
-
               Container(
                 padding: EdgeInsets.all(screenWidth * 0.04),
                 decoration: BoxDecoration(
@@ -213,19 +202,19 @@ class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  if (currentQuestionIndex > startIndex)
+                  if (currentQuestionIndex > 0)
                     ElevatedButton(onPressed: () => setState(() => currentQuestionIndex--), child: const Text("Previous")),
                   ElevatedButton(
                     onPressed: selectedAnswers.containsKey(currentQuestionIndex)
                         ? () {
-                      if (!isLastQuestionOfDay) {
-                        setState(() => currentQuestionIndex++);
+                      if (currentQuestionIndex == epdsQuestions.length - 1) {
+                        finishQuiz();
                       } else {
-                        finishDay();
+                        setState(() => currentQuestionIndex++);
                       }
                     }
                         : null,
-                    child: Text(isLastQuestionOfDay ? "Finish" : "Next"),
+                    child: Text(currentQuestionIndex == epdsQuestions.length - 1 ? "Finish" : "Next"),
                   ),
                 ],
               ),

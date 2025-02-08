@@ -37,6 +37,7 @@ class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
   void initState() {
     super.initState();
     _loadProgress();
+    _showIntroPopup();
   }
 
   Future<void> _loadProgress() async {
@@ -50,6 +51,28 @@ class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
       // Start from first unanswered question
       currentQuestionIndex = selectedAnswers.length;
     });
+  }
+
+  // Function to show introductory popup
+  Future<void> _showIntroPopup() async {
+    await Future.delayed(Duration(milliseconds: 500));  // Delay to show the popup slightly after screen loads
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text("Important Information"),
+        content: const Text(
+          "Please answer the following questions honestly. Your responses are crucial in assessing your well-being, and this information will help provide the necessary support if needed.This is an important step, so take your time while answering.",
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context); // Close the popup
+            },
+            child: const Text("Start Quiz"),
+          ),
+        ],
+      ),
+    );
   }
 
   Future<void> _saveProgress() async {

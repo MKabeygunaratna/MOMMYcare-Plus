@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mommycareplusFE/pages/EditProfileScreen.dart';
 import 'package:mommycareplusFE/pages/EmailVerification.dart';
 import 'package:mommycareplusFE/pages/ForgotPasswordNew.dart';
 import 'package:mommycareplusFE/pages/ProfileScreen.dart';
@@ -41,7 +40,7 @@ class MyApp extends StatelessWidget {
           themeMode: themeProvider.themeMode,
           theme: ThemeData.light(),
           darkTheme: ThemeData.dark(),
-          home: EditProfileScreen(currentName: currentName, currentGuardianName: currentGuardianName, currentGuardianContact: currentGuardianContact, currentBabyName: currentBabyName, currentGuardianEmail: currentGuardianEmail, currentDoctorEmail: currentDoctorEmail, currentLocation: currentLocation, currentImage: currentImage),
+          home: SettingsScreen(),
         );
       },
     );

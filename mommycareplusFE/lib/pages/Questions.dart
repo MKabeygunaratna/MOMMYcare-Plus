@@ -114,6 +114,9 @@ class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final screenWidth = size.width;
+    final screenHeight = size.height;
     if (testCompleted) {
       return const Scaffold(body: Center(child: Text("Test Completed! Redirecting...")));
     }
@@ -129,22 +132,21 @@ class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
       appBar: AppBar(title: Text("EPDS Test - Day $currentDay",style: const TextStyle(color: Colors.black)),backgroundColor: Colors.white, ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05, vertical: screenHeight * 0.02),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image.asset('assets/images/Question.jpg', height: 180),
-              const SizedBox(height: 20),
+              SizedBox(height: screenHeight * 0.25),
               Text(
                 "Question ${currentQuestionIndex + 1} / ${epdsQuestions.length}",
                 style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              const SizedBox(height: 30),
+              SizedBox(height: screenHeight * 0.02),
 
               Container(
-                padding: const EdgeInsets.all(16),
-                margin: const EdgeInsets.symmetric(vertical: 10),
+                padding: EdgeInsets.all(screenWidth * 0.04),
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.black, width: 2),
                   borderRadius: BorderRadius.circular(20),
@@ -158,13 +160,13 @@ class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
                       textAlign: TextAlign.center,
                       style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                     ),
-                    const SizedBox(height: 20),
+                    SizedBox(height: screenHeight * 0.02),
                     Column(
                       children: epdsQuestions[currentQuestionIndex].options.asMap().entries.map(
                             (entry) {
                           bool isSelected = selectedAnswers[currentQuestionIndex] == entry.key;
                           return Container(
-                            margin: const EdgeInsets.symmetric(vertical: 5),
+                            margin: EdgeInsets.symmetric(vertical: screenHeight * 0.005),
                             decoration: BoxDecoration(
                               color: isSelected ? const Color(0xFFDEC8FF) : Colors.white,
                               border: Border.all(color: Colors.black, width: 1),
@@ -188,7 +190,7 @@ class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
                   ],
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: screenHeight * 0.02),
               Text(
                 "Progress: ${(progress * 100).toInt()}%",
                 style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
@@ -207,7 +209,7 @@ class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
                   );
                 },
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: screenHeight * 0.02),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

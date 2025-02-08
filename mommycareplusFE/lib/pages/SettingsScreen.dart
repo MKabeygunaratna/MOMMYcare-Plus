@@ -18,6 +18,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   String selectedTheme = "System default"; // Default theme
 
   void _showThemePopup(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     showModalBottomSheet(
       context: context,
       shape: RoundedRectangleBorder(
@@ -26,8 +27,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       backgroundColor: Color(0xFFD3CBFD),
       builder: (context) {
         return Padding(
-
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsets.all(size.width * 0.04),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -35,7 +35,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 children: [
                   Center(
                     child: Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
+                      padding: EdgeInsets.only(top: size.height * 0.01),
                       child: Text(
                         "Themes",
                         style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -52,11 +52,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ],
               ),
               Divider(color: Color(0xFF7261C6)),
-              SizedBox(height: 15),
+              SizedBox(height: size.height * 0.02),
               _buildThemeOption("System default"),
               _buildThemeOption("Dark"),
               _buildThemeOption("Light"),
-              SizedBox(height: 10),
+              SizedBox(height: size.height * 0.015),
             ],
           ),
         );
@@ -96,6 +96,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
 
   void _showSupportPopup(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     showModalBottomSheet(
       context: context,
       shape: RoundedRectangleBorder(
@@ -104,7 +105,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       backgroundColor: Color(0xFFD3CBFD),
       builder: (context) {
         return Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding:  EdgeInsets.all(size.width * 0.04),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -129,12 +130,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ],
               ),
               Divider(color: Color(0xFF7261C6)),
-              SizedBox(height: 15),
+              SizedBox(height: size.height * 0.02),
               _buildSupportOption(context,"About MOMMYCare+", Icons.info,AboutScreen()),
               _buildSupportOption(context,"Help Center",Icons.help_outline,HelpScreen()),
               _buildSupportOption(context,"Privacy Policy",Icons.privacy_tip,PrivacyScreen()),
               _buildSupportOption(context,"Terms of Use",Icons.description,DescriptionScreen()),
-              SizedBox(height: 10),
+              SizedBox(height: size.height * 0.015),
             ],
           ),
         );
@@ -154,6 +155,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   void _showNotificationPopup(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     bool newMessages = true; // Default value
     bool updates = false;
     bool reminders = true;
@@ -168,7 +170,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         return StatefulBuilder(
           builder: (context, setState) {
             return Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: EdgeInsets.all(size.width * 0.04),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -176,7 +178,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     children: [
                       Center(
                         child: Padding(
-                          padding: const EdgeInsets.only(top: 8.0),
+                          padding: EdgeInsets.only(top: size.height * 0.01),
                           child: Text(
                             "Notification Settings",
                             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -193,7 +195,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ],
                   ),
                   Divider(color: Color(0xFF7261C6)),
-                  SizedBox(height: 15),
+                  SizedBox(height: size.height * 0.02),
                   _buildNotificationOption("New Messages", newMessages, (value) {
                     setState(() {
                       newMessages = value;
@@ -209,7 +211,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       reminders = value;
                     });
                   }),
-                  SizedBox(height: 10),
+                  SizedBox(height: size.height * 0.015),
                 ],
               ),
             );
@@ -240,6 +242,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final double screenWidth = size.width;
+    final double screenHeight = size.height;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -259,28 +264,28 @@ class _SettingsScreenState extends State<SettingsScreen> {
         children: [
           Expanded(
             child: ListView(
-              padding: EdgeInsets.only(bottom: 16),
+              padding: EdgeInsets.only(bottom: screenHeight * 0.02),
               children: [
-                SizedBox(height: 30),
+                SizedBox(height: screenHeight * 0.05),
                 _buildSettingsOption(context, "Profile", Icons.person, ProfileScreen()),
-                SizedBox(height: 15),
+                SizedBox(height: screenHeight * 0.025),
                 _buildSettingsOption(context, "Languages", Icons.translate, LanguageScreen()),
-                SizedBox(height: 15),
+                SizedBox(height: screenHeight * 0.025),
                 _buildSettingsOption(context, "Notification", Icons.notifications,null, isNotification:true),
-                SizedBox(height: 15),
+                SizedBox(height: screenHeight * 0.025),
                 _buildSettingsOption(context, "Themes", Icons.brightness_6, null, isTheme: true),
-                SizedBox(height: 15),
+                SizedBox(height: screenHeight * 0.025),
                 _buildSettingsOption(context, "Support", Icons.help, null,isSupport: true),
               ],
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 170),
+            padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.15, vertical: screenHeight * 0.1),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xFF7261C6),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                minimumSize: Size(200, 50),
+                minimumSize: Size(screenWidth * 0.5, screenHeight * 0.06),
               ),
               onPressed: () {
                 Navigator.push(

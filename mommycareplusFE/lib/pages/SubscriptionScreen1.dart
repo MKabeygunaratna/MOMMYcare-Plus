@@ -45,12 +45,12 @@ class _SubscriptionPlanState extends State<SubscriptionPlan> {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    _buildToggleButton('Basic', !isProSelected),
-                    _buildToggleButton('Pro', isProSelected),
+                    _buildToggleButton('Basic', !isProSelected, screenWidth),
+                    _buildToggleButton('Pro', isProSelected, screenWidth),
                   ],
                 ),
               ),
-              SizedBox(height: isProSelected ? 60 : 70),
+              SizedBox(height:screenHeight * 0.07 ),
 
               // Subscription Box
               Container(
@@ -99,13 +99,13 @@ class _SubscriptionPlanState extends State<SubscriptionPlan> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 20),
-                    _buildFeaturesList(isProSelected),
-                    const SizedBox(height: 20),
+                    SizedBox(height:screenHeight * 0.03 ),
+                    _buildFeaturesList(isProSelected, screenWidth),
+                    SizedBox(height:screenHeight * 0.03 ),
 
                     if (isProSelected)
                       Padding(
-                        padding: const EdgeInsets.only(top: 16, bottom: 16),
+                        padding:EdgeInsets.only(top: screenHeight * 0.02, bottom: screenHeight * 0.02),
                         child: SizedBox(
                           width: screenWidth * 0.5,
                           child: ElevatedButton(
@@ -139,7 +139,7 @@ class _SubscriptionPlanState extends State<SubscriptionPlan> {
     );
   }
 
-  Widget _buildToggleButton(String text, bool isSelected) {
+  Widget _buildToggleButton(String text, bool isSelected, double screenWidth) {
     return GestureDetector(
       onTap: () {
         setState(() {
@@ -147,7 +147,7 @@ class _SubscriptionPlanState extends State<SubscriptionPlan> {
         });
       },
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 36),
+        padding:EdgeInsets.symmetric(vertical: screenWidth * 0.04, horizontal: screenWidth * 0.1),
         decoration: BoxDecoration(
           color: isSelected ? const Color(0xFF8474CB) : Colors.transparent,
           borderRadius: BorderRadius.circular(25),
@@ -164,7 +164,7 @@ class _SubscriptionPlanState extends State<SubscriptionPlan> {
     );
   }
 
-  Widget _buildFeaturesList(bool isPro) {
+  Widget _buildFeaturesList(bool isPro, double screenWidth) {
     final features = isPro
         ? [
       'Unlimited access for the chatbot',
@@ -181,12 +181,12 @@ class _SubscriptionPlanState extends State<SubscriptionPlan> {
     ];
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
+      padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: features
             .map((feature) => Padding(
-          padding: EdgeInsets.only(bottom: 20),
+          padding: EdgeInsets.only(bottom: screenWidth * 0.05),
           child: Row(
             children: [
               const Icon(Icons.check_circle, color: Colors.black, size: 20),

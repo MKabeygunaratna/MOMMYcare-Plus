@@ -6,7 +6,7 @@ import 'package:mommycareplusFE/pages/ProfileProvider.dart';
 import 'package:mommycareplusFE/pages/ProfileScreen.dart';
 import 'package:mommycareplusFE/pages/Questions.dart';
 import 'package:mommycareplusFE/pages/SettingsScreen.dart';
-import 'package:mommycareplusFE/pages/SubscriptionScreen1.dart';
+import 'package:mommycareplusFE/pages/SubscriptionScreen.dart';
 import 'package:mommycareplusFE/pages/ThemeProvider.dart';
 //import 'package:login/pages/EmailVerification.dart';
 import 'package:mommycareplusFE/pages/chatbot1.dart';

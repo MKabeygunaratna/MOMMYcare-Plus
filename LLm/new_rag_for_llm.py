@@ -1,62 +1,126 @@
+import requests
+import PyPDF2
 import os
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-from langchain_community.document_loaders import PyPDFLoader
-from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_chroma import Chroma
-from langchain_core.prompts import ChatPromptTemplate
-from langchain.chains import create_retrieval_chain
-from langchain.chains.combine_documents import create_stuff_documents_chain
+import faiss
+import numpy as np
+from sentence_transformers import SentenceTransformer
 
-# Set OpenAI API key
-os.environ['OPENAI_API_KEY'] = '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'
+# LM Studio local server URL
+url = "http://127.0.0.1:1234/v1/chat/completions"
 
-# Initialize the ChatOpenAI model
-llm = ChatOpenAI(
-    model="gpt-3.5-turbo",
-    temperature=0
-)
+# Initialize embedding model
+embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
 
-# Initialize the embedding model
-embedding_model = OpenAIEmbeddings(model="text-embedding-3-small")
+# Vector store initialization
+index = faiss.IndexFlatL2(384)  
+pdf_metadata = []  
 
-# Load the PDF document
-loader = PyPDFLoader("path_to_your_pdf/codeprolk.pdf")  # Replace with your PDF path
-docs = loader.load()
+# ------------------------- PDF TEXT EXTRACTION -------------------------
 
-# Initialize the text splitter
-text_splitter = RecursiveCharacterTextSplitter(chunk_size=400, chunk_overlap=50)
+def extract_text_from_pdf(pdf_path, max_tokens=3000):
+   
+    try:
+        with open(pdf_path, "rb") as pdf_file:
+            reader = PyPDF2.PdfReader(pdf_file)
+            text = ""
+            for page in reader.pages:
+                text += page.extract_text()
+                if len(text.split()) > max_tokens:
+                    break
+            return " ".join(text.split()[:max_tokens])
+    except Exception as e:
+        print(f"Error reading PDF '{pdf_path}': {e}")
+        return ""
 
-# Split the documents into chunks
-splits = text_splitter.split_documents(docs)
+# ------------------------- TEXT CHUNKING & EMBEDDING -------------------------
 
-# Create a vector store from the document chunks
-vectorstore = Chroma.from_documents(documents=splits, embedding=embedding_model)
+def chunk_text(text, chunk_size=300):
+    
+    words = text.split()
+    return [' '.join(words[i:i + chunk_size]) for i in range(0, len(words), chunk_size)]
 
-# Create a retriever from the vector store
-retriever = vectorstore.as_retriever()
 
-# Define the system prompt
-system_prompt = (
-    "You are an intelligent chatbot. Use the following context to answer the question. "
-    "If you don't know the answer, just say that you don't know.\n\n{context}"
-)
+def create_embeddings(chunks):
+    
+    embeddings = embedding_model.encode(chunks)
+    return embeddings
 
-# Create the prompt template
-prompt = ChatPromptTemplate.from_messages(
-    [
-        ("system", system_prompt),
-        ("human", "{input}"),
-    ]
-)
+# ------------------------- VECTOR STORAGE -------------------------
 
-# Create the question-answering chain
-qa_chain = create_stuff_documents_chain(llm, prompt)
+def store_embeddings(embeddings, metadata):
+    
+    index.add(embeddings)
+    pdf_metadata.extend(metadata)
 
-# Create the RAG chain
-rag_chain = create_retrieval_chain(retriever, qa_chain)
+# ------------------------- RETRIEVAL FUNCTION -------------------------
 
-# Query the RAG chain
-response = rag_chain.invoke({"input": "who is codeprolk"})
+def retrieve_relevant_chunks(query, top_k=5):
+    
+    query_embedding = embedding_model.encode([query])
+    distances, indices = index.search(query_embedding, top_k)
+    return [pdf_metadata[idx] for idx in indices[0]]
 
-# Print the answer
-print(response["answer"])
+# ------------------------- MODEL INTERACTION -------------------------
+
+def ask_model_question(model, context, user_question):
+    
+    system_prompt = (
+        # f"You are an assistant who answers questions based solely on the following context:\n\n{context}"
+            "You (LLM model) function as a chatbot providing assistance to a mother. you must actually generate responses strictly using the following context:\n\n{context}"
+    )
+
+    payload = {
+        "model": model,
+        "messages": [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_question}
+        ],
+        "max_tokens": 500,
+        "temperature": 0.1
+    }
+
+    response = requests.post(url, json=payload)
+
+    if response.status_code == 200:
+        return response.json()["choices"][0]["message"]["content"]
+    else:
+        return f"Error: {response.status_code}, {response.text}"
+
+# ------------------------- PROCESSING MULTIPLE PDFs -------------------------
+
+def process_multiple_pdfs(pdf_paths):
+    
+    for pdf_path in pdf_paths:
+        if os.path.exists(pdf_path):
+            print(f"Processing '{pdf_path}'...")
+            extracted_text = extract_text_from_pdf(pdf_path)
+            chunks = chunk_text(extracted_text)
+            embeddings = create_embeddings(chunks)
+            metadata = [{'chunk': chunk, 'pdf_name': os.path.basename(pdf_path)} for chunk in chunks]
+            store_embeddings(embeddings, metadata)
+            print(f"Successfully processed '{pdf_path}'.")
+        else:
+            print(f"File '{pdf_path}' not found. Skipping.")
+
+# ------------------------- MAIN EXECUTION FLOW -------------------------
+
+if __name__ == "__main__":
+    pdf_paths = [r"C:\\Users\\isira\\Downloads\\ML-NOTES.pdf"]
+
+    # Process PDFs and store embeddings
+    process_multiple_pdfs(pdf_paths)
+
+    if pdf_metadata:
+        print("\nPDFs successfully processed. You can now ask questions!")
+        model_name = "llama-3.2-1b-instruct"
+
+        while True:
+            user_question = input("\nAsk a question (or type 'exit' to quit): ")
+            
+            relevant_chunks = retrieve_relevant_chunks(user_question)
+            context = '\n'.join([chunk['chunk'] for chunk in relevant_chunks])
+            
+            answer = ask_model_question(model_name, context, user_question)
+            print(f"Answer: {answer}")
+    else:
+        print("No PDFs were successfully processed. Exiting.")

@@ -57,7 +57,7 @@ class _SubscriptionPlanState extends State<SubscriptionPlan> {
                 width: screenWidth * 0.9,
                 constraints: BoxConstraints(
                   minHeight: screenHeight * 0.5,
-                  maxHeight: screenHeight * 0.8, // Ensure it fits small screens
+                  maxHeight: screenHeight * 0.7, // Ensure it fits small screens
                 ),
                 decoration: BoxDecoration(
                   color: Colors.white,

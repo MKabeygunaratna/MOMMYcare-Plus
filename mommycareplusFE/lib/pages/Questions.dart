@@ -15,7 +15,7 @@ List<Question> epdsQuestions = [
   Question(text: "I have looked forward with enjoyment to things.", options: ["As much as I ever did", "Rather less than I used to", "Definitely less than I used to", "Hardly at all"], scores: [0, 1, 2, 3]),
   Question(text: "I have blamed myself unnecessarily when things went wrong.", options: ["No, never", "Not very often", "Yes, sometimes", "Yes, very often"], scores: [0, 1, 2, 3]),
   Question(text: "I have been anxious or worried for no good reason.", options: ["No, not at all", "Hardly ever", "Yes, sometimes", "Yes, very often"], scores: [0, 1, 2, 3]),
-  Question(text: "I have felt scared or panicky for no good reason.", options: ["No, not at all", "No, not much", "Yes, sometimes", "Yes, quite a lot"], scores: [0, 1, 2, 3]),
+  Question(text: "I have felt scared or panicky for no good reason.", options: ["No, not at- all", "No, not much", "Yes, sometimes", "Yes, quite a lot"], scores: [0, 1, 2, 3]),
   Question(text: "Things have been getting on top of me.", options: ["No, I have been coping", "No, most of the time I cope", "Yes, sometimes I haven’t coped", "Yes, I haven’t been coping at all"], scores: [0, 1, 2, 3]),
   Question(text: "I have been so unhappy that I have had difficulty sleeping.", options: ["No, not at all", "Not very often", "Yes, sometimes", "Yes, most of the time"], scores: [0, 1, 2, 3]),
   Question(text: "I have felt sad or miserable.", options: ["No, not at all", "Not very often", "Yes, sometimes", "Yes, most of the time"], scores: [0, 1, 2, 3]),
@@ -29,15 +29,15 @@ class EPDSQuizScreen extends StatefulWidget {
 }
 
 class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
-  int currentQuestionIndex = 0;
-  Map<int, int> selectedAnswers = {};
-  bool testCompleted = false;
+  int currentQuestionIndex = 0; // Keeps track of the current question.
+  Map<int, int> selectedAnswers = {}; // Stores selected answers
+  bool testCompleted = false; // Tracks if the quiz is completed.
 
   @override
   void initState() {
     super.initState();
-    _loadProgress();
-    _showIntroPopup();
+    _loadProgress(); // Loads saved progress.
+    _showIntroPopup(); // Shows an introductory popup.
   }
 
   Future<void> _loadProgress() async {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mommycareplusFE/pages/DoctorScreen.dart';
 import 'package:mommycareplusFE/pages/SampleHomePage.dart';
 import 'package:provider/provider.dart';
 import 'GuardianProvider.dart';  // Import GuardianProvider
@@ -63,7 +64,7 @@ class GuardianDetailsScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => HomePage(), // Navigate to Profile Page
+                      builder: (context) => Doctorscreen(), // Navigate to Profile Page
                     ),
                   );
                 },

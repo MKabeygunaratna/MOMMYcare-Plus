@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'EditProfileScreen.dart';
 import 'SettingsScreen.dart';
 import 'package:mommycareplusFE/pages/GuardianProvider.dart';
+import 'package:mommycareplusFE/pages/DoctorProvider.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -16,13 +17,13 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   String userName = 'Username';
   String babyName = "Jessica";
-  String doctorEmail = "doctor@example.com";
   String location = "New York, USA";
   File? _profileImage;
 
   @override
   Widget build(BuildContext context) {
     final guardianProvider = Provider.of<GuardianProvider>(context);
+    final doctorProvider = Provider.of<DoctorProvider>(context);
     final size = MediaQuery.of(context).size;
     final double screenWidth = size.width;
     final double screenHeight = size.height;
@@ -65,7 +66,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              profileContainer(guardianProvider, screenWidth),
+              profileContainer(guardianProvider, doctorProvider, screenWidth),
               SizedBox(height: screenHeight * 0.05),
               buildProfileDetail("Guardian's Name", guardianProvider.guardianName, screenWidth),
               SizedBox(height: screenHeight * 0.02),
@@ -75,7 +76,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
               SizedBox(height: screenHeight * 0.02),
               buildProfileDetail("Guardian's Email", guardianProvider.guardianEmail, screenWidth),
               SizedBox(height: screenHeight * 0.02),
-              buildProfileDetail("Doctor's Email", doctorEmail, screenWidth),
+              buildProfileDetail("Doctor's Name", doctorProvider.doctorName, screenWidth),
+              SizedBox(height: screenHeight * 0.02),
+              buildProfileDetail("Doctor's Email", doctorProvider.doctorEmail, screenWidth),
+              SizedBox(height: screenHeight * 0.02),
+              buildProfileDetail("Doctor's Contact Number", doctorProvider.doctorContact, screenWidth),
               SizedBox(height: screenHeight * 0.02),
               buildProfileDetail("Location", location, screenWidth),
             ],
@@ -85,7 +90,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  Widget profileContainer(GuardianProvider guardianProvider, double screenWidth) {
+  Widget profileContainer(GuardianProvider guardianProvider, DoctorProvider doctorProvider, double screenWidth) {
     return Container(
       padding: EdgeInsets.all(screenWidth * 0.05),
       decoration: BoxDecoration(
@@ -128,7 +133,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           currentGuardianContact: guardianProvider.guardianContact,
                           currentBabyName: babyName,
                           currentGuardianEmail: guardianProvider.guardianEmail,
-                          currentDoctorEmail: doctorEmail,
+                          currentDoctorName: doctorProvider.doctorName,
+                          currentDoctorEmail: doctorProvider.doctorEmail,
+                          currentDoctorContact: doctorProvider.doctorContact,
                           currentLocation: location,
                           currentImage: _profileImage,
                         ),
@@ -138,7 +145,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       setState(() {
                         userName = updatedProfile['name'];
                         babyName = updatedProfile['babyName'];
-                        doctorEmail = updatedProfile['doctorEmail'];
                         location = updatedProfile['location'];
                         _profileImage = updatedProfile['image'];
 
@@ -146,6 +152,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           updatedProfile['guardianName'],
                           updatedProfile['guardianEmail'],
                           updatedProfile['guardianContact'],
+                        );
+                        doctorProvider.updateDoctor(
+                          updatedProfile['doctorName'],
+                          updatedProfile['doctorEmail'],
+                          updatedProfile['doctorContact'],
                         );
                       });
                     }

@@ -9,7 +9,9 @@ class EditProfileScreen extends StatefulWidget {
   final String currentGuardianContact;
   final String currentBabyName;
   final String currentGuardianEmail;
+  final String currentDoctorName;
   final String currentDoctorEmail;
+  final String currentDoctorContact;
   final String currentLocation;
   final File? currentImage;
 
@@ -19,7 +21,9 @@ class EditProfileScreen extends StatefulWidget {
     required this.currentGuardianContact,
     required this.currentBabyName,
     required this.currentGuardianEmail,
+    required this.currentDoctorName,
     required this.currentDoctorEmail,
+    required this.currentDoctorContact,
     required this.currentLocation,
     required this.currentImage,
   });
@@ -34,7 +38,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   late TextEditingController guardianContactController;
   late TextEditingController babyNameController;
   late TextEditingController guardianEmailController;
+  late TextEditingController doctorNameController;
   late TextEditingController doctorEmailController;
+  late TextEditingController doctorContactController;
   late TextEditingController locationController;
 
   @override
@@ -45,7 +51,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     guardianContactController = TextEditingController(text: widget.currentGuardianContact);
     babyNameController = TextEditingController(text: widget.currentBabyName);
     guardianEmailController = TextEditingController(text: widget.currentGuardianEmail);
+    doctorNameController = TextEditingController(text: widget.currentDoctorName);
     doctorEmailController = TextEditingController(text: widget.currentDoctorEmail);
+    doctorContactController = TextEditingController(text: widget.currentDoctorContact);
     locationController = TextEditingController(text: widget.currentLocation);
   }
   File? _imageFile;
@@ -120,7 +128,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFF7261C6),
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -171,7 +179,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               const SizedBox(height: 30),
               buildTextField("Guardian's Email", Icons.email, guardianEmailController, TextInputType.emailAddress),
               const SizedBox(height: 30),
+              buildTextField("Doctor's Name", Icons.person_2, doctorNameController, TextInputType.text),
+              const SizedBox(height: 30),
               buildTextField("Doctor's Email", Icons.medical_services, doctorEmailController, TextInputType.emailAddress),
+              const SizedBox(height: 30),
+              buildTextField("Doctor's Contact Number", Icons.phone, doctorContactController, TextInputType.emailAddress),
               const SizedBox(height: 30),
               buildTextField("Location", Icons.place, locationController, TextInputType.text),
               const SizedBox(height: 40),
@@ -183,7 +195,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     'guardianContact': guardianContactController.text,
                     'babyName': babyNameController.text,
                     'guardianEmail': guardianEmailController.text,
+                    'doctorName': doctorNameController.text,
                     'doctorEmail': doctorEmailController.text,
+                    'doctorContact': doctorContactController.text,
                     'location': locationController.text,
                     'image': _imageFile,
                   };

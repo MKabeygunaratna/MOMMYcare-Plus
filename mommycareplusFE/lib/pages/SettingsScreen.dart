@@ -132,7 +132,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               Divider(color: Color(0xFF7261C6)),
               SizedBox(height: size.height * 0.02),
               _buildSupportOption(context,"About MOMMYCare+", Icons.info,AboutScreen()),
-              _buildSupportOption(context,"Help Center",Icons.help_outline,HelpScreen()),
+              _buildSupportOption(context,"Help Center",Icons.help_outline,HelpCenterScreen()),
               _buildSupportOption(context,"Privacy Policy",Icons.privacy_tip,PrivacyScreen()),
               _buildSupportOption(context,"Terms of Use",Icons.description,DescriptionScreen()),
               SizedBox(height: size.height * 0.015),

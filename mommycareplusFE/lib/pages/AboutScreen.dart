@@ -9,6 +9,13 @@ class AboutScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("About MOMMYcare+"),
         backgroundColor: Color(0xFF8474CB),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: (){
+            Navigator.pop(context);
+          },
+
+        )
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16.0),

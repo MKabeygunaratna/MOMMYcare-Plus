@@ -34,9 +34,9 @@ class TaskScreen extends StatelessWidget {
                 runSpacing: 10,
                 children: [
                   StatusCard(icon: Icons.list, title: "Tasks for today", count: 5,iconColor:Color(0xFFD97325) ),
-                  StatusCard(icon: Icons.hourglass_bottom, title: "In progress", count: 5,iconColor:Color(0xFFD97325)),
+                  StatusCard(icon: Icons.hourglass_bottom, title: "In progress", count: 5,iconColor:Color(0xFF255ED9)),
                   StatusCard(icon: Icons.check_circle, title: "Completed", count: 5,iconColor:Color(0xFF5BC63B)),
-                  StatusCard(icon: Icons.cancel, title: "Cancelled", count: 5,iconColor:Color(0xFFD97325)),
+                  StatusCard(icon: Icons.cancel, title: "Cancelled", count: 5,iconColor:Color(0xFFD92525)),
                 ],
               ),
             ),

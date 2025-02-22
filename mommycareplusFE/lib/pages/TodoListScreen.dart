@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-
-class TaskScreen extends StatelessWidget {
+class Todolistscreen extends StatelessWidget {
   Color buttoncolor = Color(0xFF7261C6);
 
   @override
@@ -33,10 +32,26 @@ class TaskScreen extends StatelessWidget {
                 spacing: 10,
                 runSpacing: 10,
                 children: [
-                  StatusCard(icon: Icons.list, title: "Tasks for today", count: 5,iconColor:Color(0xFFD97325) ),
-                  StatusCard(icon: Icons.hourglass_bottom, title: "In progress", count: 5,iconColor:Color(0xFF255ED9)),
-                  StatusCard(icon: Icons.check_circle, title: "Completed", count: 5,iconColor:Color(0xFF5BC63B)),
-                  StatusCard(icon: Icons.cancel, title: "Cancelled", count: 5,iconColor:Color(0xFFD92525)),
+                  StatusCard(
+                      icon: Icons.list,
+                      title: "Tasks for today",
+                      count: 5,
+                      iconColor: Color(0xFFD97325)),
+                  StatusCard(
+                      icon: Icons.hourglass_bottom,
+                      title: "In progress",
+                      count: 5,
+                      iconColor: Color(0xFF255ED9)),
+                  StatusCard(
+                      icon: Icons.check_circle,
+                      title: "Completed",
+                      count: 5,
+                      iconColor: Color(0xFF5BC63B)),
+                  StatusCard(
+                      icon: Icons.cancel,
+                      title: "Cancelled",
+                      count: 5,
+                      iconColor: Color(0xFFD92525)),
                 ],
               ),
             ),
@@ -53,16 +68,18 @@ class TaskScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Today tasks", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                        Text("Today tasks",
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold)),
                         ElevatedButton(
-                          onPressed: () {
-
-                          },
+                          onPressed: () {},
                           style: ElevatedButton.styleFrom(
                             backgroundColor: buttoncolor,
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
                           ),
-                          child: Text("+ Add", style: TextStyle(color: Colors.white)),
+                          child: Text("+ Add",
+                              style: TextStyle(color: Colors.white)),
                         ),
                       ],
                     ),
@@ -70,10 +87,18 @@ class TaskScreen extends StatelessWidget {
                     Expanded(
                       child: ListView(
                         children: [
-                          TaskCard(title: "Breathing exercises", subtitle: "Doing 15 mins per day"),
-                          TaskCard(title: "Best Mom Article", subtitle: "Complete reading the article"),
-                          TaskCard(title: "Breathing exercises", subtitle: "Doing 15 mins per day"),
-                          TaskCard(title: "Breathing exercises", subtitle: "Doing 15 mins per day"),
+                          TaskCard(
+                              title: "Breathing exercises",
+                              subtitle: "Doing 15 mins per day"),
+                          TaskCard(
+                              title: "Best Mom Article",
+                              subtitle: "Complete reading the article"),
+                          TaskCard(
+                              title: "Breathing exercises",
+                              subtitle: "Doing 15 mins per day"),
+                          TaskCard(
+                              title: "Breathing exercises",
+                              subtitle: "Doing 15 mins per day"),
                         ],
                       ),
                     ),
@@ -86,15 +111,16 @@ class TaskScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: ElevatedButton(
-                onPressed: () {
-
-                },
+                onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   backgroundColor: buttoncolor,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                  padding: EdgeInsets.symmetric(vertical: 14, horizontal: width * 0.3),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  padding: EdgeInsets.symmetric(
+                      vertical: 14, horizontal: width * 0.3),
                 ),
-                child: Text("Edit", style: TextStyle(fontSize: 18, color: Colors.white)),
+                child: Text("Edit",
+                    style: TextStyle(fontSize: 18, color: Colors.white)),
               ),
             ),
           ],
@@ -111,7 +137,11 @@ class StatusCard extends StatelessWidget {
   final int count;
   final Color iconColor;
   Color boxcolor = Color(0xFFE5D9F2);
-  StatusCard({required this.icon, required this.title, required this.count, required this.iconColor});
+  StatusCard(
+      {required this.icon,
+      required this.title,
+      required this.count,
+      required this.iconColor});
 
   @override
   Widget build(BuildContext context) {
@@ -125,10 +155,12 @@ class StatusCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(icon, color: Colors.purple),
+          Icon(icon, color: iconColor),
           SizedBox(height: 5),
-          Text(title, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-          Text("$count tasks", style: TextStyle(fontSize: 14, color: Colors.black54)),
+          Text(title,
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          Text("$count tasks",
+              style: TextStyle(fontSize: 14, color: Colors.black54)),
         ],
       ),
     );
@@ -152,5 +184,3 @@ class TaskCard extends StatelessWidget {
     );
   }
 }
-
-

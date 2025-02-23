@@ -8,6 +8,12 @@ class HelpCenterScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Help Center"),
         backgroundColor: Color(0xFF8474CB),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: (){
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16.0),
@@ -26,7 +32,7 @@ class HelpCenterScreen extends StatelessWidget {
               "Frequently Asked Questions",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 20),
 
             FAQItem(
                 question: "How do I reset my password?",

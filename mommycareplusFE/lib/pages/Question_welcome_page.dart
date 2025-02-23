@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mommycareplusFE/pages/SampleHomePage.dart';
 import 'Questions.dart';
 
 class QuestionWelcomePage extends StatelessWidget {
@@ -9,7 +10,17 @@ class QuestionWelcomePage extends StatelessWidget {
     final double screenHeight = size.height;
 
     return Scaffold(
-      backgroundColor: const Color(0xFF7261C6), // Purple background
+      backgroundColor: const Color(0xFF7261C6), 
+      appBar: AppBar(
+        backgroundColor:Color(0xFF7261C6),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: ()=>Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context)=>HomePage())
+          ),
+        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView( // Prevent overflow
           child: Column(

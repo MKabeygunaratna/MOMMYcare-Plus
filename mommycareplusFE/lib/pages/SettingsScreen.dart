@@ -6,7 +6,7 @@ import 'ThemeProvider.dart';
 import 'AboutScreen.dart';
 import 'HelpScreen.dart';
 import 'PrivacyScreen.dart';
-import 'DescriptionScreen.dart';
+import 'TermsOfUseScreen.dart';
 
 
 class SettingsScreen extends StatefulWidget {
@@ -133,8 +133,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
               SizedBox(height: size.height * 0.02),
               _buildSupportOption(context,"About MOMMYCare+", Icons.info,AboutScreen()),
               _buildSupportOption(context,"Help Center",Icons.help_outline,HelpCenterScreen()),
-              _buildSupportOption(context,"Privacy Policy",Icons.privacy_tip,PrivacyScreen()),
-              _buildSupportOption(context,"Terms of Use",Icons.description,DescriptionScreen()),
+              _buildSupportOption(context,"Privacy Policy",Icons.privacy_tip,PrivacyPolicyScreen()),
+              _buildSupportOption(context,"Terms of Use",Icons.description,TermsOfUseScreen()),
               SizedBox(height: size.height * 0.015),
             ],
           ),

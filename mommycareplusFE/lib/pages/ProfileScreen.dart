@@ -1,217 +1,146 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:mommycareplusFE/pages/SampleHomePage.dart';
 import 'package:provider/provider.dart';
+import 'Profile_Provider.dart';
+import 'GuardianProvider.dart';
+import 'DoctorProvider.dart';
 import 'EditProfileScreen.dart';
-import 'SettingsScreen.dart';
-import 'package:mommycareplusFE/pages/GuardianProvider.dart';
-import 'package:mommycareplusFE/pages/DoctorProvider.dart';
 
-class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({super.key});
-
+class ProfileScreen extends StatelessWidget {
   @override
-  _ProfileScreenState createState() => _ProfileScreenState();
+  Widget build(BuildContext context) {
+    final profileProvider = Provider.of<ProfileProvider>(context);
+    final guardianProvider = Provider.of<GuardianProvider>(context);
+    final doctorProvider = Provider.of<DoctorProvider>(context);
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Profile'),
+        backgroundColor: Color(0xFF7261C6),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.edit),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => EditProfileScreen()),
+              );
+            },
+          ),
+        ],
+      ),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Center(
+              child: CircleAvatar(
+                radius: 60,
+                backgroundImage: profileProvider.profileImage != null
+                    ? FileImage(profileProvider.profileImage!) as ImageProvider
+                    : AssetImage("assets/images/profile.jpeg"),
+              ),
+            ),
+            SizedBox(height: 16),
+            Text(
+              profileProvider.name,
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 24),
+
+            ProfileSection(
+              title: 'Personal Information',
+              items: [
+                {'label': 'Baby\'s Name', 'value': profileProvider.babyName},
+                {'label': 'Location', 'value': profileProvider.location},
+              ],
+            ),
+
+            ProfileSection(
+              title: 'Guardian Information',
+              items: [
+                {'label': 'Name', 'value': guardianProvider.name},
+                {'label': 'Contact', 'value': guardianProvider.contactNumber},
+                {'label': 'Email', 'value': guardianProvider.email},
+              ],
+            ),
+
+            ProfileSection(
+              title: 'Doctor Information',
+              items: [
+                {'label': 'Name', 'value': doctorProvider.name},
+                {'label': 'Contact', 'value': doctorProvider.contactNumber},
+                {'label': 'Email', 'value': doctorProvider.email},
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
 
-class _ProfileScreenState extends State<ProfileScreen> {
-  String userName = 'Username';
-  String babyName = "Jessica";
-  String location = "New York, USA";
-  File? _profileImage;
+class ProfileSection extends StatelessWidget {
+  final String title;
+  final List<Map<String, String>> items;
+
+  const ProfileSection({
+    Key? key,
+    required this.title,
+    required this.items,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final guardianProvider = Provider.of<GuardianProvider>(context);
-    final doctorProvider = Provider.of<DoctorProvider>(context);
-    final size = MediaQuery.of(context).size;
-    final double screenWidth = size.width;
-    final double screenHeight = size.height;
-
-
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => HomePage())
-          ),
-        ),
-        title: const Text(
-          "Profile",
-          style: TextStyle(
-            fontFamily: 'Poppins',
-            fontSize: 32,
-            fontWeight: FontWeight.w600,
-            color: Colors.black,
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.white,
-        elevation: 0,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.settings, color: Colors.black),
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => SettingsScreen()),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16.0),
+          child: Text(
+            title,
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF7261C6),
             ),
           ),
-        ],
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(screenWidth * 0.05),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              profileContainer(guardianProvider, doctorProvider, screenWidth),
-              SizedBox(height: screenHeight * 0.05),
-              buildProfileDetail("Guardian's Name", guardianProvider.guardianName, screenWidth),
-              SizedBox(height: screenHeight * 0.02),
-              buildProfileDetail("Guardian's Contact Number", guardianProvider.guardianContact, screenWidth),
-              SizedBox(height: screenHeight * 0.02),
-              buildProfileDetail("Baby's Name", babyName, screenWidth),
-              SizedBox(height: screenHeight * 0.02),
-              buildProfileDetail("Guardian's Email", guardianProvider.guardianEmail, screenWidth),
-              SizedBox(height: screenHeight * 0.02),
-              buildProfileDetail("Doctor's Name", doctorProvider.doctorName, screenWidth),
-              SizedBox(height: screenHeight * 0.02),
-              buildProfileDetail("Doctor's Email", doctorProvider.doctorEmail, screenWidth),
-              SizedBox(height: screenHeight * 0.02),
-              buildProfileDetail("Doctor's Contact Number", doctorProvider.doctorContact, screenWidth),
-              SizedBox(height: screenHeight * 0.02),
-              buildProfileDetail("Location", location, screenWidth),
-            ],
-          ),
         ),
-      ),
-    );
-  }
-
-  Widget profileContainer(GuardianProvider guardianProvider, DoctorProvider doctorProvider, double screenWidth) {
-    return Container(
-      padding: EdgeInsets.all(screenWidth * 0.05),
-      decoration: BoxDecoration(
-        border: Border.all(color: const Color(0xFF7261C6), width: 1.5),
-        borderRadius: BorderRadius.circular(40),
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          CircleAvatar(
-            radius: screenWidth * 0.12,
-            backgroundColor: const Color(0xFF7261C6).withOpacity(0.2),
-            backgroundImage: _profileImage != null
-                ? FileImage(_profileImage!)
-                : const AssetImage("assets/images/profile.jpeg") as ImageProvider,
-          ),
-          SizedBox(width: screenWidth * 0.1),
-          Expanded(
+        Card(
+          elevation: 2,
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  userName,
-                  style: const TextStyle(
-                    fontFamily: 'Inter',
-                    fontSize: 25,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black,
-                  ),
-                ),
-                SizedBox(height: screenWidth * 0.02),
-                ElevatedButton(
-                  onPressed: () async {
-                    final updatedProfile = await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => EditProfileScreen(
-                          currentName: userName,
-                          currentGuardianName: guardianProvider.guardianName,
-                          currentGuardianContact: guardianProvider.guardianContact,
-                          currentBabyName: babyName,
-                          currentGuardianEmail: guardianProvider.guardianEmail,
-                          currentDoctorName: doctorProvider.doctorName,
-                          currentDoctorEmail: doctorProvider.doctorEmail,
-                          currentDoctorContact: doctorProvider.doctorContact,
-                          currentLocation: location,
-                          currentImage: _profileImage,
+              children: items.map((item) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        item['label'] ?? '',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: Colors.grey[700],
                         ),
                       ),
-                    );
-                    if (updatedProfile != null) {
-                      setState(() {
-                        userName = updatedProfile['name'];
-                        babyName = updatedProfile['babyName'];
-                        location = updatedProfile['location'];
-                        _profileImage = updatedProfile['image'];
-
-                        guardianProvider.updateGuardian(
-                          updatedProfile['guardianName'],
-                          updatedProfile['guardianEmail'],
-                          updatedProfile['guardianContact'],
-                        );
-                        doctorProvider.updateDoctor(
-                          updatedProfile['doctorName'],
-                          updatedProfile['doctorEmail'],
-                          updatedProfile['doctorContact'],
-                        );
-                      });
-                    }
-                  },
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.white,
-                    backgroundColor: const Color(0xFF7261C6),
-                    side: const BorderSide(color: Color(0xFF6F42C1), width: 1.5),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    padding:EdgeInsets.symmetric(vertical: 10, horizontal: screenWidth * 0.05),
+                      Text(
+                        item['value'] ?? '',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
                   ),
-                  child: const Text("Edit Profile"),
-                ),
-              ],
+                );
+              }).toList(),
             ),
           ),
-        ],
-      ),
-    );
-  }
-
-  Widget buildProfileDetail(String label, String value,double screenWidth ) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.1, vertical: 10),
-      width: double.infinity,
-      decoration: BoxDecoration(
-        border: Border.all(color: const Color(0xFF7261C6), width: 2),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            label,
-            style: const TextStyle(
-              fontFamily: 'Inter',
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-              color: Colors.black,
-            ),
-          ),
-          const SizedBox(height: 5),
-          Text(
-            value,
-            style: const TextStyle(
-              fontFamily: 'Inter',
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-              color: Colors.black87,
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

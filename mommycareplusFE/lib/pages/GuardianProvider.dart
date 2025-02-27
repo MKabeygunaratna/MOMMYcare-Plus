@@ -1,18 +1,36 @@
 import 'package:flutter/material.dart';
 
 class GuardianProvider with ChangeNotifier {
-  String _guardianName = '';
-  String _guardianEmail = '';
-  String _guardianContact = '';
+  String _name = '';
+  String _contactNumber = '';
+  String _email = '';
 
-  String get guardianName => _guardianName;
-  String get guardianEmail => _guardianEmail;
-  String get guardianContact => _guardianContact;
+  // Getters
+  String get name => _name;
+  String get contactNumber => _contactNumber;
+  String get email => _email;
 
-  void updateGuardian(String name, String email, String contact) {
-    _guardianName = name;
-    _guardianEmail = email;
-    _guardianContact = contact;
-    notifyListeners();  // Notify listeners to update the UI
+  // Initialize guardian data
+  void initGuardian({
+    required String name,
+    required String contactNumber,
+    required String email,
+  }) {
+    _name = name;
+    _contactNumber = contactNumber;
+    _email = email;
+    notifyListeners();
+  }
+
+  // Update guardian data
+  void updateGuardian({
+    required String name,
+    required String contactNumber,
+    required String email,
+  }) {
+    _name = name;
+    _contactNumber = contactNumber;
+    _email = email;
+    notifyListeners();
   }
 }

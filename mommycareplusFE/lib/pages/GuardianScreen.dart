@@ -55,16 +55,16 @@ class GuardianDetailsScreen extends StatelessWidget {
                   // Update the guardian details using the provider
                   final guardianProvider = Provider.of<GuardianProvider>(context, listen: false);
                   guardianProvider.updateGuardian(
-                    nameController.text,
-                    emailController.text,
-                    contactController.text,
+                    name:nameController.text,
+                    email:emailController.text,
+                    contactNumber:contactController.text,
                   );
 
                   // Navigate to Profile Page
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Doctorscreen(), // Navigate to Profile Page
+                      builder: (context) => DoctorScreen(), // Navigate to Profile Page
                     ),
                   );
                 },

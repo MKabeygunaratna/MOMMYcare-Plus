@@ -2,32 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:provider/provider.dart';
+import 'Profile_Provider.dart';
+import 'GuardianProvider.dart';
+import 'DoctorProvider.dart';
 
 class EditProfileScreen extends StatefulWidget {
-  final String currentName;
-  final String currentGuardianName;
-  final String currentGuardianContact;
-  final String currentBabyName;
-  final String currentGuardianEmail;
-  final String currentDoctorName;
-  final String currentDoctorEmail;
-  final String currentDoctorContact;
-  final String currentLocation;
-  final File? currentImage;
-
-  EditProfileScreen({
-    required this.currentName,
-    required this.currentGuardianName,
-    required this.currentGuardianContact,
-    required this.currentBabyName,
-    required this.currentGuardianEmail,
-    required this.currentDoctorName,
-    required this.currentDoctorEmail,
-    required this.currentDoctorContact,
-    required this.currentLocation,
-    required this.currentImage,
-  });
-
   @override
   _EditProfileScreenState createState() => _EditProfileScreenState();
 }
@@ -42,22 +22,45 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   late TextEditingController doctorEmailController;
   late TextEditingController doctorContactController;
   late TextEditingController locationController;
+  File? _imageFile;
+  final ImagePicker _picker = ImagePicker();
 
   @override
   void initState() {
     super.initState();
-    nameController = TextEditingController(text: widget.currentName);
-    guardianNameController = TextEditingController(text: widget.currentGuardianName);
-    guardianContactController = TextEditingController(text: widget.currentGuardianContact);
-    babyNameController = TextEditingController(text: widget.currentBabyName);
-    guardianEmailController = TextEditingController(text: widget.currentGuardianEmail);
-    doctorNameController = TextEditingController(text: widget.currentDoctorName);
-    doctorEmailController = TextEditingController(text: widget.currentDoctorEmail);
-    doctorContactController = TextEditingController(text: widget.currentDoctorContact);
-    locationController = TextEditingController(text: widget.currentLocation);
+
+    // Initialize controllers with data from providers
+    final profileProvider = Provider.of<ProfileProvider>(context, listen: false);
+    final guardianProvider = Provider.of<GuardianProvider>(context, listen: false);
+    final doctorProvider = Provider.of<DoctorProvider>(context, listen: false);
+
+    nameController = TextEditingController(text: profileProvider.name);
+    babyNameController = TextEditingController(text: profileProvider.babyName);
+    locationController = TextEditingController(text: profileProvider.location);
+    _imageFile = profileProvider.profileImage;
+
+    guardianNameController = TextEditingController(text: guardianProvider.name);
+    guardianContactController = TextEditingController(text: guardianProvider.contactNumber);
+    guardianEmailController = TextEditingController(text: guardianProvider.email);
+
+    doctorNameController = TextEditingController(text: doctorProvider.name);
+    doctorEmailController = TextEditingController(text: doctorProvider.email);
+    doctorContactController = TextEditingController(text: doctorProvider.contactNumber);
   }
-  File? _imageFile;
-  final ImagePicker _picker = ImagePicker();
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    guardianNameController.dispose();
+    guardianContactController.dispose();
+    babyNameController.dispose();
+    guardianEmailController.dispose();
+    doctorNameController.dispose();
+    doctorEmailController.dispose();
+    doctorContactController.dispose();
+    locationController.dispose();
+    super.dispose();
+  }
 
   Future<void> requestPermissions() async {
     await Permission.camera.request();
@@ -103,12 +106,43 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     );
   }
 
+  void _saveChanges() {
+    // Update providers with new values
+    final profileProvider = Provider.of<ProfileProvider>(context, listen: false);
+    final guardianProvider = Provider.of<GuardianProvider>(context, listen: false);
+    final doctorProvider = Provider.of<DoctorProvider>(context, listen: false);
+
+    // Update profile data
+    profileProvider.updateProfile(
+      name: nameController.text,
+      babyName: babyNameController.text,
+      location: locationController.text,
+      profileImage: _imageFile,
+    );
+
+    // Update guardian data
+    guardianProvider.updateGuardian(
+      name: guardianNameController.text,
+      contactNumber: guardianContactController.text,
+      email: guardianEmailController.text,
+    );
+
+    // Update doctor data
+    doctorProvider.updateDoctor(
+      name: doctorNameController.text,
+      email: doctorEmailController.text,
+      contactNumber: doctorContactController.text,
+    );
+
+    Navigator.pop(context);
+  }
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final double screenHeight = size.height;
     final double screenWidth = size.width;
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -183,26 +217,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               const SizedBox(height: 30),
               buildTextField("Doctor's Email", Icons.medical_services, doctorEmailController, TextInputType.emailAddress),
               const SizedBox(height: 30),
-              buildTextField("Doctor's Contact Number", Icons.phone, doctorContactController, TextInputType.emailAddress),
+              buildTextField("Doctor's Contact Number", Icons.phone, doctorContactController, TextInputType.phone),
               const SizedBox(height: 30),
               buildTextField("Location", Icons.place, locationController, TextInputType.text),
               const SizedBox(height: 40),
               ElevatedButton(
-                onPressed: () {
-                  final updatedProfile = {
-                    'name': nameController.text,
-                    'guardianName': guardianNameController.text,
-                    'guardianContact': guardianContactController.text,
-                    'babyName': babyNameController.text,
-                    'guardianEmail': guardianEmailController.text,
-                    'doctorName': doctorNameController.text,
-                    'doctorEmail': doctorEmailController.text,
-                    'doctorContact': doctorContactController.text,
-                    'location': locationController.text,
-                    'image': _imageFile,
-                  };
-                  Navigator.pop(context, updatedProfile);
-                },
+                onPressed: _saveChanges,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF7261C6),
                   shape: RoundedRectangleBorder(

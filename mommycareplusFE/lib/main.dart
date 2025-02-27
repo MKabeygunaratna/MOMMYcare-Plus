@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:mommycareplusFE/pages/AboutScreen.dart';
 import 'package:mommycareplusFE/pages/DoctorProvider.dart';
 import 'package:mommycareplusFE/pages/DoctorScreen.dart';
+import 'package:mommycareplusFE/pages/EditProfileScreen.dart';
 import 'package:mommycareplusFE/pages/PrivacyScreen.dart';
+import 'package:mommycareplusFE/pages/Profile_Provider.dart';
 import 'package:mommycareplusFE/pages/Question_welcome_page.dart';
 import 'package:mommycareplusFE/pages/TermsOfUseScreen.dart';
 import 'package:mommycareplusFE/pages/EmailVerification.dart';
@@ -30,6 +32,8 @@ void main() {
           ChangeNotifierProvider(create: (context) => GuardianProvider()),
           ChangeNotifierProvider(create: (context) => ThemeProvider()),
           ChangeNotifierProvider(create: (context) => DoctorProvider()),
+          ChangeNotifierProvider(create: (context)=> ProfileProvider())
+
         ],
       child: MyApp(),
     ),
@@ -49,7 +53,7 @@ class MyApp extends StatelessWidget {
           themeMode: themeProvider.themeMode,
           theme: ThemeData.light(),
           darkTheme: ThemeData.dark(),
-          home:QuestionWelcomePage(),
+          home:GuardianDetailsScreen(),
         );
       },
     );

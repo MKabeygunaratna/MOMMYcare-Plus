@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mymommycare/videoPlayerScreen.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class BabyCareScreen extends StatefulWidget {
@@ -77,7 +78,6 @@ class _BabyCareScreenState extends State<BabyCareScreen> {
         "videoId": "XEV-oQmGDto",
         "description": "Midwife Tracey Owen explains the best"
       },
-
     ],
     "Common Baby Rashes & Skin Care": [
       {
@@ -177,6 +177,9 @@ class _BabyCareScreenState extends State<BabyCareScreen> {
 
   Widget buildVideoSection() {
     return ListView(
+      shrinkWrap: true,  // Add this to fix overflow issues
+      physics: ClampingScrollPhysics(), // Prevents conflicts with scrolling
+
       children: topics.keys.map((category) {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -189,7 +192,7 @@ class _BabyCareScreenState extends State<BabyCareScreen> {
               ),
             ),
             SizedBox(
-              height: 260, // Increased height to fit the video and text properly
+              height: 280, // Increased height to fit the video and text properly
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -217,13 +220,39 @@ class _BabyCareScreenState extends State<BabyCareScreen> {
                               topLeft: Radius.circular(16),
                               topRight: Radius.circular(16),
                             ),
-                            child: YoutubePlayer(
-                              controller: YoutubePlayerController(
-                                initialVideoId: video['videoId']!,
-                                flags: YoutubePlayerFlags(autoPlay: false),
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => VideoPlayerScreen(
+                                      videoId: video['videoId']!,
+                                      title: video['title']!,
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                height: 150,
+                                width: 260,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(16),
+                                    topRight: Radius.circular(16),
+                                  ),
+                                  image: DecorationImage(
+                                    image: NetworkImage('https://img.youtube.com/vi/${video['videoId']}/0.jpg'),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                child: Icon(
+                                  Icons.play_circle_fill,
+                                  color: Colors.white,
+                                  size: 60,
+                                ),
                               ),
-                              showVideoProgressIndicator: true,
                             ),
+
                           ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),

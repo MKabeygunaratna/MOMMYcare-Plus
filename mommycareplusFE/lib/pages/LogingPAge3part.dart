@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-// void main() {
-//   runApp(const MyApp());
-// }
 
 class LogingPAge3part extends StatelessWidget {
   const LogingPAge3part({Key? key}) : super(key: key);

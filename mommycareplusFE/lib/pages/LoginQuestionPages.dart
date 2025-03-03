@@ -4,7 +4,6 @@ void main() {
   runApp(const MyApp());
 }
 
-/// Root widget
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -13,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Question Pages',
       theme: ThemeData(
-        // Use a purple swatch or define a custom color
+   
         primarySwatch: Colors.purple,
       ),
       // Start the app on PageOne
@@ -22,9 +21,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-//------------------------------------------------------
-// PAGE ONE: "What do you want me to call you?"
-//------------------------------------------------------
 class PageOne extends StatefulWidget {
   const PageOne({Key? key}) : super(key: key);
 
@@ -47,7 +43,7 @@ class _PageOneState extends State<PageOne> {
                 const SizedBox(height: 40),
                 // Main Illustration
                 Image.asset(
-                  "assets/image 8.png", // <-- Replace with your actual asset
+                  "assets/image 8.png", 
                   width: 300,
                   height: 300,
                   fit: BoxFit.contain,
@@ -60,11 +56,11 @@ class _PageOneState extends State<PageOne> {
                   style: TextStyle(
                     fontSize: 32,
                     fontWeight: FontWeight.w600,
-                    color: Color(0xFF7F3DFF), // Purple color for text
+                    color: Color(0xFF7F3DFF), 
                   ),
                 ),
                 const SizedBox(height: 40),
-                // Name input field
+                
                 Container(
                   width: 300,
                   decoration: BoxDecoration(
@@ -93,18 +89,18 @@ class _PageOneState extends State<PageOne> {
                   ),
                 ),
                 const SizedBox(height: 40),
-                // NEXT Button (purple)
+             
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF7F3DFF), // Purple button
-                    foregroundColor: Colors.white, // White text
+                    backgroundColor: const Color(0xFF7F3DFF), 
+                    foregroundColor: Colors.white, 
                     minimumSize: const Size(150, 50),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
                   onPressed: () {
-                    // Navigate to PageTwo, passing the name
+                
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -128,9 +124,7 @@ class _PageOneState extends State<PageOne> {
   }
 }
 
-//------------------------------------------------------
-// PAGE TWO: "What is your age?"
-//------------------------------------------------------
+
 class PageTwo extends StatefulWidget {
   final String name; // We pass the name forward
 
@@ -153,7 +147,7 @@ class _PageTwoState extends State<PageTwo> {
             child: Column(
               children: [
                 const SizedBox(height: 40),
-                // Question text
+              
                 const Text(
                   "What is your age?",
                   style: TextStyle(
@@ -163,9 +157,9 @@ class _PageTwoState extends State<PageTwo> {
                   ),
                 ),
                 const SizedBox(height: 40),
-                // Illustration
+               
                 Image.asset(
-                  "assets/image 11.png", // <-- Replace with your actual asset
+                  "assets/image 11.png", 
                   width: 300,
                   height: 300,
                   fit: BoxFit.contain,
@@ -201,7 +195,7 @@ class _PageTwoState extends State<PageTwo> {
                   ),
                 ),
                 const SizedBox(height: 40),
-                // NEXT Button
+                
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF7F3DFF),
@@ -212,7 +206,7 @@ class _PageTwoState extends State<PageTwo> {
                     ),
                   ),
                   onPressed: () {
-                    // Navigate to PageThree, passing name & age
+                 
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -237,9 +231,7 @@ class _PageTwoState extends State<PageTwo> {
     );
   }
 }
-//------------------------------------------------------
-// PAGE THREE: "What is your postpartum period?"
-//------------------------------------------------------
+
 class PageThree extends StatefulWidget {
   final String name;
   final String age;
@@ -276,13 +268,13 @@ class _PageThreeState extends State<PageThree> {
                 const SizedBox(height: 40),
                 // Illustration
                 Image.asset(
-                  "assets/image 15.png", // <-- Replace with your actual asset
+                  "assets/image 15.png", 
                   width: 300,
                   height: 300,
                   fit: BoxFit.contain,
                 ),
                 const SizedBox(height: 40),
-                // Postpartum input field
+             
                 Container(
                   width: 300,
                   decoration: BoxDecoration(
@@ -311,7 +303,7 @@ class _PageThreeState extends State<PageThree> {
                   ),
                 ),
                 const SizedBox(height: 40),
-                // NEXT Button
+                
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF7F3DFF),
@@ -322,7 +314,7 @@ class _PageThreeState extends State<PageThree> {
                     ),
                   ),
                   onPressed: () {
-                    // Navigate to the final NextPage, passing name, age, postpartum
+                
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -349,9 +341,6 @@ class _PageThreeState extends State<PageThree> {
   }
 }
 
-//------------------------------------------------------
-// NEXT PAGE: Displays the gathered information
-//------------------------------------------------------
 class NextPage extends StatelessWidget {
   final String name;
   final String age;

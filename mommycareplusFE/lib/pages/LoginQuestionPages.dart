@@ -43,7 +43,7 @@ class _PageOneState extends State<PageOne> {
                 const SizedBox(height: 40),
                 // Main Illustration
                 Image.asset(
-                  "assets/image 8.png", 
+                  "assets/images/image 8.png", 
                   width: 300,
                   height: 300,
                   fit: BoxFit.contain,

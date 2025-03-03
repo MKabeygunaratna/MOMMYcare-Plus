@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="using a provider instead of passing arguments">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/linux/flutter/generated_plugins.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/windows/flutter/generated_plugins.cmake" afterDir="false" />
-    </list>
+    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="using a provider instead of passing arguments" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mommycareplusFE/pages/EmailVerification.dart';
 import 'package:mommycareplusFE/pages/TodoListScreen.dart';
 import 'package:mommycareplusFE/pages/signup.dart';
+import 'package:mommycareplusFE/screen/notification_permission_dialog.dart';
 
 // import 'package:login/pages/EmailVerification.dart';
 
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Todolistscreen(),
+      home: const NotificationPermissionDialog(),
     );
   }
 }

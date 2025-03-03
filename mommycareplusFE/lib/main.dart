@@ -11,7 +11,6 @@ import 'package:mommycareplusFE/pages/EmailVerification.dart';
 
 // import 'package:mommycareplusFE/pages/TodoListScreen.dart';
 
-
 // import 'package:login/pages/EmailVerification.dart';
 
 // import 'package:mommycareplusFE/pages/ForgotPasswordNew.dart';
@@ -21,25 +20,22 @@ import 'package:mommycareplusFE/pages/GuardianScreen.dart';
 // import 'package:mommycareplusFE/pages/Questions.dart';
 // import 'package:mommycareplusFE/pages/SettingsScreen.dart';
 // import 'package:mommycareplusFE/pages/SubscriptionScreen.dart';
-// import 'package:mommycareplusFE/pages/ThemeProvider.dart';
+import 'package:mommycareplusFE/pages/ThemeProvider.dart';
 //import 'package:login/pages/EmailVerification.dart';
 // import 'package:mommycareplusFE/pages/chatbot1.dart';
 // import 'package:mommycareplusFE/pages/chatbot2.dart';
-// import 'package:provider/provider.dart';
-// import 'package:mommycareplusFE/pages/GuardianProvider.dart';
-
-
+import 'package:provider/provider.dart';
+import 'package:mommycareplusFE/pages/GuardianProvider.dart';
 
 void main() {
   runApp(
     MultiProvider(
-        providers: [
-          ChangeNotifierProvider(create: (context) => GuardianProvider()),
-          ChangeNotifierProvider(create: (context) => ThemeProvider()),
-          ChangeNotifierProvider(create: (context) => DoctorProvider()),
-          ChangeNotifierProvider(create: (context)=> ProfileProvider())
-
-        ],
+      providers: [
+        ChangeNotifierProvider(create: (context) => GuardianProvider()),
+        ChangeNotifierProvider(create: (context) => ThemeProvider()),
+        ChangeNotifierProvider(create: (context) => DoctorProvider()),
+        ChangeNotifierProvider(create: (context) => ProfileProvider())
+      ],
       child: MyApp(),
     ),
   );
@@ -50,20 +46,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-// <<<<<<< Developer_version
-//     return MaterialApp(
-//       title: 'Mommycare+',
-//       debugShowCheckedModeBanner: false,
-//       theme: ThemeData(
-//         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-//         useMaterial3: true,
-//       ),
-//       home: Todolistscreen(),
-//     );
-//   }
-// }
-////////////////
-
     return Consumer<ThemeProvider>(
       builder: (context, themeProvider, child) {
         return MaterialApp(
@@ -72,11 +54,9 @@ class MyApp extends StatelessWidget {
           themeMode: themeProvider.themeMode,
           theme: ThemeData.light(),
           darkTheme: ThemeData.dark(),
-          home:GuardianDetailsScreen(),
+          home: EmailVerification(),
         );
       },
     );
   }
 }
-
-

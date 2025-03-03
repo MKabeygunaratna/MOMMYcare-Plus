@@ -34,7 +34,7 @@ class Todolistscreen extends StatelessWidget {
                 children: [
                   StatusCard(
                       icon: Icons.list,
-                      title: "Tasks for today",
+                      title: "Task for today",
                       count: 5,
                       iconColor: Color(0xFFD97325)),
                   StatusCard(
@@ -180,6 +180,24 @@ class TaskCard extends StatelessWidget {
       child: ListTile(
         title: Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
         subtitle: Text(subtitle),
+      ),
+    );
+  }
+}
+
+class VaccinationCard extends StatelessWidget {
+  // ignore: non_constant_identifier_names
+  final String Vtitle;
+
+  const VaccinationCard({ required this.Vtitle});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      child: ListTile(
+        title: Text(Vtitle, style: TextStyle(fontWeight: FontWeight.bold)),
+     
       ),
     );
   }

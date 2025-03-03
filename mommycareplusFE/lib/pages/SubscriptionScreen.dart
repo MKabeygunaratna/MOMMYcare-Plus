@@ -25,9 +25,9 @@ class _SubscriptionPlanState extends State<SubscriptionPlan> {
           icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.pop(context),
         ),
-        title: const Text(
+        title: Text(
           'Subscription Plan',
-          style: TextStyle(color: Colors.black, fontSize: 20),
+          style: TextStyle(color: Colors.black, fontSize: screenWidth * 0.06),
         ),
       ),
       body: SingleChildScrollView(

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:mymommycare/babyCareBookScreen.dart';
 import 'package:mymommycare/videoPlayerScreen.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'babyCareArticleScreen.dart';
+import 'recentlyWatchedBabyCare.dart';
+import 'package:mymommycare/babyCareBookScreen.dart';
 
 class BabyCareScreen extends StatefulWidget {
   @override
@@ -8,6 +12,7 @@ class BabyCareScreen extends StatefulWidget {
 }
 
 class _BabyCareScreenState extends State<BabyCareScreen> {
+  List<Map<String, String>> recentlyWatched = [];
   int selectedTab = 0;
 
   final List<String> tabs = ["Videos", "Recent", "Books", "Articles"];
@@ -143,14 +148,16 @@ class _BabyCareScreenState extends State<BabyCareScreen> {
                       margin: EdgeInsets.symmetric(horizontal: 5),
                       padding: EdgeInsets.symmetric(vertical: 8, horizontal: 20),
                       decoration: BoxDecoration(
-                        color: selectedTab == index ? Colors.purple : Colors.white,
+                        color: selectedTab == index ? Color(0xFF7261C6) : Colors.white,
+
+
                         borderRadius: BorderRadius.circular(20),
-                        border: Border.all(color: Colors.purple),
+                        border: Border.all(color: Color(0xFF7261C6)),
                       ),
                       child: Text(
                         tabs[index],
                         style: TextStyle(
-                          color: selectedTab == index ? Colors.white : Colors.purple,
+                          color: selectedTab == index ? Colors.white : Color(0xFF7261C6),
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -162,13 +169,15 @@ class _BabyCareScreenState extends State<BabyCareScreen> {
           ),
           Expanded(
             child: selectedTab == 0
-                ? buildVideoSection()
-                : Center(
-              child: Text(
-                "${tabs[selectedTab]} content coming soon!",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-            ),
+                ? buildVideoSection() // Video section remains unchanged
+                // : selectedTab == 1
+                // ? recentlyWatchedBabyCareScreen() // Add your recent section here
+                : selectedTab == 2
+                ? BooksScreen()
+                : selectedTab == 3
+                ? ArticlesScreen() // Removed the comma here
+                : Container(), // Optional fallback
+
           ),
         ],
       ),

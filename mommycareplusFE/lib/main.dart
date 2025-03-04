@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mommycareplusFE/pages/EmailVerification.dart';
+import 'package:mommycareplusFE/pages/library.dart';
 
 // import 'package:login/pages/EmailVerification.dart';
 
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: EmailVerification(),
+      home: LibraryScreen(),
     );
   }
 }

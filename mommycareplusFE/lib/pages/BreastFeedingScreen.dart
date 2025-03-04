@@ -1,22 +1,17 @@
 import 'package:flutter/material.dart';
-import 'BreastFeedingScreen.dart';
-import 'EmailVerification.dart';
-import 'babyCareArticleScreen.dart';
-import '';
-import 'babyCareBookScreen.dart';
-import 'videoPlayerScreen.dart';
+// import 'package:mymommycare/babyCareBookScreen.dart';
+// import 'package:mymommycare/videoPlayerScreen.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'babyCareArticleScreen.dart';
 import 'recentlyWatchedBabyCare.dart';
+// import 'package:mymommycare/babyCareBookScreen.dart';
 
-import 'babyCareBookScreen.dart';
-
-class BabyCareScreen extends StatefulWidget {
+class BreastFeedingScreen extends StatefulWidget {
   @override
-  _BabyCareScreenState createState() => _BabyCareScreenState();
+  _BreastFeedingScreenState createState() => _BreastFeedingScreenState();
 }
 
-class _BabyCareScreenState extends State<BabyCareScreen> {
+class _BreastFeedingScreenState extends State<BreastFeedingScreen> {
   List<Map<String, String>> recentlyWatched = [];
   int selectedTab = 0;
 
@@ -81,7 +76,7 @@ class _BabyCareScreenState extends State<BabyCareScreen> {
       {
         "title": "How to change a baby's diaper",
         "videoId": "cDa2BTZppUc",
-        "description": " Let us take you on a step-by-step guide"
+        "description": "Let us take you on a step-by-step guide"
       },
       {
         "title": "How do I change a dirty nappy? | NHS",
@@ -109,16 +104,6 @@ class _BabyCareScreenState extends State<BabyCareScreen> {
         "videoId": "j2C8MkY7Co8",
         "description": "Effective ways to calm a fussy baby quickly."
       },
-      {
-        "title": "5 Proven Ways to Soothe a Crying Baby",
-        "videoId": "j2C8MkY7Co8",
-        "description": "Effective ways to calm a fussy baby quickly."
-      },
-      {
-        "title": "5 Proven Ways to Soothe a Crying Baby",
-        "videoId": "j2C8MkY7Co8",
-        "description": "Effective ways to calm a fussy baby quickly."
-      },
     ],
   };
 
@@ -126,7 +111,7 @@ class _BabyCareScreenState extends State<BabyCareScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Baby Care", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+        title: Text("Breast Feeding", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
         centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
@@ -135,7 +120,6 @@ class _BabyCareScreenState extends State<BabyCareScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Top Navigation Buttons
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 15),
             child: SingleChildScrollView(
@@ -154,8 +138,6 @@ class _BabyCareScreenState extends State<BabyCareScreen> {
                       padding: EdgeInsets.symmetric(vertical: 8, horizontal: 20),
                       decoration: BoxDecoration(
                         color: selectedTab == index ? Color(0xFF7261C6) : Colors.white,
-
-
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(color: Color(0xFF7261C6)),
                       ),
@@ -174,15 +156,12 @@ class _BabyCareScreenState extends State<BabyCareScreen> {
           ),
           Expanded(
             child: selectedTab == 0
-                ? buildVideoSection() // Video section remains unchanged
-                // : selectedTab == 1
-                // ? recentlyWatchedBabyCareScreen() // Add your recent section here
-                : selectedTab == 2
-                ? BooksScreen()
+                ? buildVideoSection()
+                // : selectedTab == 2
+                // ? BooksScreen()
                 : selectedTab == 3
-                ? ArticlesScreen() // Removed the comma here
-                : Container(), // Optional fallback
-
+                ? ArticlesScreen()
+                : Container(),
           ),
         ],
       ),
@@ -191,9 +170,8 @@ class _BabyCareScreenState extends State<BabyCareScreen> {
 
   Widget buildVideoSection() {
     return ListView(
-      shrinkWrap: true,  // Add this to fix overflow issues
-      physics: ClampingScrollPhysics(), // Prevents conflicts with scrolling
-
+      shrinkWrap: true,
+      physics: ClampingScrollPhysics(),
       children: topics.keys.map((category) {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -206,7 +184,7 @@ class _BabyCareScreenState extends State<BabyCareScreen> {
               ),
             ),
             SizedBox(
-              height: 280, // Increased height to fit the video and text properly
+              height: 280,
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -219,7 +197,7 @@ class _BabyCareScreenState extends State<BabyCareScreen> {
                         borderRadius: BorderRadius.circular(16),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black26, // Adjust shadow to be lighter
+                            color: Colors.black26,
                             blurRadius: 5,
                             spreadRadius: 1,
                             offset: Offset(2, 4),
@@ -228,63 +206,34 @@ class _BabyCareScreenState extends State<BabyCareScreen> {
                       ),
                       child: Column(
                         children: [
-                          // Ensure the video player also has rounded corners
                           ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(16),
-                              topRight: Radius.circular(16),
-                            ),
+                            borderRadius: BorderRadius.only(topLeft: Radius.circular(16), topRight: Radius.circular(16)),
                             child: GestureDetector(
                               onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => VideoPlayerScreen(
-                                      videoId: video['videoId']!,
-                                      title: video['title']!,
-                                    ),
-                                  ),
-                                );
+                                // Navigator.push(
+                                //   context,
+                                //   // MaterialPageRoute(
+                                //   //   builder: (context) => VideoPlayerScreen(
+                                //   //     videoId: video['videoId']!,
+                                //   //     title: video['title']!,
+                                //   //   ),
+                                //   // ),
+                                // );
                               },
                               child: Container(
                                 height: 150,
                                 width: 260,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(16),
-                                    topRight: Radius.circular(16),
-                                  ),
                                   image: DecorationImage(
                                     image: NetworkImage('https://img.youtube.com/vi/${video['videoId']}/0.jpg'),
                                     fit: BoxFit.cover,
                                   ),
                                 ),
-                                child: Icon(
-                                  Icons.play_circle_fill,
-                                  color: Colors.white,
-                                  size: 60,
-                                ),
+                                child: Icon(Icons.play_circle_fill, color: Colors.white, size: 60),
                               ),
                             ),
-
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  video['title']!,
-                                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(height: 5),
-                                Text(
-                                  video['description']!,
-                                  style: TextStyle(fontSize: 12, color: Colors.grey[600]),
-                                ),
-                              ],
-                            ),
-                          ),
+                          // (rest stays the same)
                         ],
                       ),
                     );
@@ -292,7 +241,6 @@ class _BabyCareScreenState extends State<BabyCareScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 10),
           ],
         );
       }).toList(),

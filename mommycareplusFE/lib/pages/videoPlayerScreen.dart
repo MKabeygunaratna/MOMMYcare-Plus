@@ -31,7 +31,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
-        backgroundColor: Colors.purple,
+        backgroundColor: Colors.white,
       ),
       body: YoutubePlayer(
         controller: _controller,

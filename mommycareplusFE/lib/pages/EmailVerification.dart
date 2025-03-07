@@ -86,7 +86,7 @@ class EmailVerification extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: List.generate(
                   4,
-                  (index) => Container(
+                      (index) => Container(
                     height: 60,
                     width: 60,
                     decoration: BoxDecoration(

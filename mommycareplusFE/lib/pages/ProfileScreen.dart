@@ -4,10 +4,12 @@ import 'Profile_Provider.dart';
 import 'GuardianProvider.dart';
 import 'DoctorProvider.dart';
 import 'EditProfileScreen.dart';
+import 'UserProvider.dart';
 
 class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final userProvider = Provider.of<UserProvider>(context);
     final profileProvider = Provider.of<ProfileProvider>(context);
     final guardianProvider = Provider.of<GuardianProvider>(context);
     final doctorProvider = Provider.of<DoctorProvider>(context);
@@ -54,6 +56,9 @@ class ProfileScreen extends StatelessWidget {
             ProfileSection(
               title: 'Personal Information',
               items: [
+                {'label': 'Name', 'value': userProvider.name},
+                {'label': 'Age', 'value': userProvider.age},
+                {'label': 'Postpartum Period', 'value': userProvider.postpartum},
                 {'label': 'Baby\'s Name', 'value': profileProvider.babyName},
                 {'label': 'Location', 'value': profileProvider.location},
               ],

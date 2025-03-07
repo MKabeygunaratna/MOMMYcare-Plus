@@ -12,7 +12,7 @@ class ForgotPasswordNew extends StatelessWidget {
       backgroundColor: Colors.white,
       body: SafeArea(
         child:
-            Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+        Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
           // Back Arrow and Title
           Container(
             decoration: const BoxDecoration(
@@ -85,7 +85,7 @@ class ForgotPasswordNew extends StatelessWidget {
                   decoration: InputDecoration(
                     labelText: 'E-mail',
                     prefixIcon:
-                        const Icon(Icons.email_outlined, color: Colors.grey),
+                    const Icon(Icons.email_outlined, color: Colors.grey),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),

@@ -5,14 +5,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'ProfileScreen.dart';
 import 'Questions.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class Samplehomepage extends StatefulWidget {
+  const Samplehomepage({Key? key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<Samplehomepage> {
   int currentDay = 1;
   bool testCompleted = false;
 

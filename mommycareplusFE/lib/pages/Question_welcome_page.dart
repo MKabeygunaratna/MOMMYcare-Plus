@@ -17,7 +17,7 @@ class QuestionWelcomePage extends StatelessWidget {
           icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: ()=>Navigator.push(
             context,
-            MaterialPageRoute(builder: (context)=>HomePage())
+            MaterialPageRoute(builder: (context)=>Samplehomepage())
           ),
         ),
       ),

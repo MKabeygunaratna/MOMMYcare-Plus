@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'Profile_Provider.dart';
 import 'GuardianProvider.dart';
 import 'DoctorProvider.dart';
+import 'UserProvider.dart';
 
 class EditProfileScreen extends StatefulWidget {
   @override
@@ -14,6 +15,8 @@ class EditProfileScreen extends StatefulWidget {
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
   late TextEditingController nameController;
+  late TextEditingController ageController;
+  late TextEditingController postpartumController;
   late TextEditingController guardianNameController;
   late TextEditingController guardianContactController;
   late TextEditingController babyNameController;
@@ -33,8 +36,13 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     final profileProvider = Provider.of<ProfileProvider>(context, listen: false);
     final guardianProvider = Provider.of<GuardianProvider>(context, listen: false);
     final doctorProvider = Provider.of<DoctorProvider>(context, listen: false);
+    final userProvider = Provider.of<UserProvider>(context,listen: false);
 
-    nameController = TextEditingController(text: profileProvider.name);
+
+
+    nameController = TextEditingController(text: userProvider.name);
+    ageController = TextEditingController(text: userProvider.age);
+    postpartumController = TextEditingController(text: userProvider.postpartum);
     babyNameController = TextEditingController(text: profileProvider.babyName);
     locationController = TextEditingController(text: profileProvider.location);
     _imageFile = profileProvider.profileImage;
@@ -51,6 +59,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   @override
   void dispose() {
     nameController.dispose();
+    ageController.dispose();
+    postpartumController.dispose();
     guardianNameController.dispose();
     guardianContactController.dispose();
     babyNameController.dispose();
@@ -111,10 +121,17 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     final profileProvider = Provider.of<ProfileProvider>(context, listen: false);
     final guardianProvider = Provider.of<GuardianProvider>(context, listen: false);
     final doctorProvider = Provider.of<DoctorProvider>(context, listen: false);
+    final userProvider = Provider.of<UserProvider>(context,listen: false);
+
+
+    userProvider.updateUser(
+      name:nameController.text,
+      age: ageController.text,
+      postpartum: postpartumController.text,
+    );
 
     // Update profile data
     profileProvider.updateProfile(
-      name: nameController.text,
       babyName: babyNameController.text,
       location: locationController.text,
       profileImage: _imageFile,
@@ -204,6 +221,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               const SizedBox(height: 20),
 
               buildTextField("Name", Icons.person, nameController, TextInputType.text),
+              const SizedBox(height: 30),
+              buildTextField("Age", Icons.person, ageController, TextInputType.text),
+              const SizedBox(height: 30),
+              buildTextField("Postpartum Period", Icons.person, postpartumController, TextInputType.text),
               const SizedBox(height: 30),
               buildTextField("Guardian's Name", Icons.person, guardianNameController, TextInputType.text),
               const SizedBox(height: 30),

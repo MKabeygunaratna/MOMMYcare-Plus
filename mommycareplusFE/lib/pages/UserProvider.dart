@@ -23,4 +23,15 @@ class UserProvider extends ChangeNotifier {
     _postpartum = postpartum;
     notifyListeners();
   }
+
+  void updateUser({
+    required String name,
+    required String age,
+    required String postpartum,
+}){
+    _name = name;
+    _age = age;
+    _postpartum = postpartum;
+    notifyListeners();
+  }
 }

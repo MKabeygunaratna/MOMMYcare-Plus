@@ -45,7 +45,7 @@ class ProfileScreen extends StatelessWidget {
             ),
             SizedBox(height: 16),
             Text(
-              profileProvider.name,
+              userProvider.name,
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,

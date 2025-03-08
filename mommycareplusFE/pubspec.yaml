@@ -94,6 +94,7 @@ flutter:
       - assets/images/image8.png
       - assets/images/image15.png
       - assets/images/image21.png
+      - assets/images/Splash_screen.png
 
 
 
@@ -111,9 +112,10 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Post No Bills Jaffna ExtraBold
+    - family: postnobillscolombo
       fonts:
-        - asset: assets/fonts/PostNoBillsJaffna-ExtraBold.ttf
+        - asset: assets/fonts/postnobillscolombo-extrabold.ttf
+          weight: 800
 
     - family: Poppins
       fonts:

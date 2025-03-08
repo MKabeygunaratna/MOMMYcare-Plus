@@ -3,6 +3,7 @@ import 'package:mommycareplusFE/pages/AboutScreen.dart';
 import 'package:mommycareplusFE/pages/DoctorProvider.dart';
 import 'package:mommycareplusFE/pages/DoctorScreen.dart';
 import 'package:mommycareplusFE/pages/EditProfileScreen.dart';
+import 'package:mommycareplusFE/pages/GetStartedScreen.dart';
 import 'package:mommycareplusFE/pages/LoginQuestionPages.dart';
 import 'package:mommycareplusFE/pages/PrivacyScreen.dart';
 import 'package:mommycareplusFE/pages/Profile_Provider.dart';
@@ -61,7 +62,7 @@ class MyApp extends StatelessWidget {
           themeMode: themeProvider.themeMode,
           theme: ThemeData.light(),
           darkTheme: ThemeData.dark(),
-          home:SplashScreen(),
+          home:StartScreen(),
         );
       },
     );

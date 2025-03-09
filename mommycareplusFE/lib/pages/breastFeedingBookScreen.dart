@@ -78,37 +78,25 @@ to slow down production.
     ),
 
 
-    Book(
-      author: 'S M Gross',
-      title: 'The Simplest Baby Book in the World: The Illustrated, Grab-And-Do Guide for a Healthy, Happy Baby',
-      imageUrl: 'assets/Simplest_Baby.jpg',
+       Book(
+      author: 'Linda D Dahl',
+      title: 'Better Breastfeeding',
+      imageUrl: 'assets/lord_of_the_rings.jpg',
       description: '''
-      
-The Simplest Baby Book in the World is the illustrated grab-and-do guide that helps first-time moms and dads gain confidence in their ability to be great new parents. More than 700 playful, yet instructive, illustrations make learning faster and easier.
+"Simple, smart, and effective solutions to your child’s struggles.”—Harvey Karp, M.D.
 
-Enjoy an easier first year of raising baby with this curated and distilled collection of essentials, including the best-of-the-best advice on topics like:
+In this pioneering, practical book, Daniel J. Siegel, neuropsychiatrist and author of the bestselling Mindsight, and parenting expert Tina Payne Bryson offer a revolutionary approach to child rearing with twelve key strategies that foster healthy brain development, leading to calmer, happier children. The authors explain—and make accessible—the new science of how a child’s brain is wired and how it matures. The “upstairs brain,” which makes decisions and balances emotions, is under construction until the mid-twenties. And especially in young children, the right brain and its emotions tend to rule over the logic of the left brain. No wonder kids throw tantrums, fight, or sulk in silence. By applying these discoveries to everyday parenting, you can turn any outburst, argument, or fear into a chance to integrate your child’s brain and foster vital growth.
 
-• Sleep training and sleeping through the night.
+Complete with age-appropriate strategies for dealing with day-to-day struggles and illustrations that will help you explain these concepts to your child, The Whole-Brain Child shows you how to cultivate healthy emotional and intellectual development so that your children can lead balanced, meaningful, and connected lives.
 
-• When and how much to feed your baby.
+“[A] useful child-rearing resource for the entire family . . . The authors include a fair amount of brain science, but they present it for both adult and child audiences.”—Kirkus Reviews
 
-• Everything you need to know about bath time for newborns.
+“Strategies for getting a youngster to chill out [with] compassion.”—The Washington Post
 
-• How to be safe and stay sane when traveling with your baby.
+“This erudite, tender, and funny book is filled with fresh ideas based on the latest neuroscience research. I urge all parents who want kind, happy, and emotionally healthy kids to read The Whole-Brain Child. This is my new baby gift.”—Mary Pipher, Ph.D., author of Reviving Ophelia and The Shelter of Each Other
 
-• Preparing the nursery.
-
-• Solutions to the most common ailments.
-
-• Helpful experience and best practices of the community of those who know best: pediatricians, nurses, lactation specialists, nannies, educators, and other first-time moms and dads.
-
-You will quickly and easily ﬁnd simple solutions and have proven techniques at your ﬁngertips when you need them most, whether it’s 2 a.m. or 2 p.m. Every chapter starts with an essential list of products, providing a handy checklist for everything you will need. Don’t miss recommendations for the must- have products that make parents’ lives easier while saving them time and money. QR codes placed throughout the book will directly link you to our list of the best-of-the-best products and brands.
-
-The Simplest Baby Book is the baby-care solution for all of today’s parents―both moms and dads. At a time when the role of men in providing childcare is increasing, and families come in all shapes and sizes, it is important that parenting reﬂects this new reality. The Simplest Baby Book does just that.
-
-Forget all the other baby books and “bibles” you will never read. Choose The Simplest Baby Book in the World to raise your healthy, happy baby.''',
+“Gives parents and teachers ideas to get all parts of a healthy child’s brain working together.”—Parent to Parent''',
     ),
-
 
     Book(
       author: 'Daniel J. Siegel and Tina Payne Bryson',

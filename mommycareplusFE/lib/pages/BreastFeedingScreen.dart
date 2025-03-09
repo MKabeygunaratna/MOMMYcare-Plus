@@ -1,5 +1,8 @@
 
 import 'package:flutter/material.dart';
+import 'VideoPlayerScreen.dart';
+import 'breastFeedingArticleScreen.dart';
+import 'breastFeedingBookScreen.dart';
 
 
 class BreastFeedingScreen extends StatefulWidget {

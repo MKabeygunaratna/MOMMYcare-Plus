@@ -3,11 +3,77 @@ import 'package:flutter/material.dart';
 class Breastfeedingbookscreen extends StatelessWidget {
   final List<Book> books = [
     Book(
-      author: 'Emily Oster',
-      title: 'Cribsheet: A Data-Driven Guide to Better, More Relaxed Parenting, from Birth to Preschool',
-      imageUrl: 'assets/Cribsheet.jpg',
+      author: 'Diane Wiessinger, Diana West, and Teresa Pitman',
+      title: 'The Womanly Art of Breastfeeding',
+      imageUrl: 'assets/The Womanly Art of Breastfeeding.jpeg',
       description: '''
-       
+
+**Laid-back Breastfeeding** 
+ laid- back breastfeeding, or Biological Nurturing, means getting
+comfortable with your baby and encouraging your own and your baby’s
+natural breastfeeding instincts. See biologicalnurturing.com for further
+information.
+ • Dress yourself and your baby as you choose.
+ • Find a bed or couch where you can lean back and be well supported— not
+fl at, but comfortably leaning back so that when you put your baby on
+your chest, gravity will keep him in position with his body molded to
+yours.
+ • Have your head and shoulders well supported. Let your baby’s whole
+front touch your whole front.
+ • Since you’re leaning back, you don’t have a lap, so your baby can rest on
+you in any position you like. Just make sure her whole front is against
+you.
+ • Let your baby’s cheek rest somewhere near your bare breast.
+ • Help her as much as you like; help her do what she’s trying to do. You’re
+a team.
+ • Hold your breast or not, as you like.
+ • Relax and enjoy each other.
+
+**Waking a Sleepy Newborn**
+If your newborn sleeps longer than three hours at a stretch, but
+ • You had no birth medications
+ • Your baby stays in physical contact with you
+ • He feeds well when he feeds
+ • His diapers are on track (see the Early Days Diaper Log)
+that’s probably just who he is. Keep an eye on his poopy diapers and his
+weight.
+If he’s not gaining well and he sleeps more than three hours at a stretch,
+aim for at least ten nursings each day until he wakes on his own and has at
+least four good poopy diapers each day.
+It will be easier to wake him to feed if you see some of the feeding cues
+listed on the next tear sheet. If he’s sleeping and you try to lift his arm and
+it drops like a rock when you let it go, he’ll be hard to wake. Try again in
+twenty minutes. Things to try:
+ • Dim the lights, pull the drapes. It’s easier if he doesn’t have to squint.
+ • Undress him partially or completely. Put him on your chest.
+ • Stroke him and call his name. Rub his feet.
+ • Lay him down and roll him gently from all the way on one side to all
+the way on his other side.
+ • Hold him along your forearms, head in your hands, feet at your
+elbows, and lift him from nearly horizontal to nearly vertical and
+back, as you talk to him.
+ • Wipe his face with a damp cloth.
+ • Put a little colostrum or milk in his mouth— just a bit, waiting for
+him to swallow before adding more.
+He might latch and nurse in his sleep in a laid- back breastfeeding position, or
+he might take sips from a spoon. Feed him in whatever way works for you.
+
+**Feeding Cues**
+ • A baby starts with subtle nursing cues— eyes moving beneath eyelids, eyelids fl uttering before they even open, hands coming toward
+face, mouth movements.
+ • Then she adds more obvious ones— rooting toward your chest,
+whimpering or squeaking.
+ • If you offer to nurse now, she’ll probably take your breast gently and
+easily.
+ • As her hunger builds, her body and mouth tense. She breathes fast or
+starts to cry.
+ • Once she’s crying, she’ll have a harder time latching. Crying is a late
+sign of hunger. Calm her down before trying to feed her.
+ • Breastfeeding is easier if you answer her requests instead of waiting
+for her demands.
+ • Don’t wait for your breasts to feel full. A full breast has already started
+to slow down production.
+ • Offer even if she’s not asking, anytime you like.
       ''',
     ),
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 
-class ArticlesScreen extends StatelessWidget {
+class Breastfeedingarticlescreen extends StatelessWidget {
   final List<Article> articles = [
     Article(
       author: 'Dr. Emma Collins',

@@ -12,96 +12,29 @@ class _BreastFeedingScreenState extends State<BreastFeedingScreen> {
   int selectedTab = 0;
 
   final List<String> tabs = ["Videos", "Recent", "Books", "Articles"];
-
-  final Map<String, List<Map<String, String>>> topics = {
-    "Umbilical Cord Care": [
-      {
-        "title": "How to care for your baby’s umbilical cord",
-        "videoId": "rty9PYI7S_k",
-        "description": "A step-by-step guide on keeping your baby's umbilical cord clean and infection-free."
-      },
-      {
-        "title":"New born care:Umbilical Cord Care",
-        "videoId":"KajgGUBH9dk",
-        "description":"This video is about taking care of the umbilical cord on your baby"
-      },
-      {
-        "title":"How do i take care of the Umbilical Cord stump",
-        "videoId":"bdOue2hKzM8&t=11s",
-        "description":"Midwife explains how you can care for your baby's umbilical cord stump."
-      },
-      {
-        "title":"EASY Newborn Umbilical Cord Care",
-        "videoId":"EntebbkIGdk",
-        "description":"Umbilical Cord care can be confusing. We breakdown how to make this easy."
-      },
-    ],
-    "Newborn Sleep Patterns": [
-      {
-        "title": "Understanding Newborn Sleep Cycles",
-        "videoId": "f0xWYk6mXX4",
-        "description": "Learn how newborns sleep and how you can establish a routine."
-      },
-      {
-        "title": "Newborn Sleeping Tips From A Pediatrician",
-        "videoId": "j0M4v24gSaw",
-        "description": "offers parents her expert advice on the essentials of newborn sleep."
-      },
-      {
-        "title": "How much sleep should my newborn baby have?",
-        "videoId": "2QJ3Vf55z-Q",
-        "description": "Midwife Natalie Carter talks about how much sleep a newborn needs and how every baby is different."
-      },
-      {
-        "title": "How much will my newborn sleep?",
-        "videoId": "ViM0a-v7Mdk",
-        "description": "explains how much your newborn will sleep in the first few months of life."
-      },
-    ],
-    "Diapering & Hygiene": [
-      {
-        "title": "How to Change a Newborn’s Diaper Correctly",
-        "videoId": "msxX74EucBM",
-        "description": "Tips and techniques to change your newborn's diaper safely."
-      },
-      {
-        "title": "How to Change a Baby Diaper | NO LEAKS | Huggies",
-        "videoId": "QJxuTe82oxU&t=37s",
-        "description": "This technique works when you CHANGE A NEWBORN DIAPER"
-      },
-      {
-        "title": "How to change a baby's diaper",
-        "videoId": "cDa2BTZppUc",
-        "description": "Let us take you on a step-by-step guide"
-      },
-      {
-        "title": "How do I change a dirty nappy? | NHS",
-        "videoId": "XEV-oQmGDto",
-        "description": "Midwife Tracey Owen explains the best"
-      },
-    ],
-    "Common Baby Rashes & Skin Care": [
-      {
-        "title": "Baby Rashes: Types and Treatments",
-        "videoId": "ei6Y1AgrOZk",
-        "description": "Understanding different baby rashes and how to treat them."
-      },
-    ],
-    "Baby’s First Bath": [
-      {
-        "title": "Tips on How to Bathe a Baby Safely",
-        "videoId": "7yxd25nZMaE",
-        "description": "Temperature, timing, and products to use for a safe bath."
-      },
-    ],
-    "Soothing a Crying Baby": [
-      {
-        "title": "5 Proven Ways to Soothe a Crying Baby",
-        "videoId": "j2C8MkY7Co8",
-        "description": "Effective ways to calm a fussy baby quickly."
-      },
-    ],
-  };
+  
+  final List<Map<String, String>> allVideos = [
+    {
+      "title": "Labor & Delivery: Breastfeeding Tips for New Mothers",
+      "videoId": "vijHv5GxqRs",
+      "description": "Specialists provide high-quality labor and delivery care in warm and friendly environments."
+    },
+    {
+      "title": "Breastfeeding Tips on How to Get a Deep Latch & How to Avoid Pain While Nursing",
+      "videoId": "u7Ufl1XR1Qg",
+      "description": "Learn how to get a deep latch and avoid pain while nursing."
+    },
+    {
+      "title": "Breast Feeding Your PreTerm Infant",
+      "videoId": "TcEnyoJB_9U",
+      "description": "How to care for your preterm infant and support breastfeeding."
+    },
+    {
+      "title": "Tips for Increasing Breast Milk Supply | How to Power Pump | Foods to Produce More Milk",
+      "videoId": "W9VYI2CFkQQ",
+      "description": "Worried about milk supply? Learn tips on power pumping and foods that boost milk production."
+    }
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -155,8 +88,8 @@ class _BreastFeedingScreenState extends State<BreastFeedingScreen> {
                 ? buildVideoSection()
                 // : selectedTab == 2
                 // ? BooksScreen()
-                : selectedTab == 3
-                ? ArticlesScreen()
+                // : selectedTab == 3
+                // ? ArticlesScreen()
                 : Container(),
           ),
         ],

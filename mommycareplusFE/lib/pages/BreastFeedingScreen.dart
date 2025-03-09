@@ -89,10 +89,10 @@ class _BreastFeedingScreenState extends State<BreastFeedingScreen> {
           Expanded(
             child: selectedTab == 0
                 ? buildVideoSection()
-                // : selectedTab == 2
-                // ? BooksScreen()
-                // : selectedTab == 3
-                // ? ArticlesScreen()
+                : selectedTab == 2
+                ? Breastfeedingbookscreen()
+                : selectedTab == 3
+                ? Breastfeedingarticlescreen()
                 : Container(),
           ),
         ],
@@ -101,81 +101,78 @@ class _BreastFeedingScreenState extends State<BreastFeedingScreen> {
   }
 
   Widget buildVideoSection() {
-    return ListView(
-      shrinkWrap: true,
-      physics: ClampingScrollPhysics(),
-      children: topics.keys.map((category) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                category,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-            ),
-            SizedBox(
-              height: 280,
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: topics[category]!.map((video) {
-                    return Container(
-                      width: 260,
-                      margin: EdgeInsets.only(left: 10, right: 10, bottom: 10),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(16),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black26,
-                            blurRadius: 5,
-                            spreadRadius: 1,
-                            offset: Offset(2, 4),
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.only(topLeft: Radius.circular(16), topRight: Radius.circular(16)),
-                            child: GestureDetector(
-                              onTap: () {
-                                // Navigator.push(
-                                //   context,
-                                //   // MaterialPageRoute(
-                                //   //   builder: (context) => VideoPlayerScreen(
-                                //   //     videoId: video['videoId']!,
-                                //   //     title: video['title']!,
-                                //   //   ),
-                                //   // ),
-                                // );
-                              },
-                              child: Container(
-                                height: 150,
-                                width: 260,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: NetworkImage('https://img.youtube.com/vi/${video['videoId']}/0.jpg'),
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                child: Icon(Icons.play_circle_fill, color: Colors.white, size: 60),
-                              ),
-                            ),
-                          ),
-                          // (rest stays the same)
-                        ],
-                      ),
-                    );
-                  }).toList(),
+    return ListView.builder(
+      padding: EdgeInsets.all(8),
+      itemCount: allVideos.length,
+      itemBuilder: (context, index) {
+        final video = allVideos[index];
+
+        return Card(
+          margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+          elevation: 3,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => VideoPlayerScreen(
+                    videoId: video['videoId']!,
+                    title: video['title']!,
+                  ),
                 ),
-              ),
+              );
+            },
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
+                  child: Image.network(
+                    'https://img.youtube.com/vi/${video['videoId']}/maxresdefault.jpg',
+                    width: double.infinity,
+                    height: 180,
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Container(
+                        height: 180,
+                        color: Colors.grey[300],
+                        child: Center(
+                          child: Icon(Icons.broken_image, size: 50, color: Colors.grey[600]),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        video['title']!,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        video['description']!,
+                        style: TextStyle(fontSize: 14, color: Colors.grey[700]),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         );
-      }).toList(),
+      },
     );
   }
 }

@@ -131,7 +131,7 @@ class _BreastFeedingScreenState extends State<BreastFeedingScreen> {
                 ClipRRect(
                   borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
                   child: Image.network(
-                    'https://img.youtube.com/vi/${video['videoId']}/maxresdefault.jpg',
+                    'https://img.youtube.com/vi/${video['videoId']}/hqdefault.jpg',
                     width: double.infinity,
                     height: 180,
                     fit: BoxFit.cover,

@@ -133,7 +133,7 @@ Key Insights:
 🔹 Best for: Parents looking for a gentle, research-backed way to improve sleep while continuing to breastfeed.'''
     ),
    Book(
-      author: 'Harper Lee',
+      author: 'Jessica Shortall',
       title: 'Work. Pump. Repeat.: The New Mom’s Survival Guide to Breastfeeding and Going Back to Work',
       imageUrl: 'assets/to_kill_a_mockingbird.jpg',
       description: '''
@@ -148,16 +148,20 @@ Key Insights:
 🔹 Best for: Working moms who need practical, no-BS advice on how to keep breastfeeding while thriving in their careers.'''
     ),
     Book(
-      author: 'Harper Lee',
-      title: 'To Kill a Mockingbird',
-      imageUrl: 'assets/to_kill_a_mockingbird.jpg',
-      description: 'A classic novel about racial injustice in the Deep South seen through the eyes of young Scout Finch...',
-    ),
-    Book(
-      author: 'Harper Lee',
-      title: 'To Kill a Mockingbird',
-      imageUrl: 'assets/to_kill_a_mockingbird.jpg',
-      description: 'A classic novel about racial injustice in the Deep South seen through the eyes of young Scout Finch...',
+      author: 'Meg Nagle',
+      title: 'Boobin’ All Day… Boobin’ All Night',
+      imageUrl: 'assets/All_Day_Boobin.jpg',
+      description: '''
+Breastfeeding while managing a career can feel overwhelming, and this book tackles that reality with humor and honesty. It’s a no-nonsense guide that offers practical, real-world solutions for pumping at work without sacrificing professional goals.
+
+Key Insights:
+✅ Mastering the pump – The book breaks down how to build and maintain a pumping schedule, especially in a fast-paced work environment. It helps moms create a system that keeps milk supply strong despite being away from their baby.
+✅ Breast milk logistics – Detailed guidelines on safely storing, freezing, and transporting breast milk, including tips for keeping milk fresh while traveling for work.
+✅ Talking to your employer – Offers advice on how to navigate conversations with HR or managers about pumping breaks, workplace accommodations, and handling any resistance from colleagues.
+✅ Real mom experiences – The book includes unfiltered stories from working mothers who have navigated the challenges of pumping while balancing demanding jobs.
+
+🔹 Best for: Working moms who need practical, no-BS advice on how to keep breastfeeding while thriving in their careers.      
+      ''',
     ),
   ];
 

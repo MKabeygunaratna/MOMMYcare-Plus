@@ -7,7 +7,13 @@ class BooksScreen extends StatelessWidget {
       title: 'Cribsheet: A Data-Driven Guide to Better, More Relaxed Parenting, from Birth to Preschool',
       imageUrl: 'assets/Cribsheet.jpg',
       description: '''
-       
+A Data-Driven Guide to Better, More Relaxed Parenting, from Birth to Preschool by Emily Oster is a must-read for parents who want to approach child-rearing with logic, evidence, and confidence. Oster, a renowned economist and author, applies her data-analysis expertise to parenting, breaking down complex and often conflicting advice into clear, fact-based guidance.
+
+The book covers crucial early childhood topics such as breastfeeding, sleep training, vaccination, potty training, discipline, and screen time. Instead of promoting a single "right" way to parent, Oster presents research findings, explains the pros and cons of different approaches, and encourages parents to make choices that suit their own values and circumstances.
+
+Unlike traditional parenting books that push strict philosophies, Cribsheet aims to reduce stress and guilt by arming parents with knowledge rather than fear. Oster challenges conventional wisdom, highlights misinformation, and reassures parents that there is often more than one valid way to navigate early childhood.
+
+With her signature blend of wit, clarity, and analytical rigor, Emily Oster makes parenting feel less overwhelming, helping caregivers embrace a more flexible and confident mindset. Whether you're a first-time parent or raising multiple children, Cribsheet provides an empowering, science-backed roadmap to the early years of parenthood.
       ''',
     ),
 

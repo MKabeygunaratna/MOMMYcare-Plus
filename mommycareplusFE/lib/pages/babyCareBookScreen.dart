@@ -143,7 +143,7 @@ Over the decades, The Common Sense Book of Baby and Child Care has been updated 
                   borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
                   child: Image.asset(
                     book.imageUrl,
-                    height: 120,
+                    height: 170,
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),
@@ -210,7 +210,7 @@ class BookDescriptionScreen extends StatelessWidget {
               child: Image.asset(
                 book.imageUrl,
                 width: double.infinity,
-                height: 200,
+                height: 370,
                 fit: BoxFit.cover,
               ),
             ),

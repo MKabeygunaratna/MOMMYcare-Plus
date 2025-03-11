@@ -5,7 +5,7 @@ class BooksScreen extends StatelessWidget {
     Book(
       author: 'Emily Oster',
       title: 'Cribsheet: A Data-Driven Guide to Better, More Relaxed Parenting, from Birth to Preschool',
-      imageUrl: 'assets/Cribsheet.jpg',
+      imageUrl: 'assets/images/Cribsheet.jpg',
       description: '''
 A Data-Driven Guide to Better, More Relaxed Parenting, from Birth to Preschool by Emily Oster is a must-read for parents who want to approach child-rearing with logic, evidence, and confidence. Oster, a renowned economist and author, applies her data-analysis expertise to parenting, breaking down complex and often conflicting advice into clear, fact-based guidance.
 
@@ -21,7 +21,7 @@ With her signature blend of wit, clarity, and analytical rigor, Emily Oster make
     Book(
       author: 'S M Gross',
       title: 'The Simplest Baby Book in the World: The Illustrated, Grab-And-Do Guide for a Healthy, Happy Baby',
-      imageUrl: 'assets/Simplest_Baby.jpg',
+      imageUrl: 'assets/images/Simplest_Baby.jpg',
       description: '''
       
 The Simplest Baby Book in the World is the illustrated grab-and-do guide that helps first-time moms and dads gain confidence in their ability to be great new parents. More than 700 playful, yet instructive, illustrations make learning faster and easier.
@@ -53,7 +53,7 @@ Forget all the other baby books and “bibles” you will never read. Choose The
     Book(
       author: 'Daniel J. Siegel and Tina Payne Bryson',
       title: 'The Whole-Brain Child: 12 Revolutionary Strategies to Nurture Your Childs Developing Mind',
-      imageUrl: 'assets/lord_of_the_rings.jpg',
+      imageUrl: 'assets/images/Simplest_Baby.jpg',
       description: '''
 "Simple, smart, and effective solutions to your child’s struggles.”—Harvey Karp, M.D.
 

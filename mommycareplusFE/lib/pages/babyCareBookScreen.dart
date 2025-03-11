@@ -108,12 +108,7 @@ Over the decades, The Common Sense Book of Baby and Child Care has been updated 
 
       ''',
     ),
-    Book(
-      author: 'Harper Lee',
-      title: 'To Kill a Mockingbird',
-      imageUrl: 'assets/to_kill_a_mockingbird.jpg',
-      description: 'A classic novel about racial injustice in the Deep South seen through the eyes of young Scout Finch...',
-    ),
+
   ];
 
   @override

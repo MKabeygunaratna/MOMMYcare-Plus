@@ -6,7 +6,7 @@ class ArticlesScreen extends StatelessWidget {
     Article(
       author: 'Dr. Emma Collins',
       title: 'How to Take Care of Newborn Baby?: A new mom guide     ',
-      imageUrl: 'assets/images/sleeping_baby.jpg',
+      imageUrl: 'assets/images/baby1.jpg',
       description: '''
 The first few months with your newborn can be chaotic and overwhelming for first-time parents. You will get all kinds of contradicting advice from everyone about newborn baby care after birth. Deciding what advice to follow in regard to newborn care can be confusing. Caring for a newborn is exhausting and challenging, but it is also one of the most wonderful and rewarding experiences of your life. Understanding how to take care of a newborn baby involves learning about feeding, sleeping, and bonding. New parents need to develop a routine that works best for them and their baby while ensuring the baby’s needs are met with love and patience.      
 
@@ -49,11 +49,29 @@ Massage your baby to bond and improve blood circulation and digestion. Apply bab
 Always support your baby's neck and handle her gently. Avoid vigorous movements like shaking or throwing. Ensure safety when taking her out in a stroller or baby carrier. Let her lie on her tummy daily for strengthening her muscles and improving vision.
 ''',
     ),
-    Article(
+     Article(
       author: 'Sarah Mitchell, Certified Lactation Consultant',
       title: 'Breastfeeding vs. Formula Feeding: What’s Best for Your Baby?',
-      imageUrl: 'assets/images/breastfeeding.jpg',
-      description: 'Learn the pros and cons of breastfeeding and formula feeding...',
+      imageUrl: 'assets/images/baby2.jpg',
+      description: '''
+Introduction
+One of the most important decisions new parents face is how to feed their baby: breastfeeding or formula feeding? Both options have their benefits, and the right choice depends on various factors, including the baby’s needs, the mother’s health, and lifestyle considerations. Understanding the advantages and challenges of both methods can help parents make an informed decision that works best for their family.
+
+The Benefits of Breastfeeding
+Breastfeeding is often recommended by pediatricians and health organizations due to its numerous health benefits. Breast milk contains essential nutrients, antibodies, and enzymes that help boost a baby’s immune system, reducing the risk of infections and illnesses. It also promotes healthy digestion and lowers the likelihood of allergies and obesity later in life.
+
+Beyond physical health, breastfeeding fosters a strong emotional bond between mother and baby through skin-to-skin contact and hormone release. Additionally, it is cost-effective and environmentally friendly, as it requires no packaging or preparation. However, breastfeeding can be challenging for some mothers due to latching difficulties, low milk supply, or lifestyle constraints.
+
+The Benefits of Formula Feeding
+Formula feeding is a safe and convenient alternative for parents who cannot or choose not to breastfeed. Modern infant formulas are designed to provide essential nutrients that support a baby’s growth and development. Unlike breastfeeding, formula feeding allows other caregivers to participate in feeding, giving mothers more flexibility and rest.
+
+Formula-fed babies tend to follow more predictable feeding schedules, which can help some parents establish a routine. Additionally, mothers who have medical conditions or take certain medications may find formula feeding a better option for their baby’s well-being. However, formula feeding can be costly, and some babies may experience digestive discomfort or require specialized formulas for allergies or sensitivities.
+
+Making the Right Choice
+Ultimately, the best feeding method depends on the unique needs of both the baby and the parents. Some families may opt for exclusive breastfeeding, while others choose formula or a combination of both. The most important factor is ensuring that the baby receives adequate nutrition and that parents feel confident and supported in their decision.
+
+If you are unsure about the best option for your baby, consulting a lactation consultant or pediatrician can provide valuable guidance. Whether breastfeeding or formula feeding, what matters most is creating a loving and nurturing environment for your child’s growth and well-being.
+      ''',
     ),
     Article(
       author: 'Dr. Emma Collins',

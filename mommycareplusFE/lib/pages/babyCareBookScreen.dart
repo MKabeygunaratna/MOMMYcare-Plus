@@ -71,10 +71,16 @@ Complete with age-appropriate strategies for dealing with day-to-day struggles a
     ),
 
     Book(
-      author: 'Harper Lee',
-      title: 'To Kill a Mockingbird',
-      imageUrl: 'assets/to_kill_a_mockingbird.jpg',
-      description: 'A classic novel about racial injustice in the Deep South seen through the eyes of young Scout Finch...',
+      author: 'Heidi Murkoff',
+      title: 'What to Expect the First Year',
+      imageUrl: 'assets/images/What_to_Expect_the_First_Year.jpg',
+      description: '''
+A trusted guide for new parents, What to Expect the First Year provides a month-by-month breakdown of a baby’s development, offering expert advice on feeding, sleep schedules, health concerns, and milestones. Written in a reassuring and informative tone, the book covers common parenting challenges such as teething, colic, and introducing solid foods.
+
+Heidi Murkoff answers frequently asked questions and dispels myths, helping parents feel more prepared for their baby’s first year. The book also includes sections on newborn care, baby-proofing, and recognizing early signs of illness. Updated regularly, it incorporates the latest medical recommendations and parenting trends.
+
+With its easy-to-navigate format and comprehensive coverage, What to Expect the First Year is an essential handbook for first-time parents, offering clear, research-backed guidance for navigating the exciting yet challenging first 12 months of a baby’s life. 
+      ''',
     ),
     Book(
       author: 'Harper Lee',

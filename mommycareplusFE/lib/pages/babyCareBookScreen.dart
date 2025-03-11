@@ -93,12 +93,20 @@ The book explains the importance of the “fourth trimester,” the first three 
 
 With step-by-step guidance and real-life examples, The Happiest Baby on the Block provides a simple yet effective approach to baby care. Parents who struggle with sleepless nights or excessive crying will find this book incredibly helpful in creating a calm and happy baby.
       '''),
-      
+
     Book(
-      author: 'Harper Lee',
-      title: 'To Kill a Mockingbird',
+      author: 'Benjamin Spock',
+      title: 'The Common Sense Book of Baby and Child Care',
       imageUrl: 'assets/to_kill_a_mockingbird.jpg',
-      description: 'A classic novel about racial injustice in the Deep South seen through the eyes of young Scout Finch...',
+      description: '''
+First published in 1946, The Common Sense Book of Baby and Child Care by Dr. Benjamin Spock remains one of the most influential parenting books of all time. This book reassures parents that they know more than they think, emphasizing the importance of trusting their instincts rather than strictly following rigid parenting rules. Dr. Spock’s warm and supportive approach revolutionized the way parents care for their children.
+
+Unlike older parenting manuals that were strict and authoritarian, Spock’s book introduced a more flexible, child-centered philosophy. He discusses topics such as breastfeeding, discipline, child development, and emotional well-being in a way that encourages parents to adapt to their child’s unique needs. His message—"Trust yourself. You know more than you think you do"—resonates with generations of parents.
+
+Over the decades, The Common Sense Book of Baby and Child Care has been updated to reflect modern parenting challenges while maintaining its core philosophy of nurturing and responsive care. It remains a valuable resource for both new and experienced parents seeking timeless, practical advice on raising happy, healthy children.
+
+
+      ''',
     ),
     Book(
       author: 'Harper Lee',

@@ -123,11 +123,14 @@ Complete with age-appropriate strategies for dealing with day-to-day struggles a
       title: 'Nighttime and Naptime Strategies for the Breastfeeding Family',
       imageUrl: 'assets/Nighttime_and_Naptime.jpg',
       description: '''
-This book is a comprehensive guide for new mothers struggling with sleep deprivation while breastfeeding. It offers research-backed advice on how to make nighttime feedings more manageable. Key points include:
+This book is a game-changer for exhausted breastfeeding moms who struggle with sleepless nights. Written by experts at La Leche League, it provides a science-backed approach to infant sleep that prioritizes both safety and bonding.
 
-  Co-sleeping guidelines: Provides safe methods for co-sleeping that can help both mother and baby sleep better while breastfeeding.
-  Sleep stretches: Tips for achieving longer periods of sleep while nursing, which can benefit both mom and baby.
-  Sleep regressions and night weaning: Strategies for navigating sleep regressions and when to consider night weaning, all while keeping breastfeeding as the focus.''',
+Key Insights:
+✅ Co-sleeping done right – Instead of the common “cry-it-out” method, this book emphasizes safe co-sleeping, also known as the "Safe Sleep Seven," which includes guidelines to reduce the risk of SIDS and ensure a secure sleep environment.
+✅ Longer sleep stretches – While night feedings are inevitable, the book shares practical strategies to help both mom and baby get more consolidated sleep. It explains how biological rhythms, feeding cues, and gentle interventions can make a big difference.
+✅ Handling regressions and transitions – The book addresses common sleep disruptions like growth spurts and sleep regressions. It also provides advice on when and how to transition to night weaning when the time is right.
+
+🔹 Best for: Parents looking for a gentle, research-backed way to improve sleep while continuing to breastfeed.'''
     ),
    Book(
       author: 'Harper Lee',

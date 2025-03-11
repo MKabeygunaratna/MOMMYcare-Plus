@@ -119,10 +119,15 @@ Complete with age-appropriate strategies for dealing with day-to-day struggles a
     ),
 
     Book(
-      author: 'Harper Lee',
-      title: 'To Kill a Mockingbird',
-      imageUrl: 'assets/to_kill_a_mockingbird.jpg',
-      description: 'A classic novel about racial injustice in the Deep South seen through the eyes of young Scout Finch...',
+      author: 'La Leche League International',
+      title: 'Nighttime and Naptime Strategies for the Breastfeeding Family',
+      imageUrl: 'assets/Nighttime_and_Naptime.jpg',
+      description: '''
+This book is a comprehensive guide for new mothers struggling with sleep deprivation while breastfeeding. It offers research-backed advice on how to make nighttime feedings more manageable. Key points include:
+
+  Co-sleeping guidelines: Provides safe methods for co-sleeping that can help both mother and baby sleep better while breastfeeding.
+  Sleep stretches: Tips for achieving longer periods of sleep while nursing, which can benefit both mom and baby.
+  Sleep regressions and night weaning: Strategies for navigating sleep regressions and when to consider night weaning, all while keeping breastfeeding as the focus.''',
     ),
     Book(
       author: 'Harper Lee',

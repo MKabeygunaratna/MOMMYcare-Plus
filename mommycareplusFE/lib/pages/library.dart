@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-// import 'BabyCareScreen.dart';
-// import 'BreastFeedingScreen.dart';
+import 'BabyCareScreen.dart';
+import 'BreastFeedingScreen.dart';
 // import 'mental_wellbeing_screen.dart';
 // import 'FitnessRecoveryScreen.dart';
 // import 'PostpartumNutritionScreen.dart';
@@ -11,13 +11,13 @@ class LibraryScreen extends StatelessWidget {
       'title': 'Baby Care',
       'subtitle': 'Understanding Baby Cues',
       'image': 'assets/images/baby_care.jpg',
-      // 'screen': BabyCareScreen(),
+      'screen': BabyCareScreen(),
     },
     {
       'title': 'Breast Feeding',
       'subtitle': 'Common issues and solutions for latching problems',
       'image': 'assets/images/breast_feeding.jpg',
-      // 'screen': breast_feeding_screen(),
+      'screen': BreastFeedingScreen(),
     },
     {
       'title': 'Mental Wellbeing',

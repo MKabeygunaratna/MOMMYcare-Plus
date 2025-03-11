@@ -85,7 +85,7 @@ With its easy-to-navigate format and comprehensive coverage, What to Expect the 
     Book(
       author: 'Harvey Karp',
       title: ' The Happiest Baby on the Block',
-      imageUrl: 'assets/images/to_kill_a_mockingbird.jpg',
+      imageUrl: 'assets/images/The_Happiest_Baby_on_the_Block.jpg',
       description: '''
 Dr. Harvey Karp revolutionized infant care with The Happiest Baby on the Block, which introduces the "5 S’s" technique—Swaddling, Side/Stomach position, Shushing, Swinging, and Sucking. These techniques mimic the womb environment and help soothe fussy babies, reduce crying, and improve sleep. Karp's methods are widely used by parents and pediatricians to calm newborns effectively.
 
@@ -97,7 +97,7 @@ With step-by-step guidance and real-life examples, The Happiest Baby on the Bloc
     Book(
       author: 'Benjamin Spock',
       title: 'The Common Sense Book of Baby and Child Care',
-      imageUrl: 'assets/to_kill_a_mockingbird.jpg',
+      imageUrl: 'assets/images/The_Common_Sense_Book.jpg',
       description: '''
 First published in 1946, The Common Sense Book of Baby and Child Care by Dr. Benjamin Spock remains one of the most influential parenting books of all time. This book reassures parents that they know more than they think, emphasizing the importance of trusting their instincts rather than strictly following rigid parenting rules. Dr. Spock’s warm and supportive approach revolutionized the way parents care for their children.
 

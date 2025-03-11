@@ -83,11 +83,17 @@ With its easy-to-navigate format and comprehensive coverage, What to Expect the 
       ''',
     ),
     Book(
-      author: 'Harper Lee',
-      title: 'To Kill a Mockingbird',
-      imageUrl: 'assets/to_kill_a_mockingbird.jpg',
-      description: 'A classic novel about racial injustice in the Deep South seen through the eyes of young Scout Finch...',
-    ),
+      author: 'Harvey Karp',
+      title: ' The Happiest Baby on the Block',
+      imageUrl: 'assets/images/to_kill_a_mockingbird.jpg',
+      description: '''
+Dr. Harvey Karp revolutionized infant care with The Happiest Baby on the Block, which introduces the "5 S’s" technique—Swaddling, Side/Stomach position, Shushing, Swinging, and Sucking. These techniques mimic the womb environment and help soothe fussy babies, reduce crying, and improve sleep. Karp's methods are widely used by parents and pediatricians to calm newborns effectively.
+
+The book explains the importance of the “fourth trimester,” the first three months after birth when babies still crave the sensations of the womb. By understanding a baby’s natural reflexes and needs, parents can create a comforting environment that promotes better sleep and reduces colic. Karp also addresses common concerns such as feeding, nighttime fussiness, and creating healthy sleep habits.
+
+With step-by-step guidance and real-life examples, The Happiest Baby on the Block provides a simple yet effective approach to baby care. Parents who struggle with sleepless nights or excessive crying will find this book incredibly helpful in creating a calm and happy baby.
+      '''),
+      
     Book(
       author: 'Harper Lee',
       title: 'To Kill a Mockingbird',

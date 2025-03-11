@@ -76,20 +76,149 @@ If you are unsure about the best option for your baby, consulting a lactation co
     Article(
       author: 'Dr. Emma Collins',
       title: 'Understanding Newborn Sleep Patterns: Why Do They Wake Up So Often?',
-      imageUrl: 'assets/images/sleeping_baby.jpg',
-      description: 'Sleep patterns can be confusing. Here’s what you need to know...',
+      imageUrl: 'assets/images/baby3.jpg',
+      description: '''
+      
+Introduction
+One of the biggest challenges new parents face is dealing with their newborn’s unpredictable sleep schedule. Unlike adults, newborns don’t follow a day-night sleep cycle and often wake up frequently throughout the night. This can leave parents feeling exhausted and wondering if their baby’s sleep pattern is normal. Understanding why newborns wake up so often can help parents adjust their expectations and create a supportive sleep environment.
+
+Why Do Newborns Wake Up Frequently?
+Newborns have shorter sleep cycles than adults, typically lasting only 40–50 minutes. Unlike adults, who transition smoothly between deep and light sleep, newborns spend more time in active sleep, which makes them more prone to waking up. This frequent waking is a natural survival mechanism, ensuring that they get enough food and comfort.
+
+Another key reason newborns wake up often is their small stomach capacity. Babies need to feed every 2–3 hours, whether they are breastfed or formula-fed, to support rapid growth and brain development. Additionally, newborns have immature circadian rhythms, meaning they don’t yet distinguish between day and night. Over time, their internal clock gradually adjusts, leading to longer stretches of sleep at night.
+
+Helping Your Newborn Sleep Better
+While frequent waking is normal, there are ways to help newborns (and their parents) get better rest. Establishing a consistent bedtime routine, such as dimming lights, swaddling, and gentle rocking, can signal to the baby that it’s time to sleep. Offering frequent feedings during the day can also help reduce night wakings caused by hunger.
+
+Creating a soothing sleep environment is key—keeping the room dark, playing white noise, and maintaining a comfortable temperature can encourage longer sleep stretches. Additionally, responding to your baby’s needs with patience and reassurance helps them feel secure, which can promote better sleep habits over time.
+
+Conclusion
+Newborn sleep patterns may seem exhausting, but they are a natural part of early development. As babies grow, their sleep gradually becomes more structured, and night wakings decrease. By understanding why newborns wake up so often and adopting gentle sleep strategies, parents can navigate this challenging stage with confidence and patience. Remember, every baby is different, and with time, their sleep patterns will improve.
+      ''',
     ),
     Article(
       author: 'Dr. Emma Collins',
       title: 'Baby Milestones: What to Expect in the First Year',
-      imageUrl: 'assets/images/baby_milestones.jpg',
-      description: 'Track your baby’s first year with these important milestones...',
+      imageUrl: 'assets/images/baby4.jpg',
+      description: '''
+      
+Introduction
+The first year of your baby’s life is filled with exciting changes and rapid development. As a parent, it can be both thrilling and overwhelming to witness these milestones as your baby grows and learns new skills. From holding their head up to taking their first steps, understanding these milestones will help you track your baby’s development and ensure they are progressing at a healthy rate. While every baby develops at their own pace, there are general milestones that most babies will reach by the end of their first year.
+
+Physical Milestones
+In the first few months, your baby will begin to gain control over their body, and you will notice improvements in their motor skills. By the time they are 2–3 months old, most babies will begin lifting their heads during tummy time and pushing up with their arms. Around 4–6 months, babies usually begin to roll over from front to back and back to front. By 6–7 months, babies can sit up on their own with support and even begin reaching for toys.
+
+At around 9 months, babies often start crawling, either army-style or on all fours, depending on their preference. By the time they are 12 months old, many babies will be able to pull themselves up to a standing position and take their first steps, though some may start walking a little later.
+
+Cognitive and Social Milestones
+Your baby’s cognitive abilities will develop rapidly during their first year. From birth, they are learning to recognize faces, voices, and sounds. By 3–4 months, babies begin to focus on objects and may start tracking moving objects with their eyes. Around 6 months, babies start to explore their world with their hands and mouth, and they begin to understand cause and effect, such as shaking a rattle to make noise.
+
+At 6–9 months, babies also begin to show early signs of memory, such as recognizing familiar faces and toys. They will engage in simple interactions like waving goodbye or mimicking facial expressions. By 9–12 months, many babies start to understand the concept of object permanence—the idea that objects still exist even when they are out of sight. They may also begin to use gestures, such as pointing or clapping, to communicate their needs.
+
+Language Development Milestones
+Language development is another important aspect of your baby’s growth in their first year. In the first few months, babies communicate through cries, coos, and gurgles, but by 4–6 months, they will begin to babble and experiment with different sounds. By 6–9 months, they will start responding to their name and may use simple consonant sounds like “ba” or “da.”
+
+By the time your baby reaches 12 months, they may say their first word, often “mama” or “dada,” and understand a few basic commands like “come here” or “no.” However, language development varies greatly, so some babies may speak earlier or later than others.
+
+Conclusion
+The first year of your baby’s life is an exciting journey of growth and development. While each baby’s timeline will vary, understanding these general milestones can help you support your baby’s physical, cognitive, and social growth. If you ever have concerns about your baby’s development, don’t hesitate to consult your pediatrician. Celebrate each achievement, and remember, your baby’s first year is just the beginning of many more milestones to come!
+      ''',
     ),
     Article(
       author: 'Dr. Emma Collins',
       title: 'Dealing with Diaper Rash: Prevention and Treatment Tips',
-      imageUrl: 'assets/images/diaper_rash.jpg',
-      description: 'Practical tips for preventing and treating diaper rash...',
+      imageUrl: 'assets/images/baby5.jpg',
+      description: '''
+
+Introduction
+The arrival of your baby’s first teeth marks an exciting milestone in their development. However, this process, known as teething, can also bring about discomfort and fussiness for your little one. As a parent, it’s important to understand what to expect during teething and how to care for your baby’s new teeth to ensure good oral health from the start. By following proper teething care and early dental hygiene habits, you can help your baby feel more comfortable and establish a strong foundation for healthy teeth in the future.
+
+Understanding Teething
+Teething generally begins around six months of age, though the timing can vary. Some babies get their first teeth as early as four months, while others may not get them until their first birthday. The first teeth to emerge are usually the lower front teeth, followed by the upper front teeth. Teething can cause a variety of symptoms, including drooling, fussiness, trouble sleeping, and a desire to chew on objects.
+
+While teething is a normal developmental phase, it can be a challenging time for both babies and parents. It’s important to remember that while the discomfort is temporary, the process of growing teeth will continue until your child has a full set of baby teeth by around age 3.
+
+Teething Relief Tips
+There are several ways you can help soothe your baby’s teething discomfort:
+
+Teething Rings and Toys: Teething rings made of rubber or soft plastic can provide relief by massaging your baby’s gums. Some teething rings can even be chilled in the refrigerator for additional cooling comfort. Always ensure that the teething toys are clean and free from small parts that could pose a choking hazard.
+
+Gentle Gum Massage: Using a clean finger, gently massage your baby’s gums to relieve some of the pressure. This can help comfort your baby and alleviate pain. Be sure to wash your hands thoroughly before doing this.
+
+Cold Washcloth: A cold, damp washcloth can provide relief when gently rubbed on your baby’s gums. The coldness helps numb the area, reducing discomfort, while the texture of the cloth provides soothing pressure.
+
+Teething Tablets or Gels: Over-the-counter teething gels or tablets can sometimes help ease the pain. However, be cautious and consult your pediatrician before using any medicated products, especially those containing benzocaine or other numbing agents.
+
+Pain Relief Medication: If your baby is particularly uncomfortable, your pediatrician may recommend over-the-counter pain relief options, such as infant acetaminophen or ibuprofen. Always follow the dosage instructions carefully and consult your doctor before giving any medication.
+
+Establishing Oral Health Habits Early
+In addition to managing teething discomfort, it’s important to begin establishing good oral health practices early. This helps your baby develop a positive relationship with oral hygiene and sets the stage for healthy teeth as they grow.
+
+Wipe Gums Even Before Teeth Appear: Even before your baby’s first teeth arrive, it’s a good idea to clean their gums after feedings. Use a clean, soft cloth or a special gum wipe to gently wipe away any milk residue. This helps to remove harmful bacteria and prevent potential gum issues.
+
+Brushing Baby Teeth: Once your baby’s first teeth appear, begin brushing them with a small, soft-bristled toothbrush and a tiny smear of fluoride-free toothpaste. Brushing your baby’s teeth twice a day will help remove plaque and prevent early cavities.
+
+Avoid Sugary Liquids in Bottles: Avoid putting your baby to bed with a bottle of juice, milk, or sweetened liquids. The sugars in these drinks can pool around the teeth while your baby sleeps, contributing to tooth decay.
+
+First Dental Visit: The American Dental Association recommends that babies see a dentist by their first birthday, or within six months of their first tooth appearing. This early visit helps establish a dental home for your baby and allows the dentist to identify any early oral health concerns.
+
+When to Seek Help
+Most babies will go through teething without any major complications, but there are times when you should consult your pediatrician or dentist:
+
+If your baby has a fever over 101°F (38.3°C) or diarrhea along with teething symptoms, these could be signs of an infection, not just teething.
+If your baby seems unusually fussy or shows signs of significant pain that doesn’t improve with teething remedies, it’s worth getting advice from your pediatrician.
+If you notice any signs of dental issues, such as white spots, swelling, or discoloration on your baby’s teeth, make an appointment with a pediatric dentist for an evaluation.
+Conclusion
+Teething is an exciting, yet challenging time for both you and your baby. By understanding what to expect and how to manage teething symptoms, you can help your baby through this phase with as much comfort as possible. In addition, establishing good oral health habits early can set your baby on the path to a lifetime of healthy smiles. If you have concerns or questions about your baby’s teething process or oral health, don’t hesitate to reach out to your pediatrician or pediatric dentist for guidance.
+''',
+    ),
+    Article(
+      author: 'Dr. Emily Thompsonl',
+      title: 'Caring for Your Baby’s First Teeth: Tips for Teething and Oral Health',
+      imageUrl: 'assets/images/baby6.jpg',
+      description: '''
+Introduction
+The arrival of your baby’s first teeth marks an exciting milestone in their development. However, this process, known as teething, can also bring about discomfort and fussiness for your little one. As a parent, it’s important to understand what to expect during teething and how to care for your baby’s new teeth to ensure good oral health from the start. By following proper teething care and early dental hygiene habits, you can help your baby feel more comfortable and establish a strong foundation for healthy teeth in the future.
+
+Understanding Teething
+Teething generally begins around six months of age, though the timing can vary. Some babies get their first teeth as early as four months, while others may not get them until their first birthday. The first teeth to emerge are usually the lower front teeth, followed by the upper front teeth. Teething can cause a variety of symptoms, including drooling, fussiness, trouble sleeping, and a desire to chew on objects.
+
+While teething is a normal developmental phase, it can be a challenging time for both babies and parents. It’s important to remember that while the discomfort is temporary, the process of growing teeth will continue until your child has a full set of baby teeth by around age 3.
+
+Teething Relief Tips
+There are several ways you can help soothe your baby’s teething discomfort:
+
+Teething Rings and Toys: Teething rings made of rubber or soft plastic can provide relief by massaging your baby’s gums. Some teething rings can even be chilled in the refrigerator for additional cooling comfort. Always ensure that the teething toys are clean and free from small parts that could pose a choking hazard.
+
+Gentle Gum Massage: Using a clean finger, gently massage your baby’s gums to relieve some of the pressure. This can help comfort your baby and alleviate pain. Be sure to wash your hands thoroughly before doing this.
+
+Cold Washcloth: A cold, damp washcloth can provide relief when gently rubbed on your baby’s gums. The coldness helps numb the area, reducing discomfort, while the texture of the cloth provides soothing pressure.
+
+Teething Tablets or Gels: Over-the-counter teething gels or tablets can sometimes help ease the pain. However, be cautious and consult your pediatrician before using any medicated products, especially those containing benzocaine or other numbing agents.
+
+Pain Relief Medication: If your baby is particularly uncomfortable, your pediatrician may recommend over-the-counter pain relief options, such as infant acetaminophen or ibuprofen. Always follow the dosage instructions carefully and consult your doctor before giving any medication.
+
+Establishing Oral Health Habits Early
+In addition to managing teething discomfort, it’s important to begin establishing good oral health practices early. This helps your baby develop a positive relationship with oral hygiene and sets the stage for healthy teeth as they grow.
+
+Wipe Gums Even Before Teeth Appear: Even before your baby’s first teeth arrive, it’s a good idea to clean their gums after feedings. Use a clean, soft cloth or a special gum wipe to gently wipe away any milk residue. This helps to remove harmful bacteria and prevent potential gum issues.
+
+Brushing Baby Teeth: Once your baby’s first teeth appear, begin brushing them with a small, soft-bristled toothbrush and a tiny smear of fluoride-free toothpaste. Brushing your baby’s teeth twice a day will help remove plaque and prevent early cavities.
+
+Avoid Sugary Liquids in Bottles: Avoid putting your baby to bed with a bottle of juice, milk, or sweetened liquids. The sugars in these drinks can pool around the teeth while your baby sleeps, contributing to tooth decay.
+
+First Dental Visit: The American Dental Association recommends that babies see a dentist by their first birthday, or within six months of their first tooth appearing. This early visit helps establish a dental home for your baby and allows the dentist to identify any early oral health concerns.
+
+When to Seek Help
+Most babies will go through teething without any major complications, but there are times when you should consult your pediatrician or dentist:
+
+If your baby has a fever over 101°F (38.3°C) or diarrhea along with teething symptoms, these could be signs of an infection, not just teething.
+If your baby seems unusually fussy or shows signs of significant pain that doesn’t improve with teething remedies, it’s worth getting advice from your pediatrician.
+If you notice any signs of dental issues, such as white spots, swelling, or discoloration on your baby’s teeth, make an appointment with a pediatric dentist for an evaluation.
+
+Conclusion
+Teething is an exciting, yet challenging time for both you and your baby. By understanding what to expect and how to manage teething symptoms, you can help your baby through this phase with as much comfort as possible. In addition, establishing good oral health habits early can set your baby on the path to a lifetime of healthy smiles. If you have concerns or questions about your baby’s teething process or oral health, don’t hesitate to reach out to your pediatrician or pediatric dentist for guidance.
+      ''',
     ),
   ];
 
@@ -135,10 +264,10 @@ If you are unsure about the best option for your baby, consulting a lactation co
                         ],
                       ),
                     ),
-                    SizedBox(width: 8),
+                    SizedBox(width: 10),
                     SizedBox(
-                      width: 60,
-                      height: 60,
+                      width: 80,
+                      height: 80,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8),
                         child: Image.asset(
@@ -187,7 +316,7 @@ class ArticleDescriptionScreen extends StatelessWidget {
                 child: Image.asset(
                   article.imageUrl,
                   width: double.infinity,
-                  height: 200,
+                  height: 370,
                   fit: BoxFit.cover,
                 ),
               ),

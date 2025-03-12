@@ -62,7 +62,7 @@ class MyApp extends StatelessWidget {
           themeMode: themeProvider.themeMode,
           theme: ThemeData.light(),
           darkTheme: ThemeData.dark(),
-          home:ChatbotScreen2(),
+          home:DoctorScreen(),
         );
       },
     );

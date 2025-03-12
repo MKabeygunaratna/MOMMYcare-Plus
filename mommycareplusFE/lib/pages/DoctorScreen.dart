@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mommycareplusFE/pages/home.dart';
 import 'package:provider/provider.dart';
 import 'DoctorProvider.dart';
 import 'ProfileScreen.dart';
@@ -38,16 +39,7 @@ class _DoctorScreenState extends State<DoctorScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text(
-          "Doctor's Details",
-          style: TextStyle(
-            color: Colors.black,
-            fontFamily: 'Poppins',
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-        backgroundColor: Color(0xFF7261C6),
-        elevation: 0,
+        backgroundColor: Colors.white,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.pop(context),
@@ -103,7 +95,7 @@ class _DoctorScreenState extends State<DoctorScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ProfileScreen(),
+                      builder: (context) => HomePage(),
                     ),
                   );
                 },

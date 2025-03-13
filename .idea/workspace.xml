@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="adding some more pages">
+    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="editing the sign up screen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/signup.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/signup.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/ForgotPasswordNew.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/ForgotPasswordNew.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +221,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741877162550</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="editing the sign up screen">
+      <option name="closed" value="true" />
+      <created>1741886137518</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1741886137518</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -239,6 +247,7 @@
     <MESSAGE value="changing the navigations and removing the title from the doctor details screen." />
     <MESSAGE value="changing the navigations" />
     <MESSAGE value="adding some more pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding some more pages" />
+    <MESSAGE value="editing the sign up screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="editing the sign up screen" />
   </component>
 </project>

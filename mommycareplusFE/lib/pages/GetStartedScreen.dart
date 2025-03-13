@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mommycareplusFE/pages/SampleHomePage.dart';
+import 'Login_screen.dart';
 
 class StartScreen extends StatelessWidget {
   const StartScreen({super.key});
@@ -55,7 +56,7 @@ class StartScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Samplehomepage()),
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
                 );
               },
               child: const Text(

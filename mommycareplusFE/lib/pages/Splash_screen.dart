@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
+import 'package:mommycareplusFE/pages/GetStartedScreen.dart';
+
 class SplashScreen extends StatefulWidget {
   @override
   _SplashScreenState createState() => _SplashScreenState();
@@ -24,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => NextScreen()), // Replace with your next screen
+        MaterialPageRoute(builder: (context) => StartScreen()), // Replace with your next screen
       );
     });
   }
@@ -57,16 +59,6 @@ class _SplashScreenState extends State<SplashScreen> {
           ],
         ),
       ),
-    );
-  }
-}
-
-// Dummy next screen (Replace with your actual next screen)
-class NextScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(child: Text("Welcome to the Next Screen!")),
     );
   }
 }

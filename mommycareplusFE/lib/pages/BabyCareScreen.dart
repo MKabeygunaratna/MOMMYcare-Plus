@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
-import 'BreastFeedingScreen.dart';
-import 'EmailVerification.dart';
 import 'babyCareArticleScreen.dart';
-import '';
 import 'babyCareBookScreen.dart';
 import 'videoPlayerScreen.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-import 'babyCareArticleScreen.dart';
-import 'recentlyWatchedBabyCare.dart';
 
-import 'babyCareBookScreen.dart';
 
 class BabyCareScreen extends StatefulWidget {
   @override
@@ -174,15 +167,14 @@ class _BabyCareScreenState extends State<BabyCareScreen> {
           ),
           Expanded(
             child: selectedTab == 0
-                ? buildVideoSection() // Video section remains unchanged
+                ? buildVideoSection() 
                 // : selectedTab == 1
                 // ? recentlyWatchedBabyCareScreen() // Add your recent section here
                 : selectedTab == 2
                 ? BooksScreen()
                 : selectedTab == 3
-                ? ArticlesScreen() // Removed the comma here
-                : Container(), // Optional fallback
-
+                ? ArticlesScreen() 
+                : Container(),
           ),
         ],
       ),

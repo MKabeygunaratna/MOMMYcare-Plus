@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mommycareplusFE/pages/GuardianScreen.dart';
 import 'package:mommycareplusFE/pages/ProfileScreen.dart';
 import 'package:provider/provider.dart';
 import 'UserProvider.dart';
@@ -267,7 +268,7 @@ class _PageThreeState extends State<PageThree> {
                         ),
                         onPressed: () {
                           Provider.of<UserProvider>(context, listen: false).setPostpartum(_postpartumController.text);
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => Samplehomepage()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => GuardianDetailsScreen()));
                         },
                         child: const Text("NEXT", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                       ),

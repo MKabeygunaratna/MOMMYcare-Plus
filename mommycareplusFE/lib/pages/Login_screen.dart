@@ -4,8 +4,39 @@ import 'package:mommycareplusFE/pages/signup.dart';
 import 'home.dart';
 import 'Access_screen.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+class _LoginScreenState extends State<LoginScreen>{
+  final _formKey = GlobalKey<FormState>();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  String? _emailError;
+  String? _passwordError;
+
+  String?_validateEmail(String? value){
+    if(value== null || value.isEmpty){
+      return'Please enter your email';
+    }
+    String emailPattern =  r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$';
+    RegExp regExp = RegExp(emailPattern);
+    if(!regExp.hasMatch(value)){
+      return 'Please enter a valid email address';
+    }
+    return null;
+  }
+
+  String? _validatePassword(String? value){
+    if(value==null || value.isEmpty){
+      return 'Please enter your password';
+    }
+    if(value.length<6){
+      return 'Password should be at least 6 characters';
+    }
+    return null;
+  }
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
@@ -61,28 +92,39 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: screenSize.height * 0.02),
-                  TextField(
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      labelText: 'E-mail',
-                      prefixIcon: const Icon(Icons.email),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: screenSize.height * 0.02),
-                  TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      labelText: 'Password',
-                      prefixIcon: const Icon(Icons.lock),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
+                  Form(
+                    key: _formKey,
+                    child: Column(
+                      children: [
+                        TextFormField(
+                          controller: _emailController,
+                          validator: _validateEmail,
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                            labelText: 'E-mail',
+                            prefixIcon: const Icon(Icons.email),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: screenSize.height * 0.02),
+                        TextFormField(
+                          controller: _passwordController,
+                          obscureText: true,
+                          validator: _validatePassword,
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                            labelText: 'Password',
+                            prefixIcon: const Icon(Icons.lock),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                        )
+                      ],
                     ),
                   ),
                   SizedBox(height: screenSize.height * 0.01),
@@ -108,10 +150,13 @@ class LoginScreen extends StatelessWidget {
                     height: screenSize.height * 0.06,
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => AccessScreen1()),
-                        );
+                        if (_formKey.currentState!.validate()) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AccessScreen1()),
+                          );
+                        }
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF8474CB),

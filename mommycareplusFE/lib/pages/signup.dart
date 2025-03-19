@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:mommycareplusFE/pages/Login_screen.dart';
+import 'package:mommycareplusFE/pages/home.dart';
+import 'package:mommycareplusFE/pages/login_screen.dart';
 
-class signup extends StatelessWidget {
+class SignUpScreen extends StatefulWidget {
+  @override
+  _SignUpScreenState createState() => _SignUpScreenState();
+}
+class _SignUpScreenState extends State<SignUpScreen>{
+  final _formKey = GlobalKey<FormState>();
+  final TextEditingController _fullNameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -35,105 +45,110 @@ class signup extends StatelessWidget {
               ),
             ),
             Container(
-              width: screenSize.width,
-              height:screenSize.height,
-              decoration: const BoxDecoration(
-                color: Color(0xFFE8E4E4),
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  topRight: Radius.circular(20),
+                width: screenSize.width,
+                height:screenSize.height,
+                decoration: const BoxDecoration(
+                  color: Color(0xFFE8E4E4),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                  ),
                 ),
-              ),
-              padding: EdgeInsets.symmetric(
-                horizontal: screenSize.width * 0.08,
-                vertical: screenSize.height * 0.04,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Create An Account',
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                  SizedBox(height: screenSize.height * 0.03),
-                  _buildTextField('Full Name', Icons.person),
-                  SizedBox(height: screenSize.height * 0.025),
-                  _buildTextField('E-mail', Icons.email),
-                  SizedBox(height: screenSize.height * 0.025),
-                  _buildTextField('Password', Icons.lock, isPassword: true),
-                  SizedBox(height: screenSize.height * 0.025),
-                  _buildTextField('Confirm Password', Icons.visibility_off, isPassword: true),
-                  SizedBox(height: screenSize.height * 0.05),
-                  SizedBox(
-                    width: double.infinity,
-                    height: screenSize.height * 0.06,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => LoginScreen()),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF8474CB),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
+                padding: EdgeInsets.symmetric(
+                  horizontal: screenSize.width * 0.08,
+                  vertical: screenSize.height * 0.04,
+                ),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Create An Account',
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
                         ),
                       ),
-                      child: const Text(
-                        'SIGN UP',
-                        style: TextStyle(fontSize: 20, color: Colors.white),
+                      SizedBox(height: screenSize.height * 0.03),
+                      _buildTextField('Full Name', Icons.person,_fullNameController),
+                      SizedBox(height: screenSize.height * 0.025),
+                      _buildTextField('E-mail', Icons.email,_emailController,isEmail: true),
+                      SizedBox(height: screenSize.height * 0.025),
+                      _buildTextField('Password', Icons.lock,_passwordController, isPassword: true),
+                      SizedBox(height: screenSize.height * 0.025),
+                      _buildTextField('Confirm Password', Icons.visibility_off,_confirmPasswordController, isPassword: true),
+                      SizedBox(height: screenSize.height * 0.05),
+                      SizedBox(
+                        width: double.infinity,
+                        height: screenSize.height * 0.06,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            if(_formKey.currentState?.validate()?? false){
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => LoginScreen()),
+                              );
+                            }
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFF8474CB),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+                          child: const Text(
+                            'SIGN UP',
+                            style: TextStyle(fontSize: 20, color: Colors.white),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  SizedBox(height: screenSize.height * 0.04),
+                      SizedBox(height: screenSize.height * 0.04),
 
-                  // "or login with" with horizontal lines
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Divider(color: Colors.grey, thickness: 1, endIndent: 10),
+                      // "or login with" with horizontal lines
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Divider(color: Colors.grey, thickness: 1, endIndent: 10),
+                          ),
+                          Text('or login with', style: TextStyle(color: Colors.grey[800])),
+                          Expanded(
+                            child: Divider(color: Colors.grey, thickness: 1, indent: 10),
+                          ),
+                        ],
                       ),
-                      Text('or login with', style: TextStyle(color: Colors.grey[800])),
-                      Expanded(
-                        child: Divider(color: Colors.grey, thickness: 1, indent: 10),
+                      SizedBox(height: screenSize.height * 0.015),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          _buildSocialIcon('assets/images/google.png'),
+                          _buildSocialIcon('assets/images/facebook.png'),
+                          _buildSocialIcon('assets/images/instagram.png'),
+                        ],
+                      ),
+                      SizedBox(height: screenSize.height * 0.03),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text("Already have an account? "),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => LoginScreen()),
+                              );
+                            },
+                            child: const Text(
+                              'Sign In',
+                              style: TextStyle(color: Color(0xFF8474CB)),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                  SizedBox(height: screenSize.height * 0.015),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      _buildSocialIcon('assets/images/google.png'),
-                      _buildSocialIcon('assets/images/facebook.png'),
-                      _buildSocialIcon('assets/images/instagram.png'),
-                    ],
-                  ),
-                  SizedBox(height: screenSize.height * 0.03),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text("Already have an account? "),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => LoginScreen()),
-                          );
-                        },
-                        child: const Text(
-                          'Sign In',
-                          style: TextStyle(color: Color(0xFF8474CB)),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                )
             ),
           ],
         ),
@@ -141,9 +156,11 @@ class signup extends StatelessWidget {
     );
   }
 
-  Widget _buildTextField(String label, IconData icon, {bool isPassword = false}) {
-    return TextField(
+  Widget _buildTextField(String label, IconData icon, TextEditingController controller, {bool isPassword = false,bool isEmail =false}) {
+    return TextFormField(
+      controller: controller,
       obscureText: isPassword,
+      keyboardType: isEmail? TextInputType.emailAddress: TextInputType.text,
       decoration: InputDecoration(
         filled: true,
         fillColor: Colors.white,
@@ -153,8 +170,24 @@ class signup extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
         ),
       ),
+      validator: (value){
+        if(value==null || value.isEmpty){
+          return'$label cannot be empty';
+        }
+        if(isEmail && !RegExp(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$").hasMatch(value)){
+          return'Please enter a valid email';
+        }
+        if (isPassword && value.length < 6) {
+          return 'Password must be at least 6 characters';
+        }
+        if (label == 'Confirm Password' && value != _passwordController.text) {
+          return 'Passwords do not match';
+        }
+        return null;
+      },
     );
   }
+
   Widget _buildSocialIcon(String assetPath) {
     return GestureDetector(
       onTap: () {},
@@ -166,4 +199,3 @@ class signup extends StatelessWidget {
     );
   }
 }
-

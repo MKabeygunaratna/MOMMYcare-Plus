@@ -1,10 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:mommycareplusFE/pages/ForgotPasswordNew.dart';
-// import 'package:forgot_password/ForgotPassword.dart';
 import 'Reset_password_screen.dart';
 
-class EmailVerification extends StatelessWidget {
+class EmailVerification extends StatefulWidget {
+  @override
+  _EmailVerificationState createState() => _EmailVerificationState();
+}
+class _EmailVerificationState extends State<EmailVerification>{
   static const Color myColor = Color(0xFF8474CB);
+  final List<TextEditingController> _controllers = List.generate(4,(index) => TextEditingController());
+  final List<FocusNode>_focusNodes = List.generate(4, (index) => FocusNode());
+
+  void _onChanged(String value, int index){
+    if(value.isNotEmpty){
+      if(index < 3){
+        FocusScope.of(context).requestFocus(_focusNodes[index + 1]);
+      }
+      else{
+        _focusNodes[index].unfocus();
+      }
+    }
+  }
+  bool get isOtpComplete => _controllers.every((controller) =>controller.text.length == 1);
+
 
   @override
   Widget build(BuildContext context) {
@@ -102,6 +119,8 @@ class EmailVerification extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: TextField(
+                      controller: _controllers[index],
+                      focusNode: _focusNodes[index],
                       keyboardType: TextInputType.number,
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -113,6 +132,13 @@ class EmailVerification extends StatelessWidget {
                         counterText: '',
                         border: InputBorder.none,
                       ),
+                      onChanged: (value){
+                        _onChanged(value, index);
+                        setState(() {});
+                      },
+                      onSubmitted: (_)=> setState(() {}),
+                      onTap: () => setState(() {}),
+                      onEditingComplete: () => setState(() {}),
                     ),
                   ),
                 ),
@@ -125,12 +151,13 @@ class EmailVerification extends StatelessWidget {
                 height: screenHeight * 0.07,
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {
+                  onPressed: isOtpComplete? () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => ResetPassword()),
                     );
-                  },
+                  }
+                      : null,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: myColor,
                     shape: RoundedRectangleBorder(

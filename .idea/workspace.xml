@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="adding validations to the Sign Up  screen.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="adding validations to the ResetPasswordScreen screen." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -276,7 +274,31 @@
       <option name="project" value="LOCAL" />
       <updated>1742375692095</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="adding validations to the ForgotPasswordScreen screen.">
+      <option name="closed" value="true" />
+      <created>1742400726529</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1742400726529</updated>
+    </task>
+    <task id="LOCAL-00026" summary="adding validations to the EmailVerificationScreen screen.">
+      <option name="closed" value="true" />
+      <created>1742400896041</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1742400896041</updated>
+    </task>
+    <task id="LOCAL-00027" summary="adding validations to the ResetPasswordScreen screen.">
+      <option name="closed" value="true" />
+      <created>1742400942969</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1742400942969</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -301,6 +323,9 @@
     <MESSAGE value="adding a back button" />
     <MESSAGE value="adding validations to the login screen." />
     <MESSAGE value="adding validations to the Sign Up  screen." />
-    <option name="LAST_COMMIT_MESSAGE" value="adding validations to the Sign Up  screen." />
+    <MESSAGE value="adding validations to the ForgotPasswordScreen screen." />
+    <MESSAGE value="adding validations to the EmailVerificationScreen screen." />
+    <MESSAGE value="adding validations to the ResetPasswordScreen screen." />
+    <option name="LAST_COMMIT_MESSAGE" value="adding validations to the ResetPasswordScreen screen." />
   </component>
 </project>

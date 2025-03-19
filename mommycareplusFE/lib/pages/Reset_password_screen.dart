@@ -5,10 +5,63 @@ import 'package:mommycareplusFE/pages/login_screen.dart';
 
 import 'EmailVerification.dart';
 
-class ResetPassword extends StatelessWidget {
+class ResetPassword extends StatefulWidget {
   static const Color myColor = Color(0xFF8474CB);
 
   const ResetPassword({super.key});
+
+  @override
+  _ResetPasswordState createState() => _ResetPasswordState();
+}
+
+class _ResetPasswordState extends State<ResetPassword> {
+  final _formKey = GlobalKey<FormState>();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
+
+  bool _isPasswordVisible = false;
+  bool _isConfirmPasswordVisible = false;
+
+  String? _validatePassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return "Password cannot be empty";
+    }
+    if (value.length < 8) {
+      return "Password must be at least 8 characters long";
+    }
+    if (!RegExp(r'(?=.*[A-Z])').hasMatch(value)) {
+      return "Password must contain at least one uppercase letter";
+    }
+    if (!RegExp(r'(?=.*[a-z])').hasMatch(value)) {
+      return "Password must contain at least one lowercase letter";
+    }
+    if (!RegExp(r'(?=.*\d)').hasMatch(value)) {
+      return "Password must contain at least one number";
+    }
+    if (!RegExp(r'(?=.*[!@#$%^&*])').hasMatch(value)) {
+      return "Password must contain at least one special character (!@#\$%^&*)";
+    }
+    return null;
+  }
+
+  String? _validateConfirmPassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return "Confirm password cannot be empty";
+    }
+    if (value != _passwordController.text) {
+      return "Passwords do not match";
+    }
+    return null;
+  }
+
+  void _submitForm() {
+    if (_formKey.currentState!.validate()) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => LoginScreen()),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,145 +73,171 @@ class ResetPassword extends StatelessWidget {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              SizedBox(
-                height: screenHeight * 0.2,
-                child: Stack(
-                  children: [
-                    ClipPath(
-                      clipper: TopClipper(),
-                      child: Container(
-                        height: screenHeight * 0.2,
-                        color: myColor,
-                      ),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  SizedBox(
+                    height: screenHeight * 0.2,
+                    child: Stack(
+                      children: [
+                        ClipPath(
+                          clipper: TopClipper(),
+                          child: Container(
+                            height: screenHeight * 0.2,
+                            color: ResetPassword.myColor,
+                          ),
+                        ),
+                        ClipPath(
+                          clipper: SecondClipper(),
+                          child: Container(
+                            height: screenHeight * 0.2,
+                            color: const Color(0xFF9C8FEF),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              vertical: screenHeight * 0.03,
+                              horizontal: screenWidth * 0.05),
+                          child: Row(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Icon(
+                                  Icons.arrow_back,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              SizedBox(width: screenWidth * 0.05),
+                              const Text(
+                                'Back',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
-                    ClipPath(
-                      clipper: SecondClipper(),
-                      child: Container(
-                        height: screenHeight * 0.2,
-                        color: const Color(0xFF9C8FEF),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                          vertical: screenHeight * 0.03,
-                          horizontal: screenWidth * 0.05),
-                      child: Row(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.pop(context);
-                            },
-                            child: const Icon(
-                              Icons.arrow_back,
-                              color: Colors.white,
+                  ),
+                  SizedBox(height: screenHeight * 0.05),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.08),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Enter New Password',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: ResetPassword.myColor,
+                          ),
+                        ),
+                        SizedBox(height: screenHeight * 0.02),
+                        Text(
+                          'Your new password must be different from previously used password',
+                          style: TextStyle(fontSize: 18, color: Colors.grey[600]),
+                        ),
+                        SizedBox(height: screenHeight * 0.06),
+                        TextFormField(
+                          controller: _passwordController,
+                          obscureText: !_isPasswordVisible,
+                          decoration: InputDecoration(
+                            labelText: 'Password',
+                            labelStyle: const TextStyle(color: Colors.grey),
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                _isPasswordVisible
+                                    ?Icons.visibility
+                                    :Icons.visibility_off,
+                                color: Colors.grey,
+                              ),
+                              onPressed: (){
+                                setState(() {
+                                  _isPasswordVisible = !_isPasswordVisible;
+                                });
+                              },
+                            ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide(color: ResetPassword.myColor),
                             ),
                           ),
-                          SizedBox(width: screenWidth * 0.05),
-                          const Text(
-                            'Back',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 22,
-                              fontWeight: FontWeight.bold,
+                          validator: _validatePassword,
+                        ),
+                        SizedBox(height: screenHeight * 0.03),
+                        TextFormField(
+                          controller: _confirmPasswordController,
+                          obscureText: !_isConfirmPasswordVisible,
+                          decoration: InputDecoration(
+                            labelText: 'Confirm Password',
+                            labelStyle: const TextStyle(color: Colors.grey),
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                _isConfirmPasswordVisible
+                                    ?Icons.visibility
+                                    :Icons.visibility_off,
+                                color: Colors.grey,
+                              ),
+                              onPressed: (){
+                                setState(() {
+                                  _isConfirmPasswordVisible = !_isConfirmPasswordVisible;
+                                });
+                              },
+                            ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide(color: ResetPassword.myColor),
                             ),
                           ),
-                        ],
-                      ),
+                          validator: _validateConfirmPassword,
+                        ),
+                        SizedBox(height: screenHeight * 0.08),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.15),
+                          child: SizedBox(
+                            height: screenHeight * 0.06,
+                            width: double.infinity,
+                            child: ElevatedButton(
+                              onPressed: _submitForm,
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: ResetPassword.myColor,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                elevation: 5,
+                              ),
+                              child: const Text(
+                                'CONTINUE',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              SizedBox(height: screenHeight * 0.05),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.08),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'Enter New Password',
-                      style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: myColor,
-                      ),
-                    ),
-                    SizedBox(height: screenHeight * 0.02),
-                    Text(
-                      'Your new password must be different from previously used password',
-                      style: TextStyle(fontSize: 18, color: Colors.grey[600]),
-                    ),
-                    SizedBox(height: screenHeight * 0.06),
-                    TextField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        labelText: 'Password',
-                        labelStyle: const TextStyle(color: Colors.grey),
-                        suffixIcon: const Icon(Icons.lock, color: Colors.grey),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(color: myColor),
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: screenHeight * 0.03),
-                    TextField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        labelText: 'Confirm Password',
-                        labelStyle: const TextStyle(color: Colors.grey),
-                        suffixIcon:
-                        const Icon(Icons.visibility_off, color: Colors.grey),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(color: myColor),
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: screenHeight * 0.08),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.15),
-                      child: SizedBox(
-                        height: screenHeight * 0.06,
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => LoginScreen()),
-                            );
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: myColor,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            elevation: 5,
-                          ),
-                          child: const Text(
-                            'CONTINUE',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+            )
+
         ),
       ),
     );

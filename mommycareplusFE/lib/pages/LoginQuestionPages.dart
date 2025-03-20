@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+
 import 'package:mommycareplusFE/pages/GuardianScreen.dart';
 import 'package:provider/provider.dart';
 import 'UserProvider.dart';
-
 
 class PageOne extends StatefulWidget {
   const PageOne({Key? key}) : super(key: key);
@@ -13,6 +13,7 @@ class PageOne extends StatefulWidget {
 
 class _PageOneState extends State<PageOne> {
   final TextEditingController _nameController = TextEditingController();
+
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -110,12 +111,14 @@ class _PageOneState extends State<PageOne> {
 class PageTwo extends StatefulWidget {
   const PageTwo({Key? key}) : super(key: key);
 
+
   @override
   State<PageTwo> createState() => _PageTwoState();
 }
 
 class _PageTwoState extends State<PageTwo> {
   final TextEditingController _ageController = TextEditingController();
+
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -226,18 +229,21 @@ class _PageTwoState extends State<PageTwo> {
 class PageThree extends StatefulWidget {
   const PageThree({Key? key}) : super(key: key);
 
+
   @override
   State<PageThree> createState() => _PageThreeState();
 }
 
 class _PageThreeState extends State<PageThree> {
   final TextEditingController _postpartumController = TextEditingController();
+
   final _formKey  = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(

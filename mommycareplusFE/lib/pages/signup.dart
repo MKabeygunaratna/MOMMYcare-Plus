@@ -44,15 +44,31 @@ class _SignUpScreenState extends State<SignUpScreen>{
                 ),
               ),
             ),
-            Container(
-                width: screenSize.width,
-                height:screenSize.height,
-                decoration: const BoxDecoration(
-                  color: Color(0xFFE8E4E4),
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20),
-                  ),
+
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Top right circle logo
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Container(
+                      width: screenWidth * 0.15, // 15% of screen width
+                      height: screenWidth * 0.15,
+                      decoration: BoxDecoration(
+                        color: primaryColor.withOpacity(0.1),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Image.asset(
+                          'assets/images/logo.jpg',
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ),
+                  ],
+
                 ),
                 padding: EdgeInsets.symmetric(
                   horizontal: screenSize.width * 0.08,

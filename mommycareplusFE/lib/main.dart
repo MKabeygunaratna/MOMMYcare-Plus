@@ -13,30 +13,24 @@ import 'package:mommycareplusFE/pages/SampleHomePage.dart';
 import 'package:mommycareplusFE/pages/Splash_screen.dart';
 import 'package:mommycareplusFE/pages/TermsOfUseScreen.dart';
 import 'package:mommycareplusFE/pages/EmailVerification.dart';
-import 'package:mommycareplusFE/pages/ForgotPasswordNew.dart';
 import 'package:mommycareplusFE/pages/GuardianScreen.dart';
-import 'package:mommycareplusFE/pages/HelpScreen.dart';
-import 'package:mommycareplusFE/pages/ProfileScreen.dart';
-import 'package:mommycareplusFE/pages/Questions.dart';
-import 'package:mommycareplusFE/pages/SettingsScreen.dart';
-import 'package:mommycareplusFE/pages/SubscriptionScreen.dart';
 import 'package:mommycareplusFE/pages/ThemeProvider.dart';
+
 import 'package:mommycareplusFE/pages/UserProvider.dart';
-//import 'package:mommycareplusFE/pages/ToDoListScreen.dart';
-//import 'package:login/pages/EmailVerification.dart';
-import 'package:mommycareplusFE/pages/chatbot1.dart';
-import 'package:mommycareplusFE/pages/chatbot2.dart';
-//import 'package:mommycareplusFE/pages/home.dart';
-//import 'package:mommycareplusFE/pages/login_screen.dart';
+
 import 'package:provider/provider.dart';
+
+import 'package:mommycareplusFE/pages/chatbot1.dart';
+
+
+import  'package:provider/provider.dart';
+
 import 'package:mommycareplusFE/pages/GuardianProvider.dart';
-
-
-import 'pages/signup.dart';
 
 void main() {
   runApp(
     MultiProvider(
+
         providers: [
           ChangeNotifierProvider(create: (context) => GuardianProvider()),
           ChangeNotifierProvider(create: (context) => ThemeProvider()),
@@ -45,6 +39,7 @@ void main() {
           ChangeNotifierProvider(create: (context) => UserProvider())
 
         ],
+
       child: MyApp(),
     ),
   );
@@ -63,10 +58,11 @@ class MyApp extends StatelessWidget {
           themeMode: themeProvider.themeMode,
           theme: ThemeData.light(),
           darkTheme: ThemeData.dark(),
-          home:LoginScreen(),
+
+          home:  ChatbotScreen(),
+
         );
       },
     );
   }
 }
-

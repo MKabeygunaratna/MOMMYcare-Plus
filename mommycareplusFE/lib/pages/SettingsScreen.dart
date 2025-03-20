@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'Languages.dart';
 import 'ProfileScreen.dart';
 import 'package:provider/provider.dart';
 import 'ThemeProvider.dart';
@@ -268,8 +267,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               children: [
                 SizedBox(height: screenHeight * 0.05),
                 _buildSettingsOption(context, "Profile", Icons.person, ProfileScreen()),
-                SizedBox(height: screenHeight * 0.025),
-                _buildSettingsOption(context, "Languages", Icons.translate, LanguageScreen()),
                 SizedBox(height: screenHeight * 0.025),
                 _buildSettingsOption(context, "Notification", Icons.notifications,null, isNotification:true),
                 SizedBox(height: screenHeight * 0.025),

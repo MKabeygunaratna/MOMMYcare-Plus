@@ -23,6 +23,7 @@ class _EmailVerificationState extends State<EmailVerification>{
   bool get isOtpComplete => _controllers.every((controller) =>controller.text.length == 1);
 
 
+
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
@@ -146,6 +147,7 @@ class _EmailVerificationState extends State<EmailVerification>{
             ),
             SizedBox(height: screenHeight * 0.2),
             Padding(
+
               padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.15),
               child: SizedBox(
                 height: screenHeight * 0.07,
@@ -164,6 +166,7 @@ class _EmailVerificationState extends State<EmailVerification>{
                       borderRadius: BorderRadius.circular(30),
                     ),
                     elevation: 5,
+
                   ),
                   child: Text(
                     'VERIFY AND PROCEED',

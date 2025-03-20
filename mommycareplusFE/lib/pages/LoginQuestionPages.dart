@@ -1,25 +1,8 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Question Pages',
-      theme: ThemeData(
-   
-        primarySwatch: Colors.purple,
-      ),
-      // Start the app on PageOne
-      home: const PageOne(),
-    );
-  }
-}
+import 'package:mommycareplusFE/pages/GuardianScreen.dart';
+import 'package:provider/provider.dart';
+import 'UserProvider.dart';
 
 class PageOne extends StatefulWidget {
   const PageOne({Key? key}) : super(key: key);
@@ -31,104 +14,103 @@ class PageOne extends StatefulWidget {
 class _PageOneState extends State<PageOne> {
   final TextEditingController _nameController = TextEditingController();
 
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
+    final double screenHeight = MediaQuery.of(context).size.height;
+    final double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Colors.white, // White page background
+      backgroundColor: Colors.white,
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Center(
-            child: Column(
-              children: [
-                const SizedBox(height: 40),
-                // Main Illustration
-                Image.asset(
-                  "assets/images/image 8.png", 
-                  width: 300,
-                  height: 300,
-                  fit: BoxFit.contain,
-                ),
-                const SizedBox(height: 20),
-                // Question text
-                const Text(
-                  "What do you want me to call you?",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.w600,
-                    color: Color(0xFF7F3DFF), 
-                  ),
-                ),
-                const SizedBox(height: 40),
-                
-                Container(
-                  width: 300,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Colors.grey,
-                        blurRadius: 4,
-                        offset: Offset(0, 4),
+        child: Padding(
+            padding:  EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
+            child: SingleChildScrollView(
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(height: screenHeight * 0.15),
+                      // Question Text
+                      Text(
+                        "What do you want me to call you?",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: screenWidth * 0.07, fontWeight: FontWeight.w600, color: Color(0xFF7261C6)),
                       ),
+                      SizedBox(height: screenHeight * 0.06),
+                      Container(
+                        width: double.infinity,
+                        padding:  EdgeInsets.symmetric(horizontal: screenWidth * 0.08),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Color(0xFF7261C6), width: 1.5),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: TextFormField(
+                          controller: _nameController,
+                          style: TextStyle(fontSize: screenWidth * 0.05),
+                          decoration: const InputDecoration(
+                            hintText: "Name",
+                            border: InputBorder.none,
+                          ),
+                          validator: (value){
+                            if(value == null || value.trim().isEmpty){
+                              return "Please enter your name";
+                            }
+                            if(!RegExp(r'^[a-zA-Z\s]+$').hasMatch(value)){
+                              return "Only letters and spaces allowed";
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: 120),
+                      // Bottom Section (Image + Button)
+                      Padding(
+                        padding: EdgeInsets.only(bottom: screenHeight * 0.03 , left: screenWidth * 0.05, right: screenWidth * 0.05), // Add padding for better positioning
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                              child: Image.asset(
+                                "assets/images/image8.png",
+                                width: screenWidth * 0.6,
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                            // Bottom Left Image
+                            // Next Button at Bottom Right
+                            ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: const Color(0xFF7261C6),
+                                foregroundColor: Colors.white,
+                                minimumSize:  Size(screenWidth * 0.3, screenHeight * 0.06),
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                              ),
+                              onPressed: () {
+                                if(_formKey.currentState!.validate()){
+                                  Provider.of<UserProvider>(context, listen: false).setName(_nameController.text);
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => const PageTwo()));
+                                }
+                              },
+                              child: const Text("NEXT", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 20), // Extra space at the bottom
                     ],
                   ),
-                  child: TextField(
-                    controller: _nameController,
-                    decoration: const InputDecoration(
-                      hintText: "Name",
-                      hintStyle: TextStyle(
-                        fontSize: 18,
-                        color: Colors.black54,
-                      ),
-                      border: InputBorder.none,
-                      contentPadding:
-                          EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 40),
-             
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF7F3DFF), 
-                    foregroundColor: Colors.white, 
-                    minimumSize: const Size(150, 50),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ),
-                  onPressed: () {
-                
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            PageTwo(name: _nameController.text),
-                      ),
-                    );
-                  },
-                  child: const Text(
-                    "NEXT",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                const SizedBox(height: 40),
-              ],
-            ),
-          ),
+                )
+            )
         ),
       ),
     );
   }
 }
-
-
 class PageTwo extends StatefulWidget {
-  final String name; // We pass the name forward
+  const PageTwo({Key? key}) : super(key: key);
 
-  const PageTwo({Key? key, required this.name}) : super(key: key);
 
   @override
   State<PageTwo> createState() => _PageTwoState();
@@ -137,94 +119,105 @@ class PageTwo extends StatefulWidget {
 class _PageTwoState extends State<PageTwo> {
   final TextEditingController _ageController = TextEditingController();
 
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
+    final double screenHeight = MediaQuery.of(context).size.height;
+    final double screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
-      backgroundColor: Colors.white, 
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Center(
-            child: Column(
-              children: [
-                const SizedBox(height: 40),
-              
-                const Text(
-                  "What is your age?",
-                  style: TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.w600,
-                    color: Color(0xFF7F3DFF),
-                  ),
-                ),
-                const SizedBox(height: 40),
-               
-                Image.asset(
-                  "assets/image 11.png", 
-                  width: 300,
-                  height: 300,
-                  fit: BoxFit.contain,
-                ),
-                const SizedBox(height: 40),
-                // Age input field
-                Container(
-                  width: 300,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Colors.grey,
-                        blurRadius: 4,
-                        offset: Offset(0, 4),
-                      )
-                    ],
-                  ),
-                  child: TextField(
-                    controller: _ageController,
-                    keyboardType: TextInputType.number,
-                    decoration: const InputDecoration(
-                      hintText: "Age",
-                      hintStyle: TextStyle(
-                        fontSize: 18,
-                        color: Colors.black54,
+          child: Padding(
+              padding:  EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(height: screenHeight * 0.15),
+
+                    // Question Text
+                    Text(
+                      "What is your age?",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: screenWidth * 0.07, fontWeight: FontWeight.w600, color: Color(0xFF7261C6)),
+                    ),
+
+                    SizedBox(height: screenHeight * 0.06),
+
+                    // Input Field
+                    Container(
+                      width: double.infinity,
+                      padding:  EdgeInsets.symmetric(horizontal: screenWidth * 0.08),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Color(0xFF7261C6), width: 1.5),
+                        borderRadius: BorderRadius.circular(20),
                       ),
-                      border: InputBorder.none,
-                      contentPadding:
-                          EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 40),
-                
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF7F3DFF),
-                    foregroundColor: Colors.white,
-                    minimumSize: const Size(150, 50),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ),
-                  onPressed: () {
-                 
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => PageThree(
-                          name: widget.name,
-                          age: _ageController.text,
+                      child: TextFormField(
+                        controller: _ageController,
+                        keyboardType: TextInputType.number,
+                        style: TextStyle(fontSize: screenWidth * 0.05),
+                        decoration: const InputDecoration(
+                          hintText: "Age",
+                          border: InputBorder.none,
                         ),
+                        validator: (value){
+                          if(value == null || value.trim().isEmpty){
+                            return "Please enter your age";
+                          }
+                          if (!RegExp(r'^[0-9]+$').hasMatch(value)) {
+                            return "Enter a valid number";
+                          }
+                          int age = int.tryParse(value) ?? 0;
+                          if (age < 18 || age > 99) {
+                            return "Enter a valid age (18-99)";
+                          }
+                          return null;
+                        },
                       ),
-                    );
-                  },
-                  child: const Text(
-                    "NEXT",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
+                    ),
+                    const SizedBox(height: 120),
+                    // Bottom Section (Image + Button)
+                    Padding(
+                      padding: EdgeInsets.only(bottom: screenHeight * 0.03 , left: screenWidth * 0.05, right: screenWidth * 0.05), // Add padding for better positioning
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Image.asset(
+                              "assets/images/image15.png",
+                              width: screenWidth * 0.6,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                          // Bottom Left Image
+                          // Next Button at Bottom Right
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFF7261C6),
+                              foregroundColor: Colors.white,
+                              minimumSize:  Size(screenWidth * 0.3, screenHeight * 0.06),
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                            ),
+                            onPressed: () {
+                              if(_formKey.currentState!.validate()){
+                                Provider.of<UserProvider>(context, listen: false).setAge(_ageController.text);
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => const PageThree()));
+                              }
+                            },
+                            child: const Text("NEXT", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 20), // Extra space at the bottom
+                  ],
                 ),
-                const SizedBox(height: 40),
-              ],
-            ),
+              )
+
           ),
         ),
       ),
@@ -232,12 +225,10 @@ class _PageTwoState extends State<PageTwo> {
   }
 }
 
-class PageThree extends StatefulWidget {
-  final String name;
-  final String age;
 
-  const PageThree({Key? key, required this.name, required this.age})
-      : super(key: key);
+class PageThree extends StatefulWidget {
+  const PageThree({Key? key}) : super(key: key);
+
 
   @override
   State<PageThree> createState() => _PageThreeState();
@@ -246,130 +237,104 @@ class PageThree extends StatefulWidget {
 class _PageThreeState extends State<PageThree> {
   final TextEditingController _postpartumController = TextEditingController();
 
+  final _formKey  = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
+    final double screenHeight = MediaQuery.of(context).size.height;
+    final double screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Center(
-            child: Column(
-              children: [
-                const SizedBox(height: 40),
-                // Question text
-                const Text(
-                  "What is your postpartum period?",
-                  style: TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.w600,
-                    color: Color(0xFF7F3DFF),
-                  ),
-                ),
-                const SizedBox(height: 40),
-                // Illustration
-                Image.asset(
-                  "assets/image 15.png", 
-                  width: 300,
-                  height: 300,
-                  fit: BoxFit.contain,
-                ),
-                const SizedBox(height: 40),
-             
-                Container(
-                  width: 300,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Colors.grey,
-                        blurRadius: 4,
-                        offset: Offset(0, 4),
-                      )
-                    ],
-                  ),
-                  child: TextField(
-                    controller: _postpartumController,
-                    decoration: const InputDecoration(
-                      hintText: "Postpartum period",
-                      hintStyle: TextStyle(
-                        fontSize: 18,
-                        color: Colors.black54,
+          child: Padding(
+              padding:  EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(height: screenHeight * 0.15),
+                    // Question Text
+                    Text(
+                      "What is your postpartum period?",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: screenWidth * 0.07, fontWeight: FontWeight.w600, color: Color(0xFF7261C6)),
+                    ),
+
+                    SizedBox(height: screenHeight * 0.06),
+                    // Input Field
+                    Container(
+                      width: double.infinity,
+                      padding:  EdgeInsets.symmetric(horizontal: screenWidth * 0.08),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Color(0xFF7261C6), width: 1.5),
+                        borderRadius: BorderRadius.circular(20),
                       ),
-                      border: InputBorder.none,
-                      contentPadding:
-                          EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 40),
-                
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF7F3DFF),
-                    foregroundColor: Colors.white,
-                    minimumSize: const Size(150, 50),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ),
-                  onPressed: () {
-                
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => NextPage(
-                          name: widget.name,
-                          age: widget.age,
-                          postpartum: _postpartumController.text,
+                      child: TextFormField(
+                        controller: _postpartumController,
+                        keyboardType: TextInputType.number,
+                        style: TextStyle(fontSize: screenWidth * 0.05),
+                        decoration: const InputDecoration(
+                          hintText: "Postpartum Period",
+                          border: InputBorder.none,
                         ),
+                        validator: (value) {
+                          if (value == null || value
+                              .trim()
+                              .isEmpty) {
+                            return "Please enter your postpartum period";
+                          }
+                          if (!RegExp(r'^[0-9]+$').hasMatch(value)) {
+                            return "Enter a valid number";
+                          }
+                          return null;
+                        },
                       ),
-                    );
-                  },
-                  child: const Text(
-                    "NEXT",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
+                    ),
+                    const SizedBox(height: 120),
+                    // Bottom Section (Image + Button)
+                    Padding(
+                      padding: EdgeInsets.only(bottom: screenHeight * 0.03 , left: screenWidth * 0.05, right: screenWidth * 0.05), // Add padding for better positioning
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Image.asset(
+                              "assets/images/image21.png",
+                              width: screenWidth * 0.6,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                          // Bottom Left Image
+                          // Next Button at Bottom Right
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFF7261C6),
+                              foregroundColor: Colors.white,
+                              minimumSize:  Size(screenWidth * 0.3, screenHeight * 0.06),
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                            ),
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                Provider.of<UserProvider>(context, listen: false)
+                                    .setPostpartum(_postpartumController.text);
+                                Navigator.push(context, MaterialPageRoute(
+                                    builder: (context) =>
+                                        GuardianDetailsScreen()));
+                              }
+                            },
+                            child: const Text("NEXT", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 20), // Extra space at the bottom
+                  ],
                 ),
-                const SizedBox(height: 40),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
+              )
 
-class NextPage extends StatelessWidget {
-  final String name;
-  final String age;
-  final String postpartum;
-
-  const NextPage({
-    Key? key,
-    required this.name,
-    required this.age,
-    required this.postpartum,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Next Page"),
-        backgroundColor: const Color(0xFF7F3DFF),
-      ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Text(
-            "Hello, $name!\nYour age is: $age\nYour postpartum period: $postpartum",
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 24,
-              color: Colors.black87,
-            ),
           ),
         ),
       ),

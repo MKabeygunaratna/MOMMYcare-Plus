@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+//import 'package:mommycareplusFE/pages/home.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'SampleHomePage.dart';
 
@@ -116,7 +117,7 @@ class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
               Navigator.pop(context);
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => HomePage()),
+                MaterialPageRoute(builder: (context) => Samplehomepage()),
               );
             },
             child: const Text("OK"),

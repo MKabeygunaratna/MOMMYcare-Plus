@@ -9,7 +9,14 @@ class ChatbotScreen extends StatelessWidget {
     final double screenHeight = size.height;
 
     return Scaffold(
-      backgroundColor: const Color(0xFF7261C6), // Purple background
+      backgroundColor: const Color(0xFF7261C6),
+      appBar: AppBar(
+        backgroundColor: Color(0xFF7261C6),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: ()=>Navigator.pop(context),
+        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView( // Prevent overflow
           child: Column(

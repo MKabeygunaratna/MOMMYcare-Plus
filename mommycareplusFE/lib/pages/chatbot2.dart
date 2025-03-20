@@ -10,6 +10,13 @@ class ChatbotScreen2 extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back,color: Colors.black),
+          onPressed: ()=>Navigator.pop(context),
+        ),
+      ),
       body: Column(
         children: [
           SizedBox(height: screenHeight * 0.08), // Added space to push text to the top

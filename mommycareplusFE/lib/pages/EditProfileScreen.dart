@@ -14,6 +14,8 @@ class EditProfileScreen extends StatefulWidget {
 }
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
+  final _formKey = GlobalKey<FormState>();
+
   late TextEditingController nameController;
   late TextEditingController ageController;
   late TextEditingController postpartumController;
@@ -117,41 +119,42 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   }
 
   void _saveChanges() {
-    // Update providers with new values
-    final profileProvider = Provider.of<ProfileProvider>(context, listen: false);
-    final guardianProvider = Provider.of<GuardianProvider>(context, listen: false);
-    final doctorProvider = Provider.of<DoctorProvider>(context, listen: false);
-    final userProvider = Provider.of<UserProvider>(context,listen: false);
+
+    if(_formKey.currentState!.validate()){
+      final profileProvider = Provider.of<ProfileProvider>(context, listen: false);
+      final guardianProvider = Provider.of<GuardianProvider>(context, listen: false);
+      final doctorProvider = Provider.of<DoctorProvider>(context, listen: false);
+      final userProvider = Provider.of<UserProvider>(context,listen: false);
 
 
-    userProvider.updateUser(
-      name:nameController.text,
-      age: ageController.text,
-      postpartum: postpartumController.text,
-    );
+      userProvider.updateUser(
+        name:nameController.text,
+        age: ageController.text,
+        postpartum: postpartumController.text,
+      );
 
-    // Update profile data
-    profileProvider.updateProfile(
-      babyName: babyNameController.text,
-      location: locationController.text,
-      profileImage: _imageFile,
-    );
+      // Update profile data
+      profileProvider.updateProfile(
+        babyName: babyNameController.text,
+        location: locationController.text,
+        profileImage: _imageFile,
+      );
 
-    // Update guardian data
-    guardianProvider.updateGuardian(
-      name: guardianNameController.text,
-      contactNumber: guardianContactController.text,
-      email: guardianEmailController.text,
-    );
+      // Update guardian data
+      guardianProvider.updateGuardian(
+        name: guardianNameController.text,
+        contactNumber: guardianContactController.text,
+        email: guardianEmailController.text,
+      );
 
-    // Update doctor data
-    doctorProvider.updateDoctor(
-      name: doctorNameController.text,
-      email: doctorEmailController.text,
-      contactNumber: doctorContactController.text,
-    );
-
-    Navigator.pop(context);
+      // Update doctor data
+      doctorProvider.updateDoctor(
+        name: doctorNameController.text,
+        email: doctorEmailController.text,
+        contactNumber: doctorContactController.text,
+      );
+      Navigator.pop(context);
+    }
   }
 
   @override
@@ -184,88 +187,93 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05, vertical: screenHeight * 0.02),
-          child: Column(
-            children: [
-              Center(
-                child: Stack(
-                  alignment: Alignment.bottomRight,
-                  children: [
-                    CircleAvatar(
-                      radius: screenWidth * 0.15,
-                      backgroundImage: _imageFile != null
-                          ? FileImage(_imageFile!) as ImageProvider
-                          : const AssetImage("assets/images/profile.jpeg"),
+            padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05, vertical: screenHeight * 0.02),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  Center(
+                    child: Stack(
+                      alignment: Alignment.bottomRight,
+                      children: [
+                        CircleAvatar(
+                          radius: screenWidth * 0.15,
+                          backgroundImage: _imageFile != null
+                              ? FileImage(_imageFile!) as ImageProvider
+                              : const AssetImage("assets/images/profile.jpeg"),
+                        ),
+                        GestureDetector(
+                          onTap: () => _showImagePickerOptions(context),
+                          child: const CircleAvatar(
+                            radius: 18,
+                            backgroundColor: Colors.white,
+                            child: Icon(Icons.camera_alt, color: Color(0xFF7261C6), size: 22),
+                          ),
+                        ),
+                      ],
                     ),
-                    GestureDetector(
-                      onTap: () => _showImagePickerOptions(context),
-                      child: const CircleAvatar(
-                        radius: 18,
-                        backgroundColor: Colors.white,
-                        child: Icon(Icons.camera_alt, color: Color(0xFF7261C6), size: 22),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 10),
-              const Text(
-                "Change Photo",
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black,
-                ),
-              ),
-              const SizedBox(height: 20),
-
-              buildTextField("Name", Icons.person, nameController, TextInputType.text),
-              const SizedBox(height: 30),
-              buildTextField("Age", Icons.person, ageController, TextInputType.text),
-              const SizedBox(height: 30),
-              buildTextField("Postpartum Period", Icons.person, postpartumController, TextInputType.text),
-              const SizedBox(height: 30),
-              buildTextField("Guardian's Name", Icons.person, guardianNameController, TextInputType.text),
-              const SizedBox(height: 30),
-              buildTextField("Guardian's Contact Number", Icons.phone, guardianContactController, TextInputType.phone),
-              const SizedBox(height: 30),
-              buildTextField("Baby's Name", Icons.child_care, babyNameController, TextInputType.text),
-              const SizedBox(height: 30),
-              buildTextField("Guardian's Email", Icons.email, guardianEmailController, TextInputType.emailAddress),
-              const SizedBox(height: 30),
-              buildTextField("Doctor's Name", Icons.person_2, doctorNameController, TextInputType.text),
-              const SizedBox(height: 30),
-              buildTextField("Doctor's Email", Icons.medical_services, doctorEmailController, TextInputType.emailAddress),
-              const SizedBox(height: 30),
-              buildTextField("Doctor's Contact Number", Icons.phone, doctorContactController, TextInputType.phone),
-              const SizedBox(height: 30),
-              buildTextField("Location", Icons.place, locationController, TextInputType.text),
-              const SizedBox(height: 40),
-              ElevatedButton(
-                onPressed: _saveChanges,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF7261C6),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
                   ),
-                  padding: EdgeInsets.symmetric(vertical: screenHeight * 0.015, horizontal: screenWidth * 0.015),
-                ),
-                child: const Text(
-                  "UPDATE",
-                  style: TextStyle(fontSize: 18, color: Colors.white),
-                ),
+                  const SizedBox(height: 10),
+                  const Text(
+                    "Change Photo",
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black,
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+
+                  buildTextField("Name", Icons.person, nameController, TextInputType.text,_validateName),
+                  const SizedBox(height: 30),
+                  buildTextField("Age", Icons.person, ageController, TextInputType.text,_validateAge),
+                  const SizedBox(height: 30),
+                  buildTextField("Postpartum Period", Icons.person, postpartumController, TextInputType.text,_validateName),
+                  const SizedBox(height: 30),
+                  buildTextField("Guardian's Name", Icons.person, guardianNameController, TextInputType.text,_validateName),
+                  const SizedBox(height: 30),
+                  buildTextField("Guardian's Contact Number", Icons.phone, guardianContactController, TextInputType.phone,_validatePhone),
+                  const SizedBox(height: 30),
+                  buildTextField("Baby's Name", Icons.child_care, babyNameController, TextInputType.text,_validateName),
+                  const SizedBox(height: 30),
+                  buildTextField("Guardian's Email", Icons.email, guardianEmailController, TextInputType.emailAddress,_validateEmail),
+                  const SizedBox(height: 30),
+                  buildTextField("Doctor's Name", Icons.person_2, doctorNameController, TextInputType.text,_validateName),
+                  const SizedBox(height: 30),
+                  buildTextField("Doctor's Email", Icons.medical_services, doctorEmailController, TextInputType.emailAddress,_validateEmail),
+                  const SizedBox(height: 30),
+                  buildTextField("Doctor's Contact Number", Icons.phone, doctorContactController, TextInputType.phone,_validatePhone),
+                  const SizedBox(height: 30),
+                  buildTextField("Location", Icons.place, locationController, TextInputType.text,_validateName),
+                  const SizedBox(height: 40),
+                  ElevatedButton(
+                    onPressed: _saveChanges,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF7261C6),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      padding: EdgeInsets.symmetric(vertical: screenHeight * 0.015, horizontal: screenWidth * 0.015),
+                    ),
+                    child: const Text(
+                      "UPDATE",
+                      style: TextStyle(fontSize: 18, color: Colors.white),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                ],
               ),
-              const SizedBox(height: 20),
-            ],
-          ),
+
+            )
+
         ),
       ),
     );
   }
 
-  Widget buildTextField(String label, IconData icon, TextEditingController controller, TextInputType inputType) {
-    return TextField(
+  Widget buildTextField(String label, IconData icon, TextEditingController controller, TextInputType inputType,String? Function(String?)? validator) {
+    return TextFormField(
       controller: controller,
       keyboardType: inputType,
       style: const TextStyle(
@@ -291,6 +299,15 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           borderSide: const BorderSide(color: Color(0xFF6F42C1), width: 2.5),
         ),
       ),
+      validator: validator,
     );
   }
+
+  String? _validateName(String? value) => RegExp(r"^[a-zA-Z\s]+$").hasMatch(value ?? '') ? null : 'Only letter and spaces are allowed';
+
+  String? _validateAge(String? value) => (value != null && int.tryParse(value) != null && int.parse(value) > 0) ? null : 'Enter a valid age';
+
+  String? _validatePhone(String? value) => RegExp(r"^\d{10}$").hasMatch(value ?? '') ? null : 'Enter a valid 10-digit phone number';
+
+  String? _validateEmail(String? value) => RegExp(r"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$").hasMatch(value ?? '') ? null : 'Enter a valid email';
 }

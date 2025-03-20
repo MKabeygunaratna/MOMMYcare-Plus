@@ -1,35 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:mommycareplusFE/pages/UserProvider.dart';
+import 'package:provider/provider.dart';
 
 class ChatbotScreen2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final userName = Provider.of<UserProvider>(context).name;
     final size = MediaQuery.of(context).size;
     final double screenWidth = size.width;
     final double screenHeight = size.height;
-
 
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back,color: Colors.black),
+          icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: ()=>Navigator.pop(context),
         ),
       ),
       body: Column(
         children: [
           SizedBox(height: screenHeight * 0.08), // Added space to push text to the top
-          // Greeting
-          const Center(
+          // Greeting with dynamic username
+          Center(
             child: Text(
-              "Hi Manilka",
+              "Hi $userName",
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
           ),
           SizedBox(height: screenHeight * 0.1),
 
-          Image.asset('assets/images/Robot 2.jpg', height: screenHeight * 0.35, width: screenWidth * 0.8,fit: BoxFit.contain),
+          Image.asset('assets/images/Robot 2.jpg', height: screenHeight * 0.35, width: screenWidth * 0.8, fit: BoxFit.contain),
           SizedBox(height: screenHeight * 0.08),
           // Helper Text
           const Text(
@@ -93,4 +95,3 @@ class NewScreen extends StatelessWidget {
     );
   }
 }
-

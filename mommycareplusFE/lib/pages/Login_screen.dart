@@ -1,119 +1,88 @@
 import 'package:flutter/material.dart';
-import 'package:mommycareplusFE/pages/ForgotPasswordNew.dart';
-import 'package:mommycareplusFE/pages/signup.dart';
 import 'home.dart';
-import 'Access_screen.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends StatelessWidget {
   @override
-  _LoginScreenState createState() => _LoginScreenState();
-}
-class _LoginScreenState extends State<LoginScreen>{
-  final _formKey = GlobalKey<FormState>();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-
-  String? _emailError;
-  String? _passwordError;
-
-  String?_validateEmail(String? value){
-    if(value== null || value.isEmpty){
-      return'Please enter your email';
-    }
-    String emailPattern =  r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$';
-    RegExp regExp = RegExp(emailPattern);
-    if(!regExp.hasMatch(value)){
-      return 'Please enter a valid email address';
-    }
-    return null;
-  }
-
-  String? _validatePassword(String? value){
-    if(value==null || value.isEmpty){
-      return 'Please enter your password';
-    }
-    if(value.length<6){
-      return 'Password should be at least 6 characters';
-    }
-    return null;
-  }
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: SingleChildScrollView(  // Wrap the entire body inside SingleChildScrollView
-        child: Column(
-          children: [
-            // Top Section (removed Container, keeping internal data)
-            Padding(
+      backgroundColor: const Color(0xFF8474CB),
+      body: Column(
+        children: [
+          // Top Section
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height * 0.3,
+            decoration: const BoxDecoration(
+              color: Color(0xFF8474CB),
+            ),
+            child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  SizedBox(height: screenSize.height * 0.04),
+                children: const [
+                  SizedBox(height: 10),
                   Text(
                     'Hello!',
                     style: TextStyle(
-                      fontSize: screenSize.width * 0.09,
+                      fontSize: 36,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black,
+                      color: Colors.white,
                     ),
                   ),
                   Text(
                     'Welcome to MOMMYcare+',
                     style: TextStyle(
-                      fontSize: screenSize.width * 0.05,
-                      color: Colors.black,
+                      fontSize: 18,
+                      color: Colors.white,
                     ),
-                  ),
-                  SizedBox(height: screenSize.height * 0.02),
-                  Image.asset(
-                    'assets/images/loginImage.png',
-                    height: screenSize.height * 0.2,
-                    width: screenSize.width * 0.3,
                   ),
                 ],
               ),
             ),
-            SizedBox(height: screenSize.height * 0.03),
-            // Login Section
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: screenSize.width * 0.05),
+          ),
+          // Login Section
+          Expanded(
+            child: SingleChildScrollView(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const Text(
-                    'LOGIN',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF8474CB),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Color(0xFFE8E4E4),
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20),
+                      ),
                     ),
-                  ),
-                  SizedBox(height: screenSize.height * 0.02),
-                  Form(
-                    key: _formKey,
+                    padding: const EdgeInsets.all(16),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        TextFormField(
-                          controller: _emailController,
-                          validator: _validateEmail,
+                        const Text(
+                          'LOGIN',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF8474CB),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        TextField(
+
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.white,
                             labelText: 'E-mail',
                             prefixIcon: const Icon(Icons.email),
                             border: OutlineInputBorder(
+
                               borderRadius: BorderRadius.circular(12),
                             ),
                           ),
                         ),
-                        SizedBox(height: screenSize.height * 0.02),
-                        TextFormField(
-                          controller: _passwordController,
+                        const SizedBox(height: 16),
+                        TextField(
                           obscureText: true,
-                          validator: _validatePassword,
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.white,
@@ -123,126 +92,112 @@ class _LoginScreenState extends State<LoginScreen>{
                               borderRadius: BorderRadius.circular(12),
                             ),
                           ),
-                        )
+                        ),
+                        const SizedBox(height: 8),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: TextButton(
+                            onPressed: () {
+                              // Forgot password logic
+                            },
+                            child: const Text(
+                              'Forgot Password?',
+                              style: TextStyle(color: Color(0xFF8474CB)),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomePage()),
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFF8474CB),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            padding: const EdgeInsets.symmetric(vertical: 16),
+                          ),
+                          child: const Text(
+                            'LOGIN',
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text("Don't have an account? "),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/signup');
+                              },
+                              child: const Text(
+                                'Sign Up',
+                                style: TextStyle(color: Color(0xFF8474CB)),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const Text(
+                          'Or login using',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                        const SizedBox(height: 3),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            SizedBox(width: 5),
+                            GestureDetector(
+                              onTap: () {
+                                // Google login logic
+                              },
+                              child: Image.asset(
+                                'assets/images/google.png',
+                                height: 80,
+                                width: 80,
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                // Facebook login logic
+                              },
+                              child: Image.asset(
+                                'assets/images/facebook.png',
+                                height: 80,
+                                width: 80,
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                // Instagram login logic
+                              },
+                              child: Image.asset(
+                                'assets/images/instagram.png',
+                                height: 80,
+                                width: 80,
+                              ),
+                            ),
+                            SizedBox(width: 5),
+                          ],
+                        ),
+                        SizedBox(height: 45),
                       ],
                     ),
-                  ),
-                  SizedBox(height: screenSize.height * 0.01),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context)=>ForgotPasswordNew())
-                        );
-
-                      },
-                      child: const Text(
-                        'Forgot Password?',
-                        style: TextStyle(color: Color(0xFF8474CB)),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: screenSize.height * 0.03),
-                  SizedBox(
-                    width: double.infinity,
-                    height: screenSize.height * 0.06,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => AccessScreen1()),
-                          );
-                        }
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF8474CB),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                      ),
-                      child: const Text(
-                        'LOGIN',
-                        style: TextStyle(fontSize: 20, color: Colors.white),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: screenSize.height * 0.03),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Divider(color: Colors.grey, thickness: 1, endIndent: 10),
-                      ),
-                      Text('or login with', style: TextStyle(color: Colors.grey[800])),
-                      Expanded(
-                        child: Divider(color: Colors.grey,thickness: 1,indent: 10),
-                      )
-                    ],
-                  ),
-                  SizedBox(height: screenSize.height * 0.01),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      SizedBox(width: 5),
-                      GestureDetector(
-                        onTap: () {
-                          // Google login logic
-                        },
-                        child: Image.asset(
-                          'assets/images/google.png',
-                          height: screenSize.height * 0.1,
-                          width: screenSize.width * 0.2,
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          // Facebook login logic
-                        },
-                        child: Image.asset(
-                          'assets/images/facebook.png',
-                          height: screenSize.height * 0.1,
-                          width: screenSize.width * 0.2,
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          // Instagram login logic
-                        },
-                        child: Image.asset(
-                          'assets/images/instagram.png',
-                          height: screenSize.height * 0.1,
-                          width: screenSize.width * 0.2,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: screenSize.height * 0.01),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text("Don't have an account? "),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => SignUpScreen()),
-                          );
-                        },
-                        child: const Text(
-                          'Sign Up',
-                          style: TextStyle(color: Color(0xFF8474CB)),
-                        ),
-                      ),
-                    ],
                   ),
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

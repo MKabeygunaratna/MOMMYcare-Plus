@@ -14,7 +14,7 @@ class _BreastFeedingScreenState extends State<BreastFeedingScreen> {
   List<Map<String, String>> recentlyWatched = [];
   int selectedTab = 0;
 
-  final List<String> tabs = ["Videos", "Recent", "Books", "Articles"];
+  final List<String> tabs = ["Videos", "Books", "Articles"];
   
   final List<Map<String, String>> allVideos = [
     {
@@ -54,10 +54,12 @@ class _BreastFeedingScreenState extends State<BreastFeedingScreen> {
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 15),
+            child:Center(
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(tabs.length, (index) {
                   return GestureDetector(
                     onTap: () {
@@ -66,8 +68,8 @@ class _BreastFeedingScreenState extends State<BreastFeedingScreen> {
                       });
                     },
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 5),
-                      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+                      margin: EdgeInsets.symmetric(horizontal: 8),
+                      padding: EdgeInsets.symmetric(vertical: 9, horizontal: 30),
                       decoration: BoxDecoration(
                         color: selectedTab == index ? Color(0xFF7261C6) : Colors.white,
                         borderRadius: BorderRadius.circular(20),
@@ -86,6 +88,7 @@ class _BreastFeedingScreenState extends State<BreastFeedingScreen> {
               ),
             ),
           ),
+        ),
           Expanded(
             child: selectedTab == 0
                 ? buildVideoSection()

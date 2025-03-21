@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mommycareplusFE/pages/SampleHomePage.dart';
+import 'package:mommycareplusFE/pages/home.dart';
 import 'Questions.dart';
 
 class QuestionWelcomePage extends StatelessWidget {
@@ -17,7 +17,7 @@ class QuestionWelcomePage extends StatelessWidget {
           icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: ()=>Navigator.push(
             context,
-            MaterialPageRoute(builder: (context)=>Samplehomepage())
+            MaterialPageRoute(builder: (context)=> HomePage())
           ),
         ),
       ),

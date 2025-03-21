@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mommycareplusFE/pages/SampleHomePage.dart';
 import 'Login_screen.dart';
 
 class StartScreen extends StatelessWidget {
@@ -54,7 +53,7 @@ class StartScreen extends StatelessWidget {
                 padding:  EdgeInsets.symmetric(horizontal: screenWidth * 0.2, vertical: 12),
               ),
               onPressed: () {
-                Navigator.push(
+                Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => LoginScreen()),
                 );

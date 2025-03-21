@@ -9,7 +9,6 @@ import 'package:mommycareplusFE/pages/Login_screen.dart';
 import 'package:mommycareplusFE/pages/PrivacyScreen.dart';
 import 'package:mommycareplusFE/pages/Profile_Provider.dart';
 import 'package:mommycareplusFE/pages/Question_welcome_page.dart';
-import 'package:mommycareplusFE/pages/SampleHomePage.dart';
 import 'package:mommycareplusFE/pages/Splash_screen.dart';
 import 'package:mommycareplusFE/pages/TermsOfUseScreen.dart';
 import 'package:mommycareplusFE/pages/EmailVerification.dart';
@@ -17,6 +16,7 @@ import 'package:mommycareplusFE/pages/GuardianScreen.dart';
 import 'package:mommycareplusFE/pages/ThemeProvider.dart';
 
 import 'package:mommycareplusFE/pages/UserProvider.dart';
+import 'package:mommycareplusFE/pages/signup.dart';
 
 import 'package:provider/provider.dart';
 
@@ -59,7 +59,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData.light(),
           darkTheme: ThemeData.dark(),
 
-          home:  ChatbotScreen(),
+          home:  SignUpScreen(),
 
         );
       },

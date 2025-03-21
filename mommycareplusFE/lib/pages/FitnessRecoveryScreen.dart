@@ -12,7 +12,7 @@ class FitnessRecoveryScreen extends StatefulWidget {
 
 class _FitnessRecoveryScreenState extends State<FitnessRecoveryScreen> {
   int selectedTab = 0;
-  final List<String> tabs = ["Videos", "Recent", "Books", "Articles"];
+  final List<String> tabs = ["Videos", "Books", "Articles"];
 
   final Map<String, List<Map<String, String>>> topics = {
     " Postpartum Workouts": [
@@ -121,10 +121,12 @@ class _FitnessRecoveryScreenState extends State<FitnessRecoveryScreen> {
           // Top Navigation Buttons
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 15),
+            child:Center(
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(tabs.length, (index) {
                   return GestureDetector(
                     onTap: () {
@@ -133,8 +135,8 @@ class _FitnessRecoveryScreenState extends State<FitnessRecoveryScreen> {
                       });
                     },
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 5),
-                      padding: EdgeInsets.symmetric(vertical: 9, horizontal: 20),
+                      margin: EdgeInsets.symmetric(horizontal: 8),
+                      padding: EdgeInsets.symmetric(vertical: 9, horizontal: 30),
                       decoration: BoxDecoration(
                         color: selectedTab == index ? Color(0xFF7261C6) : Colors.white,
 
@@ -155,15 +157,14 @@ class _FitnessRecoveryScreenState extends State<FitnessRecoveryScreen> {
               ),
             ),
           ),
+        ),
 
           Expanded(
             child: selectedTab == 0
                 ? buildVideoSection() // Video section remains unchanged
-            // : selectedTab == 1
-            // ? recentlyWatchedBabyCareScreen()
-                : selectedTab == 2
+                : selectedTab == 1
                 ? Fitnessrecoverybookscreen()
-                : selectedTab == 3
+                : selectedTab == 2
                 ? FitnessRecoveryarticlescreen()
                 : Container(), // Optional fallback
 

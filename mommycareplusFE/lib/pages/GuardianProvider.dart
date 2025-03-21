@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class GuardianProvider with ChangeNotifier {
   String _name = '';
@@ -10,6 +11,24 @@ class GuardianProvider with ChangeNotifier {
   String get contactNumber => _contactNumber;
   String get email => _email;
 
+  GuardianProvider(){
+    _loadFromPrefs();
+  }
+  Future<void>_loadFromPrefs()async{
+    final prefs = await SharedPreferences.getInstance();
+    _name = prefs.getString('guardianName')??'';
+    _contactNumber = prefs.getString('guardianContact')??'';
+    _email = prefs.getString('guardianEmail')??'';
+    notifyListeners();
+  }
+
+  Future<void>_saveToPrefs()async{
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('guardianName', _name);
+    await prefs.setString('guardianContact', _contactNumber);
+    await prefs.setString('guardianEmail', _email);
+  }
+
   // Initialize guardian data
   void initGuardian({
     required String name,
@@ -19,6 +38,7 @@ class GuardianProvider with ChangeNotifier {
     _name = name;
     _contactNumber = contactNumber;
     _email = email;
+    _saveToPrefs();
     notifyListeners();
   }
 
@@ -31,6 +51,7 @@ class GuardianProvider with ChangeNotifier {
     _name = name;
     _contactNumber = contactNumber;
     _email = email;
+    _saveToPrefs();
     notifyListeners();
   }
 }

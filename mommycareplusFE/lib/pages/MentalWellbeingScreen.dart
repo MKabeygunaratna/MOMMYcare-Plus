@@ -11,7 +11,7 @@ class MentalwellbeingScreen extends StatefulWidget {
 class _MentalwellbeingScreenState extends State<MentalwellbeingScreen> {
   int selectedTab = 0;
 
-  final List<String> tabs = ["Videos", "Recent","Books", "Articles"];
+  final List<String> tabs = ["Videos","Books","Articles"];
 
   final List<Map<String, String>> allVideos = [
     {
@@ -82,10 +82,12 @@ class _MentalwellbeingScreenState extends State<MentalwellbeingScreen> {
           // Top Navigation Buttons
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 15),
+            child:Center(
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(tabs.length, (index) {
                   return GestureDetector(
                     onTap: () {
@@ -94,8 +96,8 @@ class _MentalwellbeingScreenState extends State<MentalwellbeingScreen> {
                       });
                     },
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 5),
-                      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+                      margin: EdgeInsets.symmetric(horizontal: 8),
+                      padding: EdgeInsets.symmetric(vertical: 9, horizontal: 30),
                       decoration: BoxDecoration(
                         color: selectedTab == index ? Color(0xFF7261C6) : Colors.white,
                         borderRadius: BorderRadius.circular(15),
@@ -114,12 +116,13 @@ class _MentalwellbeingScreenState extends State<MentalwellbeingScreen> {
               ),
             ),
           ),
+        ),
           Expanded(
             child: selectedTab == 0
                 ? buildVideoSection()
-                : selectedTab == 2
+                : selectedTab == 1
                 ? Mentalwellbeingbookscreen()
-                : selectedTab == 3
+                : selectedTab == 2
                 ? Mentalwellbeingarticlescreen()
                 : Container(),
           ),

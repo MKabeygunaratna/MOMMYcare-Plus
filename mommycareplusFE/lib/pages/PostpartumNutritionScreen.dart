@@ -12,7 +12,7 @@ class _PostpartumnutritionScreenState extends State<PostpartumnutritionScreen> {
   List<Map<String, String>> recentlyWatched = [];
   int selectedTab = 0;
 
-  final List<String> tabs = ["Videos", "Recent", "Books", "Articles"];
+  final List<String> tabs = ["Videos", "Books", "Articles"];
 
   final List<Map<String, String>> allVideos = [
     {
@@ -52,6 +52,7 @@ class _PostpartumnutritionScreenState extends State<PostpartumnutritionScreen> {
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 15),
+            child:Center(
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -64,8 +65,8 @@ class _PostpartumnutritionScreenState extends State<PostpartumnutritionScreen> {
                       });
                     },
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 5),
-                      padding: EdgeInsets.symmetric(vertical: 9, horizontal: 20),
+                      margin: EdgeInsets.symmetric(horizontal: 8),
+                      padding: EdgeInsets.symmetric(vertical: 9, horizontal: 30),
                       decoration: BoxDecoration(
                         color: selectedTab == index ? Color(0xFF7261C6) : Colors.white,
                         borderRadius: BorderRadius.circular(20),
@@ -84,12 +85,13 @@ class _PostpartumnutritionScreenState extends State<PostpartumnutritionScreen> {
               ),
             ),
           ),
+          ),
           Expanded(
             child: selectedTab == 0
                 ? buildVideoSection()
-                : selectedTab == 2
+                : selectedTab == 1
                 ? Ppnutritionbookscreen()
-                : selectedTab == 3
+                : selectedTab == 2
                 ? Ppdarticlescreen()
                 : Container(),
           ),

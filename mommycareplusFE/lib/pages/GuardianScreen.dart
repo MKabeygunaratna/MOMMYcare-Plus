@@ -10,9 +10,39 @@ class GuardianDetailsScreen extends StatefulWidget {
 }
 class _GuardianDetailsScreenState extends State<GuardianDetailsScreen>{
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController contactController = TextEditingController();
+  late TextEditingController nameController;
+  late TextEditingController emailController;
+  late TextEditingController contactController;
+
+  @override
+  void initState() {
+    super.initState();
+    nameController = TextEditingController();
+    emailController = TextEditingController();
+    contactController = TextEditingController();
+
+    // Delayed execution to ensure the context is available
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _loadGuardianData();
+    });
+  }
+
+  void _loadGuardianData() {
+    final guardianProvider = Provider.of<GuardianProvider>(context, listen: false);
+
+    // Populate text controllers with existing data (if any)
+    nameController.text = guardianProvider.name;
+    emailController.text = guardianProvider.email;
+    contactController.text = guardianProvider.contactNumber;
+  }
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    emailController.dispose();
+    contactController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

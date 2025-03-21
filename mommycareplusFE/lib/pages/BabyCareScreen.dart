@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'babyCareArticleScreen.dart';
 import 'babyCareBookScreen.dart';
 import 'videoPlayerScreen.dart';
+import 'Lullabies.dart';
 
 
 class BabyCareScreen extends StatefulWidget {
@@ -13,7 +14,7 @@ class _BabyCareScreenState extends State<BabyCareScreen> {
   List<Map<String, String>> recentlyWatched = [];
   int selectedTab = 0;
 
-  final List<String> tabs = ["Videos", "Recent", "Books", "Articles"];
+  final List<String> tabs = ["Videos","Lullabies", "Books", "Articles"];
 
   final Map<String, List<Map<String, String>>> topics = {
     "Umbilical Cord Care": [
@@ -144,7 +145,7 @@ class _BabyCareScreenState extends State<BabyCareScreen> {
                     },
                     child: Container(
                       margin: EdgeInsets.symmetric(horizontal: 5),
-                      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+                      padding: EdgeInsets.symmetric(vertical: 9, horizontal: 20),
                       decoration: BoxDecoration(
                         color: selectedTab == index ? Color(0xFF7261C6) : Colors.white,
 
@@ -168,8 +169,8 @@ class _BabyCareScreenState extends State<BabyCareScreen> {
           Expanded(
             child: selectedTab == 0
                 ? buildVideoSection() 
-                // : selectedTab == 1
-                // ? recentlyWatchedBabyCareScreen() // Add your recent section here
+                : selectedTab == 1
+                ? Lullabies() // Add your recent section here
                 : selectedTab == 2
                 ? BooksScreen()
                 : selectedTab == 3

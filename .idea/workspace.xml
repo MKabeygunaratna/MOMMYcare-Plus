@@ -5,68 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="using a provider instead of passing arguments">
-      <change afterPath="$PROJECT_DIR$/.dart_tool/dartpad/web_plugin_registrant.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/version" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/main_dart.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLm/llm/ML-NOTES.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLm/llm/api_server.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLm/llm/ml_module.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLm/multi-language/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLm/new_rag_for_llm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/local.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Flutter/Generated.xcconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Flutter/flutter_export_environment.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/llm/ML-NOTES.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/llm/api_server.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/llm/ml_module.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/macos/Flutter/ephemeral/Flutter-Generated.xcconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/macos/Flutter/ephemeral/flutter_export_environment.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/home/NotificationIcon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/home/Profile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/home/book.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/home/home.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/home/image1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/home/image2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/home/robot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/home/vaccinationImage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/home/woman.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/image 15.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/image 21.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/image 8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/logo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/ios/Podfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/AddTaskScreen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/ResetPassword.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/TodoListScreen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/VaccinationFormScreen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/login_screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/signup_screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/macos/Podfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/more.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/MOMMYcare-Plus.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MOMMYcare-Plus.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LLm/chat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LLm/isi_py.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/ios/Flutter/Debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/ios/Flutter/Debug.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/ios/Flutter/Release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/ios/Flutter/Release.xcconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/EmailVerification.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/EmailVerification.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/LoginQuestionPages.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/LoginQuestionPages.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/Login_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/Login_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/home.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/GetStartedScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/GetStartedScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/GuardianScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/GuardianScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/Question_welcome_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/Question_welcome_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/Questions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/Questions.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/signup.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/signup.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/macos/Flutter/Flutter-Debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/macos/Flutter/Flutter-Debug.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/macos/Flutter/Flutter-Release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/macos/Flutter/Flutter-Release.xcconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mommycareplusFE/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +71,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "Merging s1]__yeheni__1",
+    "git-widget-placeholder": "s1]__yeheni__1",
     "io.flutter.reload.alreadyRun": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "E:/IIT/2nd Year/SDGP/MOMMYcare-Plus",

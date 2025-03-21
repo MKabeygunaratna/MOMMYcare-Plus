@@ -10,10 +10,29 @@ class DoctorScreen extends StatefulWidget {
 }
 
 class _DoctorScreenState extends State<DoctorScreen> {
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController contactController = TextEditingController();
+  late TextEditingController nameController;
+  late TextEditingController emailController;
+  late TextEditingController contactController;
   final _formKey = GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    super.initState();
+    nameController = TextEditingController();
+    emailController = TextEditingController();
+    contactController = TextEditingController();
+
+    // Delayed execution to ensure the context is available
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _loadDoctorData();
+    });
+  }
+  void _loadDoctorData(){
+    final doctorProvider = Provider.of<DoctorProvider>(context,listen: false);
+    nameController.text = doctorProvider.name;
+    emailController.text = doctorProvider.email;
+    contactController.text = doctorProvider.contactNumber;
+  }
 
   @override
   Widget build(BuildContext context) {

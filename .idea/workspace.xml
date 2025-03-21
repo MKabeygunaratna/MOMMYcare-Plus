@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="adding validations">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/Login_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/Login_screen.dart" afterDir="false" />
-    </list>
+    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="using shared preferences for doctor's screen" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -320,12 +317,34 @@
       <option name="project" value="LOCAL" />
       <updated>1742547898301</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="adding validations">
+      <option name="closed" value="true" />
+      <created>1742548600984</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1742548600984</updated>
+    </task>
+    <task id="LOCAL-00031" summary="using shared preferences">
+      <option name="closed" value="true" />
+      <created>1742548806537</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1742548806537</updated>
+    </task>
+    <task id="LOCAL-00032" summary="using shared preferences for doctor's screen">
+      <option name="closed" value="true" />
+      <created>1742549384597</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1742549384597</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding Media Query" />
-    <MESSAGE value="renaming the subscription screen" />
     <MESSAGE value="using a provider instead of passing arguments" />
     <MESSAGE value="changing the font size of the subscription plan according to the screen sizes using media query." />
     <MESSAGE value="adding login questions and changing the profile screen according to those questions" />
@@ -349,6 +368,8 @@
     <MESSAGE value="adding validations to the Guardian Screen." />
     <MESSAGE value="adding some changes" />
     <MESSAGE value="adding validations" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding validations" />
+    <MESSAGE value="using shared preferences" />
+    <MESSAGE value="using shared preferences for doctor's screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="using shared preferences for doctor's screen" />
   </component>
 </project>

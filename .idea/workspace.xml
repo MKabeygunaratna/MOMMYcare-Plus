@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="using shared preferences for doctor's screen" />
+    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="adding changes to the home screen" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -341,11 +341,18 @@
       <option name="project" value="LOCAL" />
       <updated>1742549384597</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="adding changes to the home screen">
+      <option name="closed" value="true" />
+      <created>1742549692186</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1742549692186</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="using a provider instead of passing arguments" />
     <MESSAGE value="changing the font size of the subscription plan according to the screen sizes using media query." />
     <MESSAGE value="adding login questions and changing the profile screen according to those questions" />
     <MESSAGE value="editing the edit profile screen according to the login questions." />
@@ -370,6 +377,7 @@
     <MESSAGE value="adding validations" />
     <MESSAGE value="using shared preferences" />
     <MESSAGE value="using shared preferences for doctor's screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="using shared preferences for doctor's screen" />
+    <MESSAGE value="adding changes to the home screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding changes to the home screen" />
   </component>
 </project>

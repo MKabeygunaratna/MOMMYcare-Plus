@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="adding shared preferences">
+    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="changing some validations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/assets/images/image 15.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/assets/images/image 21.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/assets/images/image 8.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/signup_screen.dart" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -363,12 +361,26 @@
       <option name="project" value="LOCAL" />
       <updated>1742550137970</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="doing some changes in pictures">
+      <option name="closed" value="true" />
+      <created>1742552728829</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1742552728829</updated>
+    </task>
+    <task id="LOCAL-00036" summary="changing some validations">
+      <option name="closed" value="true" />
+      <created>1742552750523</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1742552750523</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="adding login questions and changing the profile screen according to those questions" />
-    <MESSAGE value="editing the edit profile screen according to the login questions." />
     <MESSAGE value="adding a splash screen" />
     <MESSAGE value="adding the start screen" />
     <MESSAGE value="adding a back button to the chatbot screen." />
@@ -392,6 +404,8 @@
     <MESSAGE value="using shared preferences for doctor's screen" />
     <MESSAGE value="adding changes to the home screen" />
     <MESSAGE value="adding shared preferences" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding shared preferences" />
+    <MESSAGE value="doing some changes in pictures" />
+    <MESSAGE value="changing some validations" />
+    <option name="LAST_COMMIT_MESSAGE" value="changing some validations" />
   </component>
 </project>

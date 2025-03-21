@@ -229,7 +229,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   const SizedBox(height: 30),
                   buildTextField("Age", Icons.person, ageController, TextInputType.text,_validateAge),
                   const SizedBox(height: 30),
-                  buildTextField("Postpartum Period", Icons.person, postpartumController, TextInputType.text,_validateName),
+                  buildTextField("Postpartum Period", Icons.person, postpartumController, TextInputType.text,_validatePeriod),
                   const SizedBox(height: 30),
                   buildTextField("Guardian's Name", Icons.person, guardianNameController, TextInputType.text,_validateName),
                   const SizedBox(height: 30),
@@ -310,4 +310,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   String? _validatePhone(String? value) => RegExp(r"^\d{10}$").hasMatch(value ?? '') ? null : 'Enter a valid 10-digit phone number';
 
   String? _validateEmail(String? value) => RegExp(r"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$").hasMatch(value ?? '') ? null : 'Enter a valid email';
+
+  String? _validatePeriod(String? value) => (value != null && int.tryParse(value) != null && int.parse(value) > 0) ? null : 'Enter a valid postpartum period';
 }

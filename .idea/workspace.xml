@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="adding changes to the home screen" />
+    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="adding shared preferences">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/assets/images/image 15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/assets/images/image 21.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/assets/images/image 8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/main.dart" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -349,11 +355,18 @@
       <option name="project" value="LOCAL" />
       <updated>1742549692186</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="adding shared preferences">
+      <option name="closed" value="true" />
+      <created>1742550137970</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1742550137970</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changing the font size of the subscription plan according to the screen sizes using media query." />
     <MESSAGE value="adding login questions and changing the profile screen according to those questions" />
     <MESSAGE value="editing the edit profile screen according to the login questions." />
     <MESSAGE value="adding a splash screen" />
@@ -378,6 +391,7 @@
     <MESSAGE value="using shared preferences" />
     <MESSAGE value="using shared preferences for doctor's screen" />
     <MESSAGE value="adding changes to the home screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding changes to the home screen" />
+    <MESSAGE value="adding shared preferences" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding shared preferences" />
   </component>
 </project>

@@ -9,6 +9,8 @@ import 'package:mommycareplusFE/pages/UserProvider.dart';
 import 'package:mommycareplusFE/pages/chatbot1.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
 
 class HomePage extends StatefulWidget {
   @override
@@ -20,7 +22,70 @@ class _HomePageState extends State<HomePage> {
   DateTime _focusedDay = DateTime.now();
   int _currentIndex = 0;
   Map<DateTime, List<String>> _reminders = {}; // Store reminders
-  final List<String> _tasks = [];
+  List<String> _tasks = [];
+  bool _isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadSavedData();
+  }
+
+  // Load saved data when the app starts
+  Future<void> _loadSavedData() async {
+    setState(() {
+      _isLoading = true;
+    });
+
+    try {
+      final prefs = await SharedPreferences.getInstance();
+
+      // Load tasks
+      final tasksList = prefs.getStringList('tasks') ?? [];
+
+      // Load reminders - need to convert string to DateTime keys
+      final remindersJson = prefs.getString('reminders') ?? '{}';
+      final decodedReminders = jsonDecode(remindersJson) as Map<String, dynamic>;
+
+      // Convert string dates back to DateTime objects
+      final Map<DateTime, List<String>> loadedReminders = {};
+      decodedReminders.forEach((key, value) {
+        final date = DateTime.parse(key);
+        loadedReminders[date] = List<String>.from(value);
+      });
+
+      setState(() {
+        _tasks = tasksList;
+        _reminders = loadedReminders;
+        _isLoading = false;
+      });
+    } catch (e) {
+      print('Error loading saved data: $e');
+      setState(() {
+        _isLoading = false;
+      });
+    }
+  }
+
+  // Save tasks to SharedPreferences
+  Future<void> _saveTasks() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList('tasks', _tasks);
+  }
+
+  // Save reminders to SharedPreferences
+  Future<void> _saveReminders() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    // Convert DateTime keys to strings for JSON serialization
+    Map<String, List<String>> serializableReminders = {};
+    _reminders.forEach((date, reminderList) {
+      serializableReminders[date.toIso8601String()] = reminderList;
+    });
+
+    final remindersJson = jsonEncode(serializableReminders);
+    await prefs.setString('reminders', remindersJson);
+  }
 
   void _onTabTapped(int index) {
     if(index==_currentIndex)
@@ -42,15 +107,13 @@ class _HomePageState extends State<HomePage> {
             context,
             MaterialPageRoute(builder: (context)=>ChatbotScreen())
         );
+        break; // Added missing break
       case 3:
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(builder: (context)=>ProfileScreen())
         );
-
-
-
-
+        break; // Added missing break
     }
   }
 
@@ -59,7 +122,6 @@ class _HomePageState extends State<HomePage> {
       _selectedDay = selectedDay;
       _focusedDay = focusedDay;
     });
-
 
     if (selectedDay.isAfter(DateTime.now())) {
       _addReminder(selectedDay);
@@ -91,6 +153,9 @@ class _HomePageState extends State<HomePage> {
                   }
                   _reminders[date]!.add(_reminderController.text);
                 });
+
+                // Save reminders when added
+                _saveReminders();
               }
               Navigator.pop(context);
             },
@@ -99,6 +164,17 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
+  }
+
+  // Delete a reminder
+  void _deleteReminder(DateTime date, int index) {
+    setState(() {
+      _reminders[date]!.removeAt(index);
+      if (_reminders[date]!.isEmpty) {
+        _reminders.remove(date);
+      }
+    });
+    _saveReminders();
   }
 
   Widget _buildReminderList() {
@@ -113,6 +189,10 @@ class _HomePageState extends State<HomePage> {
         return ListTile(
           title: Text(reminders[index]),
           leading: Icon(Icons.notifications),
+          trailing: IconButton(
+            icon: Icon(Icons.delete, color: Colors.red),
+            onPressed: () => _deleteReminder(_selectedDay, index),
+          ),
         );
       },
     );
@@ -158,6 +238,17 @@ class _HomePageState extends State<HomePage> {
     final userName = Provider.of<UserProvider>(context).name;
     final double screenWidth = MediaQuery.of(context).size.width;
     final double screenHeight = MediaQuery.of(context).size.height;
+
+    if (_isLoading) {
+      return Scaffold(
+        body: Center(
+          child: CircularProgressIndicator(
+            color: Color(0xFF7261C6),
+          ),
+        ),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Hello $userName!"),
@@ -277,7 +368,7 @@ class _HomePageState extends State<HomePage> {
                 context,
                 MaterialPageRoute(builder: (context)=>QuestionWelcomePage()),
               );
-            }, // TODO: Add navigation to assessment page
+            },
             style: _buttonStyle(),
             child: Text('Start Assessment', style: TextStyle(fontSize: screenWidth * 0.04, color: Colors.white)),
           ),
@@ -291,18 +382,16 @@ class _HomePageState extends State<HomePage> {
       padding: EdgeInsets.all(screenWidth * 0.04),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(8), // Optional: Adds rounded corners to the card
+        borderRadius: BorderRadius.circular(8),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // Image with flexible space
           Image.asset(
             'assets/images/image2.png',
-            width: screenWidth * 0.2, // Adjusted size for responsiveness
+            width: screenWidth * 0.2,
           ),
           SizedBox(width: screenWidth * 0.02),
-          // Wrap content in Expanded to avoid overflow
           Expanded(
             child: Container(
               padding: EdgeInsets.all(screenWidth * 0.03),
@@ -342,7 +431,7 @@ class _HomePageState extends State<HomePage> {
                             context,
                             MaterialPageRoute(builder: (context)=>ChatbotScreen()),
                           );
-                        }, // TODO: Add AI assistant logic
+                        },
                         style: _buttonStyle(),
                         child: Text(
                           'Get Started',
@@ -395,9 +484,8 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-
   Widget _buildTasksSection(double screenWidth, double screenHeight) {
-    TextEditingController _taskController = TextEditingController(); // Controller for the task input
+    TextEditingController _taskController = TextEditingController();
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -410,7 +498,6 @@ class _HomePageState extends State<HomePage> {
         SizedBox(height: screenHeight * 0.01),
         GestureDetector(
           onTap: () {
-            // Show dialog to input new task
             showDialog(
               context: context,
               builder: (context) => AlertDialog(
@@ -428,8 +515,10 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () {
                       if (_taskController.text.isNotEmpty) {
                         setState(() {
-                          _tasks.add(_taskController.text); // Add the new task to the list
+                          _tasks.add(_taskController.text);
                         });
+                        // Save tasks when added
+                        _saveTasks();
                       }
                       Navigator.pop(context);
                     },
@@ -465,20 +554,40 @@ class _HomePageState extends State<HomePage> {
         ListView.builder(
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
-          itemCount: _tasks.length, // Dynamic task count
+          itemCount: _tasks.length,
           itemBuilder: (context, index) {
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 4.0),
-              child: ListTile(
-                tileColor: Color(0xFFFFFFFF),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
+              child: Dismissible(
+                key: Key(_tasks[index]),
+                background: Container(
+                  color: Colors.red,
+                  alignment: Alignment.centerRight,
+                  padding: EdgeInsets.only(right: 20),
+                  child: Icon(Icons.delete, color: Colors.white),
                 ),
-                title: Text(
-                  _tasks[index], // Dynamic task title
-                  style: TextStyle(fontSize: 14, color: Colors.black),
+                direction: DismissDirection.endToStart,
+                onDismissed: (direction) {
+                  setState(() {
+                    _tasks.removeAt(index);
+                  });
+                  // Save tasks when removed
+                  _saveTasks();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Task deleted')),
+                  );
+                },
+                child: ListTile(
+                  tileColor: Color(0xFFFFFFFF),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  title: Text(
+                    _tasks[index],
+                    style: TextStyle(fontSize: 14, color: Colors.black),
+                  ),
+                  trailing: CircleAvatar(backgroundColor: Color(0xFFDC6FD5)),
                 ),
-                trailing: CircleAvatar(backgroundColor: Color(0xFFDC6FD5)),
               ),
             );
           },
@@ -486,7 +595,6 @@ class _HomePageState extends State<HomePage> {
       ],
     );
   }
-
 
   BoxDecoration _buildBoxDecoration() {
     return BoxDecoration(

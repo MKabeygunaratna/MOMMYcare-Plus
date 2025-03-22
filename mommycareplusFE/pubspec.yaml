@@ -3,7 +3,7 @@ name: mommycareplusFE
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -32,24 +32,11 @@ dependencies:
   flutter:
     sdk: flutter
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
-
-  http: ^0.13.6
-  socket_io_client: ^3.0.2
-  provider: ^6.1.2
-  permission_handler: ^11.3.1
-  image_picker: ^1.1.2
-  shared_preferences: ^2.5.1
-  flutter_local_notifications: ^18.0.1
-
-  font_awesome_flutter: ^10.8.0
-  table_calendar: ^3.2.0
-  speech_to_text: ^7.0.0
-
-
+  youtube_player_flutter: ^9.1.1
+  url_launcher: ^6.1.14
 
 dev_dependencies:
   flutter_test:
@@ -67,7 +54,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-  
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -75,36 +61,77 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-      - assets/images/Robot 2.jpg
-      - assets/images/guardian_image.jpg
-      - assets/images/Question.jpg
-      - assets/images/profile.jpeg
-      - assets/images/Logo.jpg
-      - assets/images/patient-doctor.jpg
-      - assets/images/Question_welcome.png
-      - assets/images/book.png
-      - assets/images/image2.png
-      - assets/images/home.png
-      - assets/images/image1.png
-      - assets/images/NotificationIcon.png
-      - assets/images/Profile.png
-      - assets/images/robot.png
-      - assets/images/vaccinationImage.png
-      - assets/images/woman.png
-      - assets/images/facebook.png
-      - assets/images/instagram.png
-      - assets/images/google.png
-      - assets/images/mommy_baby.png
-      - assets/images/Logo.jpg
-      - assets/images/image8.png
-      - assets/images/image15.png
-      - assets/images/image21.png
-      - assets/images/Splash_screen.png
-      - assets/images/LoginImage.png
-
-
-
-
+    - assets/images/Simplest_Baby.jpg
+    - assets/images/Cribsheet.jpg
+    - assets/images/baby_care.jpg
+    - assets/images/breast_feeding.jpg
+    - assets/images/fitness_recovery.jpg
+    - assets/images/mental_wellbeing.jpg
+    - assets/images/postpartum_nutrition.jpg
+    - assets/images/The_Whole_Brain Child.jpeg
+    - assets/images/What_to_Expect_the_First_Year.jpg
+    - assets/images/The_Happiest_Baby_on_the_Block.jpg
+    - assets/images/The_Common_Sense_Book.jpg
+    - assets/images/baby1.jpg
+    - assets/images/baby2.jpg
+    - assets/images/baby3.jpg
+    - assets/images/baby4.jpg
+    - assets/images/baby5.jpg
+    - assets/images/baby6.jpg
+    - assets/images/The Womanly Art of Breastfeeding.jpeg
+    - assets/images/Ina_May_Gaskin.jpg
+    - assets/images/BetterBreastfeeding.jpg
+    - assets/images/The_Breastfeedin_Book.jpg
+    - assets/images/Nighttime_and_Naptime.jpg
+    - assets/images/Work. Pump. Repeat.jpg
+    - assets/images/All_Day_Boobin.jpg
+    - assets/images/BF1.jpg
+    - assets/images/BF2.jpg
+    - assets/images/BF3.jpg
+    - assets/images/BF4.jpg
+    - assets/images/BF5.jpg
+    - assets/images/BF6.jpg
+    - assets/images/BF7.jpg
+    - assets/images/Your Brain.jpg
+    - assets/images/A Mom Like That.jpg
+    - assets/images/Raising A Happier Mother.jpg
+    - assets/images/Self-Care for New Moms.jpg
+    - assets/images/Rattled.jpeg
+    - assets/images/Not Your Mother.jpg
+    - assets/images/MW1.jpg
+    - assets/images/MW2.jpg
+    - assets/images/MW3.jpg
+    - assets/images/MW4.jpg
+    - assets/images/MW5.jpg
+    - assets/images/MW6.jpg
+    - assets/images/MW7.jpg
+    - assets/images/MW1.jpg
+    - assets/images/FR1.jpg
+    - assets/images/FR2.jpg
+    - assets/images/FR3.jpg
+    - assets/images/FR4.jpg
+    - assets/images/FR5.jpg
+    - assets/images/FR6.jpg
+    - assets/images/FR7.jpg
+    - assets/images/Your Best Body.jpg
+    - assets/images/Your Postpartum Body.jpg
+    - assets/images/After Birth.jpg
+    - assets/images/The Postnatal Depletion Cure.jpg
+    - assets/images/Birth Without Fear.jpg
+    - assets/images/Strong Like a Mother.jpg
+    - assets/images/Organically Raised.jpg
+    - assets/images/The Better Pregnancy Diet.jpg
+    - assets/images/Postpartum Nutrition.jpg
+    - assets/images/The Postpartum Nutrition Cookbook.webp
+    - assets/images/The Postnatal Cookbook.jpg
+    - assets/images/Nutrition and Lifestyle.jpg
+    - assets/images/Organically Raised.jpg
+    - assets/images/The Better Pregnancy Diet.jpg
+    - assets/images/PPD1.jpeg
+    - assets/images/PPD2.jpeg
+    - assets/images/PPD3.jpeg
+    - assets/images/PPD4.jpeg
+    - assets/images/PPD5.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -117,22 +144,17 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-    - family: postnobillscolombo
-      fonts:
-        - asset: assets/fonts/postnobillscolombo-extrabold.ttf
-          weight: 800
-
-    - family: Poppins
-      fonts:
-        - asset: assets/fonts/Poppins-Light.ttf
-        - asset: assets/fonts/Poppins-SemiBold.ttf
-        - asset: assets/fonts/Poppins-ExtraLight.ttf
-        - asset: assets/fonts/Poppins-Medium.ttf
-
-    - family: Inter
-      fonts:
-        - asset: assets/fonts/Inter-ExtraLight.ttf
-
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

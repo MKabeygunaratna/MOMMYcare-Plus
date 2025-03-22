@@ -38,6 +38,22 @@ dependencies:
   youtube_player_flutter: ^9.1.1
   url_launcher: ^6.1.14
 
+  http: ^1.3.0
+  socket_io_client: ^3.0.2
+  provider: ^6.1.2
+  permission_handler: ^11.3.1
+  image_picker: ^1.1.2
+  shared_preferences: ^2.5.1
+  flutter_local_notifications: ^19.0.0
+
+  font_awesome_flutter: ^10.8.0
+  table_calendar: ^3.2.0
+  speech_to_text: ^7.0.0
+
+
+
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -47,7 +63,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -132,6 +148,33 @@ flutter:
     - assets/images/PPD3.jpeg
     - assets/images/PPD4.jpeg
     - assets/images/PPD5.jpeg
+    - assets/images/Robot 2.jpg
+    - assets/images/guardian_image.jpg
+    - assets/images/Question.jpg
+    - assets/images/profile.jpeg
+    - assets/images/Logo.jpg
+    - assets/images/patient-doctor.jpg
+    - assets/images/Question_welcome.png
+    - assets/images/book.png
+    - assets/images/image2.png
+    - assets/images/home.png
+    - assets/images/image1.png
+    - assets/images/NotificationIcon.png
+    - assets/images/Profile.png
+    - assets/images/robot.png
+    - assets/images/vaccinationImage.png
+    - assets/images/woman.png
+    - assets/images/facebook.png
+    - assets/images/instagram.png
+    - assets/images/google.png
+    - assets/images/mommy_baby.png
+    - assets/images/Logo.jpg
+    - assets/images/image8.png
+    - assets/images/image15.png
+    - assets/images/image21.png
+    - assets/images/Splash_screen.png
+    - assets/images/LoginImage.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -158,3 +201,19 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+  fonts:
+       - family: postnobillscolombo
+         fonts:
+            - asset: assets/fonts/postnobillscolombo-extrabold.ttf
+              weight: 800
+
+       - family: Poppins
+         fonts:
+            - asset: assets/fonts/Poppins-Light.ttf
+            - asset: assets/fonts/Poppins-SemiBold.ttf
+            - asset: assets/fonts/Poppins-ExtraLight.ttf
+            - asset: assets/fonts/Poppins-Medium.ttf
+
+       - family: Inter
+         fonts:
+            - asset: assets/fonts/Inter-ExtraLight.ttf

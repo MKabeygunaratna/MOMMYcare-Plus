@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'BabyCareScreen.dart';
 import 'BreastFeedingScreen.dart';
-// import 'mental_wellbeing_screen.dart';
-// import 'FitnessRecoveryScreen.dart';
-// import 'PostpartumNutritionScreen.dart';
+import 'MentalWellbeingScreen.dart';
+import 'FitnessRecoveryScreen.dart';
+import 'PostpartumNutritionScreen.dart';
 
 class LibraryScreen extends StatelessWidget {
   final List<Map<String, dynamic>> topics = [
@@ -23,19 +23,19 @@ class LibraryScreen extends StatelessWidget {
       'title': 'Mental Wellbeing',
       'subtitle': 'Maintaining a healthy relationship with your partner',
       'image': 'assets/images/mental_wellbeing.jpg',
-      // 'screen': MentalWellbeingScreen(),
+      'screen': MentalwellbeingScreen(),
     },
     {
       'title': 'Fitness and Body Recovery',
       'subtitle': 'Kegels and other exercises to regain pelvic strength',
       'image': 'assets/images/fitness_recovery.jpg',
-      // 'screen': FitnessRecoveryScreen(),
+      'screen': FitnessRecoveryScreen(),
     },
     {
       'title': 'Postpartum Nutrition',
       'subtitle': 'Essential nutrients for recovery after childbirth',
       'image': 'assets/images/postpartum_nutrition.jpg',
-      // 'screen': PostpartumNutritionScreen(),
+      'screen': PostpartumnutritionScreen(),
     },
   ];
 

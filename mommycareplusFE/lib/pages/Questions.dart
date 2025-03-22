@@ -228,7 +228,8 @@ class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   if (currentQuestionIndex > 0)
-                    ElevatedButton(onPressed: () => setState(() => currentQuestionIndex--), child: const Text("Previous")),
+                    ElevatedButton(onPressed: () => setState(() => currentQuestionIndex--),
+                        child: const Text("Previous")),
                   ElevatedButton(
                     onPressed: selectedAnswers.containsKey(currentQuestionIndex)
                         ? () {

@@ -64,10 +64,6 @@ class ChatbotScreen2 extends StatelessWidget {
                   IconButton(
                     icon: const Icon(Icons.send, color: Color(0xFF7261C6)),
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => NewScreen()),
-                      );
                     },
                   ),
                 ],
@@ -81,17 +77,3 @@ class ChatbotScreen2 extends StatelessWidget {
   }
 }
 
-class NewScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("New Screen")),
-      body: const Center(
-        child: Text(
-          "You have navigated to a new screen!",
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
-      ),
-    );
-  }
-}

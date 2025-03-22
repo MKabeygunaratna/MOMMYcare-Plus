@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="changing some validations">
+    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="adding shared preferences">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/signup_screen.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/Questions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/Questions.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -377,7 +376,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742552750523</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="adding shared preferences">
+      <option name="closed" value="true" />
+      <created>1742584857343</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1742584857343</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -403,9 +410,9 @@
     <MESSAGE value="using shared preferences" />
     <MESSAGE value="using shared preferences for doctor's screen" />
     <MESSAGE value="adding changes to the home screen" />
-    <MESSAGE value="adding shared preferences" />
     <MESSAGE value="doing some changes in pictures" />
     <MESSAGE value="changing some validations" />
-    <option name="LAST_COMMIT_MESSAGE" value="changing some validations" />
+    <MESSAGE value="adding shared preferences" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding shared preferences" />
   </component>
 </project>

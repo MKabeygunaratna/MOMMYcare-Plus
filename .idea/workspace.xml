@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="adding some changes">
+    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="adding a voice input feature to the chatbot">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -391,11 +392,18 @@
       <option name="project" value="LOCAL" />
       <updated>1742626432469</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="adding a voice input feature to the chatbot">
+      <option name="closed" value="true" />
+      <created>1742642176886</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1742642176886</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="adding a splash screen" />
     <MESSAGE value="adding the start screen" />
     <MESSAGE value="adding a back button to the chatbot screen." />
     <MESSAGE value="changing the navigations and removing the title from the doctor details screen." />
@@ -420,6 +428,7 @@
     <MESSAGE value="changing some validations" />
     <MESSAGE value="adding shared preferences" />
     <MESSAGE value="adding some changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding some changes" />
+    <MESSAGE value="adding a voice input feature to the chatbot" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding a voice input feature to the chatbot" />
   </component>
 </project>

@@ -11,7 +11,6 @@ class BabyCareScreen extends StatefulWidget {
 }
 
 class _BabyCareScreenState extends State<BabyCareScreen> {
-  List<Map<String, String>> recentlyWatched = [];
   int selectedTab = 0;
 
   final List<String> tabs = ["Videos","Lullabies", "Books", "Articles"];

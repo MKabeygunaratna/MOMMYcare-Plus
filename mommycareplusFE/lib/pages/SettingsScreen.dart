@@ -7,7 +7,6 @@ import 'HelpScreen.dart';
 import 'PrivacyScreen.dart';
 import 'TermsOfUseScreen.dart';
 
-
 class SettingsScreen extends StatefulWidget {
   @override
   _SettingsScreenState createState() => _SettingsScreenState();
@@ -90,10 +89,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 
-
-
-
-
   void _showSupportPopup(BuildContext context) {
     final size = MediaQuery.of(context).size;
     showModalBottomSheet(
@@ -141,6 +136,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       },
     );
   }
+
   Widget _buildSupportOption(BuildContext context, String title, IconData icon, Widget screen) {
     return ListTile(
       leading: Icon(icon, color: Colors.black),
@@ -153,92 +149,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 
-  void _showNotificationPopup(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    bool newMessages = true; // Default value
-    bool updates = false;
-    bool reminders = true;
-
-    showModalBottomSheet(
-      context: context,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      backgroundColor: Color(0xFFD3CBFD),
-      builder: (context) {
-        return StatefulBuilder(
-          builder: (context, setState) {
-            return Padding(
-              padding: EdgeInsets.all(size.width * 0.04),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Stack(
-                    children: [
-                      Center(
-                        child: Padding(
-                          padding: EdgeInsets.only(top: size.height * 0.01),
-                          child: Text(
-                            "Notification Settings",
-                            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        right: 0,
-                        child: IconButton(
-                          icon: Icon(Icons.close),
-                          onPressed: () => Navigator.pop(context),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Divider(color: Color(0xFF7261C6)),
-                  SizedBox(height: size.height * 0.02),
-                  _buildNotificationOption("New Messages", newMessages, (value) {
-                    setState(() {
-                      newMessages = value;
-                    });
-                  }),
-                  _buildNotificationOption("App Updates", updates, (value) {
-                    setState(() {
-                      updates = value;
-                    });
-                  }),
-                  _buildNotificationOption("Reminders", reminders, (value) {
-                    setState(() {
-                      reminders = value;
-                    });
-                  }),
-                  SizedBox(height: size.height * 0.015),
-                ],
-              ),
-            );
-          },
-        );
-      },
-    );
-  }
-
-  Widget _buildNotificationOption(String title, bool value, Function(bool) onChanged) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(title, style: TextStyle(fontSize: 16)),
-        Switch(
-          value: value,
-          onChanged: onChanged,
-        ),
-      ],
-    );
-  }
-
-
-
-
-
-
-
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -249,10 +159,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Profilescreen()),
-          ),
+          onPressed: () => Navigator.pop(context),
         ),
         title: Text("Settings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
         centerTitle: true,
@@ -266,13 +173,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
               padding: EdgeInsets.only(bottom: screenHeight * 0.02),
               children: [
                 SizedBox(height: screenHeight * 0.05),
-                _buildSettingsOption(context, "Profile", Icons.person,Profilescreen()),
-                SizedBox(height: screenHeight * 0.025),
-                _buildSettingsOption(context, "Notification", Icons.notifications,null, isNotification:true),
+                _buildSettingsOption(context, "Profile", Icons.person, Profilescreen()),
                 SizedBox(height: screenHeight * 0.025),
                 _buildSettingsOption(context, "Themes", Icons.brightness_6, null, isTheme: true),
                 SizedBox(height: screenHeight * 0.025),
-                _buildSettingsOption(context, "Support", Icons.help, null,isSupport: true),
+                _buildSettingsOption(context, "Support", Icons.help, null, isSupport: true),
               ],
             ),
           ),
@@ -298,7 +203,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 
-  Widget _buildSettingsOption(BuildContext context, String title, IconData icon, Widget? screen, {bool isTheme = false,bool isSupport = false, bool isNotification = false}) {
+  Widget _buildSettingsOption(BuildContext context, String title, IconData icon, Widget? screen, {bool isTheme = false, bool isSupport = false}) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       child: Container(
@@ -316,9 +221,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
             }
             else if(isSupport){
               _showSupportPopup(context);
-            }
-            else if (isNotification) {
-              _showNotificationPopup(context);  // Show notification popup
             }
             else if (screen != null) {
               Navigator.push(context, MaterialPageRoute(builder: (context) => screen));

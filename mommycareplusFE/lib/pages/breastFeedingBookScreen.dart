@@ -5,7 +5,7 @@ class Breastfeedingbookscreen extends StatelessWidget {
     Book(
       author: 'Diane Wiessinger, Diana West, and Teresa Pitman',
       title: 'The Womanly Art of Breastfeeding',
-      imageUrl: 'assets/The Womanly Art of Breastfeeding.jpeg',
+      imageUrl: 'assets/images/The Womanly Art of Breastfeeding.jpeg',
       description: '''
 
 " **Laid-back Breastfeeding** 
@@ -137,7 +137,7 @@ In addition, The Breastfeeding Book integrates attachment parenting principles, 
     Book(
       author: 'La Leche League International',
       title: 'Nighttime and Naptime Strategies for the Breastfeeding Family',
-      imageUrl: 'assets/Nighttime_and_Naptime.jpg',
+      imageUrl: 'assets/images/Nighttime_and_Naptime.jpg',
       description: '''
 This book is a game-changer for exhausted breastfeeding moms who struggle with sleepless nights. Written by experts at La Leche League, it provides a science-backed approach to infant sleep that prioritizes both safety and bonding.
 
@@ -151,7 +151,7 @@ Key Insights:
    Book(
       author: 'Jessica Shortall',
       title: 'Work. Pump. Repeat.: The New Mom’s Survival Guide to Breastfeeding and Going Back to Work',
-      imageUrl: 'assets/to_kill_a_mockingbird.jpg',
+      imageUrl: 'assets/images/work. Pump. Repeat.jpg',
       description: '''
 Breastfeeding while managing a career can feel overwhelming, and this book tackles that reality with humor and honesty. It’s a no-nonsense guide that offers practical, real-world solutions for pumping at work without sacrificing professional goals.
 
@@ -166,7 +166,7 @@ Key Insights:
     Book(
       author: 'Meg Nagle',
       title: 'Boobin’ All Day… Boobin’ All Night',
-      imageUrl: 'assets/All_Day_Boobin.jpg',
+      imageUrl: 'assets/images/All_Day_Boobin.jpg',
       description: '''
 Breastfeeding while managing a career can feel overwhelming, and this book tackles that reality with humor and honesty. It’s a no-nonsense guide that offers practical, real-world solutions for pumping at work without sacrificing professional goals.
 

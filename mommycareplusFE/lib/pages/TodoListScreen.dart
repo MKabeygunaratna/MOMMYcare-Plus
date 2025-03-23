@@ -12,7 +12,7 @@ class TodoListScreen extends StatefulWidget {
 }
 
 class _TodoListScreenState extends State<TodoListScreen> {
-  int _currentIndex = 0;
+  int _currentIndex = 4;
   final _taskFormKey = GlobalKey<FormState>();
   final _vaccinationFormKey = GlobalKey<FormState>();
   TextEditingController _taskController = TextEditingController();

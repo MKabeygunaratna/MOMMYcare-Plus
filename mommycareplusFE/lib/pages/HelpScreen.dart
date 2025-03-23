@@ -1,8 +1,51 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'home.dart';
+import 'library.dart';
+import 'chatbot1.dart';
+import 'TodoListScreen.dart';
+import 'ProfileScreen.dart';
 
-class HelpCenterScreen extends StatelessWidget {
+class HelpCenterScreen extends StatefulWidget {
   @override
+  _HelpCenterScreenState createState() => _HelpCenterScreenState();
+}
+
+class _HelpCenterScreenState extends State<HelpCenterScreen>{
+  void _onTabTapped(int index) {
+
+    switch(index){
+      case 0:
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => HomePage()));
+        break;
+      case 1:
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ChatbotScreen())
+        );
+        break;
+      case 2:
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => LibraryScreen())
+        );
+        break;
+      case 3:
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => TodoListScreen())
+        );
+        break;
+      case 4:
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Profilescreen())
+        );
+        break;
+    }
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -17,6 +60,35 @@ class HelpCenterScreen extends StatelessWidget {
         ),
       ),
       backgroundColor: Colors.white,
+      bottomNavigationBar: BottomNavigationBar(
+        // No currentIndex specified - all items will be unselected
+        onTap: _onTabTapped,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat_bubble_rounded),
+            label: 'AI',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.library_books),
+            label: 'Resources',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.work),
+            label: 'Planner',
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Profile'
+          )
+        ],
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Color(0xFF7261C6),
+        unselectedItemColor: Colors.black,
+      ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16.0),
         child: Column(

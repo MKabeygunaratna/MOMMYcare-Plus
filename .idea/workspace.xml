@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="new changes">
+    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="changing the nav bar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/ProfileScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/ProfileScreen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/home.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/library.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/library.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -425,11 +426,18 @@
       <option name="project" value="LOCAL" />
       <updated>1742698331297</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="changing the nav bar">
+      <option name="closed" value="true" />
+      <created>1742701659885</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1742701659885</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="adding a back button to the chatbot screen." />
     <MESSAGE value="changing the navigations and removing the title from the doctor details screen." />
     <MESSAGE value="changing the navigations" />
     <MESSAGE value="adding some more pages" />
@@ -454,6 +462,7 @@
     <MESSAGE value="adding shared preferences" />
     <MESSAGE value="adding a new look" />
     <MESSAGE value="new changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="new changes" />
+    <MESSAGE value="changing the nav bar" />
+    <option name="LAST_COMMIT_MESSAGE" value="changing the nav bar" />
   </component>
 </project>

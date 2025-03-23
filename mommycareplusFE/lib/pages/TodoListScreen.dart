@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:intl/intl.dart';
+import 'home.dart';
+import 'chatbot1.dart';
+import 'library.dart';
+import 'ProfileScreen.dart';
 
 class TodoListScreen extends StatefulWidget {
   @override
@@ -8,6 +12,7 @@ class TodoListScreen extends StatefulWidget {
 }
 
 class _TodoListScreenState extends State<TodoListScreen> {
+  int _currentIndex = 0;
   final _taskFormKey = GlobalKey<FormState>();
   final _vaccinationFormKey = GlobalKey<FormState>();
   TextEditingController _taskController = TextEditingController();
@@ -105,6 +110,42 @@ class _TodoListScreenState extends State<TodoListScreen> {
     return !RegExp(r'\d').hasMatch(effects);
   }
 
+  void _onTabTapped(int index) {
+    if(index==_currentIndex)
+      return;
+
+    switch(index){
+      case 0:
+        Navigator.push(
+            context,MaterialPageRoute(builder: (context)=>HomePage()));
+        break;
+      case 1:
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context)=>ChatbotScreen())
+        );
+        break;
+      case 2:
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context)=>LibraryScreen())
+        );
+        break; // Added missing break
+      case 3:
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context)=>Profilescreen())
+        );
+        break;
+      case 4:
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context)=>TodoListScreen())
+        );
+        break;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
@@ -116,6 +157,35 @@ class _TodoListScreenState extends State<TodoListScreen> {
         title: Text('Planner', style: TextStyle(fontWeight: FontWeight.bold)),
         centerTitle: true,
         backgroundColor: Colors.white,
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: _onTabTapped,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat_bubble_rounded),
+            label: 'AI',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.library_books),
+            label: 'Resources',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.work),
+              label: 'Planner'
+          )
+        ],
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Color(0xFF7261C6),
+        unselectedItemColor: Colors.black,
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),

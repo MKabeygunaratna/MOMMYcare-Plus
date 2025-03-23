@@ -251,7 +251,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => ProfileScreen()),
+              MaterialPageRoute(builder: (context) => Profilescreen()),
           ),
         ),
         title: Text("Settings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
@@ -266,7 +266,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               padding: EdgeInsets.only(bottom: screenHeight * 0.02),
               children: [
                 SizedBox(height: screenHeight * 0.05),
-                _buildSettingsOption(context, "Profile", Icons.person, ProfileScreen()),
+                _buildSettingsOption(context, "Profile", Icons.person,Profilescreen()),
                 SizedBox(height: screenHeight * 0.025),
                 _buildSettingsOption(context, "Notification", Icons.notifications,null, isNotification:true),
                 SizedBox(height: screenHeight * 0.025),
@@ -287,7 +287,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ProfileScreen()),
+                  MaterialPageRoute(builder: (context) => Profilescreen()),
                 );
               },
               child: Text("Sign Out", style: TextStyle(fontSize: 18, color: Colors.white)),

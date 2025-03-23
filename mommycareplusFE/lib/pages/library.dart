@@ -4,8 +4,17 @@ import 'BreastFeedingScreen.dart';
 import 'MentalWellbeingScreen.dart';
 import 'FitnessRecoveryScreen.dart';
 import 'PostpartumNutritionScreen.dart';
+import 'home.dart';
+import 'chatbot1.dart';
+import 'TodoListScreen.dart';
+import 'ProfileScreen.dart';
 
-class LibraryScreen extends StatelessWidget {
+class LibraryScreen extends StatefulWidget {
+  @override
+  _LibraryScreenState createState() => _LibraryScreenState();
+}
+class _LibraryScreenState extends State<LibraryScreen> {
+  int _currentIndex = 2;
   final List<Map<String, dynamic>> topics = [
     {
       'title': 'Baby Care',
@@ -38,6 +47,42 @@ class LibraryScreen extends StatelessWidget {
       'screen': PostpartumnutritionScreen(),
     },
   ];
+  void _onTabTapped(int index) {
+    if(index==_currentIndex)
+      return;
+
+    switch(index){
+      case 0:
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context)=>HomePage()));
+        break;
+      case 1:
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context)=>ChatbotScreen())
+        );
+        break;
+      case 2:
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context)=>LibraryScreen())
+        );
+        break; // Added missing break
+      case 3:
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context)=>Profilescreen())
+        );
+        break;
+      case 4:
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (Context)=>TodoListScreen())
+        );
+        break;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +101,41 @@ class LibraryScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back,color: Colors.black),
+          onPressed: (){
+            Navigator.pop(context);
+          },
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: _onTabTapped,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat_bubble_rounded),
+            label: 'AI',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.library_books),
+            label: 'Resources',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.work),
+              label: 'Planner'
+          )
+        ],
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Color(0xFF7261C6),
+        unselectedItemColor: Colors.black,
       ),
       body: LayoutBuilder(
         builder: (context, constraints) {

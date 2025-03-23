@@ -94,12 +94,6 @@ class _TodoListScreenState extends State<TodoListScreen> {
     }
   }
 
-  // Time format validation
-  bool isValidTimeFormat(String time) {
-    // Check for 12-hour format with AM/PM
-    RegExp timeRegex = RegExp(r'^(0?[1-9]|1[0-2]):[0-5][0-9]\s?(AM|PM|am|pm)$');
-    return timeRegex.hasMatch(time);
-  }
 
   // Batch number validation
   bool isValidBatchNumber(String batchNumber) {
@@ -342,19 +336,9 @@ class _TodoListScreenState extends State<TodoListScreen> {
                   controller: _tasktimeController,
                   decoration: InputDecoration(
                     labelText: 'Time',
-                    hintText: 'HH:MM AM/PM',
                     border: OutlineInputBorder(),
                     suffixIcon: Icon(Icons.access_time),
                   ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter a time';
-                    }
-                    if (!isValidTimeFormat(value)) {
-                      return 'Invalid time format. Use HH:MM AM/PM';
-                    }
-                    return null;
-                  },
                 ),
               ],
             ),

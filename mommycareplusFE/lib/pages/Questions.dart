@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mommycareplusFE/pages/home.dart';
-//import 'package:mommycareplusFE/pages/home.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:provider/provider.dart';
+import 'package:mommycareplusFE/pages/GuardianProvider.dart';
+import 'package:mommycareplusFE/pages/DoctorProvider.dart';
 
 class Question {
   final String text;
@@ -18,7 +19,7 @@ List<Question> epdsQuestions = [
   Question(text: "I have blamed myself unnecessarily when things went wrong.", options: ["No, never", "Not very often", "Yes, sometimes", "Yes, very often"], scores: [0, 1, 2, 3]),
   Question(text: "I have been anxious or worried for no good reason.", options: ["No, not at all", "Hardly ever", "Yes, sometimes", "Yes, very often"], scores: [0, 1, 2, 3]),
   Question(text: "I have felt scared or panicky for no good reason.", options: ["No, not at- all", "No, not much", "Yes, sometimes", "Yes, quite a lot"], scores: [0, 1, 2, 3]),
-  Question(text: "Things have been getting on top of me.", options: ["No, I have been coping", "No, most of the time I cope", "Yes, sometimes I haven’t coped", "Yes, I haven’t been coping at all"], scores: [0, 1, 2, 3]),
+  Question(text: "Things have been getting on top of me.", options: ["No, I have been coping", "No, most of the time I cope", "Yes, sometimes I haven't coped", "Yes, I haven't been coping at all"], scores: [0, 1, 2, 3]),
   Question(text: "I have been so unhappy that I have had difficulty sleeping.", options: ["No, not at all", "Not very often", "Yes, sometimes", "Yes, most of the time"], scores: [0, 1, 2, 3]),
   Question(text: "I have felt sad or miserable.", options: ["No, not at all", "Not very often", "Yes, sometimes", "Yes, most of the time"], scores: [0, 1, 2, 3]),
   Question(text: "I have been so unhappy that I have been crying.", options: ["No, not at all", "Only occasionally", "Yes, quite often", "Yes, most of the time"], scores: [0, 1, 2, 3]),
@@ -35,11 +36,29 @@ class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
   Map<int, int> selectedAnswers = {}; // Stores selected answers
   bool testCompleted = false; // Tracks if the quiz is completed.
 
+  // Variables to store guardian and doctor emails
+  String? guardianEmail;
+  String? doctorEmail;
+
   @override
   void initState() {
     super.initState();
     _loadProgress(); // Loads saved progress.
+    _loadContactEmails(); // Load guardian and doctor emails
     _showIntroPopup(); // Shows an introductory popup.
+  }
+
+  // Load guardian and doctor emails from providers
+  void _loadContactEmails() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final guardianProvider = Provider.of<GuardianProvider>(context, listen: false);
+      final doctorProvider = Provider.of<DoctorProvider>(context, listen: false);
+
+      setState(() {
+        guardianEmail = guardianProvider.email;
+        doctorEmail = doctorProvider.email;
+      });
+    });
   }
 
   Future<void> _loadProgress() async {
@@ -63,7 +82,7 @@ class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
       builder: (context) => AlertDialog(
         title: const Text("Important Information"),
         content: const Text(
-          "Please answer the following questions honestly. Your responses are crucial in assessing your well-being, and this information will help provide the necessary support if needed.This is an important step, so take your time while answering.",
+          "Please answer the following questions honestly. Your responses are crucial in assessing your well-being, and this information will help provide the necessary support if needed. This is an important step, so take your time while answering.",
         ),
         actions: [
           TextButton(
@@ -90,6 +109,24 @@ class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
     return selectedAnswers.entries.fold(0, (sum, entry) => sum + epdsQuestions[entry.key].scores[entry.value]);
   }
 
+  // Save test results and contact emails for backend access
+  Future<void> _saveTestResults(int score, String message) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    // Save the test results
+    await prefs.setInt('epdsScore', score);
+    await prefs.setString('epdsResult', message);
+
+    // Save contact emails for backend access
+    if (guardianEmail != null && guardianEmail!.isNotEmpty) {
+      await prefs.setString('guardianEmail', guardianEmail!);
+    }
+
+    if (doctorEmail != null && doctorEmail!.isNotEmpty) {
+      await prefs.setString('doctorEmail', doctorEmail!);
+    }
+  }
+
   void finishQuiz() async {
     await _saveProgress();
     int finalScore = calculateFinalScore();
@@ -103,6 +140,10 @@ class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
 
     testCompleted = true;
     await _saveProgress();
+
+    // Save results and contact emails for backend access
+    await _saveTestResults(finalScore, message);
+
     _showPopup("EPDS Test Completed", "Final Score: $finalScore\n\n$message");
   }
 

@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/pubspec.yaml" afterDir="false" />
+    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="adding shared preferences">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/TodoListScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/TodoListScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/home.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +71,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "dart.settings",
+    "settings.editor.selected.configurable": "device.mirroring",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
@@ -394,7 +394,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742626432469</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="adding shared preferences">
+      <option name="closed" value="true" />
+      <created>1742657936856</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1742657936856</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -421,8 +429,8 @@
     <MESSAGE value="adding changes to the home screen" />
     <MESSAGE value="doing some changes in pictures" />
     <MESSAGE value="changing some validations" />
-    <MESSAGE value="adding shared preferences" />
     <MESSAGE value="adding some changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="adding shared preferences" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding shared preferences" />
   </component>
 </project>

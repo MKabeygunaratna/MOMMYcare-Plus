@@ -12,6 +12,7 @@ import 'package:table_calendar/table_calendar.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
+import 'dart:async'; // Import for Timer
 
 class HomePage extends StatefulWidget {
   @override
@@ -26,10 +27,57 @@ class _HomePageState extends State<HomePage> {
   List<String> _tasks = [];
   bool _isLoading = true;
 
+  // Add carousel-related variables
+  int _motivationCardIndex = 0;
+  Timer? _motivationCardTimer;
+
+  // List of motivation card content
+  final List<Map<String, dynamic>> _motivationCards = [
+    {
+      'image': 'assets/images/image1.png',
+      'text': 'Some days are harder than others but remember, it gets easier with time.'
+    },
+    {
+      'image': 'assets/images/mental_wellbeing.jpg', // Replace with actual image paths
+      'text': 'Take a moment for yourself today. Even 5 minutes of deep breathing can make a difference.'
+    },
+    {
+      'image': 'assets/images/BF7.jpg', // Replace with actual image paths
+      'text': 'You\'re doing an amazing job. Your baby feels all the love you\'re giving.'
+    },
+    {
+      'image': 'assets/images/MW7.jpg', // Replace with actual image paths
+      'text': 'Sleep when your baby sleeps. Housework can wait - your well-being is important.'
+    },
+    {
+      'image': 'assets/images/MW3.jpg', // Replace with actual image paths
+      'text': 'Ask for help when you need it. Reaching out shows strength, not weakness.'
+    },
+  ];
+
   @override
   void initState() {
     super.initState();
     _loadSavedData();
+
+    // Start the timer to change motivation card
+    _startMotivationCardTimer();
+  }
+
+  // Start timer for changing motivation card
+  void _startMotivationCardTimer() {
+    _motivationCardTimer = Timer.periodic(Duration(seconds: 5), (timer) {
+      setState(() {
+        _motivationCardIndex = (_motivationCardIndex + 1) % _motivationCards.length;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    // Cancel the timer when the widget is disposed
+    _motivationCardTimer?.cancel();
+    super.dispose();
   }
 
   // Load saved data when the app starts
@@ -112,13 +160,13 @@ class _HomePageState extends State<HomePage> {
       case 3:
         Navigator.push(
             context,
-            MaterialPageRoute(builder: (context)=>Profilescreen())
+            MaterialPageRoute(builder: (context)=>TodoListScreen())
         );
         break;
       case 4:
         Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context)=>TodoListScreen())
+            context,
+            MaterialPageRoute(builder: (context)=>Profilescreen())
         );
         break;
     }
@@ -300,12 +348,12 @@ class _HomePageState extends State<HomePage> {
             label: 'Resources',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
+            icon: Icon(Icons.work),
+            label: 'Planner',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.work),
-            label: 'Planner'
+              icon: Icon(Icons.person),
+              label: 'Profile'
           )
         ],
         type: BottomNavigationBarType.fixed,
@@ -318,7 +366,7 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: screenHeight * 0.02),
+              SizedBox(height: screenHeight * 0.01),
               _buildMotivationCard(screenWidth, screenHeight),
               SizedBox(height: screenHeight * 0.02),
               _buildAssessmentCard(screenWidth),
@@ -338,20 +386,30 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildMotivationCard(double screenWidth, double screenHeight) {
+    // Get current motivation card content
+    Map<String, dynamic> currentCard = _motivationCards[_motivationCardIndex];
+
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         image: DecorationImage(
-          image: AssetImage('assets/images/image1.png'),
+          image: AssetImage(currentCard['image']),
           fit: BoxFit.cover,
         ),
       ),
       height: screenHeight * 0.2,
-      padding: EdgeInsets.all(screenWidth * 0.04),
+      padding: EdgeInsets.all(screenWidth * 0.02),
       alignment: Alignment.bottomLeft,
-      child: Text(
-        'Some days are harder than others but remember, it gets easier with time.',
-        style: TextStyle(color: Colors.white, fontSize: 14),
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical: 6, horizontal: 10),
+        decoration: BoxDecoration(
+          color: Colors.black.withOpacity(0.5),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Text(
+          currentCard['text'],
+          style: TextStyle(color: Colors.white, fontSize: 14),
+        ),
       ),
     );
   }

@@ -174,9 +174,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
               children: [
                 SizedBox(height: screenHeight * 0.05),
                 _buildSettingsOption(context, "Profile", Icons.person, Profilescreen()),
-                SizedBox(height: screenHeight * 0.025),
+                SizedBox(height: screenHeight * 0.01),
                 _buildSettingsOption(context, "Themes", Icons.brightness_6, null, isTheme: true),
-                SizedBox(height: screenHeight * 0.025),
+                SizedBox(height: screenHeight * 0.01),
                 _buildSettingsOption(context, "Support", Icons.help, null, isSupport: true),
               ],
             ),

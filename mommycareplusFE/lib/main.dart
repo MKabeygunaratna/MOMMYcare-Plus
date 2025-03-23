@@ -8,15 +8,6 @@ import 'package:mommycareplusFE/pages/LoginQuestionPages.dart';
 import 'package:mommycareplusFE/pages/Login_screen.dart';
 import 'package:mommycareplusFE/pages/PrivacyScreen.dart';
 import 'package:mommycareplusFE/pages/Profile_Provider.dart';
-// import 'package:mommycareplusFE/pages/Question_welcome_page.dart';
-// import 'package:mommycareplusFE/pages/TermsOfUseScreen.dart';
-// import 'package:mommycareplusFE/pages/EmailVerification.dart';
-
-// import 'package:mommycareplusFE/pages/TodoListScreen.dart';
-
-// import 'package:login/pages/EmailVerification.dart';
-
-// import 'package:mommycareplusFE/pages/ForgotPasswordNew.dart';
 import 'package:mommycareplusFE/pages/Question_welcome_page.dart';
 import 'package:mommycareplusFE/pages/Splash_screen.dart';
 import 'package:mommycareplusFE/pages/TermsOfUseScreen.dart';
@@ -24,17 +15,13 @@ import 'package:mommycareplusFE/pages/EmailVerification.dart';
 import 'package:mommycareplusFE/pages/GuardianScreen.dart';
 import 'package:mommycareplusFE/pages/ThemeProvider.dart';
 import 'package:mommycareplusFE/pages/TodoListScreen.dart';
-
 import 'package:mommycareplusFE/pages/UserProvider.dart';
+import 'package:mommycareplusFE/pages/home.dart';
+import 'package:mommycareplusFE/pages/library.dart';
 import 'package:mommycareplusFE/pages/signup.dart';
-
 import 'package:provider/provider.dart';
-
 import 'package:mommycareplusFE/pages/chatbot1.dart';
-
-
 import  'package:provider/provider.dart';
-
 import 'package:mommycareplusFE/pages/GuardianProvider.dart';
 
 
@@ -72,7 +59,7 @@ class MyApp extends StatelessWidget {
           darkTheme: ThemeData.dark(),
 
 
-          home:TodoListScreen(),
+          home:HomePage(),
 
 
         );

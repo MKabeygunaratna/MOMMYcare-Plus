@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="changing the motivation card container">
+    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="some new changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/HelpScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/HelpScreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/ProfileScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/ProfileScreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/Questions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/Questions.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/SettingsScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/SettingsScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/SubscriptionScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/SubscriptionScreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/TodoListScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/TodoListScreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/chatbot2.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/chatbot2.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/home.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,14 +88,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1738165517278</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Adding Media Query for chatbot and fixing a problem in themes popup screen">
-      <option name="closed" value="true" />
-      <created>1738909485999</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1738909485999</updated>
     </task>
     <task id="LOCAL-00006" summary="Adding Media Query">
       <option name="closed" value="true" />
@@ -487,11 +473,18 @@
       <option name="project" value="LOCAL" />
       <updated>1742741506790</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="some new changes">
+      <option name="closed" value="true" />
+      <created>1742742683258</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1742742683258</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="editing clippers and editing" />
     <MESSAGE value="changing navigations" />
     <MESSAGE value="adding a back button" />
     <MESSAGE value="adding validations to the login screen." />
@@ -516,6 +509,7 @@
     <MESSAGE value="changing the color of the appbar" />
     <MESSAGE value="adding a picture to the assessment card" />
     <MESSAGE value="changing the motivation card container" />
-    <option name="LAST_COMMIT_MESSAGE" value="changing the motivation card container" />
+    <MESSAGE value="some new changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="some new changes" />
   </component>
 </project>

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mommycareplusFE/pages/home.dart';
 import 'package:provider/provider.dart';
 import 'DoctorProvider.dart';
-import 'ProfileScreen.dart';
 
 class DoctorScreen extends StatefulWidget {
   @override

@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="changing the motivation card container">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/HelpScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/HelpScreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/ProfileScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/ProfileScreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/Questions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/Questions.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/SettingsScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/SettingsScreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/SubscriptionScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/SubscriptionScreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/TodoListScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/TodoListScreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/chatbot2.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/chatbot2.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/home.dart" afterDir="false" />
+    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="adding nav bar">
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/main.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,62 +86,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1738165517278</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Adding Media Query for chatbot and fixing a problem in themes popup screen">
-      <option name="closed" value="true" />
-      <created>1738909485999</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1738909485999</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Adding Media Query">
-      <option name="closed" value="true" />
-      <created>1738923644497</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1738923644497</updated>
-    </task>
-    <task id="LOCAL-00007" summary="renaming the subscription screen">
-      <option name="closed" value="true" />
-      <created>1739070866086</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1739070866086</updated>
-    </task>
-    <task id="LOCAL-00008" summary="using a provider instead of passing arguments">
-      <option name="closed" value="true" />
-      <created>1740685416453</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1740685416453</updated>
-    </task>
-    <task id="LOCAL-00009" summary="changing the font size of the subscription plan according to the screen sizes using media query.">
-      <option name="closed" value="true" />
-      <created>1741016513176</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1741016513176</updated>
-    </task>
-    <task id="LOCAL-00010" summary="adding login questions and changing the profile screen according to those questions">
-      <option name="closed" value="true" />
-      <created>1741359093621</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1741359093621</updated>
-    </task>
-    <task id="LOCAL-00011" summary="editing the edit profile screen according to the login questions.">
-      <option name="closed" value="true" />
-      <created>1741366011022</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1741366011022</updated>
     </task>
     <task id="LOCAL-00012" summary="adding a splash screen">
       <option name="closed" value="true" />
@@ -487,12 +423,66 @@
       <option name="project" value="LOCAL" />
       <updated>1742741506790</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="some new changes">
+      <option name="closed" value="true" />
+      <created>1742742683258</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1742742683258</updated>
+    </task>
+    <task id="LOCAL-00055" summary="adding nav bar">
+      <option name="closed" value="true" />
+      <created>1742744319990</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1742744319990</updated>
+    </task>
+    <task id="LOCAL-00056" summary="adding nav bar">
+      <option name="closed" value="true" />
+      <created>1742744547533</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1742744547533</updated>
+    </task>
+    <task id="LOCAL-00057" summary="adding nav bar">
+      <option name="closed" value="true" />
+      <created>1742744825164</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1742744825164</updated>
+    </task>
+    <task id="LOCAL-00058" summary="adding nav bar">
+      <option name="closed" value="true" />
+      <created>1742745110574</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1742745110574</updated>
+    </task>
+    <task id="LOCAL-00059" summary="adding nav bar">
+      <option name="closed" value="true" />
+      <created>1742745625868</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1742745625868</updated>
+    </task>
+    <task id="LOCAL-00060" summary="adding nav bar">
+      <option name="closed" value="true" />
+      <created>1742746361062</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1742746361062</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="editing clippers and editing" />
-    <MESSAGE value="changing navigations" />
     <MESSAGE value="adding a back button" />
     <MESSAGE value="adding validations to the login screen." />
     <MESSAGE value="adding validations to the Sign Up  screen." />
@@ -516,6 +506,8 @@
     <MESSAGE value="changing the color of the appbar" />
     <MESSAGE value="adding a picture to the assessment card" />
     <MESSAGE value="changing the motivation card container" />
-    <option name="LAST_COMMIT_MESSAGE" value="changing the motivation card container" />
+    <MESSAGE value="some new changes" />
+    <MESSAGE value="adding nav bar" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding nav bar" />
   </component>
 </project>

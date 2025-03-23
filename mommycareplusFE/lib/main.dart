@@ -12,6 +12,7 @@ import 'package:mommycareplusFE/pages/Profile_Provider.dart';
 import 'package:mommycareplusFE/pages/Question_welcome_page.dart';
 import 'package:mommycareplusFE/pages/SettingsScreen.dart';
 import 'package:mommycareplusFE/pages/Splash_screen.dart';
+import 'package:mommycareplusFE/pages/SubscriptionScreen.dart';
 import 'package:mommycareplusFE/pages/TermsOfUseScreen.dart';
 import 'package:mommycareplusFE/pages/EmailVerification.dart';
 import 'package:mommycareplusFE/pages/GuardianScreen.dart';
@@ -62,7 +63,7 @@ class MyApp extends StatelessWidget {
           darkTheme: ThemeData.dark(),
 
 
-          home:HomePage(),
+          home:LibraryScreen(),
 
 
         );

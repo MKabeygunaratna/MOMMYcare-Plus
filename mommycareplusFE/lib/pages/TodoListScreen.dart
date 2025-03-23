@@ -66,8 +66,8 @@ class _TodoListScreenState extends State<TodoListScreen> {
   void _initializeDefaultVaccinationRecords() {
     setState(() {
       _vaccinationRecords[_selectedDay] = [
-        {'vaccine': 'BCG', 'date': '01/01/2025', 'batchNumber': '56324', 'adverseEffects': 'Anxiety', 'done': false},
-        {'vaccine': 'Hepatitis B', 'date': '01/02/2025', 'batchNumber': '56598', 'adverseEffects': 'Vomiting', 'done': false},
+        {'vaccine': 'BCG', 'date': '2025/01/01', 'batchNumber': '56324', 'adverseEffects': 'Anxiety', 'done': false},
+        {'vaccine': 'Hepatitis B', 'date': '2025/02/01', 'batchNumber': '56598', 'adverseEffects': 'Vomiting', 'done': false},
       ];
     });
   }
@@ -210,7 +210,7 @@ class _TodoListScreenState extends State<TodoListScreen> {
     return Container(
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Color(0xFFD3CBFD),
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
@@ -405,8 +405,12 @@ class _TodoListScreenState extends State<TodoListScreen> {
           padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 10),
           child: Container(
             decoration: BoxDecoration(
-              color: Color(0xFFF0F0F0),
+              color: Colors.white,
               borderRadius: BorderRadius.circular(16),
+              border: Border.all(
+                color:Color(0xFF8474CB),
+                width: 1.5,
+              )
             ),
             child: ListTile(
               contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
@@ -506,7 +510,7 @@ class _TodoListScreenState extends State<TodoListScreen> {
                   controller: _dateController,
                   decoration: InputDecoration(
                     labelText: 'Vaccination Date',
-                    hintText: 'MM/DD/YYYY',
+                    hintText: 'YYYY/MM/DD',
                     border: OutlineInputBorder(),
                     suffixIcon: Icon(Icons.calendar_today),
                   ),
@@ -607,8 +611,12 @@ class _TodoListScreenState extends State<TodoListScreen> {
           padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 10),
           child: Container(
             decoration: BoxDecoration(
-              color: Color(0xFFF0F0F0),
+              color: Colors.white,
               borderRadius: BorderRadius.circular(16),
+              border: Border.all(
+                color: Color(0xFF8474CB),
+                width: 1.5,
+              )
             ),
             child: ListTile(
               contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),

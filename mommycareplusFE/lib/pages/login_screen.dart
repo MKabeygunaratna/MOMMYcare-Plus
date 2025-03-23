@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mommycareplusFE/pages/Access_screen.dart';
+
 import 'package:mommycareplusFE/pages/ForgotPasswordNew.dart';
+import 'package:mommycareplusFE/pages/LoginQuestionPages.dart';
+import 'package:mommycareplusFE/pages/home.dart';
 import 'package:mommycareplusFE/pages/signup.dart';
 
 
@@ -151,7 +153,7 @@ class _LoginScreenState extends State<LoginScreen>{
                         if(_formKey.currentState!.validate()){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => AccessScreen1()),
+                            MaterialPageRoute(builder: (context) => HomePage()),
                           );
                         }
                       },

@@ -60,12 +60,19 @@ class _ProfileScreenState extends State<Profilescreen> {
     final doctorProvider = Provider.of<DoctorProvider>(context);
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('Profile'),
-        backgroundColor: Color(0xFF7261C6),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: (){
+            Navigator.pop(context);
+          }
+        ),
+        title: Text('Profile',style: TextStyle(fontFamily: 'Poppins'),),
+        backgroundColor: Colors.white,
         actions: [
           IconButton(
-            icon: Icon(Icons.edit),
+            icon: Icon(Icons.edit,color: Colors.black,),
             onPressed: () {
               Navigator.push(
                 context,

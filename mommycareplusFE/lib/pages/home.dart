@@ -12,6 +12,7 @@ import 'package:table_calendar/table_calendar.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
+import 'dart:async'; // Import for Timer
 
 class HomePage extends StatefulWidget {
   @override
@@ -23,13 +24,77 @@ class _HomePageState extends State<HomePage> {
   DateTime _focusedDay = DateTime.now();
   int _currentIndex = 0;
   Map<DateTime, List<String>> _reminders = {}; // Store reminders
-  List<String> _tasks = [];
   bool _isLoading = true;
+
+  // Add carousel-related variables
+  int _motivationCardIndex = 0;
+  Timer? _motivationCardTimer;
+
+  // List of motivation card content
+  final List<Map<String, dynamic>> _motivationCards = [
+    {
+      'image': 'assets/images/H1.jpeg',
+      'text': 'Some days are harder than others but remember, it gets easier with time.'
+    },
+    {
+      'image': 'assets/images/H2.jpeg', // Replace with actual image paths
+      'text': 'You are not alone. Seek support when you need it—your well-being matters.'
+    },
+    {
+      'image': 'assets/images/H3.jpeg', // Replace with actual image paths
+      'text': 'A well-rested mom is a better mom. Prioritize rest when you can'
+    },
+    {
+      'image': 'assets/images/H4.jpeg', // Replace with actual image paths
+      'text': 'Take time for something you love, even if it’s just for a few minutes.'
+    },
+    {
+      'image': 'assets/images/H5.jpeg', // Replace with actual image paths
+      'text': 'Celebrate small wins. Every step forward is progress.'
+    },
+    {
+      'image': 'assets/images/H6.jpeg', // Replace with actual image paths
+      'text': 'Your feelings are valid. Give yourself grace on tough days.'
+    },
+    {
+      'image': 'assets/images/H7.jpeg',
+      'text': 'Stay hydrated and nourish your body. Taking care of yourself helps you take care of your baby.'
+    },
+    {
+      'image': 'assets/images/H8.jpeg',
+      'text': 'It’s okay to take breaks. A happy mom makes a happy baby.'
+    },
+    {
+      'image': 'assets/images/H9.jpeg',
+      'text': 'Don’t compare yourself to others. Every motherhood journey is unique'
+    },
+
+  ];
+
 
   @override
   void initState() {
     super.initState();
     _loadSavedData();
+
+    // Start the timer to change motivation card
+    _startMotivationCardTimer();
+  }
+
+  // Start timer for changing motivation card
+  void _startMotivationCardTimer() {
+    _motivationCardTimer = Timer.periodic(Duration(seconds: 5), (timer) {
+      setState(() {
+        _motivationCardIndex = (_motivationCardIndex + 1) % _motivationCards.length;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    // Cancel the timer when the widget is disposed
+    _motivationCardTimer?.cancel();
+    super.dispose();
   }
 
   // Load saved data when the app starts
@@ -40,9 +105,6 @@ class _HomePageState extends State<HomePage> {
 
     try {
       final prefs = await SharedPreferences.getInstance();
-
-      // Load tasks
-      final tasksList = prefs.getStringList('tasks') ?? [];
 
       // Load reminders - need to convert string to DateTime keys
       final remindersJson = prefs.getString('reminders') ?? '{}';
@@ -56,7 +118,6 @@ class _HomePageState extends State<HomePage> {
       });
 
       setState(() {
-        _tasks = tasksList;
         _reminders = loadedReminders;
         _isLoading = false;
       });
@@ -66,12 +127,6 @@ class _HomePageState extends State<HomePage> {
         _isLoading = false;
       });
     }
-  }
-
-  // Save tasks to SharedPreferences
-  Future<void> _saveTasks() async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setStringList('tasks', _tasks);
   }
 
   // Save reminders to SharedPreferences
@@ -112,13 +167,13 @@ class _HomePageState extends State<HomePage> {
       case 3:
         Navigator.push(
             context,
-            MaterialPageRoute(builder: (context)=>Profilescreen())
+            MaterialPageRoute(builder: (context)=>TodoListScreen())
         );
         break;
       case 4:
         Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context)=>TodoListScreen())
+            context,
+            MaterialPageRoute(builder: (context)=>Profilescreen())
         );
         break;
     }
@@ -258,7 +313,8 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Hello $userName!"),
+        backgroundColor: Colors.white,
+        title: Text("Hello $userName!",style: TextStyle(fontFamily: 'Poppins'),),
         actions: [
           IconButton(
             icon: Icon(Icons.chat,color: Colors.black),
@@ -300,12 +356,12 @@ class _HomePageState extends State<HomePage> {
             label: 'Resources',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
+            icon: Icon(Icons.work),
+            label: 'Planner',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.work),
-            label: 'Planner'
+              icon: Icon(Icons.person),
+              label: 'Profile'
           )
         ],
         type: BottomNavigationBarType.fixed,
@@ -318,7 +374,7 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: screenHeight * 0.02),
+              SizedBox(height: screenHeight * 0.01),
               _buildMotivationCard(screenWidth, screenHeight),
               SizedBox(height: screenHeight * 0.02),
               _buildAssessmentCard(screenWidth),
@@ -328,8 +384,6 @@ class _HomePageState extends State<HomePage> {
               _buildAssistantCard(screenWidth),
               SizedBox(height: screenHeight * 0.02),
               _buildUpgradeSection(screenWidth),
-              SizedBox(height: screenHeight * 0.02),
-              _buildTasksSection(screenWidth,screenHeight),
             ],
           ),
         ),
@@ -338,20 +392,30 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildMotivationCard(double screenWidth, double screenHeight) {
+    // Get current motivation card content
+    Map<String, dynamic> currentCard = _motivationCards[_motivationCardIndex];
+
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         image: DecorationImage(
-          image: AssetImage('assets/images/image1.png'),
+          image: AssetImage(currentCard['image']),
           fit: BoxFit.cover,
         ),
       ),
-      height: screenHeight * 0.2,
-      padding: EdgeInsets.all(screenWidth * 0.04),
+      height: screenHeight * 0.25,
+      padding: EdgeInsets.all(screenWidth * 0.02),
       alignment: Alignment.bottomLeft,
-      child: Text(
-        'Some days are harder than others but remember, it gets easier with time.',
-        style: TextStyle(color: Colors.white, fontSize: 14),
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical: 6, horizontal: 10),
+        decoration: BoxDecoration(
+          color: Colors.black.withOpacity(0.5),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Text(
+          currentCard['text'],
+          style: TextStyle(color: Colors.white, fontSize: 14),
+        ),
       ),
     );
   }
@@ -360,28 +424,49 @@ class _HomePageState extends State<HomePage> {
     return Container(
       padding: EdgeInsets.all(screenWidth * 0.04),
       decoration: _buildBoxDecoration(),
-      child: Column(
+      child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'How are you feeling today?',
-            style: TextStyle(fontSize: screenWidth * 0.05, fontWeight: FontWeight.bold, color: Colors.black),
+          // Left side content with text and button
+          Expanded(
+            flex: 3,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'How are you feeling today?',
+                  style: TextStyle(fontSize: screenWidth * 0.05, fontWeight: FontWeight.bold, color: Colors.black),
+                ),
+                SizedBox(height: 16),
+                Text(
+                  'Take this quick, 10-question self-assessment to check your emotional well-being.',
+                  style: TextStyle(fontSize: screenWidth * 0.03, color: Colors.black),
+                ),
+                SizedBox(height: 16),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context)=>QuestionWelcomePage()),
+                    );
+                  },
+                  style: _buttonStyle(),
+                  child: Text('Start Assessment', style: TextStyle(fontSize: screenWidth * 0.04, color: Colors.white)),
+                ),
+              ],
+            ),
           ),
-          SizedBox(height: 16),
-          Text(
-            'Take this quick, 10-question self-assessment to check your emotional well-being.',
-            style: TextStyle(fontSize: screenWidth * 0.03, color: Colors.black),
-          ),
-          SizedBox(height: 16),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context)=>QuestionWelcomePage()),
-              );
-            },
-            style: _buttonStyle(),
-            child: Text('Start Assessment', style: TextStyle(fontSize: screenWidth * 0.04, color: Colors.white)),
+          // Right side with image
+          Expanded(
+            flex: 2,
+            child: Container(
+              alignment: Alignment.centerRight,
+              child: Image.asset(
+                'assets/images/Question_welcome.png', // Use an appropriate image from your assets
+                height: screenWidth * 0.5,
+                fit: BoxFit.contain,
+              ),
+            ),
           ),
         ],
       ),
@@ -492,118 +577,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildTasksSection(double screenWidth, double screenHeight) {
-    TextEditingController _taskController = TextEditingController();
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Today's Tasks",
-          style: TextStyle(
-              fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
-        ),
-        SizedBox(height: screenHeight * 0.01),
-        GestureDetector(
-          onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => AlertDialog(
-                title: Text('Add New Task'),
-                content: TextField(
-                  controller: _taskController,
-                  decoration: InputDecoration(hintText: 'Enter your task'),
-                ),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(context),
-                    child: Text('Cancel'),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      if (_taskController.text.isNotEmpty) {
-                        setState(() {
-                          _tasks.add(_taskController.text);
-                        });
-                        // Save tasks when added
-                        _saveTasks();
-                      }
-                      Navigator.pop(context);
-                    },
-                    child: Text('Add Task'),
-                  ),
-                ],
-              ),
-            );
-          },
-          child: Container(
-            padding: EdgeInsets.all(screenWidth * 0.03),
-            decoration: BoxDecoration(
-              color: Color(0xFF7261C6),
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: Row(
-              children: [
-                Text(
-                  'Add a new task ',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: screenWidth * 0.04,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(width: screenWidth * 0.02),
-                Icon(Icons.add, color: Colors.white),
-              ],
-            ),
-          ),
-        ),
-        SizedBox(height: 8),
-        ListView.builder(
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          itemCount: _tasks.length,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 4.0),
-              child: Dismissible(
-                key: Key(_tasks[index]),
-                background: Container(
-                  color: Colors.red,
-                  alignment: Alignment.centerRight,
-                  padding: EdgeInsets.only(right: 20),
-                  child: Icon(Icons.delete, color: Colors.white),
-                ),
-                direction: DismissDirection.endToStart,
-                onDismissed: (direction) {
-                  setState(() {
-                    _tasks.removeAt(index);
-                  });
-                  // Save tasks when removed
-                  _saveTasks();
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Task deleted')),
-                  );
-                },
-                child: ListTile(
-                  tileColor: Color(0xFFFFFFFF),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  title: Text(
-                    _tasks[index],
-                    style: TextStyle(fontSize: 14, color: Colors.black),
-                  ),
-                  trailing: CircleAvatar(backgroundColor: Color(0xFFDC6FD5)),
-                ),
-              ),
-            );
-          },
-        ),
-      ],
     );
   }
 

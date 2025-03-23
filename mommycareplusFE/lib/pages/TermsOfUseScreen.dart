@@ -6,8 +6,8 @@ class TermsOfUseScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Terms of Use"),
-        backgroundColor: Color(0xFF8474CB),
+        title: Text("Terms of Use",style: TextStyle(fontFamily: 'Poppins'),),
+        backgroundColor: Colors.white,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: (){
@@ -15,6 +15,7 @@ class TermsOfUseScreen extends StatelessWidget {
           },
         ),
       ),
+      backgroundColor: Colors.white,
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(

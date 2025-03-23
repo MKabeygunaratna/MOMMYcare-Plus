@@ -27,7 +27,7 @@ class _SubscriptionPlanState extends State<SubscriptionPlan> {
         ),
         title: Text(
           'Subscription Plan',
-          style: TextStyle(color: Colors.black, fontSize: screenWidth * 0.06),
+          style: TextStyle(color: Colors.black, fontSize: screenWidth * 0.06,fontFamily: 'Poppins'),
         ),
       ),
       body: SingleChildScrollView(

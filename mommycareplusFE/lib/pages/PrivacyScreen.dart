@@ -6,8 +6,8 @@ class PrivacyPolicyScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Privacy Policy"),
-        backgroundColor: Color(0xFF8474CB),
+        title: Text("Privacy Policy",style: TextStyle(fontFamily: 'Poppins'),),
+        backgroundColor: Colors.white,
         leading: IconButton(
           icon: Icon(Icons.arrow_back,color: Colors.black),
           onPressed: (){
@@ -15,6 +15,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
           },
         ),
       ),
+      backgroundColor: Colors.white,
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(

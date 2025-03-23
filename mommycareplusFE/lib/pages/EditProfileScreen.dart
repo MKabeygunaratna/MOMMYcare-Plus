@@ -182,7 +182,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Color(0xFF7261C6),
+        backgroundColor: Colors.white,
         elevation: 0,
       ),
       body: SingleChildScrollView(

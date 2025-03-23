@@ -7,6 +7,7 @@ import 'package:mommycareplusFE/pages/GetStartedScreen.dart';
 import 'package:mommycareplusFE/pages/LoginQuestionPages.dart';
 import 'package:mommycareplusFE/pages/Login_screen.dart';
 import 'package:mommycareplusFE/pages/PrivacyScreen.dart';
+import 'package:mommycareplusFE/pages/ProfileScreen.dart';
 import 'package:mommycareplusFE/pages/Profile_Provider.dart';
 import 'package:mommycareplusFE/pages/Question_welcome_page.dart';
 import 'package:mommycareplusFE/pages/SettingsScreen.dart';
@@ -61,7 +62,7 @@ class MyApp extends StatelessWidget {
           darkTheme: ThemeData.dark(),
 
 
-          home:SettingsScreen(),
+          home:Profilescreen(),
 
 
         );

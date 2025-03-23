@@ -208,7 +208,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       child: Container(
         decoration: BoxDecoration(
-          border: Border.all(color: Color(0xFF7261C6)),
+          border: Border.all(color: Color(0xFF7261C6),width: 2.0),
           borderRadius: BorderRadius.circular(12),
         ),
         child: ListTile(

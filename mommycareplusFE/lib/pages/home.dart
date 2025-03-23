@@ -306,6 +306,7 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: Text("Hello $userName!"),
         actions: [
           IconButton(

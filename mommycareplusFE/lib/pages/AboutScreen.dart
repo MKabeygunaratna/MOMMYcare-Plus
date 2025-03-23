@@ -7,8 +7,8 @@ class AboutScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text("About MOMMYcare+"),
-        backgroundColor: Color(0xFF8474CB),
+        title: Text("About MOMMYcare+",style: TextStyle(fontFamily: 'Poppins'),),
+        backgroundColor: Colors.white,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: (){

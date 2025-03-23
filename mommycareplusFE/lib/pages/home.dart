@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:mommycareplusFE/pages/ChatScreen.dart';
+import 'package:mommycareplusFE/pages/CommunityChat.dart';
 import 'package:mommycareplusFE/pages/ProfileScreen.dart';
 import 'package:mommycareplusFE/pages/Question_welcome_page.dart';
 import 'package:mommycareplusFE/pages/Questions.dart';
@@ -253,7 +253,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text("Hello $userName!"),
         actions: [
-          /**IconButton(
+          IconButton(
             icon: Icon(Icons.chat,color: Colors.black),
             tooltip: "Mothers' Chat",
             onPressed: (){
@@ -262,7 +262,7 @@ class _HomePageState extends State<HomePage> {
                   MaterialPageRoute(builder: (context)=> ChatScreen())
               );
             },
-          ),**/
+          ),
           IconButton(
             icon: Icon(Icons.settings, color: Colors.black),
             tooltip: "Settings",

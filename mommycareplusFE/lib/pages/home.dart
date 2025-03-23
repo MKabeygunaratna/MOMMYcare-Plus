@@ -24,7 +24,6 @@ class _HomePageState extends State<HomePage> {
   DateTime _focusedDay = DateTime.now();
   int _currentIndex = 0;
   Map<DateTime, List<String>> _reminders = {}; // Store reminders
-  List<String> _tasks = [];
   bool _isLoading = true;
 
   // Add carousel-related variables
@@ -89,9 +88,6 @@ class _HomePageState extends State<HomePage> {
     try {
       final prefs = await SharedPreferences.getInstance();
 
-      // Load tasks
-      final tasksList = prefs.getStringList('tasks') ?? [];
-
       // Load reminders - need to convert string to DateTime keys
       final remindersJson = prefs.getString('reminders') ?? '{}';
       final decodedReminders = jsonDecode(remindersJson) as Map<String, dynamic>;
@@ -104,7 +100,6 @@ class _HomePageState extends State<HomePage> {
       });
 
       setState(() {
-        _tasks = tasksList;
         _reminders = loadedReminders;
         _isLoading = false;
       });
@@ -114,12 +109,6 @@ class _HomePageState extends State<HomePage> {
         _isLoading = false;
       });
     }
-  }
-
-  // Save tasks to SharedPreferences
-  Future<void> _saveTasks() async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setStringList('tasks', _tasks);
   }
 
   // Save reminders to SharedPreferences
@@ -377,8 +366,6 @@ class _HomePageState extends State<HomePage> {
               _buildAssistantCard(screenWidth),
               SizedBox(height: screenHeight * 0.02),
               _buildUpgradeSection(screenWidth),
-              SizedBox(height: screenHeight * 0.02),
-              _buildTasksSection(screenWidth,screenHeight),
             ],
           ),
         ),
@@ -419,28 +406,49 @@ class _HomePageState extends State<HomePage> {
     return Container(
       padding: EdgeInsets.all(screenWidth * 0.04),
       decoration: _buildBoxDecoration(),
-      child: Column(
+      child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'How are you feeling today?',
-            style: TextStyle(fontSize: screenWidth * 0.05, fontWeight: FontWeight.bold, color: Colors.black),
+          // Left side content with text and button
+          Expanded(
+            flex: 3,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'How are you feeling today?',
+                  style: TextStyle(fontSize: screenWidth * 0.05, fontWeight: FontWeight.bold, color: Colors.black),
+                ),
+                SizedBox(height: 16),
+                Text(
+                  'Take this quick, 10-question self-assessment to check your emotional well-being.',
+                  style: TextStyle(fontSize: screenWidth * 0.03, color: Colors.black),
+                ),
+                SizedBox(height: 16),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context)=>QuestionWelcomePage()),
+                    );
+                  },
+                  style: _buttonStyle(),
+                  child: Text('Start Assessment', style: TextStyle(fontSize: screenWidth * 0.04, color: Colors.white)),
+                ),
+              ],
+            ),
           ),
-          SizedBox(height: 16),
-          Text(
-            'Take this quick, 10-question self-assessment to check your emotional well-being.',
-            style: TextStyle(fontSize: screenWidth * 0.03, color: Colors.black),
-          ),
-          SizedBox(height: 16),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context)=>QuestionWelcomePage()),
-              );
-            },
-            style: _buttonStyle(),
-            child: Text('Start Assessment', style: TextStyle(fontSize: screenWidth * 0.04, color: Colors.white)),
+          // Right side with image
+          Expanded(
+            flex: 2,
+            child: Container(
+              alignment: Alignment.centerRight,
+              child: Image.asset(
+                'assets/images/Question_welcome.png', // Use an appropriate image from your assets
+                height: screenWidth * 0.35,
+                fit: BoxFit.contain,
+              ),
+            ),
           ),
         ],
       ),
@@ -551,118 +559,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildTasksSection(double screenWidth, double screenHeight) {
-    TextEditingController _taskController = TextEditingController();
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Today's Tasks",
-          style: TextStyle(
-              fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
-        ),
-        SizedBox(height: screenHeight * 0.01),
-        GestureDetector(
-          onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => AlertDialog(
-                title: Text('Add New Task'),
-                content: TextField(
-                  controller: _taskController,
-                  decoration: InputDecoration(hintText: 'Enter your task'),
-                ),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(context),
-                    child: Text('Cancel'),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      if (_taskController.text.isNotEmpty) {
-                        setState(() {
-                          _tasks.add(_taskController.text);
-                        });
-                        // Save tasks when added
-                        _saveTasks();
-                      }
-                      Navigator.pop(context);
-                    },
-                    child: Text('Add Task'),
-                  ),
-                ],
-              ),
-            );
-          },
-          child: Container(
-            padding: EdgeInsets.all(screenWidth * 0.03),
-            decoration: BoxDecoration(
-              color: Color(0xFF7261C6),
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: Row(
-              children: [
-                Text(
-                  'Add a new task ',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: screenWidth * 0.04,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(width: screenWidth * 0.02),
-                Icon(Icons.add, color: Colors.white),
-              ],
-            ),
-          ),
-        ),
-        SizedBox(height: 8),
-        ListView.builder(
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          itemCount: _tasks.length,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 4.0),
-              child: Dismissible(
-                key: Key(_tasks[index]),
-                background: Container(
-                  color: Colors.red,
-                  alignment: Alignment.centerRight,
-                  padding: EdgeInsets.only(right: 20),
-                  child: Icon(Icons.delete, color: Colors.white),
-                ),
-                direction: DismissDirection.endToStart,
-                onDismissed: (direction) {
-                  setState(() {
-                    _tasks.removeAt(index);
-                  });
-                  // Save tasks when removed
-                  _saveTasks();
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Task deleted')),
-                  );
-                },
-                child: ListTile(
-                  tileColor: Color(0xFFFFFFFF),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  title: Text(
-                    _tasks[index],
-                    style: TextStyle(fontSize: 14, color: Colors.black),
-                  ),
-                  trailing: CircleAvatar(backgroundColor: Color(0xFFDC6FD5)),
-                ),
-              ),
-            );
-          },
-        ),
-      ],
     );
   }
 

@@ -62,7 +62,7 @@ class MyApp extends StatelessWidget {
           darkTheme: ThemeData.dark(),
 
 
-          home:Profilescreen(),
+          home:HomePage(),
 
 
         );

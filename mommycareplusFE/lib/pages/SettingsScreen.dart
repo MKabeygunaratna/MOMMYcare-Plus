@@ -161,7 +161,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.pop(context),
         ),
-        title: Text("Settings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+        title: Text("Settings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,fontFamily: 'Poppins')),
         centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,

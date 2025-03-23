@@ -142,7 +142,7 @@ class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text("EPDS Test", style: TextStyle(color: Colors.black)),
+        title: const Text("EPDS Test", style: TextStyle(color: Colors.black,fontFamily: 'Poppins')),
         backgroundColor: Colors.white,
       ),
       body: SingleChildScrollView(

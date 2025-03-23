@@ -68,7 +68,7 @@ class _ProfileScreenState extends State<Profilescreen> {
             Navigator.pop(context);
           }
         ),
-        title: Text('Profile'),
+        title: Text('Profile',style: TextStyle(fontFamily: 'Poppins'),),
         backgroundColor: Colors.white,
         actions: [
           IconButton(

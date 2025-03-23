@@ -7,6 +7,7 @@ class HelpCenterScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Help Center",style: TextStyle(fontFamily: 'Poppins'),),
+        centerTitle: true,
         backgroundColor: Colors.white,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black),

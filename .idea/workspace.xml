@@ -4,20 +4,16 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="adding a picture to the assessment card">
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/H1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/H2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/H3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/H4.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/H5.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/H6.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/H7.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/H8.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/H9.jpeg" afterDir="false" />
+    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="changing the motivation card container">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/HelpScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/HelpScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/ProfileScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/ProfileScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/Questions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/Questions.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/SettingsScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/SettingsScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/SubscriptionScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/SubscriptionScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/TodoListScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/TodoListScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/chatbot2.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/chatbot2.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/home.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,14 +94,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1738165517278</updated>
-    </task>
-    <task id="LOCAL-00004" summary="1st commit">
-      <option name="closed" value="true" />
-      <created>1738667490543</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1738667490543</updated>
     </task>
     <task id="LOCAL-00005" summary="Adding Media Query for chatbot and fixing a problem in themes popup screen">
       <option name="closed" value="true" />
@@ -491,11 +479,18 @@
       <option name="project" value="LOCAL" />
       <updated>1742739813485</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="changing the motivation card container">
+      <option name="closed" value="true" />
+      <created>1742741506790</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1742741506790</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="editing clippers" />
     <MESSAGE value="editing clippers and editing" />
     <MESSAGE value="changing navigations" />
     <MESSAGE value="adding a back button" />
@@ -520,6 +515,7 @@
     <MESSAGE value="adding new changes" />
     <MESSAGE value="changing the color of the appbar" />
     <MESSAGE value="adding a picture to the assessment card" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding a picture to the assessment card" />
+    <MESSAGE value="changing the motivation card container" />
+    <option name="LAST_COMMIT_MESSAGE" value="changing the motivation card container" />
   </component>
 </project>

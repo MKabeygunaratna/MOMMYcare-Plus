@@ -13,7 +13,6 @@ class TermsOfUseScreen extends StatefulWidget {
 class _TermsofUseScreenState extends State<TermsOfUseScreen>{
 
   void _onTabTapped(int index) {
-
     switch(index){
       case 0:
         Navigator.push(

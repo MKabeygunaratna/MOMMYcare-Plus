@@ -5,8 +5,52 @@ import 'GuardianProvider.dart';
 import 'DoctorProvider.dart';
 import 'EditProfileScreen.dart';
 import 'UserProvider.dart';
+import 'TodoListScreen.dart';
+import 'library.dart';
+import 'chatbot1.dart';
+import 'home.dart';
 
-class ProfileScreen extends StatelessWidget {
+class Profilescreen extends StatefulWidget {
+  @override
+  _ProfileScreenState createState() => _ProfileScreenState();
+}
+class _ProfileScreenState extends State<Profilescreen> {
+  int _currentIndex = 0;
+  void _onTabTapped(int index) {
+    if(index==_currentIndex)
+      return;
+
+    switch(index){
+      case 0:
+        Navigator.push(
+            context,MaterialPageRoute(builder: (context)=>HomePage()));
+        break;
+      case 1:
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context)=>ChatbotScreen())
+        );
+        break;
+      case 2:
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context)=>LibraryScreen())
+        );
+        break; // Added missing break
+      case 3:
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context)=>Profilescreen())
+        );
+        break;
+      case 4:
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context)=>TodoListScreen())
+        );
+        break;
+    }
+  }
   @override
   Widget build(BuildContext context) {
     final userProvider = Provider.of<UserProvider>(context);
@@ -29,6 +73,35 @@ class ProfileScreen extends StatelessWidget {
             },
           ),
         ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: _onTabTapped,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat_bubble_rounded),
+            label: 'AI',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.library_books),
+            label: 'Resources',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.work),
+              label: 'Planner'
+          )
+        ],
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Color(0xFF7261C6),
+        unselectedItemColor: Colors.black,
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16.0),

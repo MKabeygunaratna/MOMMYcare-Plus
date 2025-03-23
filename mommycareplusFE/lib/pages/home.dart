@@ -112,13 +112,13 @@ class _HomePageState extends State<HomePage> {
       case 3:
         Navigator.push(
             context,
-            MaterialPageRoute(builder: (context)=>ProfileScreen())
+            MaterialPageRoute(builder: (context)=>Profilescreen())
         );
         break;
       case 4:
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (Context)=>TodoListScreen())
+          MaterialPageRoute(builder: (context)=>TodoListScreen())
         );
         break;
     }

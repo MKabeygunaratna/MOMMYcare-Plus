@@ -92,9 +92,9 @@ class _BreastFeedingScreenState extends State<BreastFeedingScreen> {
           Expanded(
             child: selectedTab == 0
                 ? buildVideoSection()
-                : selectedTab == 2
+                : selectedTab == 1
                 ? Breastfeedingbookscreen()
-                : selectedTab == 3
+                : selectedTab == 2
                 ? Breastfeedingarticlescreen()
                 : Container(),
           ),

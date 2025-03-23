@@ -15,7 +15,8 @@ class Profilescreen extends StatefulWidget {
   _ProfileScreenState createState() => _ProfileScreenState();
 }
 class _ProfileScreenState extends State<Profilescreen> {
-  int _currentIndex = 0;
+  int _currentIndex = 3;
+
   void _onTabTapped(int index) {
     if(index==_currentIndex)
       return;

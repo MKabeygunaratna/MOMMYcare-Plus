@@ -16,6 +16,7 @@ import 'package:mommycareplusFE/pages/GuardianScreen.dart';
 import 'package:mommycareplusFE/pages/ThemeProvider.dart';
 import 'package:mommycareplusFE/pages/TodoListScreen.dart';
 import 'package:mommycareplusFE/pages/UserProvider.dart';
+import 'package:mommycareplusFE/pages/chatbot2.dart';
 import 'package:mommycareplusFE/pages/home.dart';
 import 'package:mommycareplusFE/pages/library.dart';
 import 'package:mommycareplusFE/pages/signup.dart';
@@ -59,7 +60,7 @@ class MyApp extends StatelessWidget {
           darkTheme: ThemeData.dark(),
 
 
-          home:HomePage(),
+          home:SignUpScreen(),
 
 
         );

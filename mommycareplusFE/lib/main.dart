@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
           darkTheme: ThemeData.dark(),
 
 
-          home:TodoListScreen(),
+          home:SplashScreen(),
 
 
         );

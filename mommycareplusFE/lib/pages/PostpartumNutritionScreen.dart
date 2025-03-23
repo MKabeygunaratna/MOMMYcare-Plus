@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'videoPlayerScreen.dart';
 import 'PostpartumNutritionArticle.dart';
 import 'PostpartumNutritionBook.dart';
+import 'ProfileScreen.dart';
+import 'chatbot1.dart';
+import 'library.dart';
+import 'TodoListScreen.dart';
+import 'home.dart';
 
 class PostpartumnutritionScreen extends StatefulWidget {
   @override
@@ -11,6 +16,7 @@ class PostpartumnutritionScreen extends StatefulWidget {
 class _PostpartumnutritionScreenState extends State<PostpartumnutritionScreen> {
   List<Map<String, String>> recentlyWatched = [];
   int selectedTab = 0;
+  int _currentIndex = 2;
 
   final List<String> tabs = ["Videos", "Books", "Articles"];
 
@@ -36,6 +42,41 @@ class _PostpartumnutritionScreenState extends State<PostpartumnutritionScreen> {
       "description": "Registered dietitian Tracy Lockwood Beckerman gives her favorite foods and nutrition tips for postpartum."
     }
   ];
+  void _onTabTapped(int index) {
+    if(index== _currentIndex)
+      return;
+
+    switch(index){
+      case 0:
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => HomePage()));
+        break;
+      case 1:
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ChatbotScreen())
+        );
+        break;
+      case 2:
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => LibraryScreen())
+        );
+        break;
+      case 3:
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => TodoListScreen())
+        );
+        break;
+      case 4:
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Profilescreen())
+        );
+        break;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +87,35 @@ class _PostpartumnutritionScreenState extends State<PostpartumnutritionScreen> {
         backgroundColor: Colors.white,
         elevation: 0,
         iconTheme: IconThemeData(color: Colors.black),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: _onTabTapped,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat_bubble_rounded),
+            label: 'AI',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.library_books),
+            label: 'Resources',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.work),
+            label: 'Planner',
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Profile'
+          )
+        ],
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Color(0xFF7261C6),
+        unselectedItemColor: Colors.black,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

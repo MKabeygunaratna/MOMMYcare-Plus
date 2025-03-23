@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'TodoListScreen.dart';
+import 'ProfileScreen.dart';
+import 'library.dart';
+import 'chatbot1.dart';
+import 'home.dart';
 
 class SubscriptionPlan extends StatefulWidget {
   const SubscriptionPlan({Key? key}) : super(key: key);
@@ -9,6 +14,41 @@ class SubscriptionPlan extends StatefulWidget {
 
 class _SubscriptionPlanState extends State<SubscriptionPlan> {
   bool isProSelected = false;
+
+  void _onTabTapped(int index) {
+
+    switch(index){
+      case 0:
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => HomePage()));
+        break;
+      case 1:
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ChatbotScreen())
+        );
+        break;
+      case 2:
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => LibraryScreen())
+        );
+        break;
+      case 3:
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => TodoListScreen())
+        );
+        break;
+      case 4:
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Profilescreen())
+        );
+        break;
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +67,37 @@ class _SubscriptionPlanState extends State<SubscriptionPlan> {
         ),
         title: Text(
           'Subscription Plan',
-          style: TextStyle(color: Colors.black, fontSize: screenWidth * 0.06),
+          style: TextStyle(color: Colors.black, fontSize: screenWidth * 0.06,fontFamily: 'Poppins'),
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        // No currentIndex specified - all items will be unselected
+        onTap: _onTabTapped,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat_bubble_rounded),
+            label: 'AI',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.library_books),
+            label: 'Resources',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.work),
+            label: 'Planner',
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Profile'
+          )
+        ],
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Color(0xFF7261C6),
+        unselectedItemColor: Colors.black,
       ),
       body: SingleChildScrollView(
         child: Padding(

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="adding new changes">
+    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="adding new changes and nav bar">
       <change afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/services/TodoList_Service.dart" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/services/auth_service.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
@@ -34,23 +34,23 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
+    &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
     &quot;assignee&quot;: &quot;MKabeygunaratna&quot;
-  }
-}</component>
+    }
+    }</component>
   <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/MKabeygunaratna/MOMMYcare-Plus.git&quot;,
     &quot;accountId&quot;: &quot;dddcc87b-91cb-4641-981c-3a964054f472&quot;
-  }
-}</component>
+    }
+    }</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 7
-}</component>
+    &quot;associatedIndex&quot;: 7
+    }</component>
   <component name="ProjectId" id="2sJEwd6XwNEUnVcxqgD6cgZpbLF" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -72,11 +72,11 @@
     "git-widget-placeholder": "main",
     "io.flutter.reload.alreadyRun": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/IIT/2nd Year/SDGP/MOMMYcare-Plus",
+    "last_opened_file_path": "E:/github/MOMMYcare-Plus/mommycareplusFE/assets/images",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "dart.settings",
+    "settings.editor.selected.configurable": "device.mirroring",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
@@ -99,391 +99,18 @@
       <option name="presentableId" value="Default" />
       <updated>1738165517278</updated>
     </task>
-    <task id="LOCAL-00001" summary="1st commit">
+    <task id="LOCAL-00060" summary="adding nav bar">
       <option name="closed" value="true" />
-      <created>1738614135193</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
+      <created>1742746361062</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
       <option name="project" value="LOCAL" />
-      <updated>1738614135193</updated>
+      <updated>1742746361062</updated>
     </task>
-    <task id="LOCAL-00002" summary="1st commit">
-      <option name="closed" value="true" />
-      <created>1738614702058</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1738614702058</updated>
-    </task>
-    <task id="LOCAL-00003" summary="1st commit">
-      <option name="closed" value="true" />
-      <created>1738639975434</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1738639975434</updated>
-    </task>
-    <task id="LOCAL-00004" summary="1st commit">
-      <option name="closed" value="true" />
-      <created>1738667490543</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1738667490543</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Adding Media Query for chatbot and fixing a problem in themes popup screen">
-      <option name="closed" value="true" />
-      <created>1738909485999</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1738909485999</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Adding Media Query">
-      <option name="closed" value="true" />
-      <created>1738923644497</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1738923644497</updated>
-    </task>
-    <task id="LOCAL-00007" summary="renaming the subscription screen">
-      <option name="closed" value="true" />
-      <created>1739070866086</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1739070866086</updated>
-    </task>
-    <task id="LOCAL-00008" summary="using a provider instead of passing arguments">
-      <option name="closed" value="true" />
-      <created>1740685416453</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1740685416453</updated>
-    </task>
-    <task id="LOCAL-00009" summary="changing the font size of the subscription plan according to the screen sizes using media query.">
-      <option name="closed" value="true" />
-      <created>1741016513176</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1741016513176</updated>
-    </task>
-    <task id="LOCAL-00010" summary="adding login questions and changing the profile screen according to those questions">
-      <option name="closed" value="true" />
-      <created>1741359093621</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1741359093621</updated>
-    </task>
-    <task id="LOCAL-00011" summary="editing the edit profile screen according to the login questions.">
-      <option name="closed" value="true" />
-      <created>1741366011022</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1741366011022</updated>
-    </task>
-    <task id="LOCAL-00012" summary="adding a splash screen">
-      <option name="closed" value="true" />
-      <created>1741370848512</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1741370848512</updated>
-    </task>
-    <task id="LOCAL-00013" summary="adding the start screen">
-      <option name="closed" value="true" />
-      <created>1741418703478</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1741418703478</updated>
-    </task>
-    <task id="LOCAL-00014" summary="adding a back button to the chatbot screen.">
-      <option name="closed" value="true" />
-      <created>1741759623649</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1741759623649</updated>
-    </task>
-    <task id="LOCAL-00015" summary="changing the navigations and removing the title from the doctor details screen.">
-      <option name="closed" value="true" />
-      <created>1741760343789</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1741760343789</updated>
-    </task>
-    <task id="LOCAL-00016" summary="changing the navigations">
-      <option name="closed" value="true" />
-      <created>1741865799237</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1741865799237</updated>
-    </task>
-    <task id="LOCAL-00017" summary="adding some more pages">
-      <option name="closed" value="true" />
-      <created>1741877162550</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1741877162550</updated>
-    </task>
-    <task id="LOCAL-00018" summary="editing the sign up screen">
-      <option name="closed" value="true" />
-      <created>1741886137518</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1741886137518</updated>
-    </task>
-    <task id="LOCAL-00019" summary="editing clippers">
-      <option name="closed" value="true" />
-      <created>1741888940875</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1741888940875</updated>
-    </task>
-    <task id="LOCAL-00020" summary="editing clippers and editing">
-      <option name="closed" value="true" />
-      <created>1741891440350</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1741891440350</updated>
-    </task>
-    <task id="LOCAL-00021" summary="changing navigations">
-      <option name="closed" value="true" />
-      <created>1741921894374</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1741921894374</updated>
-    </task>
-    <task id="LOCAL-00022" summary="adding a back button">
-      <option name="closed" value="true" />
-      <created>1741922803670</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1741922803670</updated>
-    </task>
-    <task id="LOCAL-00023" summary="adding validations to the login screen.">
-      <option name="closed" value="true" />
-      <created>1742365455297</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1742365455297</updated>
-    </task>
-    <task id="LOCAL-00024" summary="adding validations to the Sign Up  screen.">
-      <option name="closed" value="true" />
-      <created>1742375692095</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1742375692095</updated>
-    </task>
-    <task id="LOCAL-00025" summary="adding validations to the ForgotPasswordScreen screen.">
-      <option name="closed" value="true" />
-      <created>1742400726529</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1742400726529</updated>
-    </task>
-    <task id="LOCAL-00026" summary="adding validations to the EmailVerificationScreen screen.">
-      <option name="closed" value="true" />
-      <created>1742400896041</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1742400896041</updated>
-    </task>
-    <task id="LOCAL-00027" summary="adding validations to the ResetPasswordScreen screen.">
-      <option name="closed" value="true" />
-      <created>1742400942969</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1742400942969</updated>
-    </task>
-    <task id="LOCAL-00028" summary="adding some changes">
-      <option name="closed" value="true" />
-      <created>1742547639311</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1742547639311</updated>
-    </task>
-    <task id="LOCAL-00029" summary="adding validations">
-      <option name="closed" value="true" />
-      <created>1742547898301</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1742547898301</updated>
-    </task>
-    <task id="LOCAL-00030" summary="adding validations">
-      <option name="closed" value="true" />
-      <created>1742548600984</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1742548600984</updated>
-    </task>
-    <task id="LOCAL-00031" summary="using shared preferences">
-      <option name="closed" value="true" />
-      <created>1742548806537</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1742548806537</updated>
-    </task>
-    <task id="LOCAL-00032" summary="using shared preferences for doctor's screen">
-      <option name="closed" value="true" />
-      <created>1742549384597</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1742549384597</updated>
-    </task>
-    <task id="LOCAL-00033" summary="adding changes to the home screen">
-      <option name="closed" value="true" />
-      <created>1742549692186</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1742549692186</updated>
-    </task>
-    <task id="LOCAL-00034" summary="adding shared preferences">
-      <option name="closed" value="true" />
-      <created>1742550137970</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1742550137970</updated>
-    </task>
-    <task id="LOCAL-00035" summary="doing some changes in pictures">
-      <option name="closed" value="true" />
-      <created>1742552728829</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1742552728829</updated>
-    </task>
-    <task id="LOCAL-00036" summary="changing some validations">
-      <option name="closed" value="true" />
-      <created>1742552750523</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1742552750523</updated>
-    </task>
-    <task id="LOCAL-00037" summary="adding shared preferences">
-      <option name="closed" value="true" />
-      <created>1742584857343</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1742584857343</updated>
-    </task>
-    <task id="LOCAL-00038" summary="adding some changes">
-      <option name="closed" value="true" />
-      <created>1742626432469</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1742626432469</updated>
-    </task>
-    <task id="LOCAL-00039" summary="adding shared preferences">
-      <option name="closed" value="true" />
-      <created>1742657936856</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1742657936856</updated>
-    </task>
-    <task id="LOCAL-00040" summary="adding a new look">
-      <option name="closed" value="true" />
-      <created>1742695670388</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1742695670388</updated>
-    </task>
-    <task id="LOCAL-00041" summary="new changes">
-      <option name="closed" value="true" />
-      <created>1742698023765</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1742698023765</updated>
-    </task>
-    <task id="LOCAL-00042" summary="new changes">
-      <option name="closed" value="true" />
-      <created>1742698331297</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1742698331297</updated>
-    </task>
-    <task id="LOCAL-00043" summary="changing the nav bar">
-      <option name="closed" value="true" />
-      <created>1742701659885</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1742701659885</updated>
-    </task>
-    <task id="LOCAL-00044" summary="adding navigation bar">
-      <option name="closed" value="true" />
-      <created>1742703776701</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1742703776701</updated>
-    </task>
-    <task id="LOCAL-00045" summary="adding new changes">
-      <option name="closed" value="true" />
-      <created>1742717731368</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1742717731368</updated>
-    </task>
-    <task id="LOCAL-00046" summary="adding new changes">
-      <option name="closed" value="true" />
-      <created>1742722756391</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1742722756391</updated>
-    </task>
-    <task id="LOCAL-00047" summary="adding new changes">
-      <option name="closed" value="true" />
-      <created>1742724078093</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1742724078093</updated>
-    </task>
-    <option name="localTasksCounter" value="48" />
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="adding some more pages" />
-    <MESSAGE value="editing the sign up screen" />
-    <MESSAGE value="editing clippers" />
-    <MESSAGE value="editing clippers and editing" />
-    <MESSAGE value="changing navigations" />
     <MESSAGE value="adding a back button" />
     <MESSAGE value="adding validations to the login screen." />
     <MESSAGE value="adding validations to the Sign Up  screen." />
@@ -504,6 +131,11 @@
     <MESSAGE value="changing the nav bar" />
     <MESSAGE value="adding navigation bar" />
     <MESSAGE value="adding new changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding new changes" />
+    <MESSAGE value="changing the color of the appbar" />
+    <MESSAGE value="adding a picture to the assessment card" />
+    <MESSAGE value="changing the motivation card container" />
+    <MESSAGE value="some new changes" />
+    <MESSAGE value="adding nav bar" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding nav bar" />
   </component>
 </project>

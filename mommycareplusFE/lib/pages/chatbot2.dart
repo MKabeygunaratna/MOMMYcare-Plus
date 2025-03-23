@@ -58,7 +58,7 @@ class _ChatbotScreen2State extends State<ChatbotScreen2> {
           Center(
             child: Text(
               "Hi $userName",
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
             ),
           ),
           SizedBox(height: screenHeight * 0.1),

@@ -161,7 +161,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.pop(context),
         ),
-        title: Text("Settings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+        title: Text("Settings", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,fontFamily: 'Poppins')),
         centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
@@ -174,9 +174,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
               children: [
                 SizedBox(height: screenHeight * 0.05),
                 _buildSettingsOption(context, "Profile", Icons.person, Profilescreen()),
-                SizedBox(height: screenHeight * 0.025),
+                SizedBox(height: screenHeight * 0.01),
                 _buildSettingsOption(context, "Themes", Icons.brightness_6, null, isTheme: true),
-                SizedBox(height: screenHeight * 0.025),
+                SizedBox(height: screenHeight * 0.01),
                 _buildSettingsOption(context, "Support", Icons.help, null, isSupport: true),
               ],
             ),
@@ -208,7 +208,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       child: Container(
         decoration: BoxDecoration(
-          border: Border.all(color: Color(0xFF7261C6)),
+          border: Border.all(color: Color(0xFF7261C6),width: 2.0),
           borderRadius: BorderRadius.circular(12),
         ),
         child: ListTile(

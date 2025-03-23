@@ -225,7 +225,7 @@ class _TodoListScreenState extends State<TodoListScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('Planner', style: TextStyle(fontWeight: FontWeight.bold)),
+        title: Text('Planner', style: TextStyle(fontWeight: FontWeight.bold,fontFamily: 'Poppins'),),
         centerTitle: true,
         backgroundColor: Colors.white,
       ),

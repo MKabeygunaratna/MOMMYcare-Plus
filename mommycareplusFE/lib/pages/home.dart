@@ -33,26 +33,44 @@ class _HomePageState extends State<HomePage> {
   // List of motivation card content
   final List<Map<String, dynamic>> _motivationCards = [
     {
-      'image': 'assets/images/image1.png',
+      'image': 'assets/images/H1.jpeg',
       'text': 'Some days are harder than others but remember, it gets easier with time.'
     },
     {
-      'image': 'assets/images/mental_wellbeing.jpg', // Replace with actual image paths
-      'text': 'Take a moment for yourself today. Even 5 minutes of deep breathing can make a difference.'
+      'image': 'assets/images/H2.jpeg', // Replace with actual image paths
+      'text': 'You are not alone. Seek support when you need it—your well-being matters.'
     },
     {
-      'image': 'assets/images/BF7.jpg', // Replace with actual image paths
-      'text': 'You\'re doing an amazing job. Your baby feels all the love you\'re giving.'
+      'image': 'assets/images/H3.jpeg', // Replace with actual image paths
+      'text': 'A well-rested mom is a better mom. Prioritize rest when you can'
     },
     {
-      'image': 'assets/images/MW7.jpg', // Replace with actual image paths
-      'text': 'Sleep when your baby sleeps. Housework can wait - your well-being is important.'
+      'image': 'assets/images/H4.jpeg', // Replace with actual image paths
+      'text': 'Take time for something you love, even if it’s just for a few minutes.'
     },
     {
-      'image': 'assets/images/MW3.jpg', // Replace with actual image paths
-      'text': 'Ask for help when you need it. Reaching out shows strength, not weakness.'
+      'image': 'assets/images/H5.jpeg', // Replace with actual image paths
+      'text': 'Celebrate small wins. Every step forward is progress.'
     },
+    {
+      'image': 'assets/images/H6.jpeg', // Replace with actual image paths
+      'text': 'Your feelings are valid. Give yourself grace on tough days.'
+    },
+    {
+      'image': 'assets/images/H7.jpeg',
+      'text': 'Stay hydrated and nourish your body. Taking care of yourself helps you take care of your baby.'
+    },
+    {
+      'image': 'assets/images/H8.jpeg',
+      'text': 'It’s okay to take breaks. A happy mom makes a happy baby.'
+    },
+    {
+      'image': 'assets/images/H9.jpeg',
+      'text': 'Don’t compare yourself to others. Every motherhood journey is unique'
+    },
+
   ];
+
 
   @override
   void initState() {
@@ -385,7 +403,7 @@ class _HomePageState extends State<HomePage> {
           fit: BoxFit.cover,
         ),
       ),
-      height: screenHeight * 0.2,
+      height: screenHeight * 0.25,
       padding: EdgeInsets.all(screenWidth * 0.02),
       alignment: Alignment.bottomLeft,
       child: Container(
@@ -445,7 +463,7 @@ class _HomePageState extends State<HomePage> {
               alignment: Alignment.centerRight,
               child: Image.asset(
                 'assets/images/Question_welcome.png', // Use an appropriate image from your assets
-                height: screenWidth * 0.35,
+                height: screenWidth * 0.5,
                 fit: BoxFit.contain,
               ),
             ),

@@ -4,10 +4,20 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="changing the color of the appbar">
+    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="adding a picture to the assessment card">
+      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/H1.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/H2.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/H3.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/H4.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/H5.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/H6.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/H7.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/H8.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mommycareplusFE/assets/images/H9.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/home.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,27 +63,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Flutter.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;Flutter.main.dart.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;s1]__yeheni__1&quot;,
-    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/IIT/2nd Year/SDGP/MOMMYcare-Plus&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;device.mirroring&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Flutter.Unnamed.executor": "Run",
+    "Flutter.main.dart.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "s1]__yeheni__1",
+    "io.flutter.reload.alreadyRun": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/github/MOMMYcare-Plus/mommycareplusFE/assets/images",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "device.mirroring",
+    "show.migrate.to.gradle.popup": "false"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\github\MOMMYcare-Plus\mommycareplusFE\assets\images" />
@@ -88,14 +98,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1738165517278</updated>
-    </task>
-    <task id="LOCAL-00003" summary="1st commit">
-      <option name="closed" value="true" />
-      <created>1738639975434</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1738639975434</updated>
     </task>
     <task id="LOCAL-00004" summary="1st commit">
       <option name="closed" value="true" />
@@ -481,11 +483,18 @@
       <option name="project" value="LOCAL" />
       <updated>1742738961206</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="adding a picture to the assessment card">
+      <option name="closed" value="true" />
+      <created>1742739813485</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1742739813485</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="editing the sign up screen" />
     <MESSAGE value="editing clippers" />
     <MESSAGE value="editing clippers and editing" />
     <MESSAGE value="changing navigations" />
@@ -510,6 +519,7 @@
     <MESSAGE value="adding navigation bar" />
     <MESSAGE value="adding new changes" />
     <MESSAGE value="changing the color of the appbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="changing the color of the appbar" />
+    <MESSAGE value="adding a picture to the assessment card" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding a picture to the assessment card" />
   </component>
 </project>

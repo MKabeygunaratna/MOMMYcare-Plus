@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="adding nav bar">
+    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="doing some changes in he questions screen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/Questions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/Questions.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,14 +86,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1738165517278</updated>
-    </task>
-    <task id="LOCAL-00013" summary="adding the start screen">
-      <option name="closed" value="true" />
-      <created>1741418703478</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1741418703478</updated>
     </task>
     <task id="LOCAL-00014" summary="adding a back button to the chatbot screen.">
       <option name="closed" value="true" />
@@ -481,11 +471,18 @@
       <option name="project" value="LOCAL" />
       <updated>1742746612575</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="doing some changes in he questions screen">
+      <option name="closed" value="true" />
+      <created>1742751056304</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1742751056304</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="adding a back button" />
     <MESSAGE value="adding validations to the login screen." />
     <MESSAGE value="adding validations to the Sign Up  screen." />
     <MESSAGE value="adding validations to the ForgotPasswordScreen screen." />
@@ -510,6 +507,7 @@
     <MESSAGE value="changing the motivation card container" />
     <MESSAGE value="some new changes" />
     <MESSAGE value="adding nav bar" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding nav bar" />
+    <MESSAGE value="doing some changes in he questions screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="doing some changes in he questions screen" />
   </component>
 </project>

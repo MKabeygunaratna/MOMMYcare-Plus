@@ -1,8 +1,10 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:mommycareplusFE/pages/ForgotPasswordNew.dart';
 import 'package:mommycareplusFE/pages/LoginQuestionPages.dart';
 import 'package:mommycareplusFE/pages/signup.dart';
-
+import 'home.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -148,13 +150,9 @@ class _LoginScreenState extends State<LoginScreen>{
                     height: screenSize.height * 0.06,
                     child: ElevatedButton(
                       onPressed: () {
-                        if(_formKey.currentState!.validate()){
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => PageOne()),
-                          );
-                        }
+                        loginUser(); // Call API login function
                       },
+
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF8474CB),
                         shape: RoundedRectangleBorder(
@@ -242,5 +240,48 @@ class _LoginScreenState extends State<LoginScreen>{
         ),
       ),
     );
+  }
+  Future<void> loginUser() async {
+    final String email = _emailController.text.trim();
+    final String password = _passwordController.text.trim();
+
+    if (!_formKey.currentState!.validate()) {
+      return; // Form validation failed
+    }
+
+    final Uri url = Uri.parse('http://10.0.2.2:3000/auth/login'); // Update if needed
+
+    try {
+      final response = await http.post(
+        url,
+        headers: {"Content-Type": "application/json"},
+        body: jsonEncode({
+          "email": email,
+          "password": password,
+        }),
+      );
+
+      final responseData = jsonDecode(response.body);
+
+      if (response.statusCode == 200) {
+        // ✅ Login successful, navigate to home
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Login successful!')),
+        );
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => PageOne()),
+        );
+      } else {
+        // ❌ Show error message
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(responseData['message'] ?? 'Login failed')),
+        );
+      }
+    } catch (error) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Error connecting to server: $error')),
+      );
+    }
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+
 import 'package:mommycareplusFE/pages/ForgotPasswordNew.dart';
 import 'package:mommycareplusFE/pages/LoginQuestionPages.dart';
+import 'package:mommycareplusFE/pages/home.dart';
 import 'package:mommycareplusFE/pages/signup.dart';
 
 
@@ -151,10 +153,11 @@ class _LoginScreenState extends State<LoginScreen>{
                         if(_formKey.currentState!.validate()){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => PageOne()),
+                            MaterialPageRoute(builder: (context) => HomePage()),
                           );
                         }
                       },
+
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF8474CB),
                         shape: RoundedRectangleBorder(

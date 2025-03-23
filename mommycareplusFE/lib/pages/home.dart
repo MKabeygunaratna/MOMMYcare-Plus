@@ -4,8 +4,10 @@ import 'package:mommycareplusFE/pages/ProfileScreen.dart';
 import 'package:mommycareplusFE/pages/Question_welcome_page.dart';
 import 'package:mommycareplusFE/pages/SettingsScreen.dart';
 import 'package:mommycareplusFE/pages/SubscriptionScreen.dart';
+import 'package:mommycareplusFE/pages/TodoListScreen.dart';
 import 'package:mommycareplusFE/pages/UserProvider.dart';
 import 'package:mommycareplusFE/pages/chatbot1.dart';
+import 'package:mommycareplusFE/pages/library.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -92,27 +94,33 @@ class _HomePageState extends State<HomePage> {
 
     switch(index){
       case 0:
-        Navigator.pushReplacement(
+        Navigator.push(
             context,MaterialPageRoute(builder: (context)=>HomePage()));
         break;
       case 1:
-        Navigator.pushReplacement(
+        Navigator.push(
             context,
             MaterialPageRoute(builder: (context)=>ChatbotScreen())
         );
         break;
       case 2:
-        Navigator.pushReplacement(
+        Navigator.push(
             context,
-            MaterialPageRoute(builder: (context)=>ChatbotScreen())
+            MaterialPageRoute(builder: (context)=>LibraryScreen())
         );
         break; // Added missing break
       case 3:
-        Navigator.pushReplacement(
+        Navigator.push(
             context,
             MaterialPageRoute(builder: (context)=>ProfileScreen())
         );
-        break; // Added missing break
+        break;
+      case 4:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (Context)=>TodoListScreen())
+        );
+        break;
     }
   }
 
@@ -280,25 +288,29 @@ class _HomePageState extends State<HomePage> {
         onTap: _onTabTapped,
         items: [
           BottomNavigationBarItem(
-            icon: Image.asset('assets/images/home.png', width: 24, height: 24),
+            icon: Icon(Icons.home),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset('assets/images/robot.png', width: 24, height: 24),
+            icon: Icon(Icons.chat_bubble_rounded),
             label: 'AI',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset('assets/images/book.png', width: 24, height: 24),
+            icon: Icon(Icons.library_books),
             label: 'Resources',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset('assets/images/Profile.png', width: 24, height: 24),
+            icon: Icon(Icons.person),
             label: 'Profile',
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.work),
+            label: 'Planner'
+          )
         ],
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Color(0xFF7261C6),
-        unselectedItemColor: Color(0xFFD9D9D9),
+        unselectedItemColor: Colors.black,
       ),
       body: SafeArea(
         child: SingleChildScrollView(

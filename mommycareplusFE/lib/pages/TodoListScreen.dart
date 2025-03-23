@@ -5,6 +5,7 @@ import 'home.dart';
 import 'chatbot1.dart';
 import 'library.dart';
 import 'ProfileScreen.dart';
+import 'services/TodoList_Service.dart';
 
 class TodoListScreen extends StatefulWidget {
   @override
@@ -28,11 +29,87 @@ class _TodoListScreenState extends State<TodoListScreen> {
   DateTime _selectedDay = DateTime.now();
   CalendarFormat _calendarFormat = CalendarFormat.week;
 
+
+  // API service instance
+  final TodoApiService _apiService = TodoApiService();
+  bool _isLoading = false;
+
+
+
+
+
   @override
   void initState() {
     super.initState();
-    _initializeDefaultTasks();
+    _loadTasks();
     _initializeDefaultVaccinationRecords();
+  }
+
+  Future<void> _loadTasks() async {
+    setState(() {
+      _isLoading = true;
+    });
+
+    try {
+      final tasks = await _apiService.getTasks();
+
+      // Convert the response to our local format
+      final Map<DateTime, List<Map<String, dynamic>>> formattedTasks = {};
+
+      for (var task in tasks) {
+        final dateStr = task['date'] as String;
+        DateTime taskDate;
+
+        try {
+          // Try to parse the date based on format
+          if (dateStr.contains('/')) {
+            final parts = dateStr.split('/');
+            if (parts[0].length == 4) { // yyyy/MM/dd format
+              taskDate = DateTime.parse('${parts[0]}-${parts[1]}-${parts[2]}');
+            } else { // MM/dd/yyyy format
+              taskDate = DateTime.parse('${parts[2]}-${parts[0]}-${parts[1]}');
+            }
+          } else {
+            // Fallback to default date
+            taskDate = _selectedDay;
+          }
+        } catch (e) {
+          // If date parsing fails, use today's date
+          taskDate = _selectedDay;
+        }
+
+        // Format the task to match our local structure
+        final formattedTask = {
+          'task': task['title'] ?? 'No Title',
+          'task description': task['description'] ?? 'No Description',
+          'task date': dateStr,
+          'task time': '9:00 AM', // Default time since backend doesn't store time
+          'done': task['done'] ?? false,
+          'id': task['id'] ?? '', // Store the backend ID for future operations
+        };
+
+        // Get normalized date (without time)
+        final normalizedDate = DateTime(taskDate.year, taskDate.month, taskDate.day);
+
+        if (formattedTasks[normalizedDate] == null) {
+          formattedTasks[normalizedDate] = [];
+        }
+
+        formattedTasks[normalizedDate]!.add(formattedTask);
+      }
+
+      setState(() {
+        _tasks = formattedTasks;
+        _isLoading = false;
+      });
+    } catch (e) {
+      print('Error loading tasks: $e');
+      setState(() {
+        // Fall back to sample data if API call fails
+        _initializeDefaultTasks();
+        _isLoading = false;
+      });
+    }
   }
 
   void _initializeDefaultTasks() {
@@ -346,26 +423,57 @@ class _TodoListScreenState extends State<TodoListScreen> {
         ),
         actions: [
           TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text('Cancel'),
-          ),
-          TextButton(
-            onPressed: () {
+            onPressed: () async {
               if (_taskFormKey.currentState!.validate()) {
-                setState(() {
-                  _tasks[_selectedDay] ??= [];
-                  _tasks[_selectedDay]!.add({
-                    'task': _taskController.text,
-                    'task description': _descriptionController.text,
-                    'task date': _taskdateController.text,
-                    'task time': _tasktimeController.text,
-                    'done': false,
+                try {
+                  // Show loading indicator
+                  showDialog(
+                    context: context,
+                    barrierDismissible: false,
+                    builder: (BuildContext context) => Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  );
+
+                  // Add task to backend
+                  final result = await _apiService.addTask(
+                    _taskController.text,
+                    _descriptionController.text,
+                    _taskdateController.text,
+                    _tasktimeController.text,
+                  );
+
+                  // Close loading dialog
+                  Navigator.pop(context);
+
+                  // Update local state
+                  setState(() {
+                    _tasks[_selectedDay] ??= [];
+                    _tasks[_selectedDay]!.add({
+                      'task': _taskController.text,
+                      'task description': _descriptionController.text,
+                      'task date': _taskdateController.text,
+                      'task time': _tasktimeController.text,
+                      'done': false,
+                      'id': result['id'] ?? 'temp-${DateTime.now().millisecondsSinceEpoch}',
+                    });
                   });
-                });
-                Navigator.pop(context);
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('Task added successfully')),
-                );
+
+                  // Close the dialog
+                  Navigator.pop(context);
+
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Task added successfully')),
+                  );
+                } catch (e) {
+                  // Close loading dialog if open
+                  Navigator.of(context).pop();
+
+                  print('Error adding task: $e');
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Failed to add task: $e')),
+                  );
+                }
               }
             },
             child: Text('Add Task'),
@@ -417,10 +525,21 @@ class _TodoListScreenState extends State<TodoListScreen> {
               ),
               leading: Checkbox(
                 value: selectedTasks[index]['done'],
-                onChanged: (bool? value) {
-                  setState(() {
-                    selectedTasks[index]['done'] = value!;
-                  });
+                onChanged: (bool? value) async {
+                  try {
+                    // Call backend to mark task as done
+                    await _apiService.markTaskAsDone(selectedTasks[index]['task']);
+
+                    // Update local state
+                    setState(() {
+                      selectedTasks[index]['done'] = value!;
+                    });
+                  } catch (e) {
+                    print('Error marking task as done: $e');
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Failed to update task status: $e')),
+                    );
+                  }
                 },
               ),
               trailing: IconButton(
@@ -659,24 +778,41 @@ class _TodoListScreenState extends State<TodoListScreen> {
             ),
             TextButton(
               child: Text('Delete', style: TextStyle(color: Colors.red)),
-              onPressed: () {
-                setState(() {
+              onPressed: () async {
+                try {
                   if (type == 'task') {
-                    _tasks[_selectedDay]!.removeAt(index);
-                    if (_tasks[_selectedDay]!.isEmpty) {
-                      _tasks.remove(_selectedDay);
+                    final taskId = _tasks[_selectedDay]![index]['id'];
+                    if (taskId != null && !taskId.startsWith('local-')) {
+                      // Delete from backend if it's not a local task
+                      await _apiService.deleteTask(taskId);
                     }
+
+                    // Update local state
+                    setState(() {
+                      _tasks[_selectedDay]!.removeAt(index);
+                      if (_tasks[_selectedDay]!.isEmpty) {
+                        _tasks.remove(_selectedDay);
+                      }
+                    });
                   } else if (type == 'vaccination') {
-                    _vaccinationRecords[_selectedDay]!.removeAt(index);
-                    if (_vaccinationRecords[_selectedDay]!.isEmpty) {
-                      _vaccinationRecords.remove(_selectedDay);
-                    }
+                    setState(() {
+                      _vaccinationRecords[_selectedDay]!.removeAt(index);
+                      if (_vaccinationRecords[_selectedDay]!.isEmpty) {
+                        _vaccinationRecords.remove(_selectedDay);
+                      }
+                    });
                   }
-                });
-                Navigator.of(context).pop();
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('${type.capitalize()} deleted successfully')),
-                );
+
+                  Navigator.of(context).pop();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('${type.capitalize()} deleted successfully')),
+                  );
+                } catch (e) {
+                  Navigator.of(context).pop();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Error deleting ${type}: $e')),
+                  );
+                }
               },
             ),
           ],

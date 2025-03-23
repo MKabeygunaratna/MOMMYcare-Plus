@@ -38,18 +38,19 @@ import  'package:provider/provider.dart';
 import 'package:mommycareplusFE/pages/GuardianProvider.dart';
 
 
+
 void main() {
   runApp(
     MultiProvider(
 
-        providers: [
-          ChangeNotifierProvider(create: (context) => GuardianProvider()),
-          ChangeNotifierProvider(create: (context) => ThemeProvider()),
-          ChangeNotifierProvider(create: (context) => DoctorProvider()),
-          ChangeNotifierProvider(create: (context)=> ProfileProvider()),
-          ChangeNotifierProvider(create: (context) => UserProvider())
+      providers: [
+        ChangeNotifierProvider(create: (context) => GuardianProvider()),
+        ChangeNotifierProvider(create: (context) => ThemeProvider()),
+        ChangeNotifierProvider(create: (context) => DoctorProvider()),
+        ChangeNotifierProvider(create: (context)=> ProfileProvider()),
+        ChangeNotifierProvider(create: (context) => UserProvider())
 
-        ],
+      ],
 
       child: MyApp(),
     ),
@@ -70,7 +71,9 @@ class MyApp extends StatelessWidget {
           theme: ThemeData.light(),
           darkTheme: ThemeData.dark(),
 
+
           home:TodoListScreen(),
+
 
         );
       },

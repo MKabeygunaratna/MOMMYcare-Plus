@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="changing the nav bar">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/ProfileScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/ProfileScreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/home.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/library.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/library.dart" afterDir="false" />
-    </list>
+    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="adding navigation bar" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -434,11 +429,18 @@
       <option name="project" value="LOCAL" />
       <updated>1742701659885</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="adding navigation bar">
+      <option name="closed" value="true" />
+      <created>1742703776701</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1742703776701</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changing the navigations and removing the title from the doctor details screen." />
     <MESSAGE value="changing the navigations" />
     <MESSAGE value="adding some more pages" />
     <MESSAGE value="editing the sign up screen" />
@@ -463,6 +465,7 @@
     <MESSAGE value="adding a new look" />
     <MESSAGE value="new changes" />
     <MESSAGE value="changing the nav bar" />
-    <option name="LAST_COMMIT_MESSAGE" value="changing the nav bar" />
+    <MESSAGE value="adding navigation bar" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding navigation bar" />
   </component>
 </project>

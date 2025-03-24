@@ -1,7 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 class TodoApiService {
-  final String baseUrl = 'http://10.0.2.2:3000/todo'; // Replace with your actual backend URL
+  final String baseUrl = 'http://16.171.177.76/todo'; // Replace with your actual backend URL
 
   Future<List<Map<String, dynamic>>> getTasks() async {
     try {

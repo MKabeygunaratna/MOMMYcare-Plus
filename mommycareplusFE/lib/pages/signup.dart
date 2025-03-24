@@ -82,7 +82,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         // Navigate to home page after successful login
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => HomePage()),
+          MaterialPageRoute(builder: (context) =>PageOne()),
         );
       } catch (error) {
         setState(() {
@@ -96,10 +96,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
     }
   }
 
-
-
-
-
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
@@ -109,7 +105,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // Purple Header Section
+            // Purple Header Section - Keeping this as-is
             Container(
               width: screenSize.width,
               height: screenSize.height * 0.2,
@@ -130,10 +126,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
             ),
+            // White Container - Modified to take the full remaining height
             Container(
               width: screenSize.width,
+              constraints: BoxConstraints(
+                minHeight: screenSize.height * 0.8, // Ensures it takes at least 80% of screen height
+              ),
               decoration: const BoxDecoration(
-                color: Color(0xFFE8E4E4),
+                color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20),
                   topRight: Radius.circular(20),

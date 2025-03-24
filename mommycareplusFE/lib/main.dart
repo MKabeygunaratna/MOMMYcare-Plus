@@ -1,33 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:mommycareplusFE/pages/AboutScreen.dart';
 import 'package:mommycareplusFE/pages/DoctorProvider.dart';
-import 'package:mommycareplusFE/pages/DoctorScreen.dart';
-import 'package:mommycareplusFE/pages/EditProfileScreen.dart';
-import 'package:mommycareplusFE/pages/GetStartedScreen.dart';
-import 'package:mommycareplusFE/pages/LoginQuestionPages.dart';
-import 'package:mommycareplusFE/pages/Login_screen.dart';
-import 'package:mommycareplusFE/pages/PrivacyScreen.dart';
-import 'package:mommycareplusFE/pages/ProfileScreen.dart';
 import 'package:mommycareplusFE/pages/Profile_Provider.dart';
-import 'package:mommycareplusFE/pages/Question_welcome_page.dart';
-import 'package:mommycareplusFE/pages/SettingsScreen.dart';
 import 'package:mommycareplusFE/pages/Splash_screen.dart';
-import 'package:mommycareplusFE/pages/SubscriptionScreen.dart';
-import 'package:mommycareplusFE/pages/TermsOfUseScreen.dart';
-import 'package:mommycareplusFE/pages/EmailVerification.dart';
-import 'package:mommycareplusFE/pages/GuardianScreen.dart';
 import 'package:mommycareplusFE/pages/ThemeProvider.dart';
-import 'package:mommycareplusFE/pages/TodoListScreen.dart';
 import 'package:mommycareplusFE/pages/UserProvider.dart';
-import 'package:mommycareplusFE/pages/chatbot2.dart';
-import 'package:mommycareplusFE/pages/home.dart';
-import 'package:mommycareplusFE/pages/library.dart';
-import 'package:mommycareplusFE/pages/signup.dart';
 import 'package:provider/provider.dart';
-import 'package:mommycareplusFE/pages/chatbot1.dart';
-import  'package:provider/provider.dart';
 import 'package:mommycareplusFE/pages/GuardianProvider.dart';
-
 
 
 void main() {

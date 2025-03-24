@@ -4,6 +4,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:provider/provider.dart';
 import 'package:mommycareplusFE/pages/GuardianProvider.dart';
 import 'package:mommycareplusFE/pages/DoctorProvider.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class Question {
   final String text;
@@ -35,6 +37,7 @@ class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
   int currentQuestionIndex = 0; // Keeps track of the current question.
   Map<int, int> selectedAnswers = {}; // Stores selected answers
   bool testCompleted = false; // Tracks if the quiz is completed.
+  bool _isSending = false; // Tracks if results are being sent
 
   // Variables to store guardian and doctor emails
   String? guardianEmail;
@@ -127,6 +130,66 @@ class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
     }
   }
 
+  // Function to send quiz results to backend
+  Future<void> sendQuizResultsToBackend() async {
+    setState(() {
+      _isSending = true;
+    });
+
+    // Get user ID from SharedPreferences
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String userId = prefs.getString('userId') ?? '';
+
+    if (userId.isEmpty) {
+      print('Warning: userId is empty. Using temporary ID.');
+      userId = 'temp_user_${DateTime.now().millisecondsSinceEpoch}';
+    }
+
+    // Convert selectedAnswers to the format expected by the backend
+    List<int> answersArray = [];
+    for (int i = 0; i < epdsQuestions.length; i++) {
+      if (selectedAnswers.containsKey(i)) {
+        // Get the score for the selected option
+        int score = epdsQuestions[i].scores[selectedAnswers[i]!];
+        answersArray.add(score);
+      }
+    }
+
+    // Create the request payload - exactly what your backend expects
+    final Map<String, dynamic> payload = {
+      'userId': userId,
+      'answers': answersArray,
+      'guardianEmail': guardianEmail ?? '',
+      'doctorEmail': doctorEmail ?? ''
+    };
+
+    try {
+      // Send to your backend endpoint
+      final response = await http.post(
+        Uri.parse('http://10.0.2.2:3000/quiz/submit'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode(payload),
+      );
+
+      setState(() {
+        _isSending = false;
+      });
+
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        print('Quiz results sent successfully');
+        print('Backend response: ${response.body}');
+      } else {
+        print('Failed to send quiz results: ${response.statusCode}');
+        print('Response: ${response.body}');
+      }
+    } catch (e) {
+      setState(() {
+        _isSending = false;
+      });
+      print('Error sending quiz results: $e');
+    }
+  }
+
   void finishQuiz() async {
     await _saveProgress();
     int finalScore = calculateFinalScore();
@@ -143,6 +206,9 @@ class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
 
     // Save results and contact emails for backend access
     await _saveTestResults(finalScore, message);
+
+    // Send results to backend
+    await sendQuizResultsToBackend();
 
     _showPopup("EPDS Test Completed", "Final Score: $finalScore\n\n$message");
   }
@@ -174,9 +240,25 @@ class _EPDSQuizScreenState extends State<EPDSQuizScreen> {
     final size = MediaQuery.of(context).size;
     final screenWidth = size.width;
     final screenHeight = size.height;
-    if (testCompleted) {
-      return const Scaffold(body: Center(child: Text("Test Completed! Redirecting...")));
+
+    if (_isSending) {
+      return Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              CircularProgressIndicator(),
+              SizedBox(height: 20),
+              Text("Sending quiz results to server..."),
+            ],
+          ),
+        ),
+      );
     }
+
+    // if (testCompleted) {
+    //   return const Scaffold(body: Center(child: Text("Test Completed! Redirecting...")));
+    // }
 
     double progress = (selectedAnswers.length) / epdsQuestions.length;
 

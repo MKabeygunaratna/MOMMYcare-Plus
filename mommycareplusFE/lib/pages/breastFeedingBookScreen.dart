@@ -151,7 +151,7 @@ Key Insights:
    Book(
       author: 'Jessica Shortall',
       title: 'Work. Pump. Repeat.: The New Mom’s Survival Guide to Breastfeeding and Going Back to Work',
-      imageUrl: 'assets/images/work. Pump. Repeat.jpg',
+      imageUrl: 'assets/images/Work. Pump. Repeat.jpg',
       description: '''
 Breastfeeding while managing a career can feel overwhelming, and this book tackles that reality with humor and honesty. It’s a no-nonsense guide that offers practical, real-world solutions for pumping at work without sacrificing professional goals.
 

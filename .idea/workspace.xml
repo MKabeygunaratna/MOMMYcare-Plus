@@ -4,11 +4,21 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
+
+
+    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="adding nav bar">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/Questions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/Questions.dart" afterDir="false" />
+
+    <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="adding new changes and nav bar">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/chatbot2.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/chatbot2.dart" afterDir="false" />
+
     <list default="true" id="13568a2a-9ae4-4acc-a090-791772e3b052" name="Changes" comment="doing some changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/Login_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/Login_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mommycareplusFE/lib/pages/signup.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mommycareplusFE/lib/pages/signup.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +74,7 @@
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;git-widget-placeholder&quot;: &quot;s1]__yeheni__1&quot;,
     &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,

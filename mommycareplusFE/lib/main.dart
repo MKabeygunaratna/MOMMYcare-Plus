@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
           darkTheme: ThemeData.dark(),
 
 
-          home:SplashScreen(),
+          home:SignUpScreen(),
 
 
         );
